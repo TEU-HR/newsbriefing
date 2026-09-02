@@ -5,38 +5,237 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI 뉴스 브리핑</title>
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; line-height: 1.7; background-color: #f8f9fa; color: #212529; }
-    .header { border-bottom: 2px solid #212529; padding-bottom: 15px; margin-bottom: 20px; }
-    .header-top { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
-    .header h1 { margin: 0; font-size: 1.8rem; }
-    .btn-refresh { background-color: #2b8a3e; color: white; padding: 8px 14px; text-decoration: none; border-radius: 6px; font-size: 0.85rem; font-weight: bold; }
-    .btn-refresh:hover { background-color: #2b7036; }
-    
-    .toolbar { display: flex; justify-content: space-between; align-items: center; background: white; padding: 12px 18px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.05); flex-wrap: wrap; gap: 10px; }
-    .date-picker-group { display: flex; align-items: center; gap: 8px; font-weight: bold; font-size: 0.95rem; }
-    input[type="date"] { padding: 6px 10px; border: 1px solid #ced4da; border-radius: 6px; font-size: 0.9rem; font-weight: bold; cursor: pointer; }
-    
-    .date { font-size: 0.88rem; color: #6c757d; font-weight: bold; }
-    .card { background: white; border-radius: 12px; padding: 24px; margin-bottom: 24px; box-shadow: 0 2px 10px rgba(0,0,0,0.06); }
-    
-    .summary-content h1 { font-size: 1.25rem; color: #1c7ed6; margin-top: 20px; margin-bottom: 10px; border-bottom: 2px solid #e7f5ff; padding-bottom: 6px; }
-    .summary-content h1:first-child { margin-top: 0; }
-    .summary-content p { margin: 8px 0; }
-    .summary-content ul { padding-left: 20px; margin: 8px 0; }
-    .summary-content li { margin-bottom: 6px; }
-    .summary-box { background-color: #f8f9fa; border-left: 4px solid #1c7ed6; padding: 18px 20px; border-radius: 0 8px 8px 0; font-size: 0.98rem; }
+    :root {
+      --bg-color: #f8fafc;
+      --card-bg: #ffffff;
+      --primary: #2563eb;
+      --primary-light: #eff6ff;
+      --text-main: #0f172a;
+      --text-sub: #475569;
+      --border-color: #e2e8f0;
+    }
 
-    .category-title { font-size: 1.2rem; margin-top: 25px; margin-bottom: 12px; color: #343a40; border-bottom: 2px solid #dee2e6; padding-bottom: 6px; }
-    .press-group { margin-bottom: 14px; background: #ffffff; border: 1px solid #e9ecef; border-left: 4px solid #339af0; padding: 12px 16px; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.02); }
-    .press-name { font-weight: bold; color: #343a40; font-size: 0.95rem; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
-    
-    .article-list { list-style: none; padding-left: 0; margin: 0; }
-    .article-item { margin-bottom: 8px; display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 24px 16px;
+      line-height: 1.65;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+    }
+
+    /* 헤더 UI */
+    .header {
+      border-bottom: 2px solid #cbd5e1;
+      padding-bottom: 18px;
+      margin-bottom: 24px;
+    }
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 1.85rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+    .btn-refresh {
+      background-color: #16a34a;
+      color: white;
+      padding: 9px 16px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      transition: background-color 0.2s;
+    }
+    .btn-refresh:hover { background-color: #15803d; }
+
+    /* 툴바 UI */
+    .toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--card-bg);
+      padding: 14px 20px;
+      border-radius: 12px;
+      margin-bottom: 28px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      border: 1px solid var(--border-color);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .date-picker-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    input[type="date"] {
+      padding: 6px 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-main);
+      cursor: pointer;
+    }
+    .updated-at {
+      font-size: 0.85rem;
+      color: var(--text-sub);
+      font-weight: 600;
+    }
+
+    /* 메인 카드 레이아웃 */
+    .card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 32px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      border: 1px solid var(--border-color);
+    }
+    .section-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      margin-top: 0;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* AI 핵심 요약 카드 섹션 (Summary Grid) */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .summary-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .summary-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+    }
+    .summary-card.highlight-card {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+      border-left: 5px solid var(--primary);
+    }
+    .summary-card-header {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .summary-card-content {
+      font-size: 0.95rem;
+      color: var(--text-sub);
+      line-height: 1.7;
+    }
+    .summary-section-heading {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #1e293b;
+      margin-top: 24px;
+      margin-bottom: 12px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid #e2e8f0;
+    }
+
+    .cat-badge {
+      display: inline-block;
+      background-color: var(--primary-light);
+      color: var(--primary);
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 6px;
+      font-size: 0.82rem;
+    }
+
+    /* 언론사별 기사 수집 목록 UI */
+    .category-group-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-top: 28px;
+      margin-bottom: 14px;
+      color: #1e293b;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .press-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-left: 4px solid #0284c7;
+      padding: 16px 20px;
+      border-radius: 10px;
+      margin-bottom: 14px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+    .press-header {
+      font-weight: 700;
+      color: #334155;
+      font-size: 0.98rem;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .article-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+    .article-item {
+      margin-bottom: 8px;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
     .article-item:last-child { margin-bottom: 0; }
-    .article-item a { color: #1b6ec2; text-decoration: none; font-weight: 500; font-size: 0.95rem; }
-    .article-item a:hover { text-decoration: underline; color: #0d47a1; }
-    .badge { font-size: 0.72rem; background: #e9ecef; color: #495057; padding: 2px 6px; border-radius: 4px; font-weight: bold; }
-    .pub-time { font-size: 0.78rem; color: #868e96; white-space: nowrap; }
+    .article-item a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+    .article-item a:hover {
+      text-decoration: underline;
+      color: #1d4ed8;
+    }
+    .badge {
+      font-size: 0.72rem;
+      background: #f1f5f9;
+      color: #64748b;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .pub-time {
+      font-size: 0.78rem;
+      color: #94a3b8;
+      white-space: nowrap;
+    }
   </style>
 </head>
 <body>
@@ -52,35 +251,84 @@
       <span>📅 브리핑 날짜 선택:</span>
       <input type="date" id="date-picker" onchange="loadHistoricalData(this.value)">
     </div>
-    <div id="updated-at" class="date">업데이트: -</div>
+    <div id="updated-at" class="updated-at">업데이트: -</div>
   </div>
 
   <div class="card">
-    <h2>🤖 AI 핵심 정세 리포트</h2>
-    <div class="summary-box">
-      <div id="summary" class="summary-content">데이터를 불러오는 중...</div>
-    </div>
+    <h2 class="section-title">🤖 AI 핵심 정세 리포트</h2>
+    <div id="summary-container">데이터를 불러오는 중...</div>
   </div>
 
   <div class="card">
-    <h2>📑 언론사별 기사 목록</h2>
+    <h2 class="section-title">📑 언론사별 원문 기사 목록</h2>
     <div id="categories-container"></div>
   </div>
 
   <script>
-    function parseMarkdown(mdText) {
-      if (!mdText) return '요약 내용이 없습니다.';
-      return mdText
-        .replace(/^# (.*$)/gim, '<h1>$1</h1>')
-        .replace(/^## (.*$)/gim, '<h1>$1</h1>')
-        .replace(/^### (.*$)/gim, '<h1>$1</h1>')
+    // 마크다운 문법을 파싱하여 개별 카드 뷰로 변환하는 함수
+    function renderSummaryCards(mdText) {
+      if (!mdText) return '<div class="summary-card">요약 내용이 없습니다.</div>';
+
+      const sections = mdText.split(/\n(?=# )/);
+      let html = '';
+
+      sections.forEach(sec => {
+        const lines = sec.trim().split('\n');
+        if (lines.length === 0) return;
+
+        let header = lines[0].replace(/^#\s*/, '').trim();
+        let bodyLines = lines.slice(1);
+
+        const categoryBullets = bodyLines.filter(line => line.trim().startsWith('- **'));
+
+        if (categoryBullets.length > 0 && header.includes('분야별')) {
+          html += `<div class="summary-section-heading">${header}</div>`;
+          html += `<div class="summary-grid">`;
+          
+          bodyLines.forEach(line => {
+            const match = line.match(/^-\s*\*\*(.*?)\*\*:\s*(.*)/);
+            if (match) {
+              const catName = match[1].trim();
+              const catText = match[2].trim();
+              html += `
+                <div class="summary-card">
+                  <div class="summary-card-header">
+                    <span class="cat-badge">${catName}</span>
+                  </div>
+                  <div class="summary-card-content">
+                    ${parseFormat(catText)}
+                  </div>
+                </div>
+              `;
+            }
+          });
+          html += `</div>`;
+        } else {
+          let bodyContent = bodyLines.join('\n').trim();
+          if (bodyContent) {
+            html += `
+              <div class="summary-card highlight-card">
+                <div class="summary-card-header">${header}</div>
+                <div class="summary-card-content">
+                  ${parseFormat(bodyContent)}
+                </div>
+              </div>
+            `;
+          }
+        }
+      });
+
+      return html;
+    }
+
+    function parseFormat(text) {
+      return text
         .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-        .replace(/^\- (.*$)/gim, '<li>$1</li>')
-        .replace(/\n\n/g, '<br>')
+        .replace(/^-\s*(.*$)/gim, '• $1')
+        .replace(/\n\n/g, '<br><br>')
         .replace(/\n/g, '<br>');
     }
 
-    // 기사에서 언론사명 추출 (기타 표기 완전 방지)
     function extractPressName(article) {
       if (article.press_name && article.press_name !== '기타') {
         return article.press_name;
@@ -124,7 +372,7 @@
           }
         })
         .catch(() => {
-          document.getElementById('summary').innerText = '데이터를 불러올 수 없습니다.';
+          document.getElementById('summary-container').innerText = '데이터를 불러올 수 없습니다.';
         });
     }
 
@@ -136,7 +384,7 @@
         })
         .then(data => renderPayload(data))
         .catch(() => {
-          document.getElementById('summary').innerText = `${dateStr} 자로 수집된 브리핑 기록이 없습니다.`;
+          document.getElementById('summary-container').innerText = `${dateStr} 자로 수집된 브리핑 기록이 없습니다.`;
           document.getElementById('categories-container').innerHTML = '';
           document.getElementById('updated-at').innerText = '데이터 없음';
         });
@@ -144,19 +392,18 @@
 
     function renderPayload(payload) {
       document.getElementById('updated-at').innerText = '수집 시각: ' + (payload.updated_at || '-');
-      document.getElementById('summary').innerHTML = parseMarkdown(payload.summary);
+      document.getElementById('summary-container').innerHTML = renderSummaryCards(payload.summary);
 
       const container = document.getElementById('categories-container');
       container.innerHTML = '';
 
       if (payload.categories) {
         for (const [category, articles] of Object.entries(payload.categories)) {
-          const catTitle = document.createElement('h3');
-          catTitle.className = 'category-title';
+          const catTitle = document.createElement('div');
+          catTitle.className = 'category-group-title';
           catTitle.innerText = `■ ${category}`;
           container.appendChild(catTitle);
 
-          // 언론사별 그룹핑 (기타 제외)
           const grouped = {};
           articles.forEach(a => {
             const press = extractPressName(a);
@@ -166,10 +413,10 @@
 
           for (const [press, pressArticles] of Object.entries(grouped)) {
             const pressDiv = document.createElement('div');
-            pressDiv.className = 'press-group';
+            pressDiv.className = 'press-card';
 
             const pressHeader = document.createElement('div');
-            pressHeader.className = 'press-name';
+            pressHeader.className = 'press-header';
             pressHeader.innerHTML = `🏢 ${press}`;
             pressDiv.appendChild(pressHeader);
 
