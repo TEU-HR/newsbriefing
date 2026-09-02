@@ -14,10 +14,10 @@ jobs:
 
     steps:
     - name: 레포지토리 체크아웃
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5 (이상)
 
     - name: Python 설정
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@v6 (이상)
       with:
         python-version: '3.10'
 
