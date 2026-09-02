@@ -238,11 +238,22 @@ def summarize_news(categorized_articles):
 # 💡 출근길 핵심 인사이트
 (오늘의 이슈가 기업 경영, 개인 자산, 사회 변화에 주는 핵심 시사점 2가지)
 """
-    try:
-        res = client.models.generate_content(model="gemini-3.6-flash", contents=prompt)
-        return res.text
-    except Exception as e:
-        return f"AI 요약 생성 중 오류 발생: {e}"
+
+    # 정식 지원 모델 우선순위 재시도 로직 (안정성 보장)
+    models_to_try = ["gemini-2.5-flash", "gemini-1.5-flash", "gemini-2.0-flash"]
+    last_error = None
+
+    for model_name in models_to_try:
+        try:
+            print(f"🤖 AI 요약 생성 시도 중... (모델: {model_name})")
+            res = client.models.generate_content(model=model_name, contents=prompt)
+            if res and res.text:
+                return res.text
+        except Exception as e:
+            print(f"⚠️ {model_name} 호출 실패: {e}")
+            last_error = e
+
+    return f"AI 요약 생성 중 오류 발생: {last_error}"
 
 def generate_audio(summary_text, filepath):
     try:
