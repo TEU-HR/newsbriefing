@@ -12,7 +12,6 @@
     .btn-refresh { background-color: #2b8a3e; color: white; padding: 8px 14px; text-decoration: none; border-radius: 6px; font-size: 0.85rem; font-weight: bold; }
     .btn-refresh:hover { background-color: #2b7036; }
     
-    /* 탭 스타일 */
     .tab-container { display: flex; gap: 10px; margin-bottom: 20px; }
     .tab-btn { flex: 1; padding: 12px; font-size: 1rem; font-weight: bold; border: 1px solid #dee2e6; background-color: #e9ecef; border-radius: 8px; cursor: pointer; text-align: center; color: #495057; }
     .tab-btn.active { background-color: #1c7ed6; color: white; border-color: #1c7ed6; }
@@ -26,6 +25,7 @@
     a { color: #1b6ec2; text-decoration: none; font-weight: 500; }
     a:hover { text-decoration: underline; }
     .badge { font-size: 0.75rem; background: #e9ecef; color: #495057; padding: 2px 6px; border-radius: 4px; margin-left: 6px; font-weight: bold; }
+    .pub-time { font-size: 0.78rem; color: #868e96; margin-left: 6px; font-weight: normal; }
   </style>
 </head>
 <body>
@@ -36,7 +36,6 @@
     </div>
   </div>
 
-  <!-- 투 트랙 선택 탭 -->
   <div class="tab-container">
     <button id="tab-morning" class="tab-btn active" onclick="switchTrack('morning')">🌅 아침 정기 브리핑 (08:00)</button>
     <button id="tab-realtime" class="tab-btn" onclick="switchTrack('realtime')">⚡ 실시간 수집 브리핑</button>
@@ -62,7 +61,6 @@
       .then(response => response.json())
       .then(data => {
         globalData = data;
-        // 아침 데이터가 없으면 실시간 데이터 표시
         if (!globalData.morning && globalData.realtime) {
           currentTrack = 'realtime';
         }
@@ -105,7 +103,8 @@
           const ul = document.createElement('ul');
           articles.forEach(article => {
             const li = document.createElement('li');
-            li.innerHTML = `<a href="${article.link}" target="_blank">${article.title}</a> <span class="badge">${article.source}</span>`;
+            const timeTag = article.pub_time ? `<span class="pub-time">🕒 ${article.pub_time}</span>` : '';
+            li.innerHTML = `<a href="${article.link}" target="_blank">${article.title}</a> <span class="badge">${article.source}</span> ${timeTag}`;
             ul.appendChild(li);
           });
           container.appendChild(ul);
