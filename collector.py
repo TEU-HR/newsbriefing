@@ -11,7 +11,7 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from google import genai
 
-# 동아일보 도메인(donga.com) 수정 반영
+# 허용 언론사 및 도메인 매핑
 PRESS_DOMAIN_MAP = {
     "chosun.com": "조선일보",
     "joongang.co.kr": "중앙일보",
@@ -34,6 +34,7 @@ PRESS_DOMAIN_MAP = {
 
 ALLOWED_PRESS = list(set(PRESS_DOMAIN_MAP.values()))
 
+# 카테고리 수정: '오피니언' 삭제 -> '사설' 변경
 KEYWORDS = {
     "정치": "정치 국회 정부",
     "경제": "경제 증시 금융",
@@ -41,7 +42,7 @@ KEYWORDS = {
     "생활/문화": "생활 문화 여행 건강",
     "IT/과학": "IT AI 테크 과학",
     "세계": "세계 국제 해외",
-    "오피니언": "사설 칼럼 시론"
+    "사설": "사설"
 }
 
 HEADERS = {
@@ -68,19 +69,27 @@ def get_naver_press_name(link):
             return press_name
     return None
 
-def is_published_before_today_8am(pub_date_str):
-    """기사 작성 시간이 오늘 오전 08:00 KST 이전인지 확인"""
+def is_within_24h_window(pub_date_str, run_type="realtime"):
+    """
+    기사 발행 시각 검증:
+    - morning 모드: 어제 08:00 ~ 오늘 08:00 사이 기사만 허용
+    - realtime 모드: 현재 시점 기준 24시간 이내 기사만 허용
+    """
     if not pub_date_str:
         return True
     try:
         dt = parsedate_to_datetime(pub_date_str)
         kst = timezone(timedelta(hours=9))
         dt_kst = dt.astimezone(kst)
-        
         now_kst = datetime.now(kst)
-        today_8am = now_kst.replace(hour=8, minute=0, second=0, microsecond=0)
-        
-        return dt_kst <= today_8am
+
+        if run_type == "morning":
+            end_time = now_kst.replace(hour=8, minute=0, second=0, microsecond=0)
+            start_time = end_time - timedelta(hours=24)
+            return start_time <= dt_kst <= end_time
+        else:
+            start_time = now_kst - timedelta(hours=24)
+            return start_time <= dt_kst <= now_kst
     except Exception:
         return True
 
@@ -98,11 +107,9 @@ def fetch_google_news(category, run_type="realtime"):
         if response.status_code == 200:
             feed = feedparser.parse(response.content)
             for entry in feed.entries:
-                # morning 모드일 경우 오늘 오전 8시 이전 기사만 수집
-                if run_type == "morning":
-                    pub_str = getattr(entry, 'published', None)
-                    if pub_str and not is_published_before_today_8am(pub_str):
-                        continue
+                pub_str = getattr(entry, 'published', None)
+                if not is_within_24h_window(pub_str, run_type):
+                    continue
 
                 cleaned_title = clean_html(entry.title)
                 allowed, press_name = parse_google_publisher(cleaned_title)
@@ -139,8 +146,8 @@ def fetch_naver_news(category, run_type="realtime"):
     articles = []
     press_count = {}
 
-    # 1. NAVER API HUB 시도
-    hub_url = f"https://naverapihub.apigw.ntruss.com/search/v1/news?query={kw}&display=50&sort=sim&format=json"
+    # 1. NAVER API HUB 시도 (sort=date 설정으로 최신 기사 우선 수집)
+    hub_url = f"https://naverapihub.apigw.ntruss.com/search/v1/news?query={kw}&display=50&sort=date&format=json"
     hub_headers = {
         "X-NCP-APIGW-API-KEY-ID": client_id,
         "X-NCP-APIGW-API-KEY": client_secret,
@@ -152,10 +159,9 @@ def fetch_naver_news(category, run_type="realtime"):
         if res.status_code == 200:
             items = res.json().get("items", [])
             for item in items:
-                if run_type == "morning":
-                    pub_date = item.get("pubDate")
-                    if pub_date and not is_published_before_today_8am(pub_date):
-                        continue
+                pub_date = item.get("pubDate")
+                if not is_within_24h_window(pub_date, run_type):
+                    continue
 
                 link = item.get("originallink") or item.get("link")
                 press_name = get_naver_press_name(link)
@@ -174,8 +180,8 @@ def fetch_naver_news(category, run_type="realtime"):
     except Exception:
         pass
 
-    # 2. 구형 API Fallback
-    legacy_url = f"https://openapi.naver.com/v1/search/news.json?query={kw}&display=50&sort=sim"
+    # 2. 구형 API Fallback (sort=date 설정)
+    legacy_url = f"https://openapi.naver.com/v1/search/news.json?query={kw}&display=50&sort=date"
     legacy_headers = {
         "X-Naver-Client-Id": client_id,
         "X-Naver-Client-Secret": client_secret,
@@ -187,10 +193,9 @@ def fetch_naver_news(category, run_type="realtime"):
         if res.status_code == 200:
             items = res.json().get("items", [])
             for item in items:
-                if run_type == "morning":
-                    pub_date = item.get("pubDate")
-                    if pub_date and not is_published_before_today_8am(pub_date):
-                        continue
+                pub_date = item.get("pubDate")
+                if not is_within_24h_window(pub_date, run_type):
+                    continue
 
                 link = item.get("originallink") or item.get("link")
                 press_name = get_naver_press_name(link)
@@ -220,7 +225,7 @@ def fetch_all_news(run_type):
         if combined:
             categorized[cat] = combined
         else:
-            categorized[cat] = [{"title": f"{cat} 분야 지정 언론사 최신 기사가 없습니다.", "link": "#", "source": "System"}]
+            categorized[cat] = [{"title": f"{cat} 분야 최근 24시간 내 지정 언론사 기사가 없습니다.", "link": "#", "source": "System"}]
     return categorized
 
 def summarize_news(categorized_articles):
@@ -230,7 +235,7 @@ def summarize_news(categorized_articles):
 
     client = genai.Client(api_key=api_key)
     
-    prompt_text = "다음은 수집된 주요 언론사 뉴스 기사 목록입니다:\n"
+    prompt_text = "다음은 수집된 최신 주요 언론사 뉴스 기사 목록입니다:\n"
     has_valid_articles = False
     for cat, articles in categorized_articles.items():
         prompt_text += f"\n[{cat}]\n"
@@ -240,7 +245,7 @@ def summarize_news(categorized_articles):
                 prompt_text += f"- {a['title']} ({a['source']})\n"
 
     if not has_valid_articles:
-        return "수집된 뉴스가 없어 요약을 생성할 수 없습니다."
+        return "수집된 최근 뉴스가 없어 요약을 생성할 수 없습니다."
 
     prompt = f"""
 {prompt_text}
@@ -257,7 +262,7 @@ def summarize_news(categorized_articles):
 - 생활/문화: 주요 내용 요약
 - IT/과학: 주요 내용 요약
 - 세계: 주요 내용 요약
-- 오피니언: 주요 내용 요약
+- 사설: 주요 내용 요약
 """
 
     try:
@@ -296,7 +301,7 @@ def main():
     now_str = datetime.now(kst).strftime("%Y년 %m월 %d일 %H:%M")
     run_type = os.environ.get("RUN_TYPE", "realtime")
 
-    print(f"[{now_str}] 뉴스 수집 시작 (모드: {run_type})...")
+    print(f"[{now_str}] 최신 뉴스 수집 시작 (모드: {run_type})...")
     categorized_articles = fetch_all_news(run_type)
 
     print("AI 요약 생성 중...")
