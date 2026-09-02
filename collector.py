@@ -10,6 +10,21 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from google import genai
 
+# 수집 허용 언론사 및 도메인 지정
+ALLOWED_PRESS = [
+    "조선일보", "중앙일보", "동아일보", "한겨레", "경향신문", "한국일보",
+    "연합뉴스", "뉴시스",
+    "매일경제", "한국경제", "서울경제",
+    "KBS", "MBC", "SBS", "YTN"
+]
+
+ALLOWED_DOMAINS = [
+    "chosun.com", "joongang.co.kr", "donga.co.kr", "hani.co.kr", "khan.co.kr", "hankookilbo.com",
+    "yna.co.kr", "newsis.com",
+    "mk.co.kr", "hankyung.co.kr", "sedaily.co.kr",
+    "kbs.co.kr", "imbc.com", "mbc.co.kr", "sbs.co.kr", "ytn.co.kr"
+]
+
 KEYWORDS = {
     "정치/사회": "정치 사회",
     "경제": "경제 증시",
@@ -17,7 +32,6 @@ KEYWORDS = {
     "국제": "국제 해외"
 }
 
-# 브라우저 요청으로 위장하여 구글 차단 방지
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 }
@@ -26,56 +40,81 @@ def clean_html(text):
     text = re.sub(r'<[^>]+>', '', text)
     return text.replace('&quot;', '"').replace('&amp;', '&').replace('&lt;', '<').replace('&gt;', '>')
 
+def is_allowed_google_article(title):
+    # 구글 뉴스의 경우 제목 끝에 '- 언론사명' 형태로 표기됨
+    for press in ALLOWED_PRESS:
+        if press in title:
+            return True, press
+    return False, None
+
+def is_allowed_naver_article(link):
+    # 네이버 뉴스의 경우 원본 링크 도메인 기반으로 필터링
+    for domain in ALLOWED_DOMAINS:
+        if domain in link:
+            return True
+    return False
+
 def fetch_google_news(category):
     kw = urllib.parse.quote(KEYWORDS.get(category, category))
     url = f"https://news.google.com/rss/search?q={kw}&hl=ko&gl=KR&ceid=KR:ko"
     
+    articles = []
     try:
         response = requests.get(url, headers=HEADERS, timeout=10)
         if response.status_code == 200:
             feed = feedparser.parse(response.content)
-            articles = []
-            for entry in feed.entries[:3]:
-                articles.append({
-                    "title": clean_html(entry.title),
-                    "link": entry.link,
-                    "source": "Google News"
-                })
-            return articles
+            for entry in feed.entries:
+                cleaned_title = clean_html(entry.title)
+                allowed, press_name = is_allowed_google_article(cleaned_title)
+                if allowed:
+                    articles.append({
+                        "title": cleaned_title,
+                        "link": entry.link,
+                        "source": f"Google News ({press_name})"
+                    })
+                if len(articles) >= 3:
+                    break
     except Exception as e:
         print(f"구글 뉴스 수집 오류 ({category}): {e}")
-    return []
+    return articles
 
 def fetch_naver_news(category):
     client_id = os.environ.get("NAVER_CLIENT_ID")
     client_secret = os.environ.get("NAVER_CLIENT_SECRET")
     
     if not client_id or not client_secret:
+        print(f"[경고] 네이버 API Key(NAVER_CLIENT_ID / NAVER_CLIENT_SECRET)가 설정되지 않았습니다.")
         return []
 
     kw = urllib.parse.quote(KEYWORDS.get(category, category))
-    url = f"https://openapi.naver.com/v1/search/news.json?query={kw}&display=3&sort=sim"
+    url = f"https://openapi.naver.com/v1/search/news.json?query={kw}&display=20&sort=sim"
     headers = {
         "X-Naver-Client-Id": client_id,
         "X-Naver-Client-Secret": client_secret,
         "User-Agent": HEADERS["User-Agent"]
     }
 
+    articles = []
     try:
         res = requests.get(url, headers=headers, timeout=5)
         if res.status_code == 200:
             items = res.json().get("items", [])
-            articles = []
             for item in items:
-                articles.append({
-                    "title": clean_html(item.get("title", "")),
-                    "link": item.get("originallink") or item.get("link"),
-                    "source": "Naver News"
-                })
-            return articles
+                link = item.get("originallink") or item.get("link")
+                if is_allowed_naver_article(link):
+                    articles.append({
+                        "title": clean_html(item.get("title", "")),
+                        "link": link,
+                        "source": "Naver News"
+                    })
+                if len(articles) >= 3:
+                    break
+            print(f"[네이버 API 성공] {category}: {len(articles)}개 필터링 수집 완료")
+        else:
+            print(f"[네이버 API 오류 코드: {res.status_code}] 응답 메시지: {res.text}")
     except Exception as e:
-        print(f"네이버 API 수집 오류 ({category}): {e}")
-    return []
+        print(f"네이버 API 호출 실패 ({category}): {e}")
+    return articles
 
 def fetch_all_news():
     categorized = {}
@@ -86,7 +125,7 @@ def fetch_all_news():
         if combined:
             categorized[cat] = combined
         else:
-            categorized[cat] = [{"title": f"{cat} 관련 최신 기사를 불러올 수 없습니다.", "link": "#", "source": "System"}]
+            categorized[cat] = [{"title": f"{cat} 지정 언론사 최신 기사가 없습니다.", "link": "#", "source": "System"}]
     return categorized
 
 def summarize_news(categorized_articles):
@@ -96,7 +135,7 @@ def summarize_news(categorized_articles):
 
     client = genai.Client(api_key=api_key)
     
-    prompt_text = "다음은 수집된 주요 뉴스 기사 목록입니다:\n"
+    prompt_text = "다음은 주요 언론사에서 수집된 핵심 뉴스 기사입니다:\n"
     has_valid_articles = False
     for cat, articles in categorized_articles.items():
         prompt_text += f"\n[{cat}]\n"
@@ -106,13 +145,12 @@ def summarize_news(categorized_articles):
                 prompt_text += f"- {a['title']} ({a['source']})\n"
 
     if not has_valid_articles:
-        return "수집된 뉴스가 없어 요약을 생성할 수 없습니다."
+        return "수집된 지정 언론사 뉴스가 없어 요약을 생성할 수 없습니다."
 
     prompt = f"""
 {prompt_text}
 
 위 기사들의 내용을 바탕으로 종합 브리핑을 작성해 주세요.
-반드시 아래 형식에 맞추어 작성하고, 기사 정보가 부족하더라도 시스템 안내문이나 질문을 출력하지 마세요.
 
 [오늘의 종합 브리핑]
 전체 주요 흐름 요약 (3~4줄)
@@ -159,7 +197,7 @@ def main():
     kst = timezone(timedelta(hours=9))
     now_str = datetime.now(kst).strftime("%Y년 %m월 %d일 %H:%M")
 
-    print(f"[{now_str}] 뉴스 수집 시작...")
+    print(f"[{now_str}] 지정 언론사 뉴스 수집 시작...")
     categorized_articles = fetch_all_news()
 
     print("AI 요약 생성 중...")
