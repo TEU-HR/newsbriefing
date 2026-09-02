@@ -1,10 +1,74 @@
 {
-  "updated_at": "2026년 09월 02일 15:00",
-  "summary": "제공해 주신 메시지에 **실제 뉴스 기사 목록이 누락**되어 있습니다. \n\n요약하고 싶으신 뉴스 기사 텍스트나 제목들을 카테고리별로 붙여넣어 주시면 바로 분석하여 작성해 드리겠습니다.\n\n---\n\n만약 **오늘(최근)의 주요 이슈를 바탕으로 한 예시 브리핑**을 원하신다면, 현재 언론에서 비중 있게 다루어지는 핵심 트렌드를 반영하여 아래와 같이 작성해 드릴 수 있습니다.\n\n### [오늘의 종합 브리핑] (예시)\n> 글로벌 금리 정책 변화와 반도체 업황 회복 기대감 속에 국내외 경제·산업 지형이 급격히 재편되고 있습니다. 정치·사회적으로는 주요 입법안 처리 및 민생 안정을 둘러싼 여야 대립이 이어지는 가운데, 글로벌 시장에서는 미국 경제 지표와 중동·유럽의 지정학적 리스크가 증시에 직접적인 영향을 미치고 있습니다. 또한 생성형 AI 중심의 기술 패권 경쟁이 격화되면서 국내외 IT 기업들의 대규모 투자 발표가 잇따르고 있습니다.\n\n---\n\n### [분야별 핵심요약] (예시)\n\n* **정치/사회**\n  * **주요 입법 및 정책 갈등:** 민생 법안 및 주요 개혁안을 둘러싼 여야 간의 입장에 차이가 지속되며 국회 문턱을 넘기 위한 진통이 계속되고 있습니다.\n  * **사법 및 사회 이슈:** 주요 재판 결과와 함께 물가 안정, 의료 및 노동 환경 개선 등 시민 삶과 직결된 사회적 현안에 대한 정부 대책이 발표되었습니다.\n\n* **경제**\n  * **통화 정책 및 금리 전망:** 중앙은행의 금리 결정 기조와 물가 지표 발표에 따라 금융시장의 변동성이 확대되고 있습니다.\n  * **수출 및 산업 실적:** 반도체와 자동차를 중심으로 수출 회복세가 나타나고 있으나, 내수 침체와 고물가 여파로 체감 경기는 여전히 냉각되어 있습니다.\n\n* **IT/과학**\n  * **생성형 AI 패권 경쟁:** 글로벌 빅테크 기업들의 차세대 AI 모델 출시 경쟁이 심화되는 가운데, 국내 기업들도 맞춤형 AI 서비스 상용화에 박차를 가하고 있습니다.\n  * **반도체 및 첨단 기술:** 차세대 메모리(HBM) 공급망 확보를 위한 기술 개발 경쟁과 더불어 우주·항공 분야의 정부 연구개발(R&D) 투자가 확대되고 있습니다.\n\n* **국제**\n  * **지정학적 리스크:** 중동 지역의 긴장 고조와 우크라이나 사태 장기화로 인해 국제 유가 및 원자재 가격의 불안정성이 지속되고 있습니다.\n  * **글로벌 경제 및 통상:** 미국 등 주요국의 경제 지표 발표에 따라 글로벌 증시가 요동치고 있으며, 각국의 보호무역주의 기조가 강화되고 있습니다.\n\n---\n\n**뉴스 기사 내용을 갖고 계시다면 본문에 붙여넣어 주세요!** 전달해 주신 내용을 정확히 분석하여 맞춤형 종합 브리핑을 완성해 드리겠습니다.",
+  "updated_at": "2026년 09월 02일 15:08",
+  "summary": "[오늘의 종합 브리핑]\n금일 주요 뉴스는 정치·사회 분야의 복지 및 양성평등 정책 논의, 국내외 증시 변동성 속 경제 동향, AI 기술의 산업화 및 해외 진출, 불안한 국제 정세 및 구호 활동을 다루고 있습니다. 정치/사회면에서는 반도체 산업 성과 환원 논의와 복지·양성평등 장벽 해소가 강조되었습니다. 경제/IT면에서는 국내 증시 약세 속에서 AI 기술 고도화와 글로벌 시장 공략 움직임이 돋보였습니다. 국제면에서는 정세 불안에 따른 해외 수학여행 취소와 긴급구호대 파견 등 다채로운 교류·지원 소식이 전해졌습니다.\n\n[분야별 핵심요약]\n- 정치/사회: 반도체 산업이 창출한 821조 원의 성과 활용 논의와 함께 서울시의회의 사회복지관 현장 간담회가 열렸으며, 양성평등주간을 맞아 불합리한 관행과 장벽을 철폐하겠다는 대통령의 메시지가 발표되었습니다.\n- 경제: 중국 증시는 지표 부진에도 기술주 반등으로 상승 마감했으나, 국내 증시는 외국인과 기관의 동반 매도세로 인해 코스닥이 1%대 하락하고 시가총액 상위주가 약세를 보였습니다.\n- IT/과학: 레이더 AI를 통한 고령자 안전 모니터링(제타모빌리티), 중동 IT 전시회를 통한 국내 AI 기술 홍보(NC AI), R&D를 통한 플랫폼 고도화(이랜서) 등 AI 기술의 실생활 적용과 해외 진출이 활발히 추진되고 있습니다.\n- 국제: 불안한 국제 정세의 여파로 해외 수학여행 취소가 잇따르는 가운데, 한국 해외긴급구호대의 네팔 파견 속보 및 전북국제협력진흥원의 해외연수 참가자 모집 등 국제 협력과 지원 사업이 이어지고 있습니다.",
   "categories": {
-    "정치/사회": [],
-    "경제": [],
-    "IT/과학": [],
-    "국제": []
+    "정치/사회": [
+      {
+        "title": "반도체가 만든 821조, 어디로 가나 - eroun.net",
+        "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE01bTlsalJXZ1VXWThxakdMUzBKMWp6TDJXSER2cVliQWs5cEN5Y3liNDNSdGlQMThCZXJLU0pLRVdlakxQWVNLc0o4eFN1ZXFaQ0EwRHRhclpidkU3RVdvQVo0YTVpQQ?oc=5",
+        "source": "Google News"
+      },
+      {
+        "title": "김경우 서울시의회 보건복지위원장, 사회복지관 현장간담회 - 데일리한국",
+        "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5nQ3VUYjBqSUhiLUdweHNKbE5uRk1JUFYyNV8tMmRad2l2QTlxa2hVR3NOelVkekdkbE81TVl6Z2Q2a3BEZzdqbGN0aWpoNG5KLUFLRUpoSjFFVjRfTUNjRDhqd3VDS3F2WkNZeG8wd9IBc0FVX3lxTFBUVFU2Y2JLTWtJXzc1MHZ0T0dLWWd4VTVjWno2TmR0aVJqbjVrVzl3MnV0Z0Rjc0pyYUhnd094a3NKN04tZmZhVjZHekJydzBpRFZ2NkhkY1kxNzIwX2NqN01aXzZGWGRiZXBHcXcyYkJYS0U?oc=5",
+        "source": "Google News"
+      },
+      {
+        "title": "이 대통령, 양성평등주간 맞아…\"불합리한 관행과 장벽 걷어낼 것\" - 조세일보",
+        "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5velcyakphRlhfSjdVTkdVcW1oYnlDNzhzOHpxOEVON0piVTU0UUxqOTBOaHVuVmZQUThFV0phcE5EdVlmQWFwbnZaOGF6eFRiSUZ2cHQtUlBjbk45ck5qMmpWRFFsUmJfd3c?oc=5",
+        "source": "Google News"
+      }
+    ],
+    "경제": [
+      {
+        "title": "[중국증시-마감] 경제지표 부진에도 기술주 반등에 상승 - news.einfomax.co.kr",
+        "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBuWTJOTGhDaEhHdDI4Zk1iU3Q3dWRweVh1M1FxdUNCM3hVWnZTeURES1lXWExmQXpzajI1M25QWk9lZU9qMXFSNUlkNERSc1RqVWh0RGp3bFVLbkpJWk40MTJKR3VEbkc1Mmh4S1BFNXY?oc=5",
+        "source": "Google News"
+      },
+      {
+        "title": "성공투자 오후증시 - 한국경제TV",
+        "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNTUkydktCbFU0X3N4XzRXNXNncGt0U0RsTndkUEpHdmYxc2tUeUJLamtzbjVSb2NuTHRIOWk2a29iTHdqS0p6RjBiWC1pNkg2aVVLZVdoRGtZNlVISmhkTXZkMEFmc3BiYTZkT2Q0VWI3MXU4NTFsdktyaHlQZXpDaHdwWnlLclZXUk96aEFIRzlGRTJhX3lNYklfRHZkUnp1by1F?oc=5",
+        "source": "Google News"
+      },
+      {
+        "title": "[증시 브리핑] 외국인 기관 동반 매도에 코스닥 1%대 하락, 시총 상위주 약세 - 센머니",
+        "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBUUy1Oc1M4SThlcDZYS2NpdW1Qd250QUQ2Rm1GM3lGc0pLQUw2Z0I2WXNoX2ZraFVfdk43bFJQWHNlblB3amFBT04xaDlyenBrSjNmWE5pOXdkNGtkd0FDRkF2eDNWWEk1ckFjWQ?oc=5",
+        "source": "Google News"
+      }
+    ],
+    "IT/과학": [
+      {
+        "title": "[2026 혁신 IT 대상] 제타모빌리티, 레이더 AI로 고령자 안전 모니터링 - 중앙일보",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE96bFV2UHJiT3VoQjF3bmVvSTRtTlNiS1J1VlA5cmUybzJ2MU9PZWZYODZuY0lLZzdpTUIxV045MGs5bnFad0RqZ2dmaDR6RlVaUDBScjln?oc=5",
+        "source": "Google News"
+      },
+      {
+        "title": "NC AI, 중동 최대 IT전시회서 韓 AI 기술 알린다 - v.daum.net",
+        "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE54c3FkV1RTQUhuMXNubXVpZ3lVZDZUN2JDRVJNejNfZkFOMFZMR3JOVHB1QkhzTXc0SUllYl9lTTBHSl9ucG9fVUZIWQ?oc=5",
+        "source": "Google News"
+      },
+      {
+        "title": "이랜서, AI 기술사업화 R&D로 플랫폼 고도화 - 지디넷코리아",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE05OHM2QmRhWXMtbkFlWjNlSWhwQ3B4cGxsczVmRlFGeFRaemd4RkpoYllVM1VCaTRKQ1pMNkIyVkRBSHN6NERUQURKd0FfeTlEcFlRQzZB?oc=5",
+        "source": "Google News"
+      }
+    ],
+    "국제": [
+      {
+        "title": "\"열심히 빈병 모았는데\" 불안한 국제 정세에 해외 수학여행 줄취소 - 미주중앙일보",
+        "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9ZTVlRdDlMU0FoVlZGY3BXS25PMHVMTTZXUVRaX0NFUGlubU8tSUxNWGV1cXZUSzh3M2xVeVBUM08xWW5ScjlYY3VSNzB2SWVGT3I2dG9haVpQQ2NvODdBSGNB?oc=5",
+        "source": "Google News"
+      },
+      {
+        "title": "[속보]韓 해외긴급구호대, 2일 네팔로 출발 - 국제신문",
+        "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPUEVxN1N5MU9TWnIwazNuSU5TSFFHQWxOcEw2R2JwUVN0MlRIOWxJbks2U3BzelEtVXNaekkzRHpZWU40U2VjUG5uamhvN2FWRDVGYzcwcVVfMVRzdUQzaDRRd0ZmVExQQlRpWnk0WW9pQXJJUEdQSi1sa0pZb1RBM3Q0MldFempmS2E0bUd3?oc=5",
+        "source": "Google News"
+      },
+      {
+        "title": "전북국제협력진흥원, 9월 10일까지 해외연수 참여자 16명 모집 - 전북제일신문",
+        "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9kbmNWZjh5RmxqTWFkRGdGZGFtbjNiVFlscUZuMGJmX2NMbElNSXBIRjJ4Wmhna2dXMEVjdXFBOE9RQnVhSGRuMjdvbUpSNFJGdWZ5NV9vbmVOaDJVeHN4d3ZsUGxKanJNbkE?oc=5",
+        "source": "Google News"
+      }
+    ]
   }
 }
