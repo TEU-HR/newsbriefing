@@ -1,7 +1,6 @@
 import os
 import json
 import smtplib
-import requests
 import feedparser
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
@@ -83,60 +82,7 @@ def send_email(subject, body):
         print(f"이메일 발송 실패: {e}")
 
 # --------------------------------------------------
-# 4. 카카오톡 발송 (나에게 보내기 API)
-# --------------------------------------------------
-def send_kakao(text_content):
-    client_id = os.environ.get("KAKAO_CLIENT_ID")
-    refresh_token = os.environ.get("KAKAO_REFRESH_TOKEN")
-
-    if not client_id or not refresh_token:
-        print("카카오 환경변수(KAKAO_CLIENT_ID, KAKAO_REFRESH_TOKEN)가 설정되지 않아 카카오톡 발송을 건너뜁니다.")
-        return
-
-    token_url = "https://kauth.kakao.com/oauth/token"
-    token_data = {
-        "grant_type": "refresh_token",
-        "client_id": client_id,
-        "refresh_token": refresh_token
-    }
-    
-    try:
-        token_res = requests.post(token_url, data=token_data).json()
-        access_token = token_res.get("access_token")
-
-        if not access_token:
-            print(f"카카오 토큰 갱신 실패: {token_res}")
-            return
-
-        send_url = "https://kapi.kakao.com/v2/api/talk/memo/default/send"
-        headers = {
-            "Authorization": f"Bearer {access_token}"
-        }
-        
-        template_object = {
-            "object_type": "text",
-            "text": text_content[:1000],  # 카카오톡 글자 수 제한 고려
-            "link": {
-                "web_url": "https://github.com",
-                "mobile_web_url": "https://github.com"
-            }
-        }
-        
-        payload = {
-            "template_object": json.dumps(template_object)
-        }
-        
-        res = requests.post(send_url, headers=headers, data=payload)
-        res_json = res.json()
-        if res_json.get("result_code") == 0:
-            print("카카오톡 메시지 발송 성공!")
-        else:
-            print(f"카카오톡 메시지 발송 실패: {res_json}")
-    except Exception as e:
-        print(f"카카오톡 API 호출 예외 발생: {e}")
-
-# --------------------------------------------------
-# 5. 메인 실행 흐름
+# 4. 메인 실행 흐름
 # --------------------------------------------------
 def main():
     print("1. 뉴스 데이터 수집 시작...")
@@ -154,14 +100,10 @@ def main():
         json.dump(output_data, f, ensure_ascii=False, indent=2)
     print("data.json 파일 저장 완료!")
 
-    # 알림 발송
+    # 이메일 발송
     title = "[일간 뉴스 브리핑] 오늘의 주요 소식"
-    
     print("3. 이메일 알림 발송...")
     send_email(title, briefing_summary)
-
-    print("4. 카카오톡 알림 발송...")
-    send_kakao(f"{title}\n\n{briefing_summary}")
 
 if __name__ == "__main__":
     main()
