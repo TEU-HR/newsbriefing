@@ -45,7 +45,7 @@ GOOGLE_TOPIC_MAP = {
     "사설": "https://news.google.com/rss/search?q=intitle:%22%EC%82%AC%EC%84%A4%22&hl=ko&gl=KR&ceid=KR:ko"
 }
 
-# 네이버 API 키워드 (사설은 intitle 태그 검색)
+# 네이버 API 키워드
 NAVER_KEYWORDS = {
     "정치": "정치",
     "경제": "경제",
@@ -79,6 +79,18 @@ def get_naver_press_name(link):
         if domain in link:
             return press_name
     return None
+
+def format_pub_date(pub_date_str):
+    """기사 출고 시각을 한국 표기법(MM월 DD일 HH:MM)으로 변환"""
+    if not pub_date_str:
+        return ""
+    try:
+        dt = parsedate_to_datetime(pub_date_str)
+        kst = timezone(timedelta(hours=9))
+        dt_kst = dt.astimezone(kst)
+        return dt_kst.strftime("%m월 %d일 %H:%M")
+    except Exception:
+        return ""
 
 def is_within_24h_window(pub_date_str, run_type="realtime"):
     if not pub_date_str:
@@ -120,7 +132,6 @@ def fetch_google_news(category, run_type="realtime"):
 
                 cleaned_title = clean_html(entry.title)
 
-                # 사설 카테고리인 경우 제목에 [사설] 표기가 포함된 기사만 엄격 허용
                 if category == "사설" and "[사설]" not in cleaned_title and "사설:" not in cleaned_title:
                     continue
 
@@ -132,7 +143,8 @@ def fetch_google_news(category, run_type="realtime"):
                         articles.append({
                             "title": cleaned_title,
                             "link": entry.link,
-                            "source": f"Google News ({press_name})"
+                            "source": f"Google News ({press_name})",
+                            "pub_time": format_pub_date(pub_str)
                         })
                 if len(articles) >= max_total:
                     break
@@ -187,7 +199,8 @@ def fetch_naver_news(category, run_type="realtime"):
                         articles.append({
                             "title": cleaned_title,
                             "link": link,
-                            "source": f"Naver News ({press_name})"
+                            "source": f"Naver News ({press_name})",
+                            "pub_time": format_pub_date(pub_date)
                         })
                 if len(articles) >= max_total:
                     break
@@ -225,7 +238,8 @@ def fetch_naver_news(category, run_type="realtime"):
                         articles.append({
                             "title": cleaned_title,
                             "link": link,
-                            "source": f"Naver News ({press_name})"
+                            "source": f"Naver News ({press_name})",
+                            "pub_time": format_pub_date(pub_date)
                         })
                 if len(articles) >= max_total:
                     break
@@ -244,7 +258,7 @@ def fetch_all_news(run_type):
         if combined:
             categorized[cat] = combined
         else:
-            categorized[cat] = [{"title": f"{cat} 분야 최근 24시간 내 지정 언론사 기사가 없습니다.", "link": "#", "source": "System"}]
+            categorized[cat] = [{"title": f"{cat} 분야 최근 24시간 내 지정 언론사 기사가 없습니다.", "link": "#", "source": "System", "pub_time": ""}]
     return categorized
 
 def summarize_news(categorized_articles):
@@ -261,7 +275,8 @@ def summarize_news(categorized_articles):
         for a in articles:
             if a['link'] != "#":
                 has_valid_articles = True
-                prompt_text += f"- {a['title']} ({a['source']})\n"
+                time_info = f" ({a['pub_time']})" if a.get('pub_time') else ""
+                prompt_text += f"- {a['title']} ({a['source']}){time_info}\n"
 
     if not has_valid_articles:
         return "수집된 최근 뉴스가 없어 요약을 생성할 수 없습니다."
@@ -324,7 +339,7 @@ def main():
     now_str = datetime.now(kst).strftime("%Y년 %m월 %d일 %H:%M")
     run_type = os.environ.get("RUN_TYPE", "realtime")
 
-    print(f"[{now_str}] 토픽/태그 기반 최신 뉴스 수집 시작 (모드: {run_type})...")
+    print(f"[{now_str}] 출고 시각 포함 최신 뉴스 수집 시작 (모드: {run_type})...")
     categorized_articles = fetch_all_news(run_type)
 
     print("AI 요약 생성 중...")
