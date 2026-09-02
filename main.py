@@ -73,7 +73,8 @@ def generate_gemini_content(prompt, use_google_search=False):
     if not client:
         return f"Gemini API 키가 없거나 SDK 설정이 올바르지 않습니다. (상태: {sdk_type})"
 
-    models_to_try = ["gemini-3.6-flash", "gemini-3.6-pro"]
+    # 검증된 정식 모델 목록 순차 시도
+    models_to_try = ["gemini-2.5-flash", "gemini-2.0-flash", "gemini-1.5-flash"]
     last_error = None
 
     for model_name in models_to_try:
@@ -232,7 +233,6 @@ def generate_audio(text, filepath):
     if not HAS_GTTS:
         return False
     try:
-        # 백틱 문자(chr 96) 및 마크다운 기호 완전히 안전하게 제거
         bad_chars = "#*_~<>" + chr(96)
         clean_text = text.translate(str.maketrans("", "", bad_chars))
         if len(clean_text) > 1500:
