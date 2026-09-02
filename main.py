@@ -11,6 +11,10 @@ import urllib.request
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone, timedelta
 
+# 이메일 관련 필수 모듈 import (오류 해결)
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+
 # gTTS 라이브러리 안전 Import
 try:
     from gtts import gTTS
@@ -36,7 +40,6 @@ TARGET_PRESS_RULES = {
 }
 
 def identify_target_press(url="", raw_source="", title=""):
-    """10대 언론사에 속하지 않는 기사는 None을 반환하여 제외 처리"""
     combined_text = f"{url} {raw_source} {title}".lower()
     for press_name, rules in TARGET_PRESS_RULES.items():
         for rule in rules:
@@ -49,7 +52,6 @@ def parse_date_to_dt(date_str):
     if not date_str:
         return datetime.now(KST)
     
-    # 1) RFC 2822 포맷 (예: Thu, 03 Sep 2026 07:56:00 +0900)
     try:
         dt = email.utils.parsedate_to_datetime(date_str)
         if dt:
@@ -57,7 +59,6 @@ def parse_date_to_dt(date_str):
     except Exception:
         pass
 
-    # 2) 일반 날짜 포맷
     for fmt in [
         "%Y-%m-%d %H:%M:%S",
         "%Y-%m-%dT%H:%M:%S%z",
@@ -77,7 +78,6 @@ def parse_date_to_dt(date_str):
     return datetime.now(KST)
 
 def format_korean_date(dt):
-    """표준 한글 날짜 형식 변환 (예: 09월 03일 07:56)"""
     return dt.strftime("%m월 %d일 %H:%M")
 
 def clean_html(text):
@@ -116,7 +116,6 @@ def get_gemini_client():
             return None, "NO_SDK"
 
 def generate_fallback_summary(news_list):
-    """AI API 장애 시 수집된 기사로 대체 리포트 작성"""
     if not news_list:
         return "# 🚀 오늘의 3대 핵심 이슈\n\n수집된 주요 뉴스가 없습니다."
 
@@ -144,6 +143,7 @@ def generate_fallback_summary(news_list):
 def generate_gemini_content(prompt, news_list):
     client, sdk_type = get_gemini_client()
     if client:
+        # 권장 최신 모델 지정
         candidate_models = ["gemini-2.5-flash", "gemini-2.0-flash", "gemini-1.5-flash"]
         for model_name in candidate_models:
             for attempt in range(1, 3):
@@ -163,7 +163,7 @@ def generate_gemini_content(prompt, news_list):
     print("⚠️ Gemini API 응답 실패로 비상 리포트를 생성합니다.")
     return generate_fallback_summary(news_list)
 
-# --- 4. 뉴스 수집 (10대 언론사 엄격 필터링 적용) ---
+# --- 4. 뉴스 수집 (10대 언론사 필터링) ---
 def fetch_naver_news(keywords, category_name, display=15):
     client_id = os.environ.get("NAVER_CLIENT_ID", "").strip()
     client_secret = os.environ.get("NAVER_CLIENT_SECRET", "").strip()
@@ -186,7 +186,6 @@ def fetch_naver_news(keywords, category_name, display=15):
                         link = item.get('originallink') or item.get('link', '#')
                         title = clean_html(item.get('title', ''))
                         
-                        # 10대 언론사 검증
                         press_name = identify_target_press(url=link, title=title)
                         if not press_name:
                             continue
@@ -230,7 +229,6 @@ def fetch_google_news(keywords, category_name, display=10):
                     raw_source = source_elem.text if source_elem is not None else ""
                     source_url = source_elem.attrib.get('url', '') if source_elem is not None else ""
 
-                    # 10대 언론사 검증
                     press_name = identify_target_press(url=source_url or link, raw_source=raw_source, title=raw_title)
                     if not press_name:
                         continue
@@ -264,7 +262,6 @@ def fetch_all_categories_news(category_map):
         google_items = fetch_google_news(keywords, cat_name)
 
         combined = naver_items + google_items
-        # 최신순 정렬 (타임스탬프 기준)
         combined.sort(key=lambda x: x['dt_timestamp'], reverse=True)
 
         unique_cat_items = []
@@ -397,7 +394,6 @@ def main():
         "categories": categories_data
     }
 
-    # JSON 저장
     with open(os.path.join(history_dir, f"{today_date_key}.json"), "w", encoding="utf-8") as f:
         json.dump(daily_payload, f, ensure_ascii=False, indent=2)
 
