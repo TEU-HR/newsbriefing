@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>팀 뉴스 브리핑</title>
+  <title>AI 뉴스 브리핑</title>
   <style>
     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 850px; margin: 0 auto; padding: 20px; line-height: 1.6; background-color: #f8f9fa; color: #212529; }
     .header { border-bottom: 2px solid #212529; padding-bottom: 15px; margin-bottom: 20px; }
@@ -31,7 +31,7 @@
 <body>
   <div class="header">
     <div class="header-top">
-      <h1>📰 임직원 AI 뉴스 브리핑</h1>
+      <h1>📰 AI 뉴스 브리핑</h1>
       <a href="https://github.com/teu-hr/newsbriefing/actions" target="_blank" class="btn-refresh">⚡ 즉시 수집 실행</a>
     </div>
   </div>
@@ -57,7 +57,6 @@
   <script>
     let availableDates = [];
 
-    // 페이지 진입 시 인덱스 및 오늘 데이터 로드
     fetch('./history/index.json')
       .then(res => res.json())
       .then(dates => {
@@ -66,7 +65,7 @@
         if (dates.length > 0) {
           picker.min = dates[dates.length - 1];
           picker.max = dates[0];
-          picker.value = dates[0]; // 최신 날짜 기본 선택
+          picker.value = dates[0];
           loadHistoricalData(dates[0]);
         } else {
           loadLatestData();
