@@ -19,7 +19,6 @@
     .date { font-size: 0.88rem; color: #6c757d; font-weight: bold; }
     .card { background: white; border-radius: 12px; padding: 24px; margin-bottom: 24px; box-shadow: 0 2px 10px rgba(0,0,0,0.06); }
     
-    /* 요약문 스타일링 */
     .summary-content h1 { font-size: 1.25rem; color: #1c7ed6; margin-top: 20px; margin-bottom: 10px; border-bottom: 2px solid #e7f5ff; padding-bottom: 6px; }
     .summary-content h1:first-child { margin-top: 0; }
     .summary-content p { margin: 8px 0; }
@@ -27,14 +26,13 @@
     .summary-content li { margin-bottom: 6px; }
     .summary-box { background-color: #f8f9fa; border-left: 4px solid #1c7ed6; padding: 18px 20px; border-radius: 0 8px 8px 0; font-size: 0.98rem; }
 
-    /* 분야별 기사 언론사 그룹 스타일링 */
-    .category-title { font-size: 1.2rem; margin-top: 25px; margin-bottom: 12px; color: #343a40; border-bottom: 2px solid #dee2e6; padding-bottom: 6px; display: flex; align-items: center; gap: 6px; }
-    .press-group { margin-bottom: 14px; background: #fdfdfd; border: 1px solid #edf2f7; padding: 12px 16px; border-radius: 8px; }
-    .press-name { font-weight: bold; color: #495057; font-size: 0.92rem; margin-bottom: 6px; display: flex; align-items: center; gap: 4px; }
-    .press-name::before { content: "🏢"; font-size: 0.85rem; }
+    .category-title { font-size: 1.2rem; margin-top: 25px; margin-bottom: 12px; color: #343a40; border-bottom: 2px solid #dee2e6; padding-bottom: 6px; }
+    .press-group { margin-bottom: 14px; background: #ffffff; border: 1px solid #e9ecef; border-left: 4px solid #339af0; padding: 12px 16px; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.02); }
+    .press-name { font-weight: bold; color: #343a40; font-size: 0.95rem; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
     
     .article-list { list-style: none; padding-left: 0; margin: 0; }
-    .article-item { margin-bottom: 6px; display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+    .article-item { margin-bottom: 8px; display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+    .article-item:last-child { margin-bottom: 0; }
     .article-item a { color: #1b6ec2; text-decoration: none; font-weight: 500; font-size: 0.95rem; }
     .article-item a:hover { text-decoration: underline; color: #0d47a1; }
     .badge { font-size: 0.72rem; background: #e9ecef; color: #495057; padding: 2px 6px; border-radius: 4px; font-weight: bold; }
@@ -65,22 +63,37 @@
   </div>
 
   <div class="card">
-    <h2>📑 언론사별 수집 기사 목록</h2>
+    <h2>📑 언론사별 기사 목록</h2>
     <div id="categories-container"></div>
   </div>
 
   <script>
-    // 마크다운 문법을 HTML로 시각화 변환 함수
     function parseMarkdown(mdText) {
       if (!mdText) return '요약 내용이 없습니다.';
-      let html = mdText
+      return mdText
         .replace(/^# (.*$)/gim, '<h1>$1</h1>')
         .replace(/^## (.*$)/gim, '<h1>$1</h1>')
         .replace(/^### (.*$)/gim, '<h1>$1</h1>')
         .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-        .replace(/^\- (.*$)/gim, '<li>$1</li>');
-      
-      return html.replace(/\n\n/g, '<br>').replace(/\n/g, '<br>');
+        .replace(/^\- (.*$)/gim, '<li>$1</li>')
+        .replace(/\n\n/g, '<br>')
+        .replace(/\n/g, '<br>');
+    }
+
+    // 기사에서 언론사명 추출 (기타 표기 완전 방지)
+    function extractPressName(article) {
+      if (article.press_name && article.press_name !== '기타') {
+        return article.press_name;
+      }
+      if (article.title && article.title.includes(' - ')) {
+        const parts = article.title.split(' - ');
+        return parts[parts.length - 1].trim();
+      }
+      if (article.source) {
+        const match = article.source.match(/\((.*?)\)/);
+        if (match && match[1]) return match[1];
+      }
+      return '주요 언론사';
     }
 
     fetch('./history/index.json')
@@ -143,10 +156,10 @@
           catTitle.innerText = `■ ${category}`;
           container.appendChild(catTitle);
 
-          // 언론사별 그룹핑
+          // 언론사별 그룹핑 (기타 제외)
           const grouped = {};
           articles.forEach(a => {
-            const press = a.press_name || '기타';
+            const press = extractPressName(a);
             if (!grouped[press]) grouped[press] = [];
             grouped[press].push(a);
           });
@@ -157,7 +170,7 @@
 
             const pressHeader = document.createElement('div');
             pressHeader.className = 'press-name';
-            pressHeader.innerText = press;
+            pressHeader.innerHTML = `🏢 ${press}`;
             pressDiv.appendChild(pressHeader);
 
             const ul = document.createElement('ul');
@@ -167,10 +180,12 @@
               const li = document.createElement('li');
               li.className = 'article-item';
               const timeTag = article.pub_time ? `<span class="pub-time">🕒 ${article.pub_time}</span>` : '';
+              const provider = article.source ? article.source.split(' ')[0] : 'News';
+              
               li.innerHTML = `
                 <div>
                   <a href="${article.link}" target="_blank">${article.title}</a>
-                  <span class="badge">${article.source.split(' ')[0]}</span>
+                  <span class="badge">${provider}</span>
                 </div>
                 ${timeTag}
               `;
