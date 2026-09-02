@@ -83,6 +83,7 @@ def parse_google_publisher(title):
     return (True, publisher) if publisher in ALLOWED_PRESS else (False, None)
 
 def get_naver_press_name(link):
+    if not link: return None
     for domain, press_name in PRESS_DOMAIN_MAP.items():
         if domain in link:
             return press_name
@@ -115,23 +116,15 @@ def is_within_24h_window(pub_date_str, run_type="realtime"):
         return True
 
 def is_valid_for_category(title, category):
-    """
-    양방향 카테고리 검증:
-    1. '사설' 카테고리: [사설] 표기 필수 & 동음이의어(사설학원 등) 제외
-    2. '일반 뉴스' 카테고리: 제목에 사설/칼럼 식별 표기 포함 시 강제 제외
-    """
     has_editorial_pattern = any(re.search(pat, title) for pat in EDITORIAL_PATTERNS)
 
     if category == "사설":
-        # 1) 사설 카테고리에는 사설/칼럼 패턴이 없으면 제외
         if not has_editorial_pattern and "[사설]" not in title and "사설:" not in title:
             return False
-        # 2) 사설(私設) 동음이의어 단어 포함 시 제외
         if any(word in title for word in INVALID_HOMONYMS):
             return False
         return True
     else:
-        # 일반 뉴스 카테고리(정치, 경제 등)에 사설/칼럼 표기가 있으면 강제 제외
         if has_editorial_pattern:
             return False
         return True
@@ -152,10 +145,7 @@ def fetch_google_news(category, run_type="realtime"):
                 if not is_within_24h_window(pub_str, run_type): continue
                 
                 cleaned_title = clean_html(entry.title)
-
-                # 양방향 카테고리 검증 적용
-                if not is_valid_for_category(cleaned_title, category):
-                    continue
+                if not is_valid_for_category(cleaned_title, category): continue
 
                 allowed, press_name = parse_google_publisher(cleaned_title)
                 if allowed:
@@ -165,12 +155,13 @@ def fetch_google_news(category, run_type="realtime"):
                         articles.append({
                             "title": cleaned_title,
                             "link": entry.link,
-                            "source": f"Google News ({press_name})",
+                            "source": f"Google ({press_name})",
+                            "press_name": press_name,
                             "pub_time": format_pub_date(pub_str)
                         })
                 if len(articles) >= max_total: break
     except Exception as e:
-        print(f"구글 뉴스 오류 ({category}): {e}")
+        print(f"[구글 뉴스 오류] {category}: {e}")
     return articles
 
 def fetch_naver_news(category, run_type="realtime"):
@@ -178,48 +169,84 @@ def fetch_naver_news(category, run_type="realtime"):
     max_total = 12 if run_type == "morning" else 3
     client_id = os.environ.get("NAVER_CLIENT_ID")
     client_secret = os.environ.get("NAVER_CLIENT_SECRET")
-    if not client_id or not client_secret: return []
+    if not client_id or not client_secret:
+        print(f"[네이버 뉴스] API 키 미설정 - 네이버 수집 건너뜀")
+        return []
 
     kw = urllib.parse.quote(NAVER_KEYWORDS.get(category, category))
     articles, press_count = [], {}
-    hub_url = f"https://naverapihub.apigw.ntruss.com/search/v1/news?query={kw}&display=50&sort=date&format=json"
-    hub_headers = {"X-NCP-APIGW-API-KEY-ID": client_id.strip(), "X-NCP-APIGW-API-KEY": client_secret.strip(), "User-Agent": HEADERS["User-Agent"]}
 
+    # 1. 표준 네이버 개발자 API 호출
+    std_url = f"https://openapi.naver.com/v1/search/news.json?query={kw}&display=50&sort=date"
+    std_headers = {
+        "X-Naver-Client-Id": client_id.strip(),
+        "X-Naver-Client-Secret": client_secret.strip(),
+        "User-Agent": HEADERS["User-Agent"]
+    }
+
+    items = []
     try:
-        res = requests.get(hub_url, headers=hub_headers, timeout=5)
+        res = requests.get(std_url, headers=std_headers, timeout=5)
         if res.status_code == 200:
-            for item in res.json().get("items", []):
-                pub_date = item.get("pubDate")
-                if not is_within_24h_window(pub_date, run_type): continue
-                
-                cleaned_title = clean_html(item.get("title", ""))
+            items = res.json().get("items", [])
+        else:
+            # 2. 네이버 클라우드 플랫폼 API 호환 호출
+            ncp_url = f"https://naverapihub.apigw.ntruss.com/search/v1/news?query={kw}&display=50&sort=date&format=json"
+            ncp_headers = {
+                "X-NCP-APIGW-API-KEY-ID": client_id.strip(),
+                "X-NCP-APIGW-API-KEY": client_secret.strip(),
+                "User-Agent": HEADERS["User-Agent"]
+            }
+            res_ncp = requests.get(ncp_url, headers=ncp_headers, timeout=5)
+            if res_ncp.status_code == 200:
+                items = res_ncp.json().get("items", [])
+            else:
+                print(f"[네이버 API 오류] 표준: {res.status_code}, NCP: {res_ncp.status_code}")
+    except Exception as e:
+        print(f"[네이버 뉴스 예외 발생] {category}: {e}")
 
-                # 양방향 카테고리 검증 적용
-                if not is_valid_for_category(cleaned_title, category):
-                    continue
+    for item in items:
+        pub_date = item.get("pubDate")
+        if not is_within_24h_window(pub_date, run_type): continue
 
-                link = item.get("originallink") or item.get("link")
-                press_name = get_naver_press_name(link)
-                if press_name:
-                    curr = press_count.get(press_name, 0)
-                    if curr < max_per_press:
-                        press_count[press_name] = curr + 1
-                        articles.append({
-                            "title": cleaned_title,
-                            "link": link,
-                            "source": f"Naver News ({press_name})",
-                            "pub_time": format_pub_date(pub_date)
-                        })
-                if len(articles) >= max_total: break
-    except Exception:
-        pass
+        cleaned_title = clean_html(item.get("title", ""))
+        if not is_valid_for_category(cleaned_title, category): continue
+
+        orig_link = item.get("originallink", "")
+        norm_link = item.get("link", "")
+        
+        # 원문 링크 및 일반 링크에서 언론사 교차 검증
+        press_name = get_naver_press_name(orig_link) or get_naver_press_name(norm_link)
+        
+        if press_name:
+            curr = press_count.get(press_name, 0)
+            if curr < max_per_press:
+                press_count[press_name] = curr + 1
+                articles.append({
+                    "title": cleaned_title,
+                    "link": orig_link if orig_link else norm_link,
+                    "source": f"Naver ({press_name})",
+                    "press_name": press_name,
+                    "pub_time": format_pub_date(pub_date)
+                })
+        if len(articles) >= max_total: break
+
+    print(f"[네이버 뉴스] ({category}) 수집 완료: {len(articles)}개 기사")
     return articles
 
 def fetch_all_news(run_type):
     categorized = {}
     for cat in GOOGLE_TOPIC_MAP.keys():
-        combined = fetch_google_news(cat, run_type) + fetch_naver_news(cat, run_type)
-        categorized[cat] = combined if combined else [{"title": f"{cat} 분야 최근 기사가 없습니다.", "link": "#", "source": "System", "pub_time": ""}]
+        google_news = fetch_google_news(cat, run_type)
+        naver_news = fetch_naver_news(cat, run_type)
+        combined = google_news + naver_news
+
+        if combined:
+            # 언론사명(press_name) 기준으로 그룹 정렬
+            combined.sort(key=lambda x: (x.get('press_name', ''), x.get('title', '')))
+            categorized[cat] = combined
+        else:
+            categorized[cat] = [{"title": f"{cat} 분야 최근 기사가 없습니다.", "link": "#", "source": "System", "press_name": "시스템", "pub_time": ""}]
     return categorized
 
 def summarize_news(categorized_articles):
@@ -227,7 +254,7 @@ def summarize_news(categorized_articles):
     if not api_key: return "GEMINI_API_KEY 설정이 필요합니다."
 
     client = genai.Client(api_key=api_key)
-    prompt_text = "다음은 수집 필터링을 거친 최신 뉴스 기사 목록입니다:\n"
+    prompt_text = "다음은 검증 및 정렬을 거친 최신 뉴스 기사 목록입니다:\n"
     has_valid = False
     for cat, articles in categorized_articles.items():
         prompt_text += f"\n[{cat}]\n"
@@ -235,30 +262,40 @@ def summarize_news(categorized_articles):
             if a['link'] != "#":
                 has_valid = True
                 t_info = f" ({a['pub_time']})" if a.get('pub_time') else ""
-                prompt_text += f"- {a['title']} ({a['source']}){t_info}\n"
+                prompt_text += f"- [{a.get('press_name', '언론사')}] {a['title']}{t_info}\n"
 
     if not has_valid: return "수집된 최근 뉴스가 없습니다."
 
     prompt = f"""
 {prompt_text}
 
-위 기사들의 내용을 바탕으로 출근길 업무에 도움되는 종합 브리핑을 작성해 주세요.
+당신은 수석 정세 분석관이자 경제 전문 에디터입니다.
+제시된 기사들을 바탕으로 독자들이 3분 만에 주요 이슈와 흐름을 완벽히 파악할 수 있도록 **풍부하고 시각적으로 매력적인 종합 뉴스 브리핑**을 작성해 주세요.
 
-[AI 이중 검증 규칙]
-- 일반 뉴스 카테고리(정치, 경제, 사회 등) 목록에 혹시라도 사설, 칼럼, 시론 등 주관적 논평 기사가 섞여 있다면 요약 대상에서 완전히 제외하세요.
-- '사설' 카테고리는 주요 언론사 논설위원들의 시각과 공통된 핵심 이슈를 중심으로 간결하게 요약하세요.
+[작성 및 디자인 지침]
+1. **시각적 가독성 극대화**:
+   - 제목과 핵심 섹션에 적절한 이모지(🚀, 📌, 💡, 📈, ⚖️, 🌐 등)를 적극 사용하세요.
+   - 핵심 단어나 문장은 **볼드체**를 활용하여 강조하세요.
+2. **풍부한 내용과 읽을거리 (★필수★)**:
+   - 단순히 기사 제목을 한 줄 나열하지 마세요.
+   - 각 주요 이슈별로 **[배경 원인 ➔ 핵심 내용 ➔ 향후 파급효과/시사점]**을 3~4줄 이상 구체적으로 서술하세요.
+3. **구조화된 리포트 포맷**:
+   아래 양식을 그대로 유지하여 작성하세요:
 
-[오늘의 종합 브리핑]
-전체 주요 흐름 요약 (3~4줄)
+# 🚀 오늘의 3대 핵심 이슈 (Top Highlights)
+(전체 뉴스 중 가장 파급력이 큰 주요 이슈 3가지를 선정하여, 배경과 향후 전망을 구체적으로 상세 서술)
 
-[분야별 핵심요약]
-- 정치: 주요 내용 요약
-- 경제: 주요 내용 요약
-- 사회: 주요 내용 요약
-- 생활/문화: 주요 내용 요약
-- IT/과학: 주요 내용 요약
-- 세계: 주요 내용 요약
-- 사설: 주요 내용 요약
+# 📊 분야별 상세 정세 리포트
+- **정치**: (배경, 핵심 쟁점, 파급 효과 구체적 서술)
+- **경제**: (배경, 핵심 쟁점, 파급 효과 구체적 서술)
+- **사회**: (배경, 핵심 쟁점, 파급 효과 구체적 서술)
+- **IT/과학**: (배경, 핵심 쟁점, 파급 효과 구체적 서술)
+- **세계**: (배경, 핵심 쟁점, 파급 효과 구체적 서술)
+- **생활/문화**: (배경, 핵심 쟁점, 파급 효과 구체적 서술)
+- **사설**: (주요 언론사 사설들의 공통 논조 및 시각 비교 분석)
+
+# 💡 출근길 비즈니스 & 정세 인사이트
+(오늘 뉴스 흐름이 금융/산업/경영 환경에 주는 핵심 시사점 2~3줄)
 """
     try:
         res = client.models.generate_content(model="gemini-3.6-flash", contents=prompt)
@@ -292,10 +329,10 @@ def main():
     today_date_key = now_dt.strftime("%Y-%m-%d")
     run_type = os.environ.get("RUN_TYPE", "realtime")
 
-    print(f"[{now_str}] 정밀 분류 수집 시작 (모드: {run_type})...")
+    print(f"[{now_str}] 언론사별 수집 및 정밀 분석 시작 (모드: {run_type})...")
     categorized_articles = fetch_all_news(run_type)
 
-    print("AI 요약 및 이중 검증 중...")
+    print("AI 고도화 리포트 생성 중...")
     briefing_summary = summarize_news(categorized_articles)
 
     history_dir = "history"
