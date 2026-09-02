@@ -10,7 +10,7 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from google import genai
 
-# 수집 허용 언론사 및 도메인 지정
+# 수집을 허용할 정확한 언론사 이름 목록
 ALLOWED_PRESS = [
     "조선일보", "중앙일보", "동아일보", "한겨레", "경향신문", "한국일보",
     "연합뉴스", "뉴시스",
@@ -18,6 +18,7 @@ ALLOWED_PRESS = [
     "KBS", "MBC", "SBS", "YTN"
 ]
 
+# 네이버 뉴스 필터링용 도메인
 ALLOWED_DOMAINS = [
     "chosun.com", "joongang.co.kr", "donga.co.kr", "hani.co.kr", "khan.co.kr", "hankookilbo.com",
     "yna.co.kr", "newsis.com",
@@ -40,15 +41,24 @@ def clean_html(text):
     text = re.sub(r'<[^>]+>', '', text)
     return text.replace('&quot;', '"').replace('&amp;', '&').replace('&lt;', '<').replace('&gt;', '>')
 
-def is_allowed_google_article(title):
-    # 구글 뉴스의 경우 제목 끝에 '- 언론사명' 형태로 표기됨
-    for press in ALLOWED_PRESS:
-        if press in title:
-            return True, press
+def parse_google_publisher(title):
+    """
+    구글 뉴스 제목('기사제목 - 언론사명')에서 맨 뒤 언론사명을 추출하여
+    지정한 ALLOWED_PRESS와 정확히 일치하는지 검증
+    """
+    if " - " not in title:
+        return False, None
+    
+    # 맨 뒤의 '- 언론사명' 분리
+    parts = title.rsplit(" - ", 1)
+    article_title = parts[0].strip()
+    publisher = parts[1].strip()
+
+    if publisher in ALLOWED_PRESS:
+        return True, publisher
     return False, None
 
 def is_allowed_naver_article(link):
-    # 네이버 뉴스의 경우 원본 링크 도메인 기반으로 필터링
     for domain in ALLOWED_DOMAINS:
         if domain in link:
             return True
@@ -65,7 +75,8 @@ def fetch_google_news(category):
             feed = feedparser.parse(response.content)
             for entry in feed.entries:
                 cleaned_title = clean_html(entry.title)
-                allowed, press_name = is_allowed_google_article(cleaned_title)
+                allowed, press_name = parse_google_publisher(cleaned_title)
+                
                 if allowed:
                     articles.append({
                         "title": cleaned_title,
@@ -83,11 +94,15 @@ def fetch_naver_news(category):
     client_secret = os.environ.get("NAVER_CLIENT_SECRET")
     
     if not client_id or not client_secret:
-        print(f"[경고] 네이버 API Key(NAVER_CLIENT_ID / NAVER_CLIENT_SECRET)가 설정되지 않았습니다.")
+        print("[경고] NAVER_CLIENT_ID 또는 NAVER_CLIENT_SECRET이 설정되지 않았습니다.")
         return []
 
+    # 환경변수 앞뒤 공백 제거
+    client_id = client_id.strip()
+    client_secret = client_secret.strip()
+
     kw = urllib.parse.quote(KEYWORDS.get(category, category))
-    url = f"https://openapi.naver.com/v1/search/news.json?query={kw}&display=20&sort=sim"
+    url = f"https://openapi.naver.com/v1/search/news.json?query={kw}&display=30&sort=sim"
     headers = {
         "X-Naver-Client-Id": client_id,
         "X-Naver-Client-Secret": client_secret,
@@ -125,7 +140,7 @@ def fetch_all_news():
         if combined:
             categorized[cat] = combined
         else:
-            categorized[cat] = [{"title": f"{cat} 지정 언론사 최신 기사가 없습니다.", "link": "#", "source": "System"}]
+            categorized[cat] = [{"title": f"{cat} 분야 지정 언론사 최신 기사가 없습니다.", "link": "#", "source": "System"}]
     return categorized
 
 def summarize_news(categorized_articles):
@@ -135,7 +150,7 @@ def summarize_news(categorized_articles):
 
     client = genai.Client(api_key=api_key)
     
-    prompt_text = "다음은 주요 언론사에서 수집된 핵심 뉴스 기사입니다:\n"
+    prompt_text = "다음은 수집된 주요 언론사 뉴스 기사 목록입니다:\n"
     has_valid_articles = False
     for cat, articles in categorized_articles.items():
         prompt_text += f"\n[{cat}]\n"
@@ -190,6 +205,7 @@ def send_email(subject, body):
         server.login(sender, password)
         server.sendmail(sender, sender, msg.as_string())
         server.close()
+        print("이메일 발송 성공!")
     except Exception as e:
         print(f"이메일 발송 실패: {e}")
 
