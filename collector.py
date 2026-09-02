@@ -34,15 +34,26 @@ PRESS_DOMAIN_MAP = {
 
 ALLOWED_PRESS = list(set(PRESS_DOMAIN_MAP.values()))
 
-# '사설' 검색 시 사회 사건 관련 사설(私設) 단어 제외 쿼리 적용
-KEYWORDS = {
-    "정치": "정치 국회 정부",
-    "경제": "경제 증시 금융",
-    "사회": "사회 사건 사고",
-    "생활/문화": "생활 문화 여행 건강",
-    "IT/과학": "IT AI 테크 과학",
-    "세계": "세계 국제 해외",
-    "사설": "사설 -사설학원 -사설구급차 -사설탐정 -사설토토 -사설업체 -사설묘지"
+# 구글 뉴스 섹션별 Topic ID 및 사설 검색 쿼리 매핑
+GOOGLE_TOPIC_MAP = {
+    "정치": "https://news.google.com/rss/headlines/section/topic/POLITICS?hl=ko&gl=KR&ceid=KR:ko",
+    "경제": "https://news.google.com/rss/headlines/section/topic/BUSINESS?hl=ko&gl=KR&ceid=KR:ko",
+    "사회": "https://news.google.com/rss/headlines/section/topic/NATION?hl=ko&gl=KR&ceid=KR:ko",
+    "생활/문화": "https://news.google.com/rss/headlines/section/topic/ENTERTAINMENT?hl=ko&gl=KR&ceid=KR:ko",
+    "IT/과학": "https://news.google.com/rss/headlines/section/topic/TECHNOLOGY?hl=ko&gl=KR&ceid=KR:ko",
+    "세계": "https://news.google.com/rss/headlines/section/topic/WORLD?hl=ko&gl=KR&ceid=KR:ko",
+    "사설": "https://news.google.com/rss/search?q=intitle:%22%EC%82%AC%EC%84%A4%22&hl=ko&gl=KR&ceid=KR:ko"
+}
+
+# 네이버 API 키워드 (사설은 intitle 태그 검색)
+NAVER_KEYWORDS = {
+    "정치": "정치",
+    "경제": "경제",
+    "사회": "사회",
+    "생활/문화": "생활 문화",
+    "IT/과학": "IT 과학",
+    "세계": "세계 국제",
+    "사설": "\"[사설]\""
 }
 
 HEADERS = {
@@ -70,11 +81,6 @@ def get_naver_press_name(link):
     return None
 
 def is_within_24h_window(pub_date_str, run_type="realtime"):
-    """
-    기사 발행 시각 검증:
-    - morning 모드: 어제 08:00 ~ 오늘 08:00 사이 기사만 허용
-    - realtime 모드: 현재 시점 기준 24시간 이내 기사만 허용
-    """
     if not pub_date_str:
         return True
     try:
@@ -93,21 +99,14 @@ def is_within_24h_window(pub_date_str, run_type="realtime"):
     except Exception:
         return True
 
-def is_valid_editorial(title):
-    """'사설' 카테고리 수집 시 사회성 사설(私設) 키워드 2차 검증"""
-    invalid_words = ["사설학원", "사설 구급차", "사설구급차", "사설 탐정", "사설탐정", "사설 토토", "사설토토", "사설 업체", "사설업체", "사설 묘지", "사설묘지"]
-    for word in invalid_words:
-        if word in title:
-            return False
-    return True
-
 def fetch_google_news(category, run_type="realtime"):
     max_per_press = 2 if run_type == "morning" else 1
     max_total = 12 if run_type == "morning" else 3
 
-    kw = urllib.parse.quote(KEYWORDS.get(category, category))
-    url = f"https://news.google.com/rss/search?q={kw}&hl=ko&gl=KR&ceid=KR:ko"
-    
+    url = GOOGLE_TOPIC_MAP.get(category)
+    if not url:
+        return []
+
     articles = []
     press_count = {}
     try:
@@ -121,8 +120,8 @@ def fetch_google_news(category, run_type="realtime"):
 
                 cleaned_title = clean_html(entry.title)
 
-                # 사설 카테고리 오검색 필터링
-                if category == "사설" and not is_valid_editorial(cleaned_title):
+                # 사설 카테고리인 경우 제목에 [사설] 표기가 포함된 기사만 엄격 허용
+                if category == "사설" and "[사설]" not in cleaned_title and "사설:" not in cleaned_title:
                     continue
 
                 allowed, press_name = parse_google_publisher(cleaned_title)
@@ -154,11 +153,10 @@ def fetch_naver_news(category, run_type="realtime"):
     client_id = client_id.strip()
     client_secret = client_secret.strip()
 
-    kw = urllib.parse.quote(KEYWORDS.get(category, category))
+    kw = urllib.parse.quote(NAVER_KEYWORDS.get(category, category))
     articles = []
     press_count = {}
 
-    # 1. NAVER API HUB 시도 (sort=date 적용)
     hub_url = f"https://naverapihub.apigw.ntruss.com/search/v1/news?query={kw}&display=50&sort=date&format=json"
     hub_headers = {
         "X-NCP-APIGW-API-KEY-ID": client_id,
@@ -176,7 +174,8 @@ def fetch_naver_news(category, run_type="realtime"):
                     continue
 
                 cleaned_title = clean_html(item.get("title", ""))
-                if category == "사설" and not is_valid_editorial(cleaned_title):
+
+                if category == "사설" and "[사설]" not in cleaned_title and "사설:" not in cleaned_title:
                     continue
 
                 link = item.get("originallink") or item.get("link")
@@ -196,7 +195,6 @@ def fetch_naver_news(category, run_type="realtime"):
     except Exception:
         pass
 
-    # 2. 구형 API Fallback (sort=date 적용)
     legacy_url = f"https://openapi.naver.com/v1/search/news.json?query={kw}&display=50&sort=date"
     legacy_headers = {
         "X-Naver-Client-Id": client_id,
@@ -214,7 +212,8 @@ def fetch_naver_news(category, run_type="realtime"):
                     continue
 
                 cleaned_title = clean_html(item.get("title", ""))
-                if category == "사설" and not is_valid_editorial(cleaned_title):
+
+                if category == "사설" and "[사설]" not in cleaned_title and "사설:" not in cleaned_title:
                     continue
 
                 link = item.get("originallink") or item.get("link")
@@ -238,7 +237,7 @@ def fetch_naver_news(category, run_type="realtime"):
 
 def fetch_all_news(run_type):
     categorized = {}
-    for cat in KEYWORDS.keys():
+    for cat in GOOGLE_TOPIC_MAP.keys():
         g_list = fetch_google_news(cat, run_type)
         n_list = fetch_naver_news(cat, run_type)
         combined = g_list + n_list
@@ -255,7 +254,7 @@ def summarize_news(categorized_articles):
 
     client = genai.Client(api_key=api_key)
     
-    prompt_text = "다음은 수집된 최신 주요 언론사 뉴스 기사 목록입니다:\n"
+    prompt_text = "다음은 언론사별 카테고리 규격에 맞춰 정확히 분류 및 수집된 최신 뉴스 기사 목록입니다:\n"
     has_valid_articles = False
     for cat, articles in categorized_articles.items():
         prompt_text += f"\n[{cat}]\n"
@@ -273,8 +272,8 @@ def summarize_news(categorized_articles):
 위 기사들의 내용을 바탕으로 종합 브리핑을 작성해 주세요.
 
 [요청 사항]
-- '사설' 항목에는 언론사의 사설/칼럼 논평 기사 내용만 요약해 주세요. (단순 사회 사건/사고 기사가 섞여 있다면 제외하거나 '사회' 요약으로 재배치)
-- 전체적인 흐름과 핵심 이슈 위주로 간결하게 요약해 주세요.
+- 기사가 속한 카테고리의 취지에 맞추어 핵심 내용 위주로 3~4줄 요약해 주세요.
+- '사설'의 경우 주요 언론사들의 시각과 논평 핵심 주제를 간결하게 요약해 주세요.
 
 [오늘의 종합 브리핑]
 전체 주요 흐름 요약 (3~4줄)
@@ -325,7 +324,7 @@ def main():
     now_str = datetime.now(kst).strftime("%Y년 %m월 %d일 %H:%M")
     run_type = os.environ.get("RUN_TYPE", "realtime")
 
-    print(f"[{now_str}] 최신 뉴스 수집 시작 (모드: {run_type})...")
+    print(f"[{now_str}] 토픽/태그 기반 최신 뉴스 수집 시작 (모드: {run_type})...")
     categorized_articles = fetch_all_news(run_type)
 
     print("AI 요약 생성 중...")
