@@ -10,23 +10,28 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from google import genai
 
-# 지정 언론사 목록
-ALLOWED_PRESS = [
-    "조선일보", "중앙일보", "동아일보", "한겨레", "경향신문", "한국일보",
-    "연합뉴스", "뉴시스",
-    "매일경제", "한국경제", "서울경제",
-    "KBS", "MBC", "SBS", "YTN"
-]
+# 허용 언론사 및 도메인-언론사 매핑
+PRESS_DOMAIN_MAP = {
+    "chosun.com": "조선일보",
+    "joongang.co.kr": "중앙일보",
+    "donga.co.kr": "동아일보",
+    "hani.co.kr": "한겨레",
+    "khan.co.kr": "경향신문",
+    "hankookilbo.com": "한국일보",
+    "yna.co.kr": "연합뉴스",
+    "newsis.com": "뉴시스",
+    "mk.co.kr": "매일경제",
+    "hankyung.co.kr": "한국경제",
+    "sedaily.co.kr": "서울경제",
+    "kbs.co.kr": "KBS",
+    "imbc.com": "MBC",
+    "mbc.co.kr": "MBC",
+    "sbs.co.kr": "SBS",
+    "ytn.co.kr": "YTN"
+}
 
-# 네이버 뉴스 필터링용 도메인
-ALLOWED_DOMAINS = [
-    "chosun.com", "joongang.co.kr", "donga.co.kr", "hani.co.kr", "khan.co.kr", "hankookilbo.com",
-    "yna.co.kr", "newsis.com",
-    "mk.co.kr", "hankyung.co.kr", "sedaily.co.kr",
-    "kbs.co.kr", "imbc.com", "mbc.co.kr", "sbs.co.kr", "ytn.co.kr"
-]
+ALLOWED_PRESS = list(set(PRESS_DOMAIN_MAP.values()))
 
-# 7개 세분화 분야 키워드
 KEYWORDS = {
     "정치": "정치 국회 정부",
     "경제": "경제 증시 금융",
@@ -46,7 +51,6 @@ def clean_html(text):
     return text.replace('&quot;', '"').replace('&amp;', '&').replace('&lt;', '<').replace('&gt;', '>')
 
 def parse_google_publisher(title):
-    """구글 뉴스 제목('제목 - 언론사명')에서 맨 뒤 언론사명이 지정 목록과 일치하는지 확인"""
     if " - " not in title:
         return False, None
     parts = title.rsplit(" - ", 1)
@@ -56,11 +60,12 @@ def parse_google_publisher(title):
         return True, publisher
     return False, None
 
-def is_allowed_naver_article(link):
-    for domain in ALLOWED_DOMAINS:
+def get_naver_press_name(link):
+    """링크 도메인 분석을 통해 네이버 기사의 실제 언론사명 추출"""
+    for domain, press_name in PRESS_DOMAIN_MAP.items():
         if domain in link:
-            return True
-    return False
+            return press_name
+    return None
 
 def fetch_google_news(category):
     kw = urllib.parse.quote(KEYWORDS.get(category, category))
@@ -92,7 +97,6 @@ def fetch_naver_news(category):
     client_secret = os.environ.get("NAVER_CLIENT_SECRET")
     
     if not client_id or not client_secret:
-        print("[경고] NAVER_CLIENT_ID 또는 NAVER_CLIENT_SECRET 설정이 없습니다.")
         return []
 
     client_id = client_id.strip()
@@ -101,7 +105,7 @@ def fetch_naver_news(category):
     kw = urllib.parse.quote(KEYWORDS.get(category, category))
     articles = []
 
-    # 1. NAVER API HUB (네이버 클라우드 플랫폼 신형 URL 및 인증) 시도
+    # 1. NAVER API HUB 시도
     hub_url = f"https://naverapihub.apigw.ntruss.com/search/v1/news?query={kw}&display=30&sort=sim&format=json"
     hub_headers = {
         "X-NCP-APIGW-API-KEY-ID": client_id,
@@ -115,20 +119,20 @@ def fetch_naver_news(category):
             items = res.json().get("items", [])
             for item in items:
                 link = item.get("originallink") or item.get("link")
-                if is_allowed_naver_article(link):
+                press_name = get_naver_press_name(link)
+                if press_name:
                     articles.append({
                         "title": clean_html(item.get("title", "")),
                         "link": link,
-                        "source": "Naver News"
+                        "source": f"Naver News ({press_name})"
                     })
                 if len(articles) >= 3:
                     break
-            print(f"[네이버 API HUB 성공] {category}: {len(articles)}개 수집 완료")
             return articles
     except Exception as e:
-        print(f"네이버 API HUB 호출 예외 ({category}): {e}")
+        pass
 
-    # 2. NAVER Developers (구형 개발자 센터 URL 및 인증) 폴백 시도
+    # 2. 구형 Developers API 폴백 시도
     legacy_url = f"https://openapi.naver.com/v1/search/news.json?query={kw}&display=30&sort=sim"
     legacy_headers = {
         "X-Naver-Client-Id": client_id,
@@ -142,20 +146,18 @@ def fetch_naver_news(category):
             items = res.json().get("items", [])
             for item in items:
                 link = item.get("originallink") or item.get("link")
-                if is_allowed_naver_article(link):
+                press_name = get_naver_press_name(link)
+                if press_name:
                     articles.append({
                         "title": clean_html(item.get("title", "")),
                         "link": link,
-                        "source": "Naver News"
+                        "source": f"Naver News ({press_name})"
                     })
                 if len(articles) >= 3:
                     break
-            print(f"[네이버 구형 API 성공] {category}: {len(articles)}개 수집 완료")
             return articles
-        else:
-            print(f"[네이버 API 오류 {res.status_code}] {res.text}")
     except Exception as e:
-        print(f"네이버 구형 API 호출 실패 ({category}): {e}")
+        pass
 
     return articles
 
@@ -178,7 +180,7 @@ def summarize_news(categorized_articles):
 
     client = genai.Client(api_key=api_key)
     
-    prompt_text = "다음은 수집된 주요 언론사 뉴스 기사 목록입니다:\n"
+    prompt_text = "다음은 주요 언론사의 핵심 뉴스 기사 목록입니다:\n"
     has_valid_articles = False
     for cat, articles in categorized_articles.items():
         prompt_text += f"\n[{cat}]\n"
@@ -188,7 +190,7 @@ def summarize_news(categorized_articles):
                 prompt_text += f"- {a['title']} ({a['source']})\n"
 
     if not has_valid_articles:
-        return "수집된 지정 언론사 뉴스가 없어 요약을 생성할 수 없습니다."
+        return "수집된 뉴스가 없어 요약을 생성할 수 없습니다."
 
     prompt = f"""
 {prompt_text}
@@ -236,30 +238,41 @@ def send_email(subject, body):
         server.login(sender, password)
         server.sendmail(sender, sender, msg.as_string())
         server.close()
-        print("이메일 발송 성공!")
     except Exception as e:
         print(f"이메일 발송 실패: {e}")
 
 def main():
     kst = timezone(timedelta(hours=9))
     now_str = datetime.now(kst).strftime("%Y년 %m월 %d일 %H:%M")
+    run_type = os.environ.get("RUN_TYPE", "realtime") # morning 또는 realtime
 
-    print(f"[{now_str}] 7개 분야 지정 언론사 뉴스 수집 시작...")
+    print(f"[{now_str}] 뉴스 수집 시작 (실행 모드: {run_type})...")
     categorized_articles = fetch_all_news()
 
     print("AI 요약 생성 중...")
     briefing_summary = summarize_news(categorized_articles)
 
-    output_data = {
+    # 기존 data.json 불러오기 (투 트랙 데이터 보존)
+    data = {"morning": None, "realtime": None}
+    if os.path.exists("data.json"):
+        try:
+            with open("data.json", "r", encoding="utf-8") as f:
+                data = json.load(f)
+        except Exception:
+            pass
+
+    # 해당 트랙 데이터 업데이트
+    data[run_type] = {
         "updated_at": now_str,
         "summary": briefing_summary,
         "categories": categorized_articles
     }
 
     with open("data.json", "w", encoding="utf-8") as f:
-        json.dump(output_data, f, ensure_ascii=False, indent=2)
+        json.dump(data, f, ensure_ascii=False, indent=2)
 
-    title = f"[일간 AI 뉴스 브리핑] {now_str}"
+    tag_name = "아침 정기 브리핑" if run_type == "morning" else "실시간 브리핑"
+    title = f"[{tag_name}] {now_str}"
     send_email(title, f"최근 업데이트: {now_str}\n\n{briefing_summary}")
 
 if __name__ == "__main__":
