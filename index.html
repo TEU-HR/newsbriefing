@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI 뉴스 브리핑</title>
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 850px; margin: 0 auto; padding: 20px; line-height: 1.6; background-color: #f8f9fa; color: #212529; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; line-height: 1.7; background-color: #f8f9fa; color: #212529; }
     .header { border-bottom: 2px solid #212529; padding-bottom: 15px; margin-bottom: 20px; }
     .header-top { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
     .header h1 { margin: 0; font-size: 1.8rem; }
@@ -17,15 +17,28 @@
     input[type="date"] { padding: 6px 10px; border: 1px solid #ced4da; border-radius: 6px; font-size: 0.9rem; font-weight: bold; cursor: pointer; }
     
     .date { font-size: 0.88rem; color: #6c757d; font-weight: bold; }
-    .card { background: white; border-radius: 10px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-    .summary { white-space: pre-line; background-color: #f1f3f5; padding: 18px; border-radius: 8px; font-size: 0.98rem; }
-    .category-title { font-size: 1.15rem; margin-top: 25px; margin-bottom: 10px; color: #1c7ed6; border-bottom: 1px solid #e9ecef; padding-bottom: 5px; }
-    ul { padding-left: 20px; margin: 0; }
-    li { margin-bottom: 8px; }
-    a { color: #1b6ec2; text-decoration: none; font-weight: 500; }
-    a:hover { text-decoration: underline; }
-    .badge { font-size: 0.75rem; background: #e9ecef; color: #495057; padding: 2px 6px; border-radius: 4px; margin-left: 6px; font-weight: bold; }
-    .pub-time { font-size: 0.78rem; color: #868e96; margin-left: 6px; }
+    .card { background: white; border-radius: 12px; padding: 24px; margin-bottom: 24px; box-shadow: 0 2px 10px rgba(0,0,0,0.06); }
+    
+    /* 요약문 스타일링 */
+    .summary-content h1 { font-size: 1.25rem; color: #1c7ed6; margin-top: 20px; margin-bottom: 10px; border-bottom: 2px solid #e7f5ff; padding-bottom: 6px; }
+    .summary-content h1:first-child { margin-top: 0; }
+    .summary-content p { margin: 8px 0; }
+    .summary-content ul { padding-left: 20px; margin: 8px 0; }
+    .summary-content li { margin-bottom: 6px; }
+    .summary-box { background-color: #f8f9fa; border-left: 4px solid #1c7ed6; padding: 18px 20px; border-radius: 0 8px 8px 0; font-size: 0.98rem; }
+
+    /* 분야별 기사 언론사 그룹 스타일링 */
+    .category-title { font-size: 1.2rem; margin-top: 25px; margin-bottom: 12px; color: #343a40; border-bottom: 2px solid #dee2e6; padding-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+    .press-group { margin-bottom: 14px; background: #fdfdfd; border: 1px solid #edf2f7; padding: 12px 16px; border-radius: 8px; }
+    .press-name { font-weight: bold; color: #495057; font-size: 0.92rem; margin-bottom: 6px; display: flex; align-items: center; gap: 4px; }
+    .press-name::before { content: "🏢"; font-size: 0.85rem; }
+    
+    .article-list { list-style: none; padding-left: 0; margin: 0; }
+    .article-item { margin-bottom: 6px; display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+    .article-item a { color: #1b6ec2; text-decoration: none; font-weight: 500; font-size: 0.95rem; }
+    .article-item a:hover { text-decoration: underline; color: #0d47a1; }
+    .badge { font-size: 0.72rem; background: #e9ecef; color: #495057; padding: 2px 6px; border-radius: 4px; font-weight: bold; }
+    .pub-time { font-size: 0.78rem; color: #868e96; white-space: nowrap; }
   </style>
 </head>
 <body>
@@ -45,22 +58,34 @@
   </div>
 
   <div class="card">
-    <h2>🤖 AI 핵심 요약</h2>
-    <div id="summary" class="summary">데이터를 불러오는 중...</div>
+    <h2>🤖 AI 핵심 정세 리포트</h2>
+    <div class="summary-box">
+      <div id="summary" class="summary-content">데이터를 불러오는 중...</div>
+    </div>
   </div>
 
   <div class="card">
-    <h2>📑 분야별 주요 기사 목록</h2>
+    <h2>📑 언론사별 수집 기사 목록</h2>
     <div id="categories-container"></div>
   </div>
 
   <script>
-    let availableDates = [];
+    // 마크다운 문법을 HTML로 시각화 변환 함수
+    function parseMarkdown(mdText) {
+      if (!mdText) return '요약 내용이 없습니다.';
+      let html = mdText
+        .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+        .replace(/^## (.*$)/gim, '<h1>$1</h1>')
+        .replace(/^### (.*$)/gim, '<h1>$1</h1>')
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(/^\- (.*$)/gim, '<li>$1</li>');
+      
+      return html.replace(/\n\n/g, '<br>').replace(/\n/g, '<br>');
+    }
 
     fetch('./history/index.json')
       .then(res => res.json())
       .then(dates => {
-        availableDates = dates;
         const picker = document.getElementById('date-picker');
         if (dates.length > 0) {
           picker.min = dates[dates.length - 1];
@@ -71,9 +96,7 @@
           loadLatestData();
         }
       })
-      .catch(() => {
-        loadLatestData();
-      });
+      .catch(() => loadLatestData());
 
     function loadLatestData() {
       fetch('./data.json')
@@ -87,7 +110,7 @@
             }
           }
         })
-        .catch(err => {
+        .catch(() => {
           document.getElementById('summary').innerText = '데이터를 불러올 수 없습니다.';
         });
     }
@@ -98,11 +121,9 @@
           if (!res.ok) throw new Error("File not found");
           return res.json();
         })
-        .then(data => {
-          renderPayload(data);
-        })
+        .then(data => renderPayload(data))
         .catch(() => {
-          document.getElementById('summary').innerText = `${dateStr} 자로 수집된 아침 브리핑 기록이 없습니다.`;
+          document.getElementById('summary').innerText = `${dateStr} 자로 수집된 브리핑 기록이 없습니다.`;
           document.getElementById('categories-container').innerHTML = '';
           document.getElementById('updated-at').innerText = '데이터 없음';
         });
@@ -110,7 +131,7 @@
 
     function renderPayload(payload) {
       document.getElementById('updated-at').innerText = '수집 시각: ' + (payload.updated_at || '-');
-      document.getElementById('summary').innerText = payload.summary || '요약 내용이 없습니다.';
+      document.getElementById('summary').innerHTML = parseMarkdown(payload.summary);
 
       const container = document.getElementById('categories-container');
       container.innerHTML = '';
@@ -122,14 +143,43 @@
           catTitle.innerText = `■ ${category}`;
           container.appendChild(catTitle);
 
-          const ul = document.createElement('ul');
-          articles.forEach(article => {
-            const li = document.createElement('li');
-            const timeTag = article.pub_time ? `<span class="pub-time">🕒 ${article.pub_time}</span>` : '';
-            li.innerHTML = `<a href="${article.link}" target="_blank">${article.title}</a> <span class="badge">${article.source}</span> ${timeTag}`;
-            ul.appendChild(li);
+          // 언론사별 그룹핑
+          const grouped = {};
+          articles.forEach(a => {
+            const press = a.press_name || '기타';
+            if (!grouped[press]) grouped[press] = [];
+            grouped[press].push(a);
           });
-          container.appendChild(ul);
+
+          for (const [press, pressArticles] of Object.entries(grouped)) {
+            const pressDiv = document.createElement('div');
+            pressDiv.className = 'press-group';
+
+            const pressHeader = document.createElement('div');
+            pressHeader.className = 'press-name';
+            pressHeader.innerText = press;
+            pressDiv.appendChild(pressHeader);
+
+            const ul = document.createElement('ul');
+            ul.className = 'article-list';
+
+            pressArticles.forEach(article => {
+              const li = document.createElement('li');
+              li.className = 'article-item';
+              const timeTag = article.pub_time ? `<span class="pub-time">🕒 ${article.pub_time}</span>` : '';
+              li.innerHTML = `
+                <div>
+                  <a href="${article.link}" target="_blank">${article.title}</a>
+                  <span class="badge">${article.source.split(' ')[0]}</span>
+                </div>
+                ${timeTag}
+              `;
+              ul.appendChild(li);
+            });
+
+            pressDiv.appendChild(ul);
+            container.appendChild(pressDiv);
+          }
         }
       }
     }
