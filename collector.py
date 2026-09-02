@@ -11,17 +11,30 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from google import genai
 
+# 허용 언론사 및 도메인 매핑
 PRESS_DOMAIN_MAP = {
-    "chosun.com": "조선일보", "joongang.co.kr": "중앙일보", "donga.com": "동아일보",
-    "donga.co.kr": "동아일보", "hani.co.kr": "한겨레", "khan.co.kr": "경향신문",
-    "hankookilbo.com": "한국일보", "yna.co.kr": "연합뉴스", "newsis.com": "뉴시스",
-    "mk.co.kr": "매일경제", "hankyung.co.kr": "한국경제", "sedaily.co.kr": "서울경제",
-    "kbs.co.kr": "KBS", "imbc.com": "MBC", "mbc.co.kr": "MBC",
-    "sbs.co.kr": "SBS", "ytn.co.kr": "YTN"
+    "chosun.com": "조선일보",
+    "joongang.co.kr": "중앙일보",
+    "donga.com": "동아일보",
+    "donga.co.kr": "동아일보",
+    "hani.co.kr": "한겨레",
+    "khan.co.kr": "경향신문",
+    "hankookilbo.com": "한국일보",
+    "yna.co.kr": "연합뉴스",
+    "newsis.com": "뉴시스",
+    "mk.co.kr": "매일경제",
+    "hankyung.co.kr": "한국경제",
+    "sedaily.co.kr": "서울경제",
+    "kbs.co.kr": "KBS",
+    "imbc.com": "MBC",
+    "mbc.co.kr": "MBC",
+    "sbs.co.kr": "SBS",
+    "ytn.co.kr": "YTN"
 }
 
 ALLOWED_PRESS = list(set(PRESS_DOMAIN_MAP.values()))
 
+# 구글 뉴스 섹션별 Topic ID 및 사설 검색 쿼리 매핑
 GOOGLE_TOPIC_MAP = {
     "정치": "https://news.google.com/rss/headlines/section/topic/POLITICS?hl=ko&gl=KR&ceid=KR:ko",
     "경제": "https://news.google.com/rss/headlines/section/topic/BUSINESS?hl=ko&gl=KR&ceid=KR:ko",
@@ -32,10 +45,29 @@ GOOGLE_TOPIC_MAP = {
     "사설": "https://news.google.com/rss/search?q=intitle:%22%EC%82%AC%EC%84%A4%22&hl=ko&gl=KR&ceid=KR:ko"
 }
 
+# 네이버 API 키워드
 NAVER_KEYWORDS = {
-    "정치": "정치", "경제": "경제", "사회": "사회",
-    "생활/문화": "생활 문화", "IT/과학": "IT 과학", "세계": "세계 국제", "사설": "\"[사설]\""
+    "정치": "정치",
+    "경제": "경제",
+    "사회": "사회",
+    "생활/문화": "생활 문화",
+    "IT/과학": "IT 과학",
+    "세계": "세계 국제",
+    "사설": "\"[사설]\""
 }
+
+# 언론사 오피니언/사설/칼럼 제목 패턴 (일반 뉴스에서 강제 제외용)
+EDITORIAL_PATTERNS = [
+    r'\[사설\]', r'\[칼럼\]', r'\[시론\]', r'\[사설/칼럼\]', r'\[사설·칼럼\]',
+    r'\[데스크\s*칼럼\]', r'\[기여\]', r'\[여적\]', r'\[분수대\]', r'\[태평로\]',
+    r'\[광화문에서\]', r'\[시사칼럼\]', r'^사설\s*:', r'^칼럼\s*:'
+]
+
+# 사설(私設) 동음이의어 제외 키워드
+INVALID_HOMONYMS = [
+    "사설학원", "사설구급차", "사설탐정", "사설토토", "사설업체", "사설묘지",
+    "사설 학원", "사설 구급차", "사설 탐정", "사설 토토", "사설 업체", "사설 묘지"
+]
 
 HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
 
@@ -82,6 +114,28 @@ def is_within_24h_window(pub_date_str, run_type="realtime"):
     except Exception:
         return True
 
+def is_valid_for_category(title, category):
+    """
+    양방향 카테고리 검증:
+    1. '사설' 카테고리: [사설] 표기 필수 & 동음이의어(사설학원 등) 제외
+    2. '일반 뉴스' 카테고리: 제목에 사설/칼럼 식별 표기 포함 시 강제 제외
+    """
+    has_editorial_pattern = any(re.search(pat, title) for pat in EDITORIAL_PATTERNS)
+
+    if category == "사설":
+        # 1) 사설 카테고리에는 사설/칼럼 패턴이 없으면 제외
+        if not has_editorial_pattern and "[사설]" not in title and "사설:" not in title:
+            return False
+        # 2) 사설(私設) 동음이의어 단어 포함 시 제외
+        if any(word in title for word in INVALID_HOMONYMS):
+            return False
+        return True
+    else:
+        # 일반 뉴스 카테고리(정치, 경제 등)에 사설/칼럼 표기가 있으면 강제 제외
+        if has_editorial_pattern:
+            return False
+        return True
+
 def fetch_google_news(category, run_type="realtime"):
     max_per_press = 2 if run_type == "morning" else 1
     max_total = 12 if run_type == "morning" else 3
@@ -96,8 +150,12 @@ def fetch_google_news(category, run_type="realtime"):
             for entry in feed.entries:
                 pub_str = getattr(entry, 'published', None)
                 if not is_within_24h_window(pub_str, run_type): continue
+                
                 cleaned_title = clean_html(entry.title)
-                if category == "사설" and "[사설]" not in cleaned_title and "사설:" not in cleaned_title: continue
+
+                # 양방향 카테고리 검증 적용
+                if not is_valid_for_category(cleaned_title, category):
+                    continue
 
                 allowed, press_name = parse_google_publisher(cleaned_title)
                 if allowed:
@@ -133,8 +191,12 @@ def fetch_naver_news(category, run_type="realtime"):
             for item in res.json().get("items", []):
                 pub_date = item.get("pubDate")
                 if not is_within_24h_window(pub_date, run_type): continue
+                
                 cleaned_title = clean_html(item.get("title", ""))
-                if category == "사설" and "[사설]" not in cleaned_title and "사설:" not in cleaned_title: continue
+
+                # 양방향 카테고리 검증 적용
+                if not is_valid_for_category(cleaned_title, category):
+                    continue
 
                 link = item.get("originallink") or item.get("link")
                 press_name = get_naver_press_name(link)
@@ -165,7 +227,7 @@ def summarize_news(categorized_articles):
     if not api_key: return "GEMINI_API_KEY 설정이 필요합니다."
 
     client = genai.Client(api_key=api_key)
-    prompt_text = "다음은 수집된 최신 뉴스 목록입니다:\n"
+    prompt_text = "다음은 수집 필터링을 거친 최신 뉴스 기사 목록입니다:\n"
     has_valid = False
     for cat, articles in categorized_articles.items():
         prompt_text += f"\n[{cat}]\n"
@@ -181,6 +243,10 @@ def summarize_news(categorized_articles):
 {prompt_text}
 
 위 기사들의 내용을 바탕으로 출근길 업무에 도움되는 종합 브리핑을 작성해 주세요.
+
+[AI 이중 검증 규칙]
+- 일반 뉴스 카테고리(정치, 경제, 사회 등) 목록에 혹시라도 사설, 칼럼, 시론 등 주관적 논평 기사가 섞여 있다면 요약 대상에서 완전히 제외하세요.
+- '사설' 카테고리는 주요 언론사 논설위원들의 시각과 공통된 핵심 이슈를 중심으로 간결하게 요약하세요.
 
 [오늘의 종합 브리핑]
 전체 주요 흐름 요약 (3~4줄)
@@ -226,13 +292,12 @@ def main():
     today_date_key = now_dt.strftime("%Y-%m-%d")
     run_type = os.environ.get("RUN_TYPE", "realtime")
 
-    print(f"[{now_str}] 최신 뉴스 수집 시작 (모드: {run_type})...")
+    print(f"[{now_str}] 정밀 분류 수집 시작 (모드: {run_type})...")
     categorized_articles = fetch_all_news(run_type)
 
-    print("AI 요약 생성 중...")
+    print("AI 요약 및 이중 검증 중...")
     briefing_summary = summarize_news(categorized_articles)
 
-    # 1. 히스토리 폴더 및 일별 데이터 저장
     history_dir = "history"
     os.makedirs(history_dir, exist_ok=True)
     
@@ -243,13 +308,11 @@ def main():
         "categories": categorized_articles
     }
 
-    # 아침 브리핑인 경우 날짜별 파일로 아카이빙
     if run_type == "morning":
         daily_file = os.path.join(history_dir, f"{today_date_key}.json")
         with open(daily_file, "w", encoding="utf-8") as f:
             json.dump(daily_payload, f, ensure_ascii=False, indent=2)
 
-        # 날짜 인덱스(index.json) 업데이트
         idx_file = os.path.join(history_dir, "index.json")
         date_list = []
         if os.path.exists(idx_file):
@@ -260,12 +323,11 @@ def main():
         
         if today_date_key not in date_list:
             date_list.append(today_date_key)
-            date_list.sort(reverse=True) # 최신 날짜순 정렬
+            date_list.sort(reverse=True)
             
         with open(idx_file, "w", encoding="utf-8") as f:
             json.dump(date_list, f, ensure_ascii=False, indent=2)
 
-    # 2. 최신 데이터(data.json) 업데이트
     data = {"morning": None, "realtime": None}
     if os.path.exists("data.json"):
         try:
@@ -278,7 +340,6 @@ def main():
     with open("data.json", "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
-    # 3. 이메일 알림 전송
     tag_name = "아침 정기 브리핑" if run_type == "morning" else "실시간 브리핑"
     send_email(f"[{tag_name}] {now_str}", f"최근 업데이트: {now_str}\n\n{briefing_summary}")
 
