@@ -186,5 +186,185 @@
         "source": "Naver News"
       }
     ]
+  },
+  "realtime": {
+    "updated_at": "2026년 09월 02일 15:53",
+    "summary": "**[오늘의 종합 브리핑]**\n정기국회 개막과 함께 821조 원 규모의 예산안 및 주요 입법 과제를 둘러싼 여야 간 정치적 공방이 본격화되고 있습니다. 경제계는 중동 리스크 재발과 인플레이션 우려에 따른 글로벌 국채 금리 급등, 증시 변동성 확대 등 대외 불확실성에 긴장하고 있습니다. 사회·IT 분야에서는 산업재해 및 고령화 대책 소식과 함께 글로벌 빅테크의 의료 AI 시장 주도권 경쟁이 주목받았습니다.\n\n---\n\n**[분야별 핵심요약]**\n\n- **정치:** 821조 원 규모 예산안을 둘러싼 정기국회가 시작된 가운데, 대정부질문에서 중동 사태 대응과 추경안이 핵심 쟁점으로 떠올랐습니다. 대통령의 협력 의지 표명과 더불어 보완수사권 폐지, 기초연금 개편 등 주요 정책 현안 논의가 이어지고 있습니다.\n- **경제:** 중동 리스크 재발과 인플레이션 우려로 유가 및 글로벌 국채 금리가 급등하면서 세계 증시가 하락세를 보였습니다. 금융 시장에서는 변동성에 대한 경고음이 울리는 한편, 지배구조 및 디지털자산 관련 정기국회 금융 입법 향방에 관심이 쏠리고 있습니다.\n- **사회:** 경기 광주 쿠팡 물류센터 끼임 사고 등 안타까운 산업재해와 사건·사고가 발생했습니다. 또한 초고령사회 진입에 따른 요양원의 상업화 문제 등 사회적 돌봄의 민낯을 짚어보는 지적이 제기되었습니다.\n- **생활/문화:** 주요 뉴스 없음\n- **IT/과학:** 글로벌 빅테크 기업들이 단순 진단을 넘어 의료 생태계 전반으로 AI 영역을 확장하는 ‘의료 AI 영토전쟁’을 벌이고 있습니다. 구글 출신 이해민 AI수석의 행보 및 중국 테크 기업들의 홍콩을 통한 해외 진출 움직임도 주목받았습니다.\n- **세계:** 한국 식약처가 WHO 지정 규제역량 훈련을 맡게 되고 네팔 카트만두에 한국 해외 긴급구호대가 도착하는 등 국제적 비중이 커지고 있습니다. 한편 세계 해외 관광객이 14억 명을 돌파했다는 소식과 함께 여수 세계섬박람회 준비 소식 등이 전해졌습니다.\n- **오피니언:** 영국의 일제고사 실패 사례를 통한 교육 정책 제언, 역사의식과 민주화 20년에 대한 성찰, 그리고 칼럼니스트의 역할과 과거 논란 기사에 대한 시선 등 다양한 사회·정치적 현안에 대한 칼럼이 이어졌습니다.",
+    "categories": {
+      "정치": [
+        {
+          "title": "국회 정치·외교안보 대정부질문…정부 중동사태 대응·추경 쟁점 - 경향신문",
+          "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9iSFBHam5keXFpSmE5R3kwN0pQd2pyd1BZb245WnVGZU1iM0pkbUd4RE1RQnU3aGN0THFhdzZmbTB3bVdXVFJSTjlDM1I3RFRfY0JWOTh5M0NGZ9IBX0FVX3lxTE10TnZzRzFiMG1uRUZGbU5RTUVEbnJxa05wdjA0M2QzUFoxYnVWOGFFaEIyMlcybi1JbjZpM285UVBVdHcwWWx6WjZWTEpld3RzWWQ2eWhpY1RLSnBMOC13?oc=5",
+          "source": "Google News (경향신문)"
+        },
+        {
+          "title": "김민석 “보완수사권 폐지로 최종 정리…정부 입법 안 해” - 한겨레",
+          "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBLYXRxS2p5Q0lUbzVFbm12R3RKa09rX3h6MXh3TWU1Wjc0NGRWbF8zaW9nWC1rc2FKN1lWdy0wM240bHZNd0kya0psTVl4c0JsWU1hY1FLekhPVURZOVZQcjdDRVlEcHZxVUE?oc=5",
+          "source": "Google News (한겨레)"
+        },
+        {
+          "title": "'국회 부의장 출마' 남인순, 민주당 의원에 친전…\"李정부 성공 뒷받침\" - 뉴시스",
+          "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5ZWG5PNHh1dnQwaDg5dWo5eUxnaV9EdDktWDY0MWlKSllWZmgwRzFudndQZDFodjRJZHBzd2tqNGNZQlc4cXVfb1hNNDJIWDBCUFc0WDNJYU84TFI1d0RnWdIBeEFVX3lxTE0wSElHMkxxNVA0YWtXS2VYc3NhdWRTQzBmZFhQRXVsams2Tzh6VFFldDF0OTJBVG92TmhHOGFsWUNScktuWG5ZSUtBSnVVT1FTYnBBNzc3U2FpNW1CRlM1dm8tU3RjdXdEMm50dEpDM0RpVUJVVEJmQg?oc=5",
+          "source": "Google News (뉴시스)"
+        },
+        {
+          "title": "1년 반 뒤 총선인데…기초연금 개편안, 국회 문턱 넘을까[기초연금 개편...",
+          "link": "https://www.newsis.com/view/NISX20260901_0003771370",
+          "source": "Naver News (뉴시스)"
+        },
+        {
+          "title": "821조 ‘예산 전쟁’ 시작…李정부 두 번째 정기국회 막 올랐다",
+          "link": "https://www.mk.co.kr/article/12141442",
+          "source": "Naver News (매일경제)"
+        },
+        {
+          "title": "이 대통령 “정부 혼자 ‘완벽할 수 없다’ 인정하고 정치권과 협력”",
+          "link": "https://www.khan.co.kr/article/202609011653001",
+          "source": "Naver News (경향신문)"
+        }
+      ],
+      "경제": [
+        {
+          "title": "[뉴스AS] “학자금대출 안 받아도 된다”…우리아이자립펀드, 부모 관심·상품성이 관건 - 한겨레",
+          "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBxclpHRnRNMHA5YVEzNUprU2daNGtUOGR3OW5XODBpTDl6SWhFZk5TZkd1djdWWU1mMHphb09CSENRX2g3Y0dkZ2xBVVZGb0RrM21rQmdHZk9La3hQTmNyT3JPSGUzdGs?oc=5",
+          "source": "Google News (한겨레)"
+        },
+        {
+          "title": "한국증권금융, 연 2.96% 모바일 파킹통장 출시 - 서울경제",
+          "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFAzQTFjYXJlOGFJWmE4eDV1S01aX1E2VzlTcG5sVkZQbHlTR0JkdFdpZUlvcTZhMjFtY0RuZ3NlUm5PRm42dGRObnJUWVNQRHVHc1HSAVNBVV95cUxNU18xbGlmOTBqRE9RbGlOcWNnbVF1VHNaOV85ZnVwZkhrY1RiYWtyU2M0MERQblBHX2xIX1E5Rzl3dEZmT0plcXM2Z3MzTGZuQzJscw?oc=5",
+          "source": "Google News (서울경제)"
+        },
+        {
+          "title": "“韓 증시 변동성이 전체 금융시장 흔들어” 블룸버그의 경고 - 서울경제",
+          "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1BNUZhal9QZ1JOVVQwUTFiSE1pM1pFOXNOZGRZakFEMDVNOTAzZ09qVUxfcG1RNTVGOGFuVHRlaXV6MDY2RndUQVJveDllcm9UdHfSAVNBVV95cUxOb0diZ1JHYjdVQXhXUmQzUHg2RDRYNE1xTlJVcWxVMTNUaUxzNDNEOVhZWVl4dGw2SVBsWWdjeDMyR3VHb214MXVHSS1vV2IyQXR4SQ?oc=5",
+          "source": "Google News (서울경제)"
+        },
+        {
+          "title": "되살아난 중동 리스크…유가·국채금리 급등에 세계증시 '덜컹'",
+          "link": "https://www.yna.co.kr/view/AKR20260902082500008?input=1195m",
+          "source": "Naver News (연합뉴스)"
+        },
+        {
+          "title": "인플레이션 우려에 글로벌 국채 금리 급등...뉴욕 증시 하락",
+          "link": "https://www.ytn.co.kr/_ln/0104_202609020730094787",
+          "source": "Naver News (YTN)"
+        },
+        {
+          "title": "정기국회 막 올랐다…지배구조·디지털자산 등 금융입법 주목",
+          "link": "https://www.newsis.com/view/NISX20260901_0003771155",
+          "source": "Naver News (뉴시스)"
+        }
+      ],
+      "사회": [
+        {
+          "title": "'통영 60대 살인 사건' 용의자를 찾습니다… 경찰, CCTV 공개 - 한국일보",
+          "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBwakNGcUZOU09oM3loRDhGWTl4NWhmSl9LU0VKZGs4dnpURm4xM1NPbXl6SHBXRGxNMUVBLWgybEhaaXJxQmlvQzJ6XzVYVjJpRzRpTEllcEhXOVR6Rl9LUzI5czdIUFZGY040aUpR0gFzQVVfeXFMUFZOWTYtdDUwYVNHTWZqbFVVWndzWmdnSWdDUVVKN0VBMHN6NmFWWEdCWF9PODRwVTVWVEVPbEFBNFBmTTgzLXNaQlhTTXdwZGNGbHB0NUxzVmhLZUlMV1FwY2t2Umxtc2ZOSkU2bjdjTU5tZw?oc=5",
+          "source": "Google News (한국일보)"
+        },
+        {
+          "title": "경기 광주 쿠팡 물류센터에서 40대 끼임 사고...심정지 이송",
+          "link": "https://www.ytn.co.kr/_ln/0103_202608231456242917",
+          "source": "Naver News (YTN)"
+        },
+        {
+          "title": "사건 기록으로 만나는 19세기 서울…내달 4일 서울역사학술대회",
+          "link": "https://www.yna.co.kr/view/AKR20260827178800004?input=1195m",
+          "source": "Naver News (연합뉴스)"
+        },
+        {
+          "title": "‘추적 60분’ 초고령사회의 민낯 3부작 - 3부 ‘돌봄 장사’ 요양원과...",
+          "link": "https://sports.khan.co.kr/article/202608281832003?pt=nv",
+          "source": "Naver News (경향신문)"
+        }
+      ],
+      "생활/문화": [
+        {
+          "title": "생활/문화 분야 지정 언론사 최신 기사가 없습니다.",
+          "link": "#",
+          "source": "System"
+        }
+      ],
+      "IT/과학": [
+        {
+          "title": "구글 출신 이해민 AI수석이 짊어진 '두 과제'",
+          "link": "https://it.chosun.com/news/articleView.html?idxno=2023092169165",
+          "source": "Naver News (조선일보)"
+        },
+        {
+          "title": "진단 넘어 의료 생태계까지…글로벌 빅테크, 의료AI 영토전쟁 [환자 곁...",
+          "link": "https://it.chosun.com/news/articleView.html?idxno=2023092167434",
+          "source": "Naver News (조선일보)"
+        },
+        {
+          "title": "홍콩, 中 테크기업 해외 진출 도약대로 변신",
+          "link": "https://www.chosun.com/economy/tech_it/2026/09/01/CLREB5JCR5C3THZLNGDMPOXURU/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
+          "source": "Naver News (조선일보)"
+        }
+      ],
+      "세계": [
+        {
+          "title": "제11회 울산울주세계산악영화제 방문 해외 게스트 라인업 공개 - 연합뉴스",
+          "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1xQjhNUXR3NkZFNl9CbFVhak9VTExnUVJTVGl5N2dCcFd2c0FKOFVTWTNWU084RWFVX2ZQNzRpV0xQVHhDWFk1U3FpUjU0akVmVXU3c1p0d25Db0nSAWBBVV95cUxQaEJua0hHa3BvZDRYejIzdW5zODhjZHlZbnBzalA0NmJNSzVHcl9DZDVfYTNqeDZKNmpTbi1YcHZmU1p6bWx1UVEwckc2TDBGRldubk1lUDVEYS01aDUwc2c?oc=5",
+          "source": "Google News (연합뉴스)"
+        },
+        {
+          "title": "세계 해외관광객 연간 14억명 돌파 - 한겨레",
+          "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1SVEdOcGt1NDEwVGI0eHlYWHJSckg3T3NhUm0yRzVKeUhNWWRTYVJTYk9YWDJGdGhxZElVYlZjbGZfUjB2clVmNm1yREluZFhiTG9RSC1uNGFPMHlNd1dNWWlBdXI?oc=5",
+          "source": "Google News (한겨레)"
+        },
+        {
+          "title": "세계부동산연맹 한국대표부, 해외동포 국제복합도시 해외 투자 유치 - 중앙일보",
+          "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5GNkJVd2RkXzJvZ21kODc2dGU3c2kwOHRMcDJSYk4wSWxzSFU4clBjTjNvdHFFOHV1M0ljaWdiMkY1Qlc5cjdpUHF3MDNBOWZHbFZmdHpR?oc=5",
+          "source": "Google News (중앙일보)"
+        },
+        {
+          "title": "\"WHO 첫 지정\"…식약처에 '규제역량 훈련' 맡긴다",
+          "link": "https://www.newsis.com/view/NISX20260902_0003772839",
+          "source": "Naver News (뉴시스)"
+        },
+        {
+          "title": "미리 본 여수 세계섬박람회…뻥뚫린 조망 '합격'·콘텐츠 '글쎄'",
+          "link": "https://www.yna.co.kr/view/AKR20260901130100054?input=1195m",
+          "source": "Naver News (연합뉴스)"
+        },
+        {
+          "title": "한국 해외 긴급구호대 카트만두 도착...\"시간과 싸움\" [뉴스퀘어 2PM]",
+          "link": "https://www.ytn.co.kr/_ln/0104_202609021421432640",
+          "source": "Naver News (YTN)"
+        }
+      ],
+      "오피니언": [
+        {
+          "title": "[시론] 오바마는 ‘좌빨’ 아닌가? / 조국 - 한겨레",
+          "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9TMFlCdVFzQjYzcVktVndvZDlTQ2lpb2c1bU5WOUlBSVg5bGJsUGtibjJyUncyXy1XTWFsVFdoU25jamhHLURvZm5ENndkTWd0UDhONV9oQjhfbE96N25jeGdRbEo?oc=5",
+          "source": "Google News (한겨레)"
+        },
+        {
+          "title": "[시론] 역사를 두려워하라 / 김삼웅 - 한겨레",
+          "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE96a0NTSUozUElKcjBPMlI4dGdXcWVCOTZacnZubmgwM0ZuUzNybEZ4V01UOEFfTUpGTmRxdW05ZXZyeEpveHJaVUVPcDZ5U0RYdHZrZzR2dkpnbThXOWVmVm9Bazg?oc=5",
+          "source": "Google News (한겨레)"
+        },
+        {
+          "title": "[시론] 일제고사, 영국의 실패에서 배우자 / 하태욱 - 한겨레",
+          "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9SNmR5SDdwdnkzcjFVa0RxV1BYdFR3OXRUbzdseW1LYTYxOEFjVEdyMU1EV1lIU0MwZ0ExejJ5Q0t1bm0ycTlQZjhHTHcwOFZ4cjZrMERQaXBPMWNkc2JzQU1uQVE?oc=5",
+          "source": "Google News (한겨레)"
+        },
+        {
+          "title": "[율곡로] 칼럼니스트는 무엇으로 사는가",
+          "link": "https://www.yna.co.kr/view/AKR20251107074400546?input=1195m",
+          "source": "Naver News (연합뉴스)"
+        },
+        {
+          "title": "중앙일보 시론 “리스트 사실이라면, 장자연은 대스타 됐을 것” 논란",
+          "link": "http://star.mk.co.kr/star_today_view.php?sc=41100001&cm=스타투데이-방송&year=2009&no=175222&selFlag=sc&relatedcode=&wonNo=&sID=507",
+          "source": "Naver News (매일경제)"
+        },
+        {
+          "title": "‘민주화 20년의 열망과 절망’을 읽고",
+          "link": "http://www.khan.co.kr/kh_news/art_view.html?artid=200702271823451&code=210000",
+          "source": "Naver News (경향신문)"
+        }
+      ]
+    }
   }
 }
