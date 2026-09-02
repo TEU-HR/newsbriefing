@@ -11,7 +11,6 @@ from datetime import datetime, timezone, timedelta
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
-# gTTS 안전 임포트
 try:
     from gtts import gTTS
     HAS_GTTS = True
@@ -52,7 +51,7 @@ def is_duplicate_title(title1, title2, ratio_threshold=0.55, jaccard_threshold=0
             return True
     return False
 
-# --- 2. Gemini 클라이언트 및 모델 호출 ---
+# --- 2. Gemini 클라이언트 및 백업 모델 다중 호출 ---
 def get_gemini_client():
     api_key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
     if not api_key:
@@ -74,29 +73,29 @@ def generate_gemini_content(prompt):
     if not client:
         return f"Gemini API 키가 없거나 SDK 설정이 올바르지 않습니다. (상태: {sdk_type})"
 
-    model_name = "gemini-3.6-flash"
-    max_retries = 3
+    # 메인 모델 서버 지연/과부하 시 순차적으로 대체 모델 사용
+    candidate_models = ["gemini-2.5-flash", "gemini-2.0-flash", "gemini-1.5-flash"]
 
-    for attempt in range(1, max_retries + 1):
-        try:
-            print(f"🤖 AI 생성 시도 중... ({attempt}/{max_retries}회차, 모델: {model_name})")
-            if sdk_type == "genai":
-                res = client.models.generate_content(model=model_name, contents=prompt)
-                if res and hasattr(res, 'text') and res.text:
-                    return res.text
-            else:
-                model_obj = client.GenerativeModel(model_name)
-                res = model_obj.generate_content(prompt)
-                if res and hasattr(res, 'text') and res.text:
-                    return res.text
-        except Exception as e:
-            print(f"⚠️ {attempt}회차 호출 실패: {e}")
-            if attempt < max_retries:
-                time.sleep(attempt * 4)
+    for model_name in candidate_models:
+        for attempt in range(1, 3):
+            try:
+                print(f"🤖 AI 생성 시도 중... (모델: {model_name}, {attempt}/2회차)")
+                if sdk_type == "genai":
+                    res = client.models.generate_content(model=model_name, contents=prompt)
+                    if res and hasattr(res, 'text') and res.text:
+                        return res.text
+                else:
+                    model_obj = client.GenerativeModel(model_name)
+                    res = model_obj.generate_content(prompt)
+                    if res and hasattr(res, 'text') and res.text:
+                        return res.text
+            except Exception as e:
+                print(f"⚠️ {model_name} {attempt}회차 실패: {e}")
+                time.sleep(3)
 
     return "AI 요약 생성 중 오류가 발생했습니다."
 
-# --- 3. 뉴스 수집 (웹 UI 카테고리 구조 반영) ---
+# --- 3. 뉴스 수집 (카테고리 분리 구조) ---
 def fetch_naver_news_by_categories(category_map, display=10):
     client_id = os.environ.get("NAVER_CLIENT_ID", "").strip()
     client_secret = os.environ.get("NAVER_CLIENT_SECRET", "").strip()
