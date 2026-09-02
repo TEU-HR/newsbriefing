@@ -1,0 +1,309 @@
+{
+  "date": "2026-09-02",
+  "updated_at": "2026년 09월 02일 16:21",
+  "summary": "[오늘의 종합 브리핑]\n오늘 아침 뉴스는 800조 원대 ‘슈퍼 예산’ 심의와 검경 개혁 등 주요 국정 현안이 주를 이루고 있습니다. 산업계에서는 중국의 반도체(HBM3E) 추격과 삼성전기의 AI용 MLCC 1조 수주 등 기술 경쟁이 치열한 가운데, 외교·안보 면에서는 국정원의 ‘김주애 북한 후계 내정’ 분석 및 미북 정상회담 타진 기류가 눈에 띕니다. 주요 사설들은 정책실장 사퇴에 따른 국정 공백 방지와 대형 예산안의 신중한 운용을 강조하고 있습니다.\n\n---\n\n[분야별 핵심요약]\n\n- **정치**: 민주당 지도부의 세종행 예산정책협의회 개최, 국정원의 \"김주애 사실상 후계 내정\" 보고 및 미북회담 가능성 제기, 선관위 특검보 5명 임명(4명 검사 출신) 등 인사·개혁 현안이 이어졌습니다.\n- **경제**: 미 재무부의 엔화 저평가 지적 속 환율 주시, 중국의 HBM3E 내년 양산 등 반도체 기술 추격 심화, TCL의 미니LED 허위광고 소송 등 한중 기업 간 견제가 치열합니다. MZ세대를 겨냥한 15도 저도주 경쟁도 눈길을 끕니다.\n- **사회**: 정부의 800조 원대 '슈퍼 예산' 심의 착수, '서울대 10개 만들기' 사업의 3개 거점대(부산·전남·충남대) 확정, 중수청 이관 검찰 인력 대폭 철회 등이 주요 이슈입니다. 9월 첫날 중부 강한 비, 남부 늦더위 날씨가 예보됐습니다.\n- **생활/문화**: 류준열 주연 넷플릭스 '들쥐' 세계 8위 등 K-콘텐츠 호조, '박위 KTX 사고'로 재점화된 장애인 이동권 논란, 8조 원 규모로 성장한 중국 숏폼 시장 현황 등이 전달되었습니다.\n- **IT/과학**: 삼성전기의 AI용 MLCC 1조 원 대형 수주 달성, AI 시대 데이터센터 연결성 중요성 대두, 미국 재정 흔들림에 따른 'ABD 투자' 부상 및 오리 로봇 관련주 강세 소식이 있습니다.\n- **세계**: 백악관의 북한 내 미군 유해 발굴 문의 등 미북회담 준비 기류, 미 차세대 핵심 부대의 한국 배치 소식, 미중 정상회담을 앞둔 시진핑 주석의 세 과시 외교가 조명받았습니다.\n- **사설**: 김용범 정책실장 사퇴 및 세제 개편 철회에 따른 국정 혼선 방지와 청와대 주도 인사에 대한 경계, 반도체 특수에 기댄 800조 예산의 나랏빚 상환 활용 당부, '서울대 10개 만들기'의 실질적 지역 살리기 거점화 촉구 등이 담겼습니다.",
+  "categories": {
+    "정치": [
+      {
+        "title": "김민석 대표 등 민주당 지도부 세종행…오늘 최고위·예산정책협의회 개최 - 경향신문",
+        "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE15LV9RR21OU3BzYnBrOWQtc1lwcG9jaWZIbWwtRVUtVmdtR282TGxtWjBnM2VVQjEwRlpKRkZjV2xoTDlNVlFtZFFiNEZiZzloTEZWTmlrODJWd9IBX0FVX3lxTE9QejE4eGhzbWEzODVEMlBIeHl4c0hJMlZwSnlLOTVYV0NzWFc4bjA2UVpWbExZcllUd0MxUUZoamJjQW1HSW1rNjZGeTR3X29QS215TDBTd1p2dWhGSVdz?oc=5",
+        "source": "Google News (경향신문)",
+        "pub_time": "09월 02일 07:44"
+      },
+      {
+        "title": "[사설] 기소유예 법무장관, 여성단체가 반대하는 성평등장관 - 조선일보",
+        "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQUUhWWHNYdUJIazRaeEJNblNSUl8xNloySDR5d1JVaXlUaElhVTY2SGxFNmcxd2MydjZVX2JmMFJ5NmszdUlwLUh3MGhpSnZrR3hDRnExbHhLTmlneUV6WGdWUjhSN1ZWaUV3RVFYWXNZTW5mMlBPQU1zdU1WLTBPVHMtTEhDZw?oc=5",
+        "source": "Google News (조선일보)",
+        "pub_time": "09월 02일 00:06"
+      },
+      {
+        "title": "[태평로] 경찰·중수청, 결국 정권 전위부대 될 것 - 조선일보",
+        "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOT25GdnUxY3JhUmlKMUdpQnU5cTBIc3pTWVZOUGtEOTktTTNCVkpqS1lDbFlmRVFySWY3RXFFcWVhUzM0bHpNSGFhZk5iaExkcGxwYTNKT2RucHVjd1ZJRzhJWG1xTk1nbkZoZVRUY2hoNHh4QlI2aXVicGxyNDNIQnh4aWIzeDJo?oc=5",
+        "source": "Google News (조선일보)",
+        "pub_time": "09월 01일 23:50"
+      },
+      {
+        "title": "李, 선관위특검 특검보 5명 임명…4명이 검사 출신 - 동아일보",
+        "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE50RUFmWjJ2ZG9TZnk2TXhpR1NpM2VkM1ZFQXN3YTRZaXBWcmRhOXgxLTgxaGd0cXd5aUVfck1PNFBkQV9uaU0wSVJMRjhYWERmX0pvblYwbnRHSGFEVGp5NlUybkd1ODM4ZlE1ZVBDVVVSOXBRc0HSAWZBVV95cUxQanpZUmdQX1lzUTIxd0laRzBUVGxiaHREb2xYZkpsWm85NGp4aHlLZm5JQlNTRERfdmUybnF1bzlzU182MU53dFhYaGZkOU14Rms5Y0UyakVuTm04OE9NWjZJR2hpTFE?oc=5",
+        "source": "Google News (동아일보)",
+        "pub_time": "09월 01일 22:43"
+      },
+      {
+        "title": "이 대통령, 국가지식재산위원장에 계승균 교수 지명 - 한겨레",
+        "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1kem95bTZLTkFoLUFRM1JCVzBmV1dQbkJXUm1iUUtQbHVSc0dKNHFBREx5Xy05dVhRLWp5bHhoQ3UxMXRFSnZHYTRxSXJ1Y20tNFE2dDBTUWkxaDlRSXVuSklvdHZfMlZZcFdB?oc=5",
+        "source": "Google News (한겨레)",
+        "pub_time": "09월 01일 16:24"
+      },
+      {
+        "title": "[속보] 국정원 \"김주애 사실상 후계자 내정 단계\" - 연합뉴스",
+        "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5WWkpxT3h3VWo5VTJyXzVINlVoTHU2bkJxSEgzQnFDcUZpc2VqTlpra1FZUDdtQkRqWkh1Qk1LcmItVUpjSzRyUWM3SFBjR3dXRXk5cWhSREFyUHPSAWBBVV95cUxNWUo5YldGUTIyajBud1dYU3h3UklqamhNQ0F1QUZBV0k5dTZ5UE9CeFUtbXRNSzk3NFhPdFk0dmZ1dHY0cWFxcEUzQlJuTkJVQVZrMGMzQm1RNDBtMnJKUEU?oc=5",
+        "source": "Google News (연합뉴스)",
+        "pub_time": "09월 01일 12:33"
+      }
+    ],
+    "경제": [
+      {
+        "title": "미 재무 \"엔화 상당히 저평가\"...일 \"건전한 통화정책 수립해야\" - YTN",
+        "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9fNlhISWI4X1BFV1kzekpGYWhlMHhTQ2Q2YjNkZTZITDRXUEM3NkYxOHFYZk9oYXhMU1JDMVpIRmZmb1hJRlI5X2s4ZmZLVEtZRFM5SEo5Uk53Qm1HSmc?oc=5",
+        "source": "Google News (YTN)",
+        "pub_time": "09월 02일 06:18"
+      },
+      {
+        "title": "“삼성전자 TV 저격한 중국 업체”…中 TCL, ‘미니LED 허위광고’ 소송 - 매일경제",
+        "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE43dFFsdkJXRTFIUUdaeUkyeDNtU1Vwa2RfRV9RTkdzcmVEVGVYd2RleF82OGpVNmhBYXYzWU92Q3RmcmVOeWNWWnNhM25pVWNXdGc?oc=5",
+        "source": "Google News (매일경제)",
+        "pub_time": "09월 02일 06:22"
+      },
+      {
+        "title": "도쿄 한복판에 성수동 그대로 옮겼더니…日 1020 '우르르' - 한국경제",
+        "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1NRGdDWGR3MlRST1dRaGNCQ21RVDFyVWhlcERSUFZkdVhVYlBUaTNaOXhqYWZJMHdSc2hVaDEydmUwUnhLMnBhb3VoMEl1dW9lNXhpMktmdGIxZw?oc=5",
+        "source": "Google News (한국경제)",
+        "pub_time": "09월 01일 08:21"
+      },
+      {
+        "title": "“중국 반도체 너무 무섭습니다”…삼전닉스급 HBM3E 내년 양산 - 매일경제",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9PdVNNVVBnWlRnT1dxRUhjVENLMHpOV3lISkZ0bjBDQjBMV2hmcVhsMmVCZXFuaXdHTWRoc3BwdmNhdmRna1VfUENIZWVSSGw3X3NQcDZn?oc=5",
+        "source": "Google News (매일경제)",
+        "pub_time": "09월 01일 18:17"
+      },
+      {
+        "title": "15도 소주까지 나왔다... MZ 입맛 겨냥 ‘순한맛’ 경쟁 - 조선일보",
+        "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5zVTdoR05yOWtnbWd0alRCZU85S1lqSUJtYTZBVzdzaTUwSTgyYjJoYkVvc3dVS1dkNG8zeEx2YWs5a3h6RmJTMmFMejVyS3VZZl9tUGhKSHpVOXgtU0xPT05BM1BNdVh4TjRTMExDeDZGeTNZN2xCNw?oc=5",
+        "source": "Google News (조선일보)",
+        "pub_time": "09월 01일 16:01"
+      }
+    ],
+    "사회": [
+      {
+        "title": "김성수 대법관 후보자, 강남 아파트 임차 거주…재산 5억8000만원 신고 - 동아일보",
+        "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBWNUVaeHB3T2pfbmE5bEVzcGIyVnJTYk9pUzFRRjIxVDlCZ1AzRk5oZXFWemx1YW4xMHNKM2VqUVozREtTdXFHZ2s1QjFyNGZfM1JsQk1hMUtQRXVGcXZ4N0IxQVdsSEtfazY0dDNhQnA5b2YtN3fSAWZBVV95cUxQU2NrbDJYWFpFVTYxRFJ6cThLVnB0Y2NlLXdtNkN6czhQMkFzeGxiRGVhWFdPcFVXeXJaSHNvaXNSWXdlVHZPUWF2RjVIU2JGMU9vUjh0UHdJbXRfMTg4UkNDbmZzdlE?oc=5",
+        "source": "Google News (동아일보)",
+        "pub_time": "09월 01일 21:42"
+      },
+      {
+        "title": "김민석 \"총리 시절 경찰개혁 당부했는데… 6대 폐단 뿌리 뽑아야\" - 조선일보",
+        "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQV29WZVlfRG9uN0t6N1RwNDJFSkFvWFBTcXRzV0NkT3NsRWZXV2lTOS1tdDBEUzRWZGVMRXhXWG96YV9XWUxFV1pXN29tT1VESGRxVy1pRnlscmNKbVlhNHpXMm9Fel9OTEVKeS1NbDJIVUFWekZiVEM2NDYzVmR2V3ZnRm00UQ?oc=5",
+        "source": "Google News (조선일보)",
+        "pub_time": "09월 01일 17:40"
+      },
+      {
+        "title": "9월 첫날 ‘가을장마’…중부엔 강한 비, 남부는 33도 늦더위 - 한겨레",
+        "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBTV2VYNWc3Y3FxNVFjV2dlYVBzc3NlLTVFQVQzTFF6OU9mWTV5aE5JdV95MGMtQ0stMTByY0pmYW90M2M0Yk1PRU9OR0J3MjM0UDhiR2I0RU4taGRDbmMyTG1iNDRidzVSVGsyMg?oc=5",
+        "source": "Google News (한겨레)",
+        "pub_time": "09월 01일 08:19"
+      },
+      {
+        "title": "중국인 유학생 살해 피의자 ‘31세 남성 정창성’ - 경향신문",
+        "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1nbTh1YVhaWWJhc3RnWkd6VHVDTkVkd3hBVEtIZ3RWTHByUmp4aFU1eHJYaktlRDRFTmFIQzhwc3hVUE1KSjk2UUtDUV9ZMmdoWW5PNGtUMl92Z9IBX0FVX3lxTE43Q1phZ2h1VnlfT3lLVmRUT0FndFlJVXZneUstdlc1UVlCcThjaDViTG8wdFp3eFlRRlFxbkZiUDB6cjA3QXUtdnkxVFFFRTk0VUI3bkpsR2ZQaUt6d2pB?oc=5",
+        "source": "Google News (경향신문)",
+        "pub_time": "09월 01일 09:19"
+      },
+      {
+        "title": "비거주 1주택 종부세 공제 12억 유지 - 한국경제",
+        "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE43M1R2aU9BcHdZaVlqb0VMb1czc1M4Zkd6Zy1QZlhxX3NOYWZSaWlHMHlBTzFjeEhtUGRYejJmaDBHOFlHanVjb2JjbkxiSjBkeXB3cTdZTTEyQQ?oc=5",
+        "source": "Google News (한국경제)",
+        "pub_time": "09월 01일 17:45"
+      },
+      {
+        "title": "[정우상 칼럼] ‘상왕’ 柳 비판에 굴복… 李 대통령 ‘좌회전’ 시동 걸었다 - 조선일보",
+        "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOX0FEeDZqZkFlN1lNbVNkMTVKV0Zud3VITzZGT3pfVDJRWlJGbmJpamJuYUZMamloN3FwUlF0SXgxclRQaXRjWFpOUTRMTEFrbGd1cW9SNG91ZE1ZeFNtUEotX0txX2FzY3pKV2wzZE1Db05nU3RPTkNwSkFFUzdULTRB?oc=5",
+        "source": "Google News (조선일보)",
+        "pub_time": "09월 01일 23:55"
+      },
+      {
+        "title": "'서울대 10개' 견인할 3개 거점대 확정…부산대·전남대·충남대 - 한국경제",
+        "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5jaVVoNUZhVWhvV0tTbmxSUTYyRGVDbWd5Uy1leHJyY3RCNjc2V19IRUpSSUN5Ykc1dDUwM2pzMXhHS1R1N2JiZnp2M3A4QlRlLTd3amp0U183Zw?oc=5",
+        "source": "Google News (한국경제)",
+        "pub_time": "09월 01일 17:03"
+      },
+      {
+        "title": "이 대통령 “내년 예산, 초격차 도약 디딤돌”… 800조원대 ‘슈퍼예산’ 심의 - 한겨레",
+        "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTFB0TEdldHE4WDRBYmVHUGJZNmtJbjU1c0c3VllaZW91Z2MzX3JMRXdmVmVqazJ6ME5iRmFWbHhFOGkwZzJZdWRmQWkyTEFmRVhhaVFEa2o0eFNnNjJjZGhpaWpxVkdMSENZeWc4?oc=5",
+        "source": "Google News (한겨레)",
+        "pub_time": "09월 01일 17:52"
+      },
+      {
+        "title": "중수청 간다던 검찰인력 615명이나 철회…공소청 직제 영향 관측(종합) - 연합뉴스",
+        "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBobGdSLV9UdDN4UTF6YjU5N3hIMXdaSGpIcEs5bjdYazh1c3F3VWtIRjhZTlptT19pT2ZybmhoUG95WXRjamNNSm45eTZfQ2NnMVl6Y2dyaVg2VGfSAWBBVV95cUxNbTZSRm1VRVdXQ2VmNGZxNFMtUWVDY2l6ZGRtVVg4TU54bDMtLUFwZHZ6eFp2UVhReUFQLUUtTVo3MmpqSXo4akRQaWFWYVJhSGxTTjdLVy1TdFZTWm1YSWM?oc=5",
+        "source": "Google News (연합뉴스)",
+        "pub_time": "09월 01일 17:58"
+      }
+    ],
+    "생활/문화": [
+      {
+        "title": "장애인 혐오로 번지는 ‘박위 KTX 사고’…“안전한 이동권 본질은 뒷전” - 경향신문",
+        "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE10YlEtSUZxN01fWTVDQjNsOEZ2RWZtVHVoTlpnU2xKcktYVEROdkpWQ1h1eHFzUDZqWVRYOWVzS2Z4Y2w1T0ctaXdxcHVpMVZDTGdrRC11NmRqd9IBX0FVX3lxTFB4U1EwbS0wdU9GVHRQUzVaM3RmcEZRay1DNFAxYnpIdWZOQWs3dkVLSURxeHVpQXk5RTk5T2wwU2hRSWFaVFVmZnRMWFF4MmxjbTBRUUVjWVgybWl4ODlr?oc=5",
+        "source": "Google News (경향신문)",
+        "pub_time": "09월 02일 06:00"
+      },
+      {
+        "title": "[그 영화 어때] 사랑을 빌었는데 고약한 것이 왔다, ‘옵세션’ - 조선일보",
+        "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNSkxyX0ZNRl9NTmJuRGFzd293N1NhSENoU0ZLWEJ6OTQteE1qOHF6Q1ZWWDVqSzIydUp4Q2VSSEtma0REcVI0dTJDZ3ZXdHpRNC11NFRLX0tvaEF2bjBsWFAtZEo5Wmdla1ZzaGNLNDQtaFRER091dHp2Rm9tMkRwR2Nxc3NrVnMwSFlWbVFCQ0ZUQmpH?oc=5",
+        "source": "Google News (조선일보)",
+        "pub_time": "09월 02일 06:08"
+      },
+      {
+        "title": "1인2역 류준열 ‘들쥐’, 넷플 세계 8위…“메시의 삶 궁금해요” - 한겨레",
+        "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE1oTFJjcmVHbmk4cEZGODhBY1NrbDZoU3gzQzNWc2Ffa0Q5STJSRmo0V25lU0x0VUJrbWpnRHI5RU1EU1BCYnZFNmJjaHZIdzdTQkRRUXNZRlF4bmxBMS1uM1hzWG1oT2U3a25wZzBURFdmQQ?oc=5",
+        "source": "Google News (한겨레)",
+        "pub_time": "09월 01일 21:19"
+      },
+      {
+        "title": "\"中 숏폼 드라마 시장 8조원 규모로 성장…98.7%는 투자 손실\" - 연합뉴스",
+        "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBhQ3UzMGltVXc3Y01icy03S2lWSW5rTzZJdnJfUzZ2U1R6S2xlRklNc0hXd3FPOFItaE56VHJZcVNVX215N1VieVk4a1hEZXlMVngzZnlqVW1tNzDSAWBBVV95cUxOWlBwZzZkbEpqU0g2bFBwNGhRSHRZTTZGNWtFQW5UX2dzS05yU1FYX29ZQU02WTFjMXZLalh5VUNRUkxwUTR4OU9yYXY0bVgxOGloU2Y3MHBLNVEySlVxNE8?oc=5",
+        "source": "Google News (연합뉴스)",
+        "pub_time": "09월 01일 14:02"
+      },
+      {
+        "title": "이지혜 유튜브 PD, 6억 대출받아 9억 아파트 매입…현재 14억 - 한국경제",
+        "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE82Z2tvSGdONHZjdXNYRlkzcmZNT0FPV01WTGduYm9Vb0dkQ1BSTlBCM182MWk1UHdWRWxydlh0dVgtUzhvZFdlS3hYVF9vbXhBSkNVY0xadllvZw?oc=5",
+        "source": "Google News (한국경제)",
+        "pub_time": "09월 02일 07:31"
+      },
+      {
+        "title": "“갑자기 욕하더니 의자 던졌다”…마마무 솔라, LA서 묻지마 테러 - 매일경제",
+        "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFB3d0FQbG9rYWpWRGRPWGZVZlN1S084S1B3N2QzVk5XQWJtWGRwVS1uVGQxUmZuWEZEcjBkNlhoSFYwQ3VpN04yZXp3aFdxSlB0NEZBQw?oc=5",
+        "source": "Google News (매일경제)",
+        "pub_time": "09월 01일 16:13"
+      },
+      {
+        "title": "양준모♥양지원 결혼식 포착...달콤한 입맞춤 - 매일경제",
+        "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1uUVk5cmpTb3FZQXAyV0l3blB6aGRzdmM2bGZqUXEzZDgwSWxpbzJGTUxwQkd3MHdXLWJUbjhmNW1nbVh4Wm1IRHVoVWVsOUNZaFJJb0FYTTk?oc=5",
+        "source": "Google News (매일경제)",
+        "pub_time": "09월 01일 08:47"
+      },
+      {
+        "title": "최태지 전 국립발레단장, 대한민국발레축제 새 대표에 - 조선일보",
+        "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQRDlZZ1NleTB6Z2RJRk1LMmpyVzh6eENVS1Jzck1lMXo2cEFzYmd5QlY1SThmdGxxTU9fRTExenM1Q2VpeXozektZZk04czRlV3NBVFE4cnNJVkltb0ZOQmNVcVprbUczbkRXTGVNVFpfd0I4WGRTcVA2bmw5R0NrZzhtMUdhMHNHZVF1c2xEYi00d0VzOHc?oc=5",
+        "source": "Google News (조선일보)",
+        "pub_time": "09월 01일 11:35"
+      }
+    ],
+    "IT/과학": [
+      {
+        "title": "\"달러 빼고 다 오른다\"…흔들리는 美재정에 'ABD 투자' 뜬다 - 한국경제",
+        "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5tb0NHdEg3ZWtRV0xpenYtM2Y4WjFtcHhsbDdWWXBEaE01blVuX0U5ekhqaERSRjNQaVBqeDh3Y1dpSDJhQUJFYVM5ZlBrZVlqS1RHbzRoWml2Zw?oc=5",
+        "source": "Google News (한국경제)",
+        "pub_time": "09월 01일 16:36"
+      },
+      {
+        "title": "'오리 로봇' 주문폭주에 웃는 한국 기업…증권가 \"40만원 간다\" - 한국경제",
+        "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1KVDhvemFxMmlMNEg5VnpvN1RBeWRXU0NMV3Z1OVZ1cnJNMTMySkxGdVZBZ2ZzOU5xNUdrU0g0MVQ3YTF6U3JGanYySDBFbV9XLVlPRW9sMFBrUQ?oc=5",
+        "source": "Google News (한국경제)",
+        "pub_time": "09월 01일 17:59"
+      },
+      {
+        "title": "\"나도 의식 있을까?\" 과학자에게 이메일 보낸 AI - 조선일보",
+        "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPR3l6SDh0eWZQQmFNSC1OQzlMVnhib3RiXzhKUXZyUDhyMVhpakZ3X2xYRzFZQzFqMjZLX0R5c0JfUDNaXzlyblF3S3lLMldTaC1TRzBPdS1VMTJaa1hCNW03cXV5MjFjN0QtMFV5M0p1bzBIV0xCc1ZxeU4yN2ZpbUxfSQ?oc=5",
+        "source": "Google News (조선일보)",
+        "pub_time": "09월 01일 14:27"
+      },
+      {
+        "title": "기업·클라우드 잇는 ‘허브 공항’...“AI시대, 데이터센터 승부처는 ‘연결’” - 조선일보",
+        "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNOEtMQ1ZwWHVQU1RWMGdWUDVENFc1aDRrNTN3NzNYWS1tTWxkVDFNRFdONzBBWGI3Slo5NWFDeUhtbFR2cUFwdmdqeVozVWpBMzVpakt4Wl9UdkE5bWVEbzB0Q1pUWkxEaU5sTHpYVHBveFNORGtyS1lub0JaTVRUZjI5VQ?oc=5",
+        "source": "Google News (조선일보)",
+        "pub_time": "09월 02일 07:41"
+      },
+      {
+        "title": "AI용 MLCC 1위 삼성전기…또 1조 수주 '잭팟' - 매일경제",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9RZ0l5ZEtBSjc0WUNSYXhISGFxVnJ0YmxPZXktR0xrWUlaWlFDM1lZVENlQkJkSHlXNkI2YTdnSzVkUUF4QzdReDVmNk9QVUN6SXpBZlBB?oc=5",
+        "source": "Google News (매일경제)",
+        "pub_time": "09월 01일 17:37"
+      }
+    ],
+    "세계": [
+      {
+        "title": "백악관, 북미회담 대비 ‘北서 미군 유해 발굴’ 문의 - 동아일보",
+        "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5rOExmN2ltUmdiNVl1SFNnXzlFbEdRQVBpRkpmcnhmMVlTNk8wR0hrak4zS2w1a3FaU1lCVEgyMjRUc2dZM3VIMDhOUGpGZVRlQ0s5NDJfc0NaVkRLSEVDUVJzeWR5N1FyME5ERTFVbVJOYknSAWZBVV95cUxPSDVnWXJrclAxRTVjQV9IbmhHMUZUV0NzU3h4Nnp5VEcwMFp0eVJPTmlnVnRxWEFHcThSWG5hXzd0UDZDQTd0Zi11amFUcTQ2TnA0Uzl2RTZ2RDZXZllwcmU4ZTlRRkE?oc=5",
+        "source": "Google News (동아일보)",
+        "pub_time": "09월 02일 04:30"
+      },
+      {
+        "title": "국정원 \"김주애 사실상 후계자 내정…북미정상회담 언제든 가능\" - 한국경제",
+        "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE91cUlzTHRENFdNcHRtWVhFWHBfaHBWMjRxZnhLV2lJUkVQcl9iOFJqZzRQMU52cEoyOGJQS01RY2o2c2ZNSWFKV01NZTRPWTlPZ3RxSl9Ya2JCQQ?oc=5",
+        "source": "Google News (한국경제)",
+        "pub_time": "09월 01일 23:00"
+      },
+      {
+        "title": "트럼프와 정상회담 앞둔 시진핑, 광폭 외교로 세과시 - 동아일보",
+        "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE8zeThyRUs1c0FYanVWTkVxZ0FGMnRBOUJkUldIejVDT0VLU05yZncxSFdLVmRHYkNpVm1CYk9mbFBVYkU5aDFvVlFEMEcwTFM4Y01pdHpOTlZ1cjh1UkJONkgxaDhiU0JHZFZLdmVoWnhaOFHSAWZBVV95cUxNWFBkVmZFSzV2VFNMNjR2dmpXQmVVR1lNVGJxSTZVMjdvRFZaTVg0cF9TZDdoazF0eVg3YTFydU8zdEVnQ19VaFUxRTFlTlZsalZmRUh5emVGd1M5U1ExY1JiYUo3V0E?oc=5",
+        "source": "Google News (동아일보)",
+        "pub_time": "09월 02일 04:30"
+      },
+      {
+        "title": "대만 유명 식당에 '바퀴벌레 100마리' 살포… 20대 男, 일단은 석방 - 한국일보",
+        "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE40NFAxLUhqaXlqc19BQ1J1ck1QdUZFeXlSdlZKYjU4bDM5OUYtVzROeTdmYnFFT3RhWDRrbFEyTmYtOGJJQjh4VklXeHc2WmVhZE1Xc3pMNXJiR1pMZmpWempQalJwQzhITXl6RW9B0gFzQVVfeXFMUEUwd0UwYXM0eVpNelhEeVNzTjFCdmswblhmbWQ0T3lhY1RobWt6NGNZTk9aWk5GcXBvWUNFMTBuSUh2WW1NYU5qYXo5MURaOGRfNld5LUdBaXlFQmVteDU1c3ZDWE93amVmaEJZRGFEcnVJbw?oc=5",
+        "source": "Google News (한국일보)",
+        "pub_time": "09월 01일 18:30"
+      },
+      {
+        "title": "네팔 현장 시신수습 영상 SNS 확산…누리꾼들 ‘트라우마’ 호소, 이유가 - 매일경제",
+        "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE55MUtkeUhQTnlkcGxUdXV1S1ZSVDJ3MFV1eG5MVjQxSHhYY1I4U19WWjZDdFVrUVFWZEE1TVNZdDl6NjNkN0R2cUN4Y29lSktmbFF6Ug?oc=5",
+        "source": "Google News (매일경제)",
+        "pub_time": "09월 01일 20:53"
+      },
+      {
+        "title": "[단독]美 차세대 핵심 부대, 한국에 배치 - 조선일보",
+        "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPY1hGaDY0WHB6OUpuZUs4bHhKYXVWdEhFRmVOYUZEd1hGdDFVdlZ5QnhrVy03VDZVNURtOWtLMTAwX1R0V2h3LWQyOUE5UmFkbE9USVJRbDRvY0ExN0lKa2JxamYzYVRwMVU0SjVOX19MN2MyWjFzbWNoalN1ZzZUU3BZSS1vcktKUXdFNFhfeEs3Zw?oc=5",
+        "source": "Google News (조선일보)",
+        "pub_time": "09월 02일 00:45"
+      },
+      {
+        "title": "‘역사의 종말’ 후쿠야마의 오판 “트럼프, 폭군 대신 부자로 충분할 줄 알았는데...” - 조선일보",
+        "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNUzJ1YnlRQ2tFSnM0c1NHZTUyclZOdU9PVVlRNXRwUVR2OEVNWjBBdGpDT1VtZ2l0Vmlaa1lqaC1lQ3pSY1hsUFpFdENueU5jRzlqYkhVX2ZnWU11MFVhYkxVelNQNjVpU1NuTGdGZnUwQ3hiUDNPcVhxOThNVVNUUXhUYXZpaVhuSEJxNG5ISmVzc0o2Y3FEVmxsdHQ3UQ?oc=5",
+        "source": "Google News (조선일보)",
+        "pub_time": "09월 01일 15:53"
+      },
+      {
+        "title": "10살 아이 눈에 후추 스프레이…이스라엘 서안지구 폭력, 미국도 “범죄” - 한겨레",
+        "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5BVkNHX0ZTeHVwMkJJbEhQZW1qaElYMWRpMjlYWkNYd1c0dUtBZndrNEk0c2s2S3FwNmdPSUtvNWZsZlpKVFFDWU1TcnNJeGJnVFVsZHhPeFlXVV9kNHdDZVlvUnZpb2dmcS13djQxWFNjSDA?oc=5",
+        "source": "Google News (한겨레)",
+        "pub_time": "09월 01일 16:21"
+      }
+    ],
+    "사설": [
+      {
+        "title": "[사설]김용범 사퇴… 내각이 청와대만 쳐다보도록 해선 안 돼 - 동아일보",
+        "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9UVzUtYzhxZFZ0dXVQSVo5N21YcUdrQ2V0TW8ta0dNNzdJQ21hUjNCX2k4aEhyTnZ5NVA4ZVgzZkRSekt6SmU4Q0RzQkNIMFZ2a3VmMWdBVnZGd1EtVl9WTFhKdmlyTkUtZllsYmNlMXZsZVNEQXfSAWZBVV95cUxQOUdiRDJUQ3ZxWWtVZXZER2dWSTlIdS1QNUN4aFhoc3Q3QTVkZnc0OHFnYWNOMXI4ZF9pNVNQZXFHQmExSTJaNzNuSVBkNWxDZFlTYlhEVS1zY0JrVmZIWmRuam9xM1E?oc=5",
+        "source": "Google News (동아일보)",
+        "pub_time": "09월 01일 23:27"
+      },
+      {
+        "title": "[사설] 세제 개편 철회, 정책실장 경질…설익은 정책이 남긴 교훈 - 중앙일보",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1OLVlBWEpvby1IRFNMcEU4cG1ZSXBSM01BcDhjZXhmTlFZNXlfRjA4NUtvZ2txTXJDMDRXV3hTY0dsUWlQY3RGWnlPWFYyelN5U3dBbGZB?oc=5",
+        "source": "Google News (중앙일보)",
+        "pub_time": "09월 02일 00:26"
+      },
+      {
+        "title": "[사설] 반도체 특수 기댄 821조 예산…여유 있을 때 나랏빚 갚아야 - 중앙일보",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBLWnZmdjI1NWFqS0N4VWlDSDY1ODVXUXZGLVFqM3FvMm5kTXFrTllWaGNLdEhNcnpfdWRvb1VHNHg1UGFhMi1vRkFGRDlBM0ZlQjlOMDN3?oc=5",
+        "source": "Google News (중앙일보)",
+        "pub_time": "09월 02일 00:24"
+      },
+      {
+        "title": "[사설]테러 물자 조달 외국인 첫 검거… 테러 조직에 빈틈 안 된다 - 동아일보",
+        "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9oMTdDNnQ5bTJxdk9OdTlfVm5DSko1aEJfc2prLVJrWTFtdHBZWjNHSDlEeG9wS0J6MmhMN1VVZzNZMGNidVVlQ0ctY0N5Z3VOVHJ2NHBUdHMtTlVZNzhyZXhWTTBUaHYzUElESVNCdHhRR2Qya2fSAWZBVV95cUxQaWpkVVpLeEJMT004ZG1DZW1NTTFtNnY2eC0xVjlVZkdnV25YYmREU1ljbDFrT3Y4TjY0eGVoWTJDb0YzT3UyenlXZnhqS3BrLXFKS0tyb1dfbnJVVTF5dC1xclhQMXc?oc=5",
+        "source": "Google News (동아일보)",
+        "pub_time": "09월 01일 23:24"
+      },
+      {
+        "title": "[사설] ‘인사는 메시지’인데, 한발 늦은 김용범 사퇴 - 경향신문",
+        "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBNbTJuZ3A4U1JYWmQ5RnFBWG90dGx5a3ItQzVsU2J3Q2xHRi04OEZsaFZLTy04QUVoS1o5ZFdfUFl4dEh4VzVJOGt1MjJlcUFycEpQbGpqcms1UdIBX0FVX3lxTE16eUdCT09ReWdJWkstSkk4MGY0bVpadmV5YjBmU1FtUGhCOTlTZkFab25Id0xvTXl4aEtIYnFXaUN4SUtwNEIxSzI2OWRCTDZySV9mdlQtbXU4MGh3dTRR?oc=5",
+        "source": "Google News (경향신문)",
+        "pub_time": "09월 01일 18:34"
+      },
+      {
+        "title": "[사설]첫발 뗀 ‘서울대 10개 만들기’, 지역 살리기 실질 거점 만들어야 - 경향신문",
+        "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBnaGQzeGpKdmVnVzFRcWRDWUxGN2VkX2lvWkUtUC1jUnl0bDhpVTR3SkVBUTJXX01aUkViMU5PRVAxN0EycXc4OW5Ia3kxbTJUa19FbTNQejg5d9IBX0FVX3lxTE80UUpSczNCb0VYdklvd0JDVUdnWDBEeXo4MzE3bDFpSG9EdVZObjRseVU3LXREZHEyazk1dEx4eXFGbW14WHY2R1dwTlJGcFoyRzJfcEgweVloRmpuQ2tZ?oc=5",
+        "source": "Google News (경향신문)",
+        "pub_time": "09월 01일 18:51"
+      },
+      {
+        "title": "[사설] 김용범 실장 사퇴, 국정 공백 없게 전열 가다듬길 - 한겨레",
+        "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9nQmdNUTRNbHNBSHdFM3p5WTc5bm5pdm9WNVo2Q2NLcUJqU1dQR2JXeXN6VUJOSzloTDM4dmpEd0xNVDI0ZkMtSzFPSDNDb2JfRktGT0Z2WTQ3aWo1ZDQzRkdWcXRoRkJCbkE?oc=5",
+        "source": "Google News (한겨레)",
+        "pub_time": "09월 01일 19:25"
+      }
+    ]
+  }
+}
