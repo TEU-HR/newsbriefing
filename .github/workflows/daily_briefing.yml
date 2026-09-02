@@ -15,11 +15,10 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: 파이썬 환경 설정 및 캐싱
+      - name: 파이썬 환경 설정
         uses: actions/setup-python@v5
         with:
           python-version: '3.10'
-          cache: 'pip'
 
       - name: 패키지 설치
         run: |
