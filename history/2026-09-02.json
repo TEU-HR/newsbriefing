@@ -1,23 +1,47 @@
 {
   "date": "2026-09-02",
-  "updated_at": "2026년 09월 02일 23:43",
-  "summary": "AI 요약 생성 중 오류 발생: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}",
+  "updated_at": "2026년 09월 02일 23:48",
+  "summary": "AI 요약 생성 실패 (최대 재시도 횟수 초과)",
   "has_audio": true,
   "audio_url": "history/2026-09-02.mp3",
   "categories": {
     "전체": [
       {
-        "title": "김승원 ‘신약 임상 청탁’ 의혹…식약처장에 “빠른 처리 부탁”",
-        "description": "정치권과 서울서부지법 판결문 등에 따르면 코로나19 치료제 개발을 추진하던 제약업체 설립자 강모씨는... 강씨는 임상시험 승인이 늦어질 것을 우려해 같은 해 10월 6일 정치권 인맥을 보유한 사업가 양모씨에게 도움을...",
-        "link": "https://weekly.khan.co.kr/article/202609022323001",
+        "title": "조국, 이재명 정부에 연일 쓴소리…민주당 \"선을 넘었다\"",
+        "description": "그러면서 이를 무시한 채 이재명 대통령에 대한 공소취소를 추진할 경우 정치적·법적으로 어려운 상황에... 송영길 전 의원도 라디오 방송에서 조 원장의 행보를 정치인으로서 자신의 존재감을 확인하려는 것으로...",
+        "link": "https://www.ppss.kr/news/articleView.html?idxno=308592",
         "press_name": "네이버뉴스",
         "source": "Naver",
-        "pub_time": "Wed, 02 Sep 2026 23:23:00 +0900"
+        "pub_time": "Wed, 02 Sep 2026 23:45:00 +0900"
+      },
+      {
+        "title": "“경기도 재정위기, 이재명 지사는 책임 없다”…추미애 경기지사의 주...",
+        "description": "이에대해 추 지사는 “사업의 지속가능성을 위해 조정이 불가피하다”며 “우리 사회의 시발점이 된 상징적 사업을 남긴 것이지 정치적 차별에 따른 판단은 아니다”고 반박했다. 민주당 김태희 의원은 행정안전부...",
+        "link": "https://www.munhwa.com/article/11614102?ref=naver",
+        "press_name": "네이버뉴스",
+        "source": "Naver",
+        "pub_time": "Wed, 02 Sep 2026 23:42:00 +0900"
+      },
+      {
+        "title": "창당 사흘만에 남편 사무총장에…\"부부회의 모독, 유감\"(종합)",
+        "description": "연합정치 제도화를 위해 노력해 온 것은 기본소득 실현이라는 원대한 과제가 소수정당의 힘만으로는 되지 않기 때문\"이라며 이른바 위성정당 논란을 해명했다. 신 전 대표는 \"선거연합을 함께 결정하며 연합정치의...",
+        "link": "https://www.news1.kr/politics/assembly/6278211",
+        "press_name": "네이버뉴스",
+        "source": "Naver",
+        "pub_time": "Wed, 02 Sep 2026 23:37:00 +0900"
       },
       {
         "title": "李대통령, ‘부동산 개혁 후퇴’ 비판에 “정책 고수 무조건 옳나…호오...",
         "description": "이 대통령은 “국민과 정치권의 의견을 반영한 정당한 정책적 조정”이라며 “정책 입장을 바꾸는 것은... 진정한 정치를 회복하면 좋겠다”면서 “허위에 기초한 선동과 음해, 무조건적인 비난에서 벗어나 진실에...",
         "link": "https://www.kyeonggi.com/article/20260902580589",
+        "press_name": "네이버뉴스",
+        "source": "Naver",
+        "pub_time": "Wed, 02 Sep 2026 23:23:00 +0900"
+      },
+      {
+        "title": "김승원 ‘신약 임상 청탁’ 의혹…식약처장에 “빠른 처리 부탁”",
+        "description": "강씨는 임상시험 승인이 늦어질 것을 우려해 같은 해 10월 6일 정치권 인맥을 보유한 사업가 양모씨에게 도움을 요청했다. 양씨는 10월 8일 평소 알고 지내던 김 후보자에게 치료제 관련 자료를 전달하면서 식약처 담당...",
+        "link": "https://weekly.khan.co.kr/article/202609022323001",
         "press_name": "네이버뉴스",
         "source": "Naver",
         "pub_time": "Wed, 02 Sep 2026 23:23:00 +0900"
@@ -61,30 +85,6 @@
         "press_name": "네이버뉴스",
         "source": "Naver",
         "pub_time": "Wed, 02 Sep 2026 23:08:00 +0900"
-      },
-      {
-        "title": "\"식약처 처리 부탁\" 문자 받은 김승원...같은 달 임상승인",
-        "description": "이에 강 씨는 임상시험 승인 여부가 제때 나오지 않을까 고민하며, 정치권 인맥을 보유한 사업가 양 모 씨를 찾았습니다. 이후 양 씨가 연락한 게 김승원 후보자였습니다. 해당 사건 판결문에 따르면 양 씨는 2021년 10월 8일...",
-        "link": "https://www.ytn.co.kr/_ln/0103_202609022305290396",
-        "press_name": "네이버뉴스",
-        "source": "Naver",
-        "pub_time": "Wed, 02 Sep 2026 23:05:00 +0900"
-      },
-      {
-        "title": "이재명 대통령, 종부세 완화 비판 조목조목 반박",
-        "description": "당초안을 정치권과 국민 의견을 반영해 12억원으로 원상복귀하고, 종부세 연간 증액 한도를 200%로 늘리려던... 부합하는 정치를 해야 한다고 말했다. 또한 허위에 기초한 선동과 음해, 무조건적 비난이 아닌 제대로 된...",
-        "link": "https://www.jnilbo.com/news/articleView.html?idxno=90000062025",
-        "press_name": "네이버뉴스",
-        "source": "Naver",
-        "pub_time": "Wed, 02 Sep 2026 23:04:00 +0900"
-      },
-      {
-        "title": "'부동산 정책 후퇴' 비판 일자…李 \"강남 왜 급락했나 살펴보라\"",
-        "description": "정치권 안팎에서는 부동산 정책 여론이 악화하는 점 때문에 정치적 부담을 느껴 정부가 원안을 고수하는 것으로 보는 시선이 많다. 이에 따라 정책 불확실성이 커지고 수요층에서 혼선이 생겼다는 비판이 나온다. 이에...",
-        "link": "https://www.hankyung.com/article/2026090206321",
-        "press_name": "네이버뉴스",
-        "source": "Naver",
-        "pub_time": "Wed, 02 Sep 2026 23:04:00 +0900"
       },
       {
         "title": "선정환 서울시의원, \"정독도서관 재구조화, 실행 가능한 재원·로드맵 마...",
@@ -167,12 +167,52 @@
         "pub_time": "Wed, 02 Sep 2026 23:32:00 +0900"
       },
       {
+        "title": "Federal Judge Declines to Break Up Google’s Ad Technology Business",
+        "description": "District Court for the Eastern District of Virginia, did not publicly reveal her full opinion, but previewed it in a short filing. Judge Brinkema said Google must still adopt some changes to its...",
+        "link": "https://www.nytimes.com/2026/09/02/technology/google-ad-tech-remedies.html?partner=naver",
+        "press_name": "네이버뉴스",
+        "source": "Naver",
+        "pub_time": "Wed, 02 Sep 2026 23:44:00 +0900"
+      },
+      {
+        "title": "도경수(D.O.), 폭넓은 장르 담은 웰메이드 앨범 예고",
+        "description": "해당 트랙리스트에 따르면 이번 앨범에는 첫 번째 트랙 ‘Sing It Loud(싱 잇 라우드)’를 시작으로 ‘Dancing Party(댄싱 파티)’, 타이틀곡 ‘Guitarist(기타리스트)’, ‘Don’t You(돈트 유)’, ‘Dear(디어)’까지 총 5곡이...",
+        "link": "https://sports.khan.co.kr/article/202609022342003?pt=nv",
+        "press_name": "네이버뉴스",
+        "source": "Naver",
+        "pub_time": "Wed, 02 Sep 2026 23:43:00 +0900"
+      },
+      {
+        "title": "[존 프랭클의 문무겸전] AI 시대 강의실에서 종이사전 고집하는 이유",
+        "description": "<영문 원고> No matter one’s nationality, age, gender, or present occupation, and whether one considers it a blessing or a curse (or something in between), it is nearly impossible to avoid pondering AI and its...",
+        "link": "https://www.chosun.com/opinion/specialist_column/2026/09/02/XQH3BSWWK5BI5LBEJMTYGXB2SM/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
+        "press_name": "네이버뉴스",
+        "source": "Naver",
+        "pub_time": "Wed, 02 Sep 2026 23:43:00 +0900"
+      },
+      {
+        "title": "SPAIN DRUG TRAFFICKING",
+        "description": "Spanish authorities seize three tons of cocaine on a tugboat in the Canary Islands Personnel of the National Police and the Civil Guard are seen on a Panamanian-flagged tugboat after it was...",
+        "link": "https://n.news.naver.com/mnews/article/091/0010298145?sid=104",
+        "press_name": "네이버뉴스",
+        "source": "Naver",
+        "pub_time": "Wed, 02 Sep 2026 23:37:00 +0900"
+      },
+      {
         "title": "동양생명·ABL생명, 임원 대상 AI 에이전트 실습 교육 실시",
         "description": "앞서 동양생명은 지난 7월 '2026년 하반기 리더스 변화혁신 포럼'을 개최하고 영업·상품, 투자·재무·리스크, 정보기술(IT)·오퍼레이션·소비자보호 등 전 부문을 대상으로 AI 활용 방향을 논의한 바 있다. 동양생명 측은...",
         "link": "https://weekly.hankooki.com/news/articleView.html?idxno=7182113",
         "press_name": "네이버뉴스",
         "source": "Naver",
         "pub_time": "Wed, 02 Sep 2026 23:30:00 +0900"
+      },
+      {
+        "title": "Dirty Ice Could Be Fueling Himalayan Disasters",
+        "description": "As that black cover settles on glacier surfaces, it’s causing them to absorb more heat from the sun and melt faster, scientists warn. It’s especially true in high-mountain regions like...",
+        "link": "https://www.nytimes.com/2026/09/02/climate/pollution-soot-glaciers-melting-himalayas.html?partner=naver",
+        "press_name": "네이버뉴스",
+        "source": "Naver",
+        "pub_time": "Wed, 02 Sep 2026 23:28:00 +0900"
       },
       {
         "title": "키드밀리, 'WHO CARES'로 일상 속 신곡 홍보…감각적인 포즈",
@@ -183,12 +223,12 @@
         "pub_time": "Wed, 02 Sep 2026 23:28:00 +0900"
       },
       {
-        "title": "Dirty Ice Could Be Fueling Himalayan Disasters",
-        "description": "As that black cover settles on glacier surfaces, it’s causing them to absorb more heat from the sun and melt faster, scientists warn. It’s especially true in high-mountain regions like...",
-        "link": "https://www.nytimes.com/2026/09/02/climate/pollution-soot-glaciers-melting-himalayas.html?partner=naver",
+        "title": "태민, 금발 올블랙 비주얼…새 월드투어 앞둔 근황",
+        "description": "이후 정규 1집 'Press It'과 정규 3집 시리즈 'Never Gonna Dance Again : Prologue', 'Act 1', 'Act 2'를 선보이며 콘셉트와 퍼포먼스를 결합한 무대로 솔로 아티스트 아이덴티티를 공고히 했다. 대표곡 '괴도 (Danger)'는 강렬한...",
+        "link": "https://www.topstarnews.net/news/articleView.html?idxno=16181244",
         "press_name": "네이버뉴스",
         "source": "Naver",
-        "pub_time": "Wed, 02 Sep 2026 23:28:00 +0900"
+        "pub_time": "Wed, 02 Sep 2026 23:26:00 +0900"
       },
       {
         "title": "STAYC 세은, 티셔츠 살짝 내린 장난스러운 셀카",
@@ -205,46 +245,6 @@
         "press_name": "네이버뉴스",
         "source": "Naver",
         "pub_time": "Wed, 02 Sep 2026 23:26:00 +0900"
-      },
-      {
-        "title": "태민, 금발 올블랙 비주얼…새 월드투어 앞둔 근황",
-        "description": "이후 정규 1집 'Press It'과 정규 3집 시리즈 'Never Gonna Dance Again : Prologue', 'Act 1', 'Act 2'를 선보이며 콘셉트와 퍼포먼스를 결합한 무대로 솔로 아티스트 아이덴티티를 공고히 했다. 대표곡 '괴도 (Danger)'는 강렬한...",
-        "link": "https://www.topstarnews.net/news/articleView.html?idxno=16181244",
-        "press_name": "네이버뉴스",
-        "source": "Naver",
-        "pub_time": "Wed, 02 Sep 2026 23:26:00 +0900"
-      },
-      {
-        "title": "은가은, 화이트 드레스 거울 셀카…'전설의사내' 무대 예고",
-        "description": "은가은은 2013년 디지털 싱글 'Drop it'으로 데뷔한 뒤 발라드와 트로트를 넘나들며 활동을 이어왔다. 2015년... '놀라운 대회 스타킹'에서는 'Let It Go' 무대로 연습생 시절의 노력을 드러내며 주목받았고, '백인백곡...",
-        "link": "https://www.topstarnews.net/news/articleView.html?idxno=16181241",
-        "press_name": "네이버뉴스",
-        "source": "Naver",
-        "pub_time": "Wed, 02 Sep 2026 23:24:00 +0900"
-      },
-      {
-        "title": "노윤서, '동궁' 생강과 밤거리 투샷…촬영 추억 공유",
-        "description": "그는 \"Slow it down Out now 재미난 추억 감사합니다\"라는 글을 남기며 이날 함께한 시간을 돌아봤다. 사진에는 셔터 형태의 배경을 뒤로하고 두 사람이 가까이 서서 밝은 표정을 짓는 모습이 포착됐다. 조명 아래 자연스러운...",
-        "link": "https://www.topstarnews.net/news/articleView.html?idxno=16181237",
-        "press_name": "네이버뉴스",
-        "source": "Naver",
-        "pub_time": "Wed, 02 Sep 2026 23:22:00 +0900"
-      },
-      {
-        "title": "앤트로픽 '클로드 페이블 5.1' 공개...첫 응답에 4분 넘어",
-        "description": "그러나 미국 IT 전문 매체 '테크이시(tech-ish)'에 따르면 일반적인 의학 질문에 대한 오탐은 85% 줄었지만, 생명과학 연구 관련 요청은 여전히 오퍼스 5로 우회 처리된다. 사이버 보안 관련해서는 클로드 코드에서...",
-        "link": "https://www.thelec.kr/news/articleView.html?idxno=61715",
-        "press_name": "네이버뉴스",
-        "source": "Naver",
-        "pub_time": "Wed, 02 Sep 2026 23:22:00 +0900"
-      },
-      {
-        "title": "자우림부터 김현철까지 앨범에 담긴 이야기 나눈다…마포구 마포음악창...",
-        "description": "9월 18일에는 자우림 2집 「戀人」, 10월 23일에는 김현철 4집 「Who Stepped On It」을 주제로 이어간다. 각 회차는 오전 11시 마포음악창작소 라이브홀(B1)에서 열리며, 약 80분간 진행된다. 티켓료는 전석 1만 원이다. 신청은...",
-        "link": "https://www.cnbizm.com/news/articleView.html?idxno=313721",
-        "press_name": "네이버뉴스",
-        "source": "Naver",
-        "pub_time": "Wed, 02 Sep 2026 23:14:00 +0900"
       },
       {
         "title": "서울시의회 박상근 의원,사교육 의존도를 낮추고 공교육의 신뢰도를 높...",
