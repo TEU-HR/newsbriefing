@@ -23,7 +23,7 @@ jobs:
 
     - name: 라이브러리 설치
       run: |
-        pip install feedparser google-generativeai
+        pip install feedparser google-genai
 
     - name: 수집 및 AI 요약 실행
       env:
