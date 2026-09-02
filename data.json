@@ -1,22 +1,984 @@
 {
   "morning": {
     "date": "2026-09-02",
-    "updated_at": "2026년 09월 02일 23:17",
-    "summary": "수집된 뉴스가 없어 요약을 생성하지 못했습니다.",
+    "updated_at": "2026년 09월 02일 23:38",
+    "summary": "AI 요약 생성 중 오류 발생: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-3.6-pro is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}",
     "has_audio": true,
     "audio_url": "history/2026-09-02.mp3",
     "categories": {
-      "전체": []
+      "전체": [
+        {
+          "title": "김승원 ‘신약 임상 청탁’ 의혹…식약처장에 “빠른 처리 부탁”",
+          "description": "정치권과 서울서부지법 판결문 등에 따르면 코로나19 치료제 개발을 추진하던 제약업체 설립자 강모씨는... 강씨는 임상시험 승인이 늦어질 것을 우려해 같은 해 10월 6일 정치권 인맥을 보유한 사업가 양모씨에게 도움을...",
+          "link": "https://weekly.khan.co.kr/article/202609022323001",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:23:00 +0900"
+        },
+        {
+          "title": "李대통령, ‘부동산 개혁 후퇴’ 비판에 “정책 고수 무조건 옳나…호오...",
+          "description": "이 대통령은 “국민과 정치권의 의견을 반영한 정당한 정책적 조정”이라며 “정책 입장을 바꾸는 것은... 진정한 정치를 회복하면 좋겠다”면서 “허위에 기초한 선동과 음해, 무조건적인 비난에서 벗어나 진실에...",
+          "link": "https://www.kyeonggi.com/article/20260902580589",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:23:00 +0900"
+        },
+        {
+          "title": "최종부 서울시의회 대변인 \"민주당, 민생 결의안 가로막아… '정쟁 문지...",
+          "description": "정치권에서는 상임위원장의 의사진행 권한이 특정 진영의 법안 차단용 도구로 변질되어서는 안 된다고 보고 있다. 특히 교통 체증 해소와 안전 대책 등 시민 생활과 밀접한 현안이 정쟁으로 장기 표류할 경우 행정 공백에...",
+          "link": "https://www.mediapen.com/news/view/1120903",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:20:00 +0900"
+        },
+        {
+          "title": "진교훈 강서구청장 \"'양성평등'이란 단어가 필요 없는 강서구를 위해 차...",
+          "description": "한편, 양성평등주간은 남성과 여성이 조화롭게 발전하며 정치·경제·사회·문화 전반에서 실질적인 평등을 구현하기 위해 제정된 법정 기념주간이다. 양성평등주간은 1996년 '여성주간'으로 시작해 2015년 양성평등기본법...",
+          "link": "https://www.cnbizm.com/news/articleView.html?idxno=313732",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:18:00 +0900"
+        },
+        {
+          "title": "안신일 세종시의장, 행정수도 완성 시대적 과제...민주당 화답 환영",
+          "description": "특히 김민석 당대표 취임 후 첫 예산정책협의회가 다른 지역이 아닌 세종에서 열린 것은 그 자체로 막중한 정치적·시대적 의미를 가진다. 한병도 원내대표의 언급처럼, 새 지도부의 첫걸음이 세종에서 시작되었다는...",
+          "link": "http://www.ccnnews.co.kr/news/articleView.html?idxno=414366",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:14:00 +0900"
+        },
+        {
+          "title": "조국 \"이 대통령 유죄 가능성\"...\"배은망덕\"·\"레임덕\"",
+          "description": "조국 전 조국혁신당 대표가 이재명 대통령의 공직선거법 사건과 공소취소 문제를 SNS에 언급하면서 정치권 공방이 계속되고 있습니다. 민주당에선 '배은망덕하다'는 반응까지 나왔고, 국민의힘은 대통령의 레임덕이...",
+          "link": "https://www.ytn.co.kr/_ln/0101_202609022309428674",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:09:00 +0900"
+        },
+        {
+          "title": "부동산 개혁 후퇴 비판에 李 \"강남 급락 살펴보길\"",
+          "description": "이날 이 대통령은 엑스(X)를 통해 \"중저가 비거주용 1주택 종합부동산세 감면 상한을 9억원으로 낮추려던 정부안을 너무 과하다는 정치권·국민 의견을 반영해 12억원으로 원상 복귀시키고, 종부세 연간 증액 한도를 200%로...",
+          "link": "https://www.mk.co.kr/article/12142844",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:08:00 +0900"
+        },
+        {
+          "title": "\"식약처 처리 부탁\" 문자 받은 김승원...같은 달 임상승인",
+          "description": "이에 강 씨는 임상시험 승인 여부가 제때 나오지 않을까 고민하며, 정치권 인맥을 보유한 사업가 양 모 씨를 찾았습니다. 이후 양 씨가 연락한 게 김승원 후보자였습니다. 해당 사건 판결문에 따르면 양 씨는 2021년 10월 8일...",
+          "link": "https://www.ytn.co.kr/_ln/0103_202609022305290396",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:05:00 +0900"
+        },
+        {
+          "title": "이재명 대통령, 종부세 완화 비판 조목조목 반박",
+          "description": "당초안을 정치권과 국민 의견을 반영해 12억원으로 원상복귀하고, 종부세 연간 증액 한도를 200%로 늘리려던... 부합하는 정치를 해야 한다고 말했다. 또한 허위에 기초한 선동과 음해, 무조건적 비난이 아닌 제대로 된...",
+          "link": "https://www.jnilbo.com/news/articleView.html?idxno=90000062025",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:04:00 +0900"
+        },
+        {
+          "title": "'부동산 정책 후퇴' 비판 일자…李 \"강남 왜 급락했나 살펴보라\"",
+          "description": "정치권 안팎에서는 부동산 정책 여론이 악화하는 점 때문에 정치적 부담을 느껴 정부가 원안을 고수하는 것으로 보는 시선이 많다. 이에 따라 정책 불확실성이 커지고 수요층에서 혼선이 생겼다는 비판이 나온다. 이에...",
+          "link": "https://www.hankyung.com/article/2026090206321",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:04:00 +0900"
+        },
+        {
+          "title": "온, 포스트아카이브팩션(PAF)과 마지막 협업 ‘커렌트 폼 5.0’ 컬렉션 공...",
+          "description": "또 On은 수상 경력에 빛나는 CloudTec® 및 LightSpray™ 기술과 혁신적인 디자인, 순환 경제를 추구하는 대담한 행보를 통해 전 세계 팬층을 빠르게 확보해 나가고 있으며, 움직임을 통해 더 많은 것을 탐구하고...",
+          "link": "https://sports.khan.co.kr/article/202609022327003?pt=nv",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:28:00 +0900"
+        },
+        {
+          "title": "[사설]“사교육 아니면 자녀 0.53명 더 낳았을 것”",
+          "description": "한국은행·경제정책연구센터(CEPR)·경제협력개발기구(OECD) 공동 콘퍼런스에서 발표된 ‘지위 경쟁 그리고 한국의 저출산’ 논문에 따르면, 1970∼1975년생 여성의 평균 자녀 수가 사교육의 ‘지위 경쟁’ 효과를 제거하면...",
+          "link": "https://www.donga.com/news/Opinion/article/all/20260902/134595436/2",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:28:00 +0900"
+        },
+        {
+          "title": "군산시, 전기차 456대 추가 보급…대기질 개선 기여",
+          "description": "김재준 군산시장./군산시 | 군산=한스경제 이인호 기자 | 전북 군산시가 하반기 전기자동차 456대를 추가로 보급한다. 신청은 7일부터 전기차 구매보조금 지원시스템을 통해 가능하다. 시는 탄소중립과 미세먼지...",
+          "link": "http://www.hansbiz.co.kr/news/articleView.html?idxno=861746",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:26:00 +0900"
+        },
+        {
+          "title": "연 2만 원... 익산시, 장난감 대여 서비스 회원 1300명 넘어",
+          "description": "지속되는 고물가와 경기 침체 속에서 아이의 빠른 성장 단계에 맞춰 고가의 장난감과 교구를 지속해서 구매하는 일은 영유아 가정에 상당한 경제적 부담으로 작용해 왔다. 익산시는 부모들의 양육 부담을 덜고...",
+          "link": "https://www.newstnt.com/news/articleView.html?idxno=716501",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:26:00 +0900"
+        },
+        {
+          "title": "KT&G, 광주 북구와 깨끗한 도시환경 만든다",
+          "description": "협력해 더 나은 생활환경을 만드는 데 기여하겠다\"고 말했다. KT&G는 KT&G Green Impact 비전을 기반으로 기후변화 영향 저감과 순환경제 전환, 자연자본 관리 및 생물다양성 보호를 중심으로 환경경영을 추진하고 있다.",
+          "link": "https://www.kdpress.co.kr/news/articleView.html?idxno=208272",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:24:00 +0900"
+        },
+        {
+          "title": "경남 농산물값 5.8% 뚝…추석 앞두고 '장바구니 물가' 숨통",
+          "description": "김인수 경남도 경제통상국장은 \"전체 소비자물가는 상승세를 보이고 있지만 농축수산물이 하락세로 전환되고 석유류의 상승폭도 둔화되는 등 주요 품목에서 안정적인 흐름이 나타나고 있다. 추석을 앞두고 성수품 등...",
+          "link": "https://www.straightnews.co.kr/news/articleView.html?idxno=310313",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:24:00 +0900"
+        },
+        {
+          "title": "서울시의회 함대건 의원, 안전취약계층 이용 건물 화재 예방 위한 안전...",
+          "description": "문화경제 | CNB저널 | 씨앤비저널 서울특별시의회 도시안전건설위원회 함대건 부위원장(더불어민주당·비례)이 발의한 '서울특별시 안전취약계층 이용 건물의 화재 예방 안전시설 지원에 관한 조례안'이 지난 9월 1일...",
+          "link": "https://www.cnbizm.com/news/articleView.html?idxno=313734",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:20:00 +0900"
+        },
+        {
+          "title": "뱃길 줄고 물가는 뛰고…울릉 관광객 19% 급감",
+          "description": "관광객 감소가 장기화하면 숙박업과 음식점, 렌터카 등 관광 의존도가 높은 지역경제 전반으로 충격이 번질 수 있다. 울릉군의회는 관광산업 회복을 위한 대책 마련에 착수했다. 지난 8월 말 '울릉관광 재도약을 위한...",
+          "link": "https://www.newscj.com/news/articleView.html?idxno=3429679",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:20:00 +0900"
+        },
+        {
+          "title": "홍재희 서울시의원, 마곡 ENS 건설사업 관련 남동발전 출자 승인확인…...",
+          "description": "문화경제 | CNB저널 | 씨앤비저널 서울특별시의회 환경수자원위원회 홍재희 부위원장(더불어민주당·강서5)... 서울에너지공사 사장은 이날 업무보고에서 한국남동발전의 사업 출자에 대한 재정경제부 승인이 지난 8월...",
+          "link": "https://www.cnbizm.com/news/articleView.html?idxno=313738",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:20:00 +0900"
+        },
+        {
+          "title": "이영숙 서울시의원, \"서울로봇인공지능과학관, AI 전략거점이자 글로벌...",
+          "description": "문화경제 | CNB저널 | 씨앤비저널 서울시의회 이영숙 의원(더불어민주당, 도봉1)은 지난 1일 열린 제339회 임시회 서울시립과학관 대상 질의에서 도봉구에 위치한 서울 로봇인공지능과학관이 단순 체험형 시설을 넘어...",
+          "link": "https://www.cnbizm.com/news/articleView.html?idxno=313739",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:20:00 +0900"
+        },
+        {
+          "title": "동양생명·ABL생명, 임원 대상 AI 에이전트 실습 교육 실시",
+          "description": "앞서 동양생명은 지난 7월 '2026년 하반기 리더스 변화혁신 포럼'을 개최하고 영업·상품, 투자·재무·리스크, 정보기술(IT)·오퍼레이션·소비자보호 등 전 부문을 대상으로 AI 활용 방향을 논의한 바 있다. 동양생명 측은...",
+          "link": "https://weekly.hankooki.com/news/articleView.html?idxno=7182113",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:30:00 +0900"
+        },
+        {
+          "title": "키드밀리, 'WHO CARES'로 일상 속 신곡 홍보…감각적인 포즈",
+          "description": "이 앨범에는 타이틀곡 'Wahssap'을 비롯해 'RIP Volume', 'Baadboy', 'GU4P$$', 'Lifestylin', 'Too young for this', 'Right now', 'Oh yeah', 'Honestly', 'Run it back' 등 10곡이 수록돼 다양한 사운드를 담았으며, 두 뮤지션이 하나의 크루로...",
+          "link": "https://www.topstarnews.net/news/articleView.html?idxno=16181251",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:28:00 +0900"
+        },
+        {
+          "title": "Dirty Ice Could Be Fueling Himalayan Disasters",
+          "description": "As that black cover settles on glacier surfaces, it’s causing them to absorb more heat from the sun and melt faster, scientists warn. It’s especially true in high-mountain regions like...",
+          "link": "https://www.nytimes.com/2026/09/02/climate/pollution-soot-glaciers-melting-himalayas.html?partner=naver",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:28:00 +0900"
+        },
+        {
+          "title": "STAYC 세은, 티셔츠 살짝 내린 장난스러운 셀카",
+          "description": "2025년에는 싱글 5집 'S'와 스페셜 싱글 'I WANT IT'를 연달아 선보이며 활동을 이어갔다. 세은은 STAYC 멤버로서 이들 음반 활동과 음악 방송, 영상 콘텐츠, 공연에 참여하며 팀과 함께 꾸준히 무대에 섰다. 세은은...",
+          "link": "https://www.topstarnews.net/news/articleView.html?idxno=16181245",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:26:00 +0900"
+        },
+        {
+          "title": "Trump’s ‘Lightning Speed’ Threatens to Outpace the Courts",
+          "description": "Trump loses when those lawsuits are finally resolved, it may be too late as a practical matter... “Trump is going to get his ballroom — even if courts conclude it’s illegal,” said Leah...",
+          "link": "https://www.nytimes.com/2026/09/02/us/politics/trump-courts-ballroom.html?partner=naver",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:26:00 +0900"
+        },
+        {
+          "title": "태민, 금발 올블랙 비주얼…새 월드투어 앞둔 근황",
+          "description": "이후 정규 1집 'Press It'과 정규 3집 시리즈 'Never Gonna Dance Again : Prologue', 'Act 1', 'Act 2'를 선보이며 콘셉트와 퍼포먼스를 결합한 무대로 솔로 아티스트 아이덴티티를 공고히 했다. 대표곡 '괴도 (Danger)'는 강렬한...",
+          "link": "https://www.topstarnews.net/news/articleView.html?idxno=16181244",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:26:00 +0900"
+        },
+        {
+          "title": "은가은, 화이트 드레스 거울 셀카…'전설의사내' 무대 예고",
+          "description": "은가은은 2013년 디지털 싱글 'Drop it'으로 데뷔한 뒤 발라드와 트로트를 넘나들며 활동을 이어왔다. 2015년... '놀라운 대회 스타킹'에서는 'Let It Go' 무대로 연습생 시절의 노력을 드러내며 주목받았고, '백인백곡...",
+          "link": "https://www.topstarnews.net/news/articleView.html?idxno=16181241",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:24:00 +0900"
+        },
+        {
+          "title": "노윤서, '동궁' 생강과 밤거리 투샷…촬영 추억 공유",
+          "description": "그는 \"Slow it down Out now 재미난 추억 감사합니다\"라는 글을 남기며 이날 함께한 시간을 돌아봤다. 사진에는 셔터 형태의 배경을 뒤로하고 두 사람이 가까이 서서 밝은 표정을 짓는 모습이 포착됐다. 조명 아래 자연스러운...",
+          "link": "https://www.topstarnews.net/news/articleView.html?idxno=16181237",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:22:00 +0900"
+        },
+        {
+          "title": "앤트로픽 '클로드 페이블 5.1' 공개...첫 응답에 4분 넘어",
+          "description": "그러나 미국 IT 전문 매체 '테크이시(tech-ish)'에 따르면 일반적인 의학 질문에 대한 오탐은 85% 줄었지만, 생명과학 연구 관련 요청은 여전히 오퍼스 5로 우회 처리된다. 사이버 보안 관련해서는 클로드 코드에서...",
+          "link": "https://www.thelec.kr/news/articleView.html?idxno=61715",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:22:00 +0900"
+        },
+        {
+          "title": "자우림부터 김현철까지 앨범에 담긴 이야기 나눈다…마포구 마포음악창...",
+          "description": "9월 18일에는 자우림 2집 「戀人」, 10월 23일에는 김현철 4집 「Who Stepped On It」을 주제로 이어간다. 각 회차는 오전 11시 마포음악창작소 라이브홀(B1)에서 열리며, 약 80분간 진행된다. 티켓료는 전석 1만 원이다. 신청은...",
+          "link": "https://www.cnbizm.com/news/articleView.html?idxno=313721",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:14:00 +0900"
+        },
+        {
+          "title": "사흘 연속 내린 뉴욕증시, 저가 매수세에 반등 시도…다우 0.5%↑",
+          "description": "시장 예상보다 좋은 실적을 낸 데다 인공지능(AI) 서비스 사업의 성장세를 반영해 2027 회계연도 실적 전망을 높인 것이 호재로 작용했다. 오디오 엔터테인먼트 업체 시리우스도 6.21% 올랐다. 도이체방크가 이 회사에...",
+          "link": "https://biz.chosun.com/international/international_economy/2026/09/02/RUBIZEFFNZBBRHNNCL3Y5QZII4/?utm_source=naver&utm_medium=original&utm_campaign=biz",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:25:00 +0900"
+        },
+        {
+          "title": "교사 불법 촬영한 중학생…교사노조 \"스마트폰 소지 금지 학칙 도입하라...",
+          "description": "특히 촬영 대상이 된 신체 부위 확인을 통한 피해자 특정은 물론, 인공지능(AI) 기반 딥페이크 기술을 활용한 2차 합성물 제작 여부까지 수사 범위를 넓혔다. 경찰 관계자는 \"일부 신체가 찍힌 사진이나 영상의 경우 피해자를...",
+          "link": "https://www.insight.co.kr/news/571624",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:24:00 +0900"
+        },
+        {
+          "title": "[송평인 칼럼]부동산 허위의식, 진보와 보수의 합작품",
+          "description": "인공지능(AI)은 이런 것도 상세하게 계산해 준다. 환율은 달러당 1400원, 100엔당 880원을 적용해 현 시세보다 양도세가 적어지게 하는 대신 필요경비는 마찬가지로 0원으로 했다. 이 대통령의 양도차익 25억4400만 원은...",
+          "link": "https://www.donga.com/news/Opinion/article/all/20260902/134595137/2",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:22:00 +0900"
+        },
+        {
+          "title": "앤트로픽 '클로드 페이블 5.1' 공개...첫 응답에 4분 넘어",
+          "description": "앤트로픽이 차세대 인공지능(AI) 모델 클로드 페이블(Claude Fable) 5.1과 클로드 미토스(Claude Mythos) 5.1을... 그러나 AI 모델 독립 평가 사이트인 AA와 일부 외신에서는 앤트로픽의 토큰 비용 인하가 실질적이지...",
+          "link": "https://www.thelec.kr/news/articleView.html?idxno=61715",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:22:00 +0900"
+        },
+        {
+          "title": "[2026 전남광주미래산업박람회] 콘텐츠랩 슬러그, 콘텐츠 제작·행사 중...",
+          "description": "주요 전시 품목은 △모빌리티·친환경자동차·퍼스널 모빌리티·특수목적용 자동차·도심항공교통(UAM)·자율주행차 △핵심 뿌리기술·3D 프린팅·부품 및 기술 △인공지능(AI) 가전·홈 디바이스 △드론 관련 부품 및 기술...",
+          "link": "https://www.etnews.com/20260902000462",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:22:00 +0900"
+        },
+        {
+          "title": "[신간] OTT미디어 산업 생존 전략서, 『K-OTT 로드』출간",
+          "description": "저자 김희경 교수는 영화 및 만화 평론가이자 미디어 정책 및 AI 영상 콘텐츠 분야를 연구해온 전문가다. 저자는 각 장 끝에 '한눈에 보기' 요약표를 구성하고 부록으로 K-OTT 연대기, 플랫폼별 오리지널 콘텐츠 목록...",
+          "link": "https://www.abcn.kr/news/articleView.html?idxno=91267",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:20:00 +0900"
+        },
+        {
+          "title": "美ADP 8월 민간 고용 증가폭 3만8천명으로 둔화…전망치 하회",
+          "description": "넬라 리처드슨 ADP 수석 이코노미스트는 \"급여는 오늘날 변동이 심한 고용시장에 대해 많은 것을 알려준다\"며 \"한때 예측 가능했던 임금 상승률은 (이제) 인구 구조 변화, 지속적인 인플레이션, 인공지능(AI)이 일자리에...",
+          "link": "https://www.yna.co.kr/view/AKR20260902180700072?input=1195m",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:20:00 +0900"
+        },
+        {
+          "title": "이영숙 서울시의원, \"서울로봇인공지능과학관, AI 전략거점이자 글로벌...",
+          "description": "서울시 AI·로봇 산업의 전략적 전시 거점으로 자리매김해야 한다고 강조했다. 이영숙 의원은 \"빠르게 변화하는 로봇 및 AI 기술 트렌드에 발맞춰 민간 기업과의 기술협력을 대폭 강화해야 한다\"라며, \"단순 관람을 넘어...",
+          "link": "https://www.cnbizm.com/news/articleView.html?idxno=313739",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:20:00 +0900"
+        },
+        {
+          "title": "골목길 복병 '스텔스 보행'…가을밤 사고 최다",
+          "description": "여기에 ‘AI CCTV’를 도입해 도로 위 보행자를 감지하고 현장에서 경고하는 방식도 제언됐습니다. <이성렬 / 삼성교통안전문화연구소 수석연구원> “차도 상에 쓰러져 있는 보행자를 인식하고 미리 대응을 한다면 스텔스...",
+          "link": "http://www.yonhapnewstv.co.kr/news/MYH20260902231935lmI",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:20:00 +0900"
+        },
+        {
+          "title": "러트닉 美상무 \"목표 정확히 겨냥한 반도체 관세 준비중\"",
+          "description": "한편 러트닉 장관은 이날 노스캐롤라이나주 채플힐에서 G20 혁신장관회의를 열고 인공지능(AI) 지식재산권과 AI 표준·공급망 등을 논의한다. 김정관 산업통상부 장관도 회의에 참석할 예정이며, 김 장관은 회의를 계기로...",
+          "link": "https://www.newsis.com/view/NISX20260902_0003773983",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:19:00 +0900"
+        },
+        {
+          "title": "李 \"임기 내 전작권 환수 차질없이 추진\"",
+          "description": "시민사회를 상대로 한 공공외교 활동 경험을 공유하고 차세대 청년 세대의 평화 실천 의지를 전했다. 아울러... 재외동포 사회의 힘을 외교적 지형 확대로 연결시키려는 가운데 이러한 노력이 실질적인 남북 관계 개선의...",
+          "link": "http://www.00news.co.kr/news/articleView.html?idxno=106309",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:28:00 +0900"
+        },
+        {
+          "title": "한국재정정보원, 강원 청년 공공기관 취업 돕는다",
+          "description": "한국재정정보원(원장 윤석호)이 사회적협동조합 희망리본과 함께 강원 지역 청년들의 공공기관 취업 역량을 높이기 위한 맞춤형 취업 지원에 나섰다. 한국재정정보원은 지난 8월 25일 강릉 재정도움센터에서 취업 지원...",
+          "link": "https://www.kdpress.co.kr/news/articleView.html?idxno=208273",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:28:00 +0900"
+        },
+        {
+          "title": "[사설]“사교육 아니면 자녀 0.53명 더 낳았을 것”",
+          "description": "결국 우리 사회가 다양한 직업을 존중하고 특정 집단이 자원을 독식하는 구조를 깨야만 한다. 그러려면 공교육의 질적 혁신과 노동시장의 체질 개선이라는 정공법을 써야 한다.",
+          "link": "https://www.donga.com/news/Opinion/article/all/20260902/134595436/2",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:28:00 +0900"
+        },
+        {
+          "title": "'코트부터 미술관까지' KB금융의 스포츠 ESG... 'Kiaf SEOUL 2026' 3년 연속...",
+          "description": "금융회사의 ESG 활동 영역을 환경이나 사회공헌 캠페인에 한정하지 않고 문화와 체육 생태계까지 확장한 셈이다. KB금융 관계자는 \"한국 미술의 역동적인 에너지를 세계에 전하는 키아프 서울에 리드 파트너로 함께하게...",
+          "link": "https://www.stnsports.co.kr/news/articleView.html?idxno=321963",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:26:00 +0900"
+        },
+        {
+          "title": "공무원노조 \"직역연금만 소득45% 기준, 신분차별 철폐해야\"",
+          "description": "공노총은 그동안 공무원 신분만으로 소득과 재산 심사 기회조차 박탈당했던 불합리가 해소되고, 퇴직 공직자들의 노후 생계에 최소한의 사회안전망이 마련됐다고 평가했다. 공노총은 관련 연구용역 추진, 복지부와의...",
+          "link": "https://www.gukjenews.com/news/articleView.html?idxno=3683035",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:26:00 +0900"
+        },
+        {
+          "title": "부산 북구 \"하굣길 안전에 어르신이 나선다\"…22개교에 112명 배치",
+          "description": "하굣길 안심지원 도우미 배치 현장/제공=북구청 북구는 기존 등교 시간 중심으로 운영하던 교통안전 지도를 하교 시간까지 확대하고, 노인 일자리와 연계해 학생 안전과 어르신들의 사회 참여를 지원하기 위해 이번...",
+          "link": "https://www.gukjenews.com/news/articleView.html?idxno=3683031",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:26:00 +0900"
+        },
+        {
+          "title": "연 2만 원... 익산시, 장난감 대여 서비스 회원 1300명 넘어",
+          "description": "중앙 거점인 영등동 본원은 3~5세 유아를 위한 '튼튼놀이 체험관'과 0~2세 영아 대상 '쑥쑥놀이 체험관'을 갖추고 사회관계, 예술경험, 의사소통, 신체운동 등 발달 영역별 맞춤형 교구를 지원한다. 서부권 거점인 모현동...",
+          "link": "https://www.newstnt.com/news/articleView.html?idxno=716501",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:26:00 +0900"
+        },
+        {
+          "title": "강동시니어클럽, 기능보강사업 선정…작업환경 개선 안전사고 예방",
+          "description": "강동시니어클럽 관계자들이 서울사회복지공동모금회 2026년 기능보강사업비 지원 현판을 들고 있다. [사진제공=강동시니어클럽]  강동시니어클럽이 서울사회복지공동모금회의 '2026년 기능보강사업'에 선정돼 지난달...",
+          "link": "https://www.gukjenews.com/news/articleView.html?idxno=3683032",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:26:00 +0900"
+        },
+        {
+          "title": "은가은, 화이트 드레스 거울 셀카…'전설의사내' 무대 예고",
+          "description": "은가은은 사회공헌 활동에도 적극적이다. 2018년 김해시 자원봉사 홍보대사로 위촉된 데 이어 2023년에는 대한불교조계종사회복지재단 자비나눔 홍보대사, 김해 홍보대사, 새 생명 장기 기증 운동본부 홍보대사로...",
+          "link": "https://www.topstarnews.net/news/articleView.html?idxno=16181241",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:24:00 +0900"
+        },
+        {
+          "title": "KT&G, 광주 북구와 깨끗한 도시환경 만든다",
+          "description": "지역사회와 연계한 환경경영 활동으로 확대한다는 방침이다. 심영아 KT&G ESG경영실장은 \"이번 지원이 지역 도시환경에 실질적인 변화를 만드는 출발점이 되길 바란다\"며 \"지역사회와 지속적으로 협력해 더 나은...",
+          "link": "https://www.kdpress.co.kr/news/articleView.html?idxno=208272",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:24:00 +0900"
+        },
+        {
+          "title": "[뉴욕증시]10년물 4.81% 찍고 후퇴…일제히 상승세",
+          "description": "가운데 국제유가도 하락세로 돌아서자 2일(현지시간) 미국 뉴욕증시의 3대 지수는 일제히 상승하고 있다. 증시 하방압력의 원인이었던 국채 금리와 국제유가 급등세가 멈추자 위험자산 투자심리가 다소 회복되는...",
+          "link": "https://view.asiae.co.kr/article/2026090223380255237",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:38:00 +0900"
+        },
+        {
+          "title": "'론칭 10주년' 넷플릭스 코리아가 2026 부산국제영화제에 내놓는 작품 5",
+          "description": "론칭 10주년을 맞은 넷플릭스 코리아가 제31회 부산국제영화제(BIFF)에서 작품 다섯 편을 내놓습니다. 한국... 이미 제83회 베니스국제영화제, 제51회 토론토국제영화제, 제64회 뉴욕영화제 등 세계 유수의 영화제에 공식...",
+          "link": "https://www.elle.co.kr/article/1909029",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:36:00 +0900"
+        },
+        {
+          "title": "[기고] 네팔 대홍수 비극, 20년 전 경고는 왜 묻혔나",
+          "description": "온실가스 배출에 따른 피해에 가장 먼저 노출되는 취약 국가들로서 국제사회의 지원을 이끌어내기 위해서도 중요한 문장이었다. 그러나 미국 대표단은 기후변화에 따른 빙하 융해를 어디까지 입증할 수 있는지 의문을...",
+          "link": "https://www.chosun.com/opinion/contribution/2026/09/02/IXSD5QFAMZG4ZMSWIDACMFJZ6Y/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:35:00 +0900"
+        },
+        {
+          "title": "TWS(투어스), 광고계 잇단 러브콜 받으며 ‘K-팝 대세’다운 존재감 드러...",
+          "description": "TWS는 일본에서 ‘2026 TWS TOUR ‘24/7:FOR:YOU’ IN JAPAN’도 진행 중이다. 후쿠오카 국제 센터에서 투어의 포문을 연 이들은 오는 4~6일 효고 고베 월드 기념 홀, 12~13일 가나가와 K 아레나 요코하마에서 공연을 선보인다.",
+          "link": "https://sports.khan.co.kr/article/202609022332003?pt=nv",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:33:00 +0900"
+        },
+        {
+          "title": "김정관 산업장관, G20서 AI 혁신 강조…공급망 협력 제안",
+          "description": "G20 혁신장관회의 참석 및 한미 경제협력 확대 위해 김정관 산업통상부 장관이 지난 1일 인천국제공항 제2여객터미널을 통해 미국으로 출국하며 취재진 질문에 답변하고 있다. 뉴시스 G20 회원국들이 AI 지식재산 정책과...",
+          "link": "https://www.segye.com/newsView/20260902521168?OutUrl=naver",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:32:00 +0900"
+        },
+        {
+          "title": "[사설]유가-인플레에 국채금리까지 발작… “위험 수위 진입” 경고음",
+          "description": "국제 유가 급등과 인플레이션 우려, 막대한 국가 부채에 대한 불안 등이 한꺼번에 겹치면서 주요국 장기... 지난달 미국과 이란의 직접 교전이 한 달 만에 재개되면서 배럴당 60달러대까지 떨어졌던 국제유가는 다시...",
+          "link": "https://www.donga.com/news/Opinion/article/all/20260902/134595432/2",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:31:00 +0900"
+        },
+        {
+          "title": "한국환경공단, 우간다 분뇨처리로 수질·보건 개선",
+          "description": "차광명 한국환경공단 경영기획이사는 \"이번 준공은 공단의 환경기초시설 구축 전문성과 기술력을 국제적으로 입증한 성과\"라며 \"글로벌 환경사업을 확대해 지속가능한 환경개선에 기여하겠다\"고 말했다.",
+          "link": "https://www.kdpress.co.kr/news/articleView.html?idxno=208274",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:30:00 +0900"
+        },
+        {
+          "title": "단풍 아래 영화 한 편…서울숲 가을밤 열린다",
+          "description": "서울시는 서울국제정원박람회가 열리는 서울숲에서 9월부터 10월까지 가을 정원문화 프로그램을 운영한다.... 서울국제정원박람회 공식 누리집에서 방문 전 시간과 신청 방법을 확인하는 것이 좋다. 수인분당선...",
+          "link": "https://www.newscj.com/news/articleView.html?idxno=3429712",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:30:00 +0900"
+        },
+        {
+          "title": "정이서, 스카프 두른 올블랙 룩…'원더풀스' 이어 근황",
+          "description": "정이서는 영화 '그녀의 취미생활'에서 정인 역을 맡아 2023년 제27회 부천국제판타스틱영화제 코리안 판타스틱 배우상을 수상했다. 장르 영화 속 인물을 세밀하게 표현한 연기로 평가를 받으며 배우로서 존재감을 한층...",
+          "link": "https://www.topstarnews.net/news/articleView.html?idxno=16181250",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:28:00 +0900"
+        },
+        {
+          "title": "'코트부터 미술관까지' KB금융의 스포츠 ESG... 'Kiaf SEOUL 2026' 3년 연속...",
+          "description": "국내 최대 규모 국제아트페어인 '키아프 서울' 리드파트너로 3년 연속 나서는 한편, 스포츠에서는... 2002년 출범한 키아프는 국내 미술을 해외에 소개해 온 대표적인 국제아트페어다. KB금융은 단순 행사 후원에 머물지...",
+          "link": "https://www.stnsports.co.kr/news/articleView.html?idxno=321963",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:26:00 +0900"
+        }
+      ]
     }
   },
   "realtime": {
     "date": "2026-09-02",
-    "updated_at": "2026년 09월 02일 23:17",
-    "summary": "수집된 뉴스가 없어 요약을 생성하지 못했습니다.",
+    "updated_at": "2026년 09월 02일 23:38",
+    "summary": "AI 요약 생성 중 오류 발생: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-3.6-pro is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}",
     "has_audio": true,
     "audio_url": "history/2026-09-02.mp3",
     "categories": {
-      "전체": []
+      "전체": [
+        {
+          "title": "김승원 ‘신약 임상 청탁’ 의혹…식약처장에 “빠른 처리 부탁”",
+          "description": "정치권과 서울서부지법 판결문 등에 따르면 코로나19 치료제 개발을 추진하던 제약업체 설립자 강모씨는... 강씨는 임상시험 승인이 늦어질 것을 우려해 같은 해 10월 6일 정치권 인맥을 보유한 사업가 양모씨에게 도움을...",
+          "link": "https://weekly.khan.co.kr/article/202609022323001",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:23:00 +0900"
+        },
+        {
+          "title": "李대통령, ‘부동산 개혁 후퇴’ 비판에 “정책 고수 무조건 옳나…호오...",
+          "description": "이 대통령은 “국민과 정치권의 의견을 반영한 정당한 정책적 조정”이라며 “정책 입장을 바꾸는 것은... 진정한 정치를 회복하면 좋겠다”면서 “허위에 기초한 선동과 음해, 무조건적인 비난에서 벗어나 진실에...",
+          "link": "https://www.kyeonggi.com/article/20260902580589",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:23:00 +0900"
+        },
+        {
+          "title": "최종부 서울시의회 대변인 \"민주당, 민생 결의안 가로막아… '정쟁 문지...",
+          "description": "정치권에서는 상임위원장의 의사진행 권한이 특정 진영의 법안 차단용 도구로 변질되어서는 안 된다고 보고 있다. 특히 교통 체증 해소와 안전 대책 등 시민 생활과 밀접한 현안이 정쟁으로 장기 표류할 경우 행정 공백에...",
+          "link": "https://www.mediapen.com/news/view/1120903",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:20:00 +0900"
+        },
+        {
+          "title": "진교훈 강서구청장 \"'양성평등'이란 단어가 필요 없는 강서구를 위해 차...",
+          "description": "한편, 양성평등주간은 남성과 여성이 조화롭게 발전하며 정치·경제·사회·문화 전반에서 실질적인 평등을 구현하기 위해 제정된 법정 기념주간이다. 양성평등주간은 1996년 '여성주간'으로 시작해 2015년 양성평등기본법...",
+          "link": "https://www.cnbizm.com/news/articleView.html?idxno=313732",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:18:00 +0900"
+        },
+        {
+          "title": "안신일 세종시의장, 행정수도 완성 시대적 과제...민주당 화답 환영",
+          "description": "특히 김민석 당대표 취임 후 첫 예산정책협의회가 다른 지역이 아닌 세종에서 열린 것은 그 자체로 막중한 정치적·시대적 의미를 가진다. 한병도 원내대표의 언급처럼, 새 지도부의 첫걸음이 세종에서 시작되었다는...",
+          "link": "http://www.ccnnews.co.kr/news/articleView.html?idxno=414366",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:14:00 +0900"
+        },
+        {
+          "title": "조국 \"이 대통령 유죄 가능성\"...\"배은망덕\"·\"레임덕\"",
+          "description": "조국 전 조국혁신당 대표가 이재명 대통령의 공직선거법 사건과 공소취소 문제를 SNS에 언급하면서 정치권 공방이 계속되고 있습니다. 민주당에선 '배은망덕하다'는 반응까지 나왔고, 국민의힘은 대통령의 레임덕이...",
+          "link": "https://www.ytn.co.kr/_ln/0101_202609022309428674",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:09:00 +0900"
+        },
+        {
+          "title": "부동산 개혁 후퇴 비판에 李 \"강남 급락 살펴보길\"",
+          "description": "이날 이 대통령은 엑스(X)를 통해 \"중저가 비거주용 1주택 종합부동산세 감면 상한을 9억원으로 낮추려던 정부안을 너무 과하다는 정치권·국민 의견을 반영해 12억원으로 원상 복귀시키고, 종부세 연간 증액 한도를 200%로...",
+          "link": "https://www.mk.co.kr/article/12142844",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:08:00 +0900"
+        },
+        {
+          "title": "\"식약처 처리 부탁\" 문자 받은 김승원...같은 달 임상승인",
+          "description": "이에 강 씨는 임상시험 승인 여부가 제때 나오지 않을까 고민하며, 정치권 인맥을 보유한 사업가 양 모 씨를 찾았습니다. 이후 양 씨가 연락한 게 김승원 후보자였습니다. 해당 사건 판결문에 따르면 양 씨는 2021년 10월 8일...",
+          "link": "https://www.ytn.co.kr/_ln/0103_202609022305290396",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:05:00 +0900"
+        },
+        {
+          "title": "이재명 대통령, 종부세 완화 비판 조목조목 반박",
+          "description": "당초안을 정치권과 국민 의견을 반영해 12억원으로 원상복귀하고, 종부세 연간 증액 한도를 200%로 늘리려던... 부합하는 정치를 해야 한다고 말했다. 또한 허위에 기초한 선동과 음해, 무조건적 비난이 아닌 제대로 된...",
+          "link": "https://www.jnilbo.com/news/articleView.html?idxno=90000062025",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:04:00 +0900"
+        },
+        {
+          "title": "'부동산 정책 후퇴' 비판 일자…李 \"강남 왜 급락했나 살펴보라\"",
+          "description": "정치권 안팎에서는 부동산 정책 여론이 악화하는 점 때문에 정치적 부담을 느껴 정부가 원안을 고수하는 것으로 보는 시선이 많다. 이에 따라 정책 불확실성이 커지고 수요층에서 혼선이 생겼다는 비판이 나온다. 이에...",
+          "link": "https://www.hankyung.com/article/2026090206321",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:04:00 +0900"
+        },
+        {
+          "title": "온, 포스트아카이브팩션(PAF)과 마지막 협업 ‘커렌트 폼 5.0’ 컬렉션 공...",
+          "description": "또 On은 수상 경력에 빛나는 CloudTec® 및 LightSpray™ 기술과 혁신적인 디자인, 순환 경제를 추구하는 대담한 행보를 통해 전 세계 팬층을 빠르게 확보해 나가고 있으며, 움직임을 통해 더 많은 것을 탐구하고...",
+          "link": "https://sports.khan.co.kr/article/202609022327003?pt=nv",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:28:00 +0900"
+        },
+        {
+          "title": "[사설]“사교육 아니면 자녀 0.53명 더 낳았을 것”",
+          "description": "한국은행·경제정책연구센터(CEPR)·경제협력개발기구(OECD) 공동 콘퍼런스에서 발표된 ‘지위 경쟁 그리고 한국의 저출산’ 논문에 따르면, 1970∼1975년생 여성의 평균 자녀 수가 사교육의 ‘지위 경쟁’ 효과를 제거하면...",
+          "link": "https://www.donga.com/news/Opinion/article/all/20260902/134595436/2",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:28:00 +0900"
+        },
+        {
+          "title": "군산시, 전기차 456대 추가 보급…대기질 개선 기여",
+          "description": "김재준 군산시장./군산시 | 군산=한스경제 이인호 기자 | 전북 군산시가 하반기 전기자동차 456대를 추가로 보급한다. 신청은 7일부터 전기차 구매보조금 지원시스템을 통해 가능하다. 시는 탄소중립과 미세먼지...",
+          "link": "http://www.hansbiz.co.kr/news/articleView.html?idxno=861746",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:26:00 +0900"
+        },
+        {
+          "title": "연 2만 원... 익산시, 장난감 대여 서비스 회원 1300명 넘어",
+          "description": "지속되는 고물가와 경기 침체 속에서 아이의 빠른 성장 단계에 맞춰 고가의 장난감과 교구를 지속해서 구매하는 일은 영유아 가정에 상당한 경제적 부담으로 작용해 왔다. 익산시는 부모들의 양육 부담을 덜고...",
+          "link": "https://www.newstnt.com/news/articleView.html?idxno=716501",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:26:00 +0900"
+        },
+        {
+          "title": "KT&G, 광주 북구와 깨끗한 도시환경 만든다",
+          "description": "협력해 더 나은 생활환경을 만드는 데 기여하겠다\"고 말했다. KT&G는 KT&G Green Impact 비전을 기반으로 기후변화 영향 저감과 순환경제 전환, 자연자본 관리 및 생물다양성 보호를 중심으로 환경경영을 추진하고 있다.",
+          "link": "https://www.kdpress.co.kr/news/articleView.html?idxno=208272",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:24:00 +0900"
+        },
+        {
+          "title": "경남 농산물값 5.8% 뚝…추석 앞두고 '장바구니 물가' 숨통",
+          "description": "김인수 경남도 경제통상국장은 \"전체 소비자물가는 상승세를 보이고 있지만 농축수산물이 하락세로 전환되고 석유류의 상승폭도 둔화되는 등 주요 품목에서 안정적인 흐름이 나타나고 있다. 추석을 앞두고 성수품 등...",
+          "link": "https://www.straightnews.co.kr/news/articleView.html?idxno=310313",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:24:00 +0900"
+        },
+        {
+          "title": "서울시의회 함대건 의원, 안전취약계층 이용 건물 화재 예방 위한 안전...",
+          "description": "문화경제 | CNB저널 | 씨앤비저널 서울특별시의회 도시안전건설위원회 함대건 부위원장(더불어민주당·비례)이 발의한 '서울특별시 안전취약계층 이용 건물의 화재 예방 안전시설 지원에 관한 조례안'이 지난 9월 1일...",
+          "link": "https://www.cnbizm.com/news/articleView.html?idxno=313734",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:20:00 +0900"
+        },
+        {
+          "title": "뱃길 줄고 물가는 뛰고…울릉 관광객 19% 급감",
+          "description": "관광객 감소가 장기화하면 숙박업과 음식점, 렌터카 등 관광 의존도가 높은 지역경제 전반으로 충격이 번질 수 있다. 울릉군의회는 관광산업 회복을 위한 대책 마련에 착수했다. 지난 8월 말 '울릉관광 재도약을 위한...",
+          "link": "https://www.newscj.com/news/articleView.html?idxno=3429679",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:20:00 +0900"
+        },
+        {
+          "title": "홍재희 서울시의원, 마곡 ENS 건설사업 관련 남동발전 출자 승인확인…...",
+          "description": "문화경제 | CNB저널 | 씨앤비저널 서울특별시의회 환경수자원위원회 홍재희 부위원장(더불어민주당·강서5)... 서울에너지공사 사장은 이날 업무보고에서 한국남동발전의 사업 출자에 대한 재정경제부 승인이 지난 8월...",
+          "link": "https://www.cnbizm.com/news/articleView.html?idxno=313738",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:20:00 +0900"
+        },
+        {
+          "title": "이영숙 서울시의원, \"서울로봇인공지능과학관, AI 전략거점이자 글로벌...",
+          "description": "문화경제 | CNB저널 | 씨앤비저널 서울시의회 이영숙 의원(더불어민주당, 도봉1)은 지난 1일 열린 제339회 임시회 서울시립과학관 대상 질의에서 도봉구에 위치한 서울 로봇인공지능과학관이 단순 체험형 시설을 넘어...",
+          "link": "https://www.cnbizm.com/news/articleView.html?idxno=313739",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:20:00 +0900"
+        },
+        {
+          "title": "동양생명·ABL생명, 임원 대상 AI 에이전트 실습 교육 실시",
+          "description": "앞서 동양생명은 지난 7월 '2026년 하반기 리더스 변화혁신 포럼'을 개최하고 영업·상품, 투자·재무·리스크, 정보기술(IT)·오퍼레이션·소비자보호 등 전 부문을 대상으로 AI 활용 방향을 논의한 바 있다. 동양생명 측은...",
+          "link": "https://weekly.hankooki.com/news/articleView.html?idxno=7182113",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:30:00 +0900"
+        },
+        {
+          "title": "키드밀리, 'WHO CARES'로 일상 속 신곡 홍보…감각적인 포즈",
+          "description": "이 앨범에는 타이틀곡 'Wahssap'을 비롯해 'RIP Volume', 'Baadboy', 'GU4P$$', 'Lifestylin', 'Too young for this', 'Right now', 'Oh yeah', 'Honestly', 'Run it back' 등 10곡이 수록돼 다양한 사운드를 담았으며, 두 뮤지션이 하나의 크루로...",
+          "link": "https://www.topstarnews.net/news/articleView.html?idxno=16181251",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:28:00 +0900"
+        },
+        {
+          "title": "Dirty Ice Could Be Fueling Himalayan Disasters",
+          "description": "As that black cover settles on glacier surfaces, it’s causing them to absorb more heat from the sun and melt faster, scientists warn. It’s especially true in high-mountain regions like...",
+          "link": "https://www.nytimes.com/2026/09/02/climate/pollution-soot-glaciers-melting-himalayas.html?partner=naver",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:28:00 +0900"
+        },
+        {
+          "title": "STAYC 세은, 티셔츠 살짝 내린 장난스러운 셀카",
+          "description": "2025년에는 싱글 5집 'S'와 스페셜 싱글 'I WANT IT'를 연달아 선보이며 활동을 이어갔다. 세은은 STAYC 멤버로서 이들 음반 활동과 음악 방송, 영상 콘텐츠, 공연에 참여하며 팀과 함께 꾸준히 무대에 섰다. 세은은...",
+          "link": "https://www.topstarnews.net/news/articleView.html?idxno=16181245",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:26:00 +0900"
+        },
+        {
+          "title": "Trump’s ‘Lightning Speed’ Threatens to Outpace the Courts",
+          "description": "Trump loses when those lawsuits are finally resolved, it may be too late as a practical matter... “Trump is going to get his ballroom — even if courts conclude it’s illegal,” said Leah...",
+          "link": "https://www.nytimes.com/2026/09/02/us/politics/trump-courts-ballroom.html?partner=naver",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:26:00 +0900"
+        },
+        {
+          "title": "태민, 금발 올블랙 비주얼…새 월드투어 앞둔 근황",
+          "description": "이후 정규 1집 'Press It'과 정규 3집 시리즈 'Never Gonna Dance Again : Prologue', 'Act 1', 'Act 2'를 선보이며 콘셉트와 퍼포먼스를 결합한 무대로 솔로 아티스트 아이덴티티를 공고히 했다. 대표곡 '괴도 (Danger)'는 강렬한...",
+          "link": "https://www.topstarnews.net/news/articleView.html?idxno=16181244",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:26:00 +0900"
+        },
+        {
+          "title": "은가은, 화이트 드레스 거울 셀카…'전설의사내' 무대 예고",
+          "description": "은가은은 2013년 디지털 싱글 'Drop it'으로 데뷔한 뒤 발라드와 트로트를 넘나들며 활동을 이어왔다. 2015년... '놀라운 대회 스타킹'에서는 'Let It Go' 무대로 연습생 시절의 노력을 드러내며 주목받았고, '백인백곡...",
+          "link": "https://www.topstarnews.net/news/articleView.html?idxno=16181241",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:24:00 +0900"
+        },
+        {
+          "title": "노윤서, '동궁' 생강과 밤거리 투샷…촬영 추억 공유",
+          "description": "그는 \"Slow it down Out now 재미난 추억 감사합니다\"라는 글을 남기며 이날 함께한 시간을 돌아봤다. 사진에는 셔터 형태의 배경을 뒤로하고 두 사람이 가까이 서서 밝은 표정을 짓는 모습이 포착됐다. 조명 아래 자연스러운...",
+          "link": "https://www.topstarnews.net/news/articleView.html?idxno=16181237",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:22:00 +0900"
+        },
+        {
+          "title": "앤트로픽 '클로드 페이블 5.1' 공개...첫 응답에 4분 넘어",
+          "description": "그러나 미국 IT 전문 매체 '테크이시(tech-ish)'에 따르면 일반적인 의학 질문에 대한 오탐은 85% 줄었지만, 생명과학 연구 관련 요청은 여전히 오퍼스 5로 우회 처리된다. 사이버 보안 관련해서는 클로드 코드에서...",
+          "link": "https://www.thelec.kr/news/articleView.html?idxno=61715",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:22:00 +0900"
+        },
+        {
+          "title": "자우림부터 김현철까지 앨범에 담긴 이야기 나눈다…마포구 마포음악창...",
+          "description": "9월 18일에는 자우림 2집 「戀人」, 10월 23일에는 김현철 4집 「Who Stepped On It」을 주제로 이어간다. 각 회차는 오전 11시 마포음악창작소 라이브홀(B1)에서 열리며, 약 80분간 진행된다. 티켓료는 전석 1만 원이다. 신청은...",
+          "link": "https://www.cnbizm.com/news/articleView.html?idxno=313721",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:14:00 +0900"
+        },
+        {
+          "title": "사흘 연속 내린 뉴욕증시, 저가 매수세에 반등 시도…다우 0.5%↑",
+          "description": "시장 예상보다 좋은 실적을 낸 데다 인공지능(AI) 서비스 사업의 성장세를 반영해 2027 회계연도 실적 전망을 높인 것이 호재로 작용했다. 오디오 엔터테인먼트 업체 시리우스도 6.21% 올랐다. 도이체방크가 이 회사에...",
+          "link": "https://biz.chosun.com/international/international_economy/2026/09/02/RUBIZEFFNZBBRHNNCL3Y5QZII4/?utm_source=naver&utm_medium=original&utm_campaign=biz",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:25:00 +0900"
+        },
+        {
+          "title": "교사 불법 촬영한 중학생…교사노조 \"스마트폰 소지 금지 학칙 도입하라...",
+          "description": "특히 촬영 대상이 된 신체 부위 확인을 통한 피해자 특정은 물론, 인공지능(AI) 기반 딥페이크 기술을 활용한 2차 합성물 제작 여부까지 수사 범위를 넓혔다. 경찰 관계자는 \"일부 신체가 찍힌 사진이나 영상의 경우 피해자를...",
+          "link": "https://www.insight.co.kr/news/571624",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:24:00 +0900"
+        },
+        {
+          "title": "[송평인 칼럼]부동산 허위의식, 진보와 보수의 합작품",
+          "description": "인공지능(AI)은 이런 것도 상세하게 계산해 준다. 환율은 달러당 1400원, 100엔당 880원을 적용해 현 시세보다 양도세가 적어지게 하는 대신 필요경비는 마찬가지로 0원으로 했다. 이 대통령의 양도차익 25억4400만 원은...",
+          "link": "https://www.donga.com/news/Opinion/article/all/20260902/134595137/2",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:22:00 +0900"
+        },
+        {
+          "title": "앤트로픽 '클로드 페이블 5.1' 공개...첫 응답에 4분 넘어",
+          "description": "앤트로픽이 차세대 인공지능(AI) 모델 클로드 페이블(Claude Fable) 5.1과 클로드 미토스(Claude Mythos) 5.1을... 그러나 AI 모델 독립 평가 사이트인 AA와 일부 외신에서는 앤트로픽의 토큰 비용 인하가 실질적이지...",
+          "link": "https://www.thelec.kr/news/articleView.html?idxno=61715",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:22:00 +0900"
+        },
+        {
+          "title": "[2026 전남광주미래산업박람회] 콘텐츠랩 슬러그, 콘텐츠 제작·행사 중...",
+          "description": "주요 전시 품목은 △모빌리티·친환경자동차·퍼스널 모빌리티·특수목적용 자동차·도심항공교통(UAM)·자율주행차 △핵심 뿌리기술·3D 프린팅·부품 및 기술 △인공지능(AI) 가전·홈 디바이스 △드론 관련 부품 및 기술...",
+          "link": "https://www.etnews.com/20260902000462",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:22:00 +0900"
+        },
+        {
+          "title": "[신간] OTT미디어 산업 생존 전략서, 『K-OTT 로드』출간",
+          "description": "저자 김희경 교수는 영화 및 만화 평론가이자 미디어 정책 및 AI 영상 콘텐츠 분야를 연구해온 전문가다. 저자는 각 장 끝에 '한눈에 보기' 요약표를 구성하고 부록으로 K-OTT 연대기, 플랫폼별 오리지널 콘텐츠 목록...",
+          "link": "https://www.abcn.kr/news/articleView.html?idxno=91267",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:20:00 +0900"
+        },
+        {
+          "title": "美ADP 8월 민간 고용 증가폭 3만8천명으로 둔화…전망치 하회",
+          "description": "넬라 리처드슨 ADP 수석 이코노미스트는 \"급여는 오늘날 변동이 심한 고용시장에 대해 많은 것을 알려준다\"며 \"한때 예측 가능했던 임금 상승률은 (이제) 인구 구조 변화, 지속적인 인플레이션, 인공지능(AI)이 일자리에...",
+          "link": "https://www.yna.co.kr/view/AKR20260902180700072?input=1195m",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:20:00 +0900"
+        },
+        {
+          "title": "이영숙 서울시의원, \"서울로봇인공지능과학관, AI 전략거점이자 글로벌...",
+          "description": "서울시 AI·로봇 산업의 전략적 전시 거점으로 자리매김해야 한다고 강조했다. 이영숙 의원은 \"빠르게 변화하는 로봇 및 AI 기술 트렌드에 발맞춰 민간 기업과의 기술협력을 대폭 강화해야 한다\"라며, \"단순 관람을 넘어...",
+          "link": "https://www.cnbizm.com/news/articleView.html?idxno=313739",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:20:00 +0900"
+        },
+        {
+          "title": "골목길 복병 '스텔스 보행'…가을밤 사고 최다",
+          "description": "여기에 ‘AI CCTV’를 도입해 도로 위 보행자를 감지하고 현장에서 경고하는 방식도 제언됐습니다. <이성렬 / 삼성교통안전문화연구소 수석연구원> “차도 상에 쓰러져 있는 보행자를 인식하고 미리 대응을 한다면 스텔스...",
+          "link": "http://www.yonhapnewstv.co.kr/news/MYH20260902231935lmI",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:20:00 +0900"
+        },
+        {
+          "title": "러트닉 美상무 \"목표 정확히 겨냥한 반도체 관세 준비중\"",
+          "description": "한편 러트닉 장관은 이날 노스캐롤라이나주 채플힐에서 G20 혁신장관회의를 열고 인공지능(AI) 지식재산권과 AI 표준·공급망 등을 논의한다. 김정관 산업통상부 장관도 회의에 참석할 예정이며, 김 장관은 회의를 계기로...",
+          "link": "https://www.newsis.com/view/NISX20260902_0003773983",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:19:00 +0900"
+        },
+        {
+          "title": "李 \"임기 내 전작권 환수 차질없이 추진\"",
+          "description": "시민사회를 상대로 한 공공외교 활동 경험을 공유하고 차세대 청년 세대의 평화 실천 의지를 전했다. 아울러... 재외동포 사회의 힘을 외교적 지형 확대로 연결시키려는 가운데 이러한 노력이 실질적인 남북 관계 개선의...",
+          "link": "http://www.00news.co.kr/news/articleView.html?idxno=106309",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:28:00 +0900"
+        },
+        {
+          "title": "한국재정정보원, 강원 청년 공공기관 취업 돕는다",
+          "description": "한국재정정보원(원장 윤석호)이 사회적협동조합 희망리본과 함께 강원 지역 청년들의 공공기관 취업 역량을 높이기 위한 맞춤형 취업 지원에 나섰다. 한국재정정보원은 지난 8월 25일 강릉 재정도움센터에서 취업 지원...",
+          "link": "https://www.kdpress.co.kr/news/articleView.html?idxno=208273",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:28:00 +0900"
+        },
+        {
+          "title": "[사설]“사교육 아니면 자녀 0.53명 더 낳았을 것”",
+          "description": "결국 우리 사회가 다양한 직업을 존중하고 특정 집단이 자원을 독식하는 구조를 깨야만 한다. 그러려면 공교육의 질적 혁신과 노동시장의 체질 개선이라는 정공법을 써야 한다.",
+          "link": "https://www.donga.com/news/Opinion/article/all/20260902/134595436/2",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:28:00 +0900"
+        },
+        {
+          "title": "'코트부터 미술관까지' KB금융의 스포츠 ESG... 'Kiaf SEOUL 2026' 3년 연속...",
+          "description": "금융회사의 ESG 활동 영역을 환경이나 사회공헌 캠페인에 한정하지 않고 문화와 체육 생태계까지 확장한 셈이다. KB금융 관계자는 \"한국 미술의 역동적인 에너지를 세계에 전하는 키아프 서울에 리드 파트너로 함께하게...",
+          "link": "https://www.stnsports.co.kr/news/articleView.html?idxno=321963",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:26:00 +0900"
+        },
+        {
+          "title": "공무원노조 \"직역연금만 소득45% 기준, 신분차별 철폐해야\"",
+          "description": "공노총은 그동안 공무원 신분만으로 소득과 재산 심사 기회조차 박탈당했던 불합리가 해소되고, 퇴직 공직자들의 노후 생계에 최소한의 사회안전망이 마련됐다고 평가했다. 공노총은 관련 연구용역 추진, 복지부와의...",
+          "link": "https://www.gukjenews.com/news/articleView.html?idxno=3683035",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:26:00 +0900"
+        },
+        {
+          "title": "부산 북구 \"하굣길 안전에 어르신이 나선다\"…22개교에 112명 배치",
+          "description": "하굣길 안심지원 도우미 배치 현장/제공=북구청 북구는 기존 등교 시간 중심으로 운영하던 교통안전 지도를 하교 시간까지 확대하고, 노인 일자리와 연계해 학생 안전과 어르신들의 사회 참여를 지원하기 위해 이번...",
+          "link": "https://www.gukjenews.com/news/articleView.html?idxno=3683031",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:26:00 +0900"
+        },
+        {
+          "title": "연 2만 원... 익산시, 장난감 대여 서비스 회원 1300명 넘어",
+          "description": "중앙 거점인 영등동 본원은 3~5세 유아를 위한 '튼튼놀이 체험관'과 0~2세 영아 대상 '쑥쑥놀이 체험관'을 갖추고 사회관계, 예술경험, 의사소통, 신체운동 등 발달 영역별 맞춤형 교구를 지원한다. 서부권 거점인 모현동...",
+          "link": "https://www.newstnt.com/news/articleView.html?idxno=716501",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:26:00 +0900"
+        },
+        {
+          "title": "강동시니어클럽, 기능보강사업 선정…작업환경 개선 안전사고 예방",
+          "description": "강동시니어클럽 관계자들이 서울사회복지공동모금회 2026년 기능보강사업비 지원 현판을 들고 있다. [사진제공=강동시니어클럽]  강동시니어클럽이 서울사회복지공동모금회의 '2026년 기능보강사업'에 선정돼 지난달...",
+          "link": "https://www.gukjenews.com/news/articleView.html?idxno=3683032",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:26:00 +0900"
+        },
+        {
+          "title": "은가은, 화이트 드레스 거울 셀카…'전설의사내' 무대 예고",
+          "description": "은가은은 사회공헌 활동에도 적극적이다. 2018년 김해시 자원봉사 홍보대사로 위촉된 데 이어 2023년에는 대한불교조계종사회복지재단 자비나눔 홍보대사, 김해 홍보대사, 새 생명 장기 기증 운동본부 홍보대사로...",
+          "link": "https://www.topstarnews.net/news/articleView.html?idxno=16181241",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:24:00 +0900"
+        },
+        {
+          "title": "KT&G, 광주 북구와 깨끗한 도시환경 만든다",
+          "description": "지역사회와 연계한 환경경영 활동으로 확대한다는 방침이다. 심영아 KT&G ESG경영실장은 \"이번 지원이 지역 도시환경에 실질적인 변화를 만드는 출발점이 되길 바란다\"며 \"지역사회와 지속적으로 협력해 더 나은...",
+          "link": "https://www.kdpress.co.kr/news/articleView.html?idxno=208272",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:24:00 +0900"
+        },
+        {
+          "title": "[뉴욕증시]10년물 4.81% 찍고 후퇴…일제히 상승세",
+          "description": "가운데 국제유가도 하락세로 돌아서자 2일(현지시간) 미국 뉴욕증시의 3대 지수는 일제히 상승하고 있다. 증시 하방압력의 원인이었던 국채 금리와 국제유가 급등세가 멈추자 위험자산 투자심리가 다소 회복되는...",
+          "link": "https://view.asiae.co.kr/article/2026090223380255237",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:38:00 +0900"
+        },
+        {
+          "title": "'론칭 10주년' 넷플릭스 코리아가 2026 부산국제영화제에 내놓는 작품 5",
+          "description": "론칭 10주년을 맞은 넷플릭스 코리아가 제31회 부산국제영화제(BIFF)에서 작품 다섯 편을 내놓습니다. 한국... 이미 제83회 베니스국제영화제, 제51회 토론토국제영화제, 제64회 뉴욕영화제 등 세계 유수의 영화제에 공식...",
+          "link": "https://www.elle.co.kr/article/1909029",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:36:00 +0900"
+        },
+        {
+          "title": "[기고] 네팔 대홍수 비극, 20년 전 경고는 왜 묻혔나",
+          "description": "온실가스 배출에 따른 피해에 가장 먼저 노출되는 취약 국가들로서 국제사회의 지원을 이끌어내기 위해서도 중요한 문장이었다. 그러나 미국 대표단은 기후변화에 따른 빙하 융해를 어디까지 입증할 수 있는지 의문을...",
+          "link": "https://www.chosun.com/opinion/contribution/2026/09/02/IXSD5QFAMZG4ZMSWIDACMFJZ6Y/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:35:00 +0900"
+        },
+        {
+          "title": "TWS(투어스), 광고계 잇단 러브콜 받으며 ‘K-팝 대세’다운 존재감 드러...",
+          "description": "TWS는 일본에서 ‘2026 TWS TOUR ‘24/7:FOR:YOU’ IN JAPAN’도 진행 중이다. 후쿠오카 국제 센터에서 투어의 포문을 연 이들은 오는 4~6일 효고 고베 월드 기념 홀, 12~13일 가나가와 K 아레나 요코하마에서 공연을 선보인다.",
+          "link": "https://sports.khan.co.kr/article/202609022332003?pt=nv",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:33:00 +0900"
+        },
+        {
+          "title": "김정관 산업장관, G20서 AI 혁신 강조…공급망 협력 제안",
+          "description": "G20 혁신장관회의 참석 및 한미 경제협력 확대 위해 김정관 산업통상부 장관이 지난 1일 인천국제공항 제2여객터미널을 통해 미국으로 출국하며 취재진 질문에 답변하고 있다. 뉴시스 G20 회원국들이 AI 지식재산 정책과...",
+          "link": "https://www.segye.com/newsView/20260902521168?OutUrl=naver",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:32:00 +0900"
+        },
+        {
+          "title": "[사설]유가-인플레에 국채금리까지 발작… “위험 수위 진입” 경고음",
+          "description": "국제 유가 급등과 인플레이션 우려, 막대한 국가 부채에 대한 불안 등이 한꺼번에 겹치면서 주요국 장기... 지난달 미국과 이란의 직접 교전이 한 달 만에 재개되면서 배럴당 60달러대까지 떨어졌던 국제유가는 다시...",
+          "link": "https://www.donga.com/news/Opinion/article/all/20260902/134595432/2",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:31:00 +0900"
+        },
+        {
+          "title": "한국환경공단, 우간다 분뇨처리로 수질·보건 개선",
+          "description": "차광명 한국환경공단 경영기획이사는 \"이번 준공은 공단의 환경기초시설 구축 전문성과 기술력을 국제적으로 입증한 성과\"라며 \"글로벌 환경사업을 확대해 지속가능한 환경개선에 기여하겠다\"고 말했다.",
+          "link": "https://www.kdpress.co.kr/news/articleView.html?idxno=208274",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:30:00 +0900"
+        },
+        {
+          "title": "단풍 아래 영화 한 편…서울숲 가을밤 열린다",
+          "description": "서울시는 서울국제정원박람회가 열리는 서울숲에서 9월부터 10월까지 가을 정원문화 프로그램을 운영한다.... 서울국제정원박람회 공식 누리집에서 방문 전 시간과 신청 방법을 확인하는 것이 좋다. 수인분당선...",
+          "link": "https://www.newscj.com/news/articleView.html?idxno=3429712",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:30:00 +0900"
+        },
+        {
+          "title": "정이서, 스카프 두른 올블랙 룩…'원더풀스' 이어 근황",
+          "description": "정이서는 영화 '그녀의 취미생활'에서 정인 역을 맡아 2023년 제27회 부천국제판타스틱영화제 코리안 판타스틱 배우상을 수상했다. 장르 영화 속 인물을 세밀하게 표현한 연기로 평가를 받으며 배우로서 존재감을 한층...",
+          "link": "https://www.topstarnews.net/news/articleView.html?idxno=16181250",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:28:00 +0900"
+        },
+        {
+          "title": "'코트부터 미술관까지' KB금융의 스포츠 ESG... 'Kiaf SEOUL 2026' 3년 연속...",
+          "description": "국내 최대 규모 국제아트페어인 '키아프 서울' 리드파트너로 3년 연속 나서는 한편, 스포츠에서는... 2002년 출범한 키아프는 국내 미술을 해외에 소개해 온 대표적인 국제아트페어다. KB금융은 단순 행사 후원에 머물지...",
+          "link": "https://www.stnsports.co.kr/news/articleView.html?idxno=321963",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:26:00 +0900"
+        }
+      ]
     }
   }
 }
