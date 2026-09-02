@@ -26,7 +26,7 @@ ALLOWED_DOMAINS = [
     "kbs.co.kr", "imbc.com", "mbc.co.kr", "sbs.co.kr", "ytn.co.kr"
 ]
 
-# 요청하신 7개 세분화 분야 키워드
+# 7개 세분화 분야 키워드
 KEYWORDS = {
     "정치": "정치 국회 정부",
     "경제": "경제 증시 금융",
@@ -99,20 +99,18 @@ def fetch_naver_news(category):
     client_secret = client_secret.strip()
 
     kw = urllib.parse.quote(KEYWORDS.get(category, category))
-    url = f"https://openapi.naver.com/v1/search/news.json?query={kw}&display=30&sort=sim"
-    
-    # 네이버 클라우드 플랫폼(NAVER API HUB) 및 구형 개발자센터 인증 헤더 모두 지원
-    headers = {
-        "X-NCP-APIGW-API-KEY-ID": client_id,      # 네이버 클라우드 플랫폼 헤더
-        "X-NCP-APIGW-API-KEY": client_secret,     # 네이버 클라우드 플랫폼 헤더
-        "X-Naver-Client-Id": client_id,          # 개발자센터 구형 헤더
-        "X-Naver-Client-Secret": client_secret,  # 개발자센터 구형 헤더
+    articles = []
+
+    # 1. NAVER API HUB (네이버 클라우드 플랫폼 신형 URL 및 인증) 시도
+    hub_url = f"https://naverapihub.apigw.ntruss.com/search/v1/news?query={kw}&display=30&sort=sim&format=json"
+    hub_headers = {
+        "X-NCP-APIGW-API-KEY-ID": client_id,
+        "X-NCP-APIGW-API-KEY": client_secret,
         "User-Agent": HEADERS["User-Agent"]
     }
 
-    articles = []
     try:
-        res = requests.get(url, headers=headers, timeout=5)
+        res = requests.get(hub_url, headers=hub_headers, timeout=5)
         if res.status_code == 200:
             items = res.json().get("items", [])
             for item in items:
@@ -125,11 +123,40 @@ def fetch_naver_news(category):
                     })
                 if len(articles) >= 3:
                     break
-            print(f"[네이버 API 성공] {category}: {len(articles)}개 수집 완료")
+            print(f"[네이버 API HUB 성공] {category}: {len(articles)}개 수집 완료")
+            return articles
+    except Exception as e:
+        print(f"네이버 API HUB 호출 예외 ({category}): {e}")
+
+    # 2. NAVER Developers (구형 개발자 센터 URL 및 인증) 폴백 시도
+    legacy_url = f"https://openapi.naver.com/v1/search/news.json?query={kw}&display=30&sort=sim"
+    legacy_headers = {
+        "X-Naver-Client-Id": client_id,
+        "X-Naver-Client-Secret": client_secret,
+        "User-Agent": HEADERS["User-Agent"]
+    }
+
+    try:
+        res = requests.get(legacy_url, headers=legacy_headers, timeout=5)
+        if res.status_code == 200:
+            items = res.json().get("items", [])
+            for item in items:
+                link = item.get("originallink") or item.get("link")
+                if is_allowed_naver_article(link):
+                    articles.append({
+                        "title": clean_html(item.get("title", "")),
+                        "link": link,
+                        "source": "Naver News"
+                    })
+                if len(articles) >= 3:
+                    break
+            print(f"[네이버 구형 API 성공] {category}: {len(articles)}개 수집 완료")
+            return articles
         else:
             print(f"[네이버 API 오류 {res.status_code}] {res.text}")
     except Exception as e:
-        print(f"네이버 API 호출 실패 ({category}): {e}")
+        print(f"네이버 구형 API 호출 실패 ({category}): {e}")
+
     return articles
 
 def fetch_all_news():
