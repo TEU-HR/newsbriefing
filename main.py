@@ -9,11 +9,18 @@ import urllib.request
 from datetime import datetime, timezone, timedelta
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-from gtts import gTTS
+
+# gTTS 라이브러리 예외 안전 임포트
+try:
+    from gtts import gTTS
+    HAS_GTTS = True
+except ImportError:
+    HAS_GTTS = False
+    print("[경고] gTTS 라이브러리가 설치되지 않았습니다. 음성 생성을 건너끕니다.")
 
 KST = timezone(timedelta(hours=9))
 
-# --- 1. 문자열 정제 및 중복 판별 헬퍼 함수 ---
+# --- 1. 문자열 정제 및 중복 판별 ---
 def clean_html(text):
     if not text:
         return ""
@@ -23,7 +30,6 @@ def clean_html(text):
 def normalize_title(title):
     if not title:
         return ""
-    # 대괄호, 소괄호, HTML 태그 및 특수문자 제거
     title = re.sub(r'\[.*?\]|\(.*?\)|<.*?>', '', title)
     title = re.sub(r'[^\w\s]', '', title)
     return title.strip().lower()
@@ -34,12 +40,10 @@ def is_duplicate_title(title1, title2, ratio_threshold=0.55, jaccard_threshold=0
     if not t1 or not t2:
         return False
     
-    # 1. 문자열 유사도 검사
     ratio = difflib.SequenceMatcher(None, t1, t2).ratio()
     if ratio >= ratio_threshold:
         return True
     
-    # 2. 단어 교집합(Jaccard) 검사
     words1, words2 = set(t1.split()), set(t2.split())
     if words1 and words2:
         jaccard = len(words1 & words2) / len(words1 | words2)
@@ -47,7 +51,7 @@ def is_duplicate_title(title1, title2, ratio_threshold=0.55, jaccard_threshold=0
             return True
     return False
 
-# --- 2. Gemini 클라이언트 및 모델 폴백 호출 ---
+# --- 2. Gemini 클라이언트 및 모델 폴백 ---
 def get_gemini_client():
     api_key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
     if not api_key:
@@ -67,10 +71,10 @@ def get_gemini_client():
 def generate_gemini_content(prompt, use_google_search=False):
     client, sdk_type = get_gemini_client()
     if not client:
-        return f"[오류] Gemini SDK 또는 API 키가 설정되지 않았습니다. (상태: {sdk_type})"
+        return f"Gemini API 키가 없거나 SDK 설정이 올바르지 않습니다. (상태: {sdk_type})"
 
-    # 구글 최신 지정 모델(gemini-3.6-flash) 우선 순서로 자동 시도
-    models_to_try = ["gemini-3.6-flash", "gemini-2.5-flash", "gemini-1.5-flash"]
+    # 지원되는 주요 Gemini 모델 목록 (순차적 실패 대비 시도)
+    models_to_try = ["gemini-2.5-flash", "gemini-2.0-flash", "gemini-1.5-flash", "gemini-1.5-pro"]
     last_error = None
 
     for model_name in models_to_try:
@@ -80,24 +84,27 @@ def generate_gemini_content(prompt, use_google_search=False):
                 from google.genai import types
                 config = None
                 if use_google_search:
-                    config = types.GenerateContentConfig(
-                        tools=[types.Tool(google_search=types.GoogleSearch())]
-                    )
+                    try:
+                        config = types.GenerateContentConfig(
+                            tools=[types.Tool(google_search=types.GoogleSearch())]
+                        )
+                    except Exception:
+                        config = None
                 res = client.models.generate_content(model=model_name, contents=prompt, config=config)
                 if res and hasattr(res, 'text') and res.text:
                     return res.text
-            else: # generativeai 구형 SDK 폴백
+            else:
                 model_obj = client.GenerativeModel(model_name)
                 res = model_obj.generate_content(prompt)
                 if res and hasattr(res, 'text') and res.text:
                     return res.text
         except Exception as e:
-            print(f"⚠️ 모델 {model_name} 호출 실패: {e}")
+            print(f"⚠️ 모델 {model_name} 호출 안됨: {e}")
             last_error = e
 
     return f"AI 요약 생성 중 오류 발생: {last_error}"
 
-# --- 3. 네이버 및 구글 뉴스 수집 모듈 ---
+# --- 3. 뉴스 수집 모듈 ---
 def fetch_naver_news(keywords, display=10):
     client_id = os.environ.get("NAVER_CLIENT_ID")
     client_secret = os.environ.get("NAVER_CLIENT_SECRET")
@@ -125,21 +132,21 @@ def fetch_naver_news(keywords, display=10):
                             'title': clean_t,
                             'description': clean_d,
                             'link': link,
-                            'press_name': '네이버 수집 기사',
+                            'press_name': '네이버뉴스',
                             'source': 'Naver',
                             'pub_time': item.get('pubDate', '')
                         })
         except Exception as e:
-            print(f"네이버 뉴스 키워드 '{kw}' 수집 오류: {e}")
+            print(f"네이버 키워드 '{kw}' 수집 중 예외: {e}")
     return naver_items
 
 def fetch_google_news(keywords):
     prompt = f"""
-다음 관심 키워드들에 대해 오늘/최신 주요 구글 뉴스 기사를 검색하세요.
+다음 관심 키워드들에 대해 최신 주요 구글 뉴스 기사를 검색하세요.
 키워드: {', '.join(keywords)}
 
-가장 주요한 뉴스 8~10개를 선정하고, 오직 아래의 JSON 배열 형식으로만 답변해주세요.
-다른 마크다운 설명이나 문구 없이 순수 JSON 배열만 출력해야 합니다.
+주요 뉴스 8개를 선정하고, 오직 아래의 JSON 배열 형식으로만 답변해주세요.
+다른 설명이나 마크다운 표현 없이 Pure JSON 배열만 출력해야 합니다.
 
 [
   {{
@@ -156,14 +163,14 @@ def fetch_google_news(keywords):
         clean_text = re.sub(r'^```(?:json)?\s*', '', response_text, flags=re.MULTILINE)
         clean_text = re.sub(r'```\s*$', '', clean_text, flags=re.MULTILINE).strip()
         parsed = json.loads(clean_text)
-        for item in parsed:
-            item['source'] = 'Google'
-        return parsed
+        if isinstance(parsed, list):
+            for item in parsed:
+                item['source'] = 'Google'
+            return parsed
     except Exception as e:
-        print(f"구글 뉴스 파싱 실패: {e}")
-        return []
+        print(f"구글 뉴스 결과 파싱 건너뜀: {e}")
+    return []
 
-# --- 4. 중복 제거 및 결합 ---
 def merge_and_deduplicate(naver_news, google_news):
     combined = list(naver_news)
     dup_count = 0
@@ -179,7 +186,7 @@ def merge_and_deduplicate(naver_news, google_news):
     print(f"🔄 뉴스 중복 제거 완료: 총 {len(naver_news) + len(google_news)}건 중 {dup_count}건 중복 제외 -> 최종 {len(combined)}건")
     return combined
 
-# --- 5. AI 요약 브리핑 및 음성 생성 ---
+# --- 4. 요약 및 음성 생성 ---
 def generate_summary(news_list):
     if not news_list:
         return "수집된 뉴스가 없어 요약을 생성하지 못했습니다."
@@ -202,7 +209,7 @@ def generate_summary(news_list):
 (동일 사건이나 주요 이슈를 다룬 기사들을 묶어, 가장 중요한 3가지 대형 이슈 정밀 분석)
 
 # ⚖️ 주요 이슈별 언론사 시각 비교
-(주요 이슈에 대해 보수/진보/경제지 및 구글/네이버 수집 채널별 강조점이나 논조 차이 설명)
+(주요 이슈에 대해 보수/진보/경제지 및 구글/네이버 수집 채널별 논조 차이 설명)
 
 # 📊 분야별 리포트
 - **정치**: (핵심 내용 정리)
@@ -217,6 +224,8 @@ def generate_summary(news_list):
     return generate_gemini_content(prompt, use_google_search=False)
 
 def generate_audio(text, filepath):
+    if not HAS_GTTS:
+        return False
     try:
         clean_text = re.sub(r'[#\*`_~]', '', text)
         clean_text = re.sub(r'<[^>]+>', '', clean_text)
@@ -252,29 +261,22 @@ def send_email(subject, body):
     except Exception as e:
         print(f"이메일 발송 실패: {e}")
 
-# --- 6. 메인 실행 함수 ---
+# --- 5. 메인 실행 함수 ---
 def main():
     now_dt = datetime.now(KST)
     now_str = now_dt.strftime("%Y년 %m월 %d일 %H:%M")
     today_date_key = now_dt.strftime("%Y-%m-%d")
 
-    print(f"[{now_str}] 네이버+구글 교차 수집 및 AI 브리핑 프로세스 시작...")
+    print(f"[{now_str}] 통합 뉴스 브리핑 시스템 시작...")
     
     keywords = ["정치", "경제", "IT", "AI", "사회", "국제"]
     
-    # 1. 네이버 뉴스 수집
     naver_news = fetch_naver_news(keywords)
-    
-    # 2. 구글 뉴스 수집 (Gemini Grounding)
     google_news = fetch_google_news(keywords)
-    
-    # 3. 교차 중복 제거
     unique_news = merge_and_deduplicate(naver_news, google_news)
     
-    # 4. AI 브리핑 생성 (gemini-3.6-flash 적용)
     briefing_summary = generate_summary(unique_news)
     
-    # 5. 오디오 생성 및 파일 저장
     history_dir = "history"
     os.makedirs(history_dir, exist_ok=True)
 
@@ -298,7 +300,6 @@ def main():
         "categories": {"전체": unique_news}
     }
 
-    # JSON 데이터 업데이트
     daily_file = os.path.join(history_dir, f"{today_date_key}.json")
     with open(daily_file, "w", encoding="utf-8") as f:
         json.dump(daily_payload, f, ensure_ascii=False, indent=2)
@@ -322,7 +323,7 @@ def main():
     with open("data.json", "w", encoding="utf-8") as f:
         json.dump({"morning": daily_payload, "realtime": daily_payload}, f, ensure_ascii=False, indent=2)
 
-    print("\n✅ 모든 수집, 교차 중복제거, AI 요약 및 음성 생성 완료!")
+    print("\n✅ 모든 프로세스 정상 완료!")
     send_email(f"[뉴스 브리핑] {now_str}", f"수집 시각: {now_str}\n\n{briefing_summary}")
 
 if __name__ == "__main__":
