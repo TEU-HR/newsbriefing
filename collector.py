@@ -4,7 +4,6 @@ import smtplib
 import re
 import urllib.parse
 import requests
-import feedparser
 from datetime import datetime, timezone, timedelta
 from email.utils import parsedate_to_datetime
 from email.mime.text import MIMEText
@@ -21,25 +20,13 @@ PRESS_DOMAIN_MAP = {
     "sbs.co.kr": "SBS", "ytn.co.kr": "YTN"
 }
 
-# 네이버 뉴스 언론사 고유 코드 매핑 (Naver URL 파싱용)
+# 네이버 뉴스 언론사 고유 코드 매핑
 NAVER_PRESS_CODE_MAP = {
     "023": "조선일보", "025": "중앙일보", "020": "동아일보",
     "028": "한겨레", "032": "경향신문", "469": "한국일보",
     "001": "연합뉴스", "003": "뉴시스", "009": "매일경제",
     "015": "한국경제", "011": "서울경제", "056": "KBS",
     "214": "MBC", "055": "SBS", "052": "YTN"
-}
-
-ALLOWED_PRESS = list(set(PRESS_DOMAIN_MAP.values()))
-
-GOOGLE_TOPIC_MAP = {
-    "정치": "https://news.google.com/rss/headlines/section/topic/POLITICS?hl=ko&gl=KR&ceid=KR:ko",
-    "경제": "https://news.google.com/rss/headlines/section/topic/BUSINESS?hl=ko&gl=KR&ceid=KR:ko",
-    "사회": "https://news.google.com/rss/headlines/section/topic/NATION?hl=ko&gl=KR&ceid=KR:ko",
-    "생활/문화": "https://news.google.com/rss/headlines/section/topic/ENTERTAINMENT?hl=ko&gl=KR&ceid=KR:ko",
-    "IT/과학": "https://news.google.com/rss/headlines/section/topic/TECHNOLOGY?hl=ko&gl=KR&ceid=KR:ko",
-    "세계": "https://news.google.com/rss/headlines/section/topic/WORLD?hl=ko&gl=KR&ceid=KR:ko",
-    "사설": "https://news.google.com/rss/search?q=intitle:%22%EC%82%AC%EC%84%A4%22&hl=ko&gl=KR&ceid=KR:ko"
 }
 
 NAVER_KEYWORDS = {
@@ -63,20 +50,11 @@ def clean_html(text):
     text = re.sub(r'<[^>]+>', '', text)
     return text.replace('&quot;', '"').replace('&amp;', '&').replace('&lt;', '<').replace('&gt;', '>')
 
-def parse_google_publisher(title):
-    if " - " not in title:
-        return False, None
-    parts = title.rsplit(" - ", 1)
-    publisher = parts[1].strip()
-    return (True, publisher) if publisher in ALLOWED_PRESS else (False, None)
-
 def get_naver_press_name(link, orig_link=""):
-    # 1. 도메인 기반 판별
     for domain, press_name in PRESS_DOMAIN_MAP.items():
         if (orig_link and domain in orig_link) or (link and domain in link):
             return press_name
             
-    # 2. 네이버 뉴스 언론사 코드로 판별 (e.g. /article/023/000123)
     target_url = link or orig_link
     match = re.search(r'/article/(\d{3})/', target_url)
     if match:
@@ -95,7 +73,11 @@ def format_pub_date(pub_date_str):
     except Exception:
         return ""
 
-def is_within_24h_window(pub_date_str, run_type="realtime"):
+def is_within_target_window(pub_date_str, run_type="realtime"):
+    """
+    아침 브리핑: 전일 22:00 ~ 당일 07:20 출고 기사 수집
+    실시간 브리핑: 최근 24시간 출고 기사 수집
+    """
     if not pub_date_str: return True
     try:
         dt = parsedate_to_datetime(pub_date_str)
@@ -104,8 +86,8 @@ def is_within_24h_window(pub_date_str, run_type="realtime"):
         now_kst = datetime.now(kst)
 
         if run_type == "morning":
-            end_time = now_kst.replace(hour=8, minute=0, second=0, microsecond=0)
-            start_time = end_time - timedelta(hours=24)
+            end_time = now_kst.replace(hour=7, minute=20, second=0, microsecond=0)
+            start_time = (now_kst - timedelta(days=1)).replace(hour=22, minute=0, second=0, microsecond=0)
             return start_time <= dt_kst <= end_time
         else:
             return (now_kst - timedelta(hours=24)) <= dt_kst <= now_kst
@@ -127,54 +109,23 @@ def is_valid_for_category(title, category):
         return True
 
 def fetch_google_news(category, run_type="realtime"):
-    max_per_press = 2 if run_type == "morning" else 1
-    max_total = 12 if run_type == "morning" else 3
-    url = GOOGLE_TOPIC_MAP.get(category)
-    if not url: return []
-
-    articles, press_count = [], {}
-    try:
-        res = requests.get(url, headers=HEADERS, timeout=10)
-        if res.status_code == 200:
-            feed = feedparser.parse(res.content)
-            for entry in feed.entries:
-                pub_str = getattr(entry, 'published', None)
-                if not is_within_24h_window(pub_str, run_type): continue
-                
-                cleaned_title = clean_html(entry.title)
-                if not is_valid_for_category(cleaned_title, category): continue
-
-                allowed, press_name = parse_google_publisher(cleaned_title)
-                if allowed:
-                    curr = press_count.get(press_name, 0)
-                    if curr < max_per_press:
-                        press_count[press_name] = curr + 1
-                        articles.append({
-                            "title": cleaned_title,
-                            "link": entry.link,
-                            "source": f"Google ({press_name})",
-                            "press_name": press_name,
-                            "pub_time": format_pub_date(pub_str)
-                        })
-                if len(articles) >= max_total: break
-    except Exception as e:
-        print(f"[구글 뉴스 오류] {category}: {e}")
-    return articles
+    # 구글 뉴스 API 수집 일시 중단 (네이버 단독 검증용)
+    return []
 
 def fetch_naver_news(category, run_type="realtime"):
     max_per_press = 2 if run_type == "morning" else 1
     max_total = 12 if run_type == "morning" else 3
     client_id = os.environ.get("NAVER_CLIENT_ID")
     client_secret = os.environ.get("NAVER_CLIENT_SECRET")
+    
     if not client_id or not client_secret:
-        print(f"[네이버 뉴스] API Key 미설정 (Secrets 확인 필요)")
+        print(f"[네이버 뉴스 경고] NAVER_CLIENT_ID / SECRET 환경변수가 설정되지 않았습니다.")
         return []
 
     kw = urllib.parse.quote(NAVER_KEYWORDS.get(category, category))
     articles, press_count = [], {}
 
-    # 1. 표준 네이버 openapi 호출
-    std_url = f"https://openapi.naver.com/v1/search/news.json?query={kw}&display=50&sort=date"
+    std_url = f"https://openapi.naver.com/v1/search/news.json?query={kw}&display=100&sort=date"
     std_headers = {
         "X-Naver-Client-Id": client_id.strip(),
         "X-Naver-Client-Secret": client_secret.strip(),
@@ -183,28 +134,18 @@ def fetch_naver_news(category, run_type="realtime"):
 
     items = []
     try:
-        res = requests.get(std_url, headers=std_headers, timeout=5)
+        res = requests.get(std_url, headers=std_headers, timeout=8)
         if res.status_code == 200:
             items = res.json().get("items", [])
+            print(f"[네이버 API 성공] {category}: {len(items)}개 검색 항목 수신")
         else:
-            # 2. NCP 호환 API 호출
-            ncp_url = f"https://naverapihub.apigw.ntruss.com/search/v1/news?query={kw}&display=50&sort=date&format=json"
-            ncp_headers = {
-                "X-NCP-APIGW-API-KEY-ID": client_id.strip(),
-                "X-NCP-APIGW-API-KEY": client_secret.strip(),
-                "User-Agent": HEADERS["User-Agent"]
-            }
-            res_ncp = requests.get(ncp_url, headers=ncp_headers, timeout=5)
-            if res_ncp.status_code == 200:
-                items = res_ncp.json().get("items", [])
-            else:
-                print(f"[네이버 API 실패] Status: {res.status_code}")
+            print(f"[네이버 API 오류] 코드: {res.status_code}, 내용: {res.text}")
     except Exception as e:
         print(f"[네이버 수집 예외] {category}: {e}")
 
     for item in items:
         pub_date = item.get("pubDate")
-        if not is_within_24h_window(pub_date, run_type): continue
+        if not is_within_target_window(pub_date, run_type): continue
 
         cleaned_title = clean_html(item.get("title", ""))
         if not is_valid_for_category(cleaned_title, category): continue
@@ -227,22 +168,19 @@ def fetch_naver_news(category, run_type="realtime"):
                 })
         if len(articles) >= max_total: break
 
-    print(f"[네이버] ({category}) 수집 성공: {len(articles)}개 기사")
+    print(f" -> [{category}] 최종 네이버 수집 기사: {len(articles)}개")
     return articles
 
 def fetch_all_news(run_type):
     categorized = {}
-    for cat in GOOGLE_TOPIC_MAP.keys():
-        google_news = fetch_google_news(cat, run_type)
+    for cat in NAVER_KEYWORDS.keys():
         naver_news = fetch_naver_news(cat, run_type)
-        combined = google_news + naver_news
 
-        if combined:
-            # 언론사명 기준 정렬
-            combined.sort(key=lambda x: (x.get('press_name', ''), x.get('title', '')))
-            categorized[cat] = combined
+        if naver_news:
+            naver_news.sort(key=lambda x: (x.get('press_name', ''), x.get('title', '')))
+            categorized[cat] = naver_news
         else:
-            categorized[cat] = [{"title": f"{cat} 분야 최근 기사가 없습니다.", "link": "#", "source": "System", "press_name": "시스템", "pub_time": ""}]
+            categorized[cat] = [{"title": f"{cat} 분야 수집 시간 내 네이버 기사가 없습니다.", "link": "#", "source": "System", "press_name": "안내", "pub_time": ""}]
     return categorized
 
 def summarize_news(categorized_articles):
@@ -250,7 +188,7 @@ def summarize_news(categorized_articles):
     if not api_key: return "GEMINI_API_KEY 설정이 필요합니다."
 
     client = genai.Client(api_key=api_key)
-    prompt_text = "다음은 수집 및 정렬된 최신 뉴스 기사 목록입니다:\n"
+    prompt_text = "다음은 네이버 API로 선별된 최신 기사 목록입니다:\n"
     has_valid = False
     for cat, articles in categorized_articles.items():
         prompt_text += f"\n[{cat}]\n"
@@ -258,9 +196,9 @@ def summarize_news(categorized_articles):
             if a['link'] != "#":
                 has_valid = True
                 t_info = f" ({a['pub_time']})" if a.get('pub_time') else ""
-                prompt_text += f"- [{a.get('press_name', '주요언론')}] {a['title']}{t_info}\n"
+                prompt_text += f"- [{a.get('press_name', '언론사')}] {a['title']}{t_info}\n"
 
-    if not has_valid: return "수집된 최근 뉴스가 없습니다."
+    if not has_valid: return "수집 시간 범위 내 뉴스가 없습니다."
 
     prompt = f"""
 {prompt_text}
@@ -268,13 +206,13 @@ def summarize_news(categorized_articles):
 당신은 수석 정세 분석관이자 경제 전문 에디터입니다.
 제시된 기사들을 바탕으로 독자들이 3분 만에 주요 이슈와 흐름을 완벽히 파악할 수 있도록 **풍부하고 시각적으로 매력적인 종합 뉴스 브리핑**을 작성해 주세요.
 
-[작성 지침]
-1. 제목과 각 섹션에 적절한 이모지(🚀, 📌, 💡, 📈, ⚖️, 🌐 등)를 적극 사용하세요.
-2. 핵심 단어나 문장은 **볼드체**를 사용하세요.
-3. 기사 제목 단순 나열을 금지하고, 이슈별로 **[배경 ➔ 핵심 내용 ➔ 파급효과]**를 3줄 이상 상세히 설명하세요.
+[작성 및 디자인 지침]
+1. 제목과 각 섹션에 적절한 이모지(🚀, 📌, 💡, 📈, ⚖️, 🌐 등)를 사용하세요.
+2. 핵심 문장은 **볼드체**를 활용하여 강조하세요.
+3. 기사 제목 나열을 금지하고, 이슈별로 **[배경 ➔ 핵심 내용 ➔ 파급효과]**를 구체적으로 작성해 주세요.
 
 # 🚀 오늘의 3대 핵심 이슈
-(주요 이슈 3가지 선정 후 상세 서술)
+(주요 이슈 3가지 선정 후 구체적 서술)
 
 # 📊 분야별 상세 정세 리포트
 - **정치**: (배경, 핵심 쟁점, 파급 효과)
@@ -286,7 +224,7 @@ def summarize_news(categorized_articles):
 - **사설**: (언론사별 주요 논조 비교)
 
 # 💡 출근길 비즈니스 & 정세 인사이트
-(오늘의 뉴스가 기업 경영 및 업무에 주는 핵심 시사점)
+(오늘의 뉴스가 기업 및 경제 환경에 주는 시사점)
 """
     try:
         res = client.models.generate_content(model="gemini-3.6-flash", contents=prompt)
@@ -320,10 +258,10 @@ def main():
     today_date_key = now_dt.strftime("%Y-%m-%d")
     run_type = os.environ.get("RUN_TYPE", "realtime")
 
-    print(f"[{now_str}] 정밀 언론사 분류 수집 시작 ({run_type})...")
+    print(f"[{now_str}] 네이버 단독 수집 및 시간 범위 필터링 시작 ({run_type})...")
     categorized_articles = fetch_all_news(run_type)
 
-    print("AI 브리핑 생성 중...")
+    print("AI 요약 브리핑 생성 중...")
     briefing_summary = summarize_news(categorized_articles)
 
     history_dir = "history"
