@@ -2,8 +2,17 @@ name: Daily Morning Briefing Collector
 
 on:
   schedule:
-    - cron: '0 23 * * *' # UTC 23:00 = 한국 시간(KST) 오전 8:00 매일 실행
+    - cron: '0 23 * * *' # UTC 23:00 = 한국 시간(KST) 오전 8:00
   workflow_dispatch:
+    inputs:
+      run_type:
+        description: '실행 모드 선택 (morning: 오늘 08시 이전 기사 수집 / realtime: 실시간 전체 수집)'
+        required: true
+        default: 'realtime'
+        type: choice
+        options:
+          - realtime
+          - morning
 
 jobs:
   run-collector:
@@ -28,8 +37,7 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           EMAIL_USER: ${{ secrets.EMAIL_USER }}
           EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
-          # 자동 스케줄 실행은 morning, 버튼 실행은 realtime으로 전달
-          RUN_TYPE: ${{ github.event_name == 'schedule' && 'morning' || 'realtime' }}
+          RUN_TYPE: ${{ github.event.inputs.run_type || (github.event_name == 'schedule' && 'morning' || 'realtime') }}
         run: python collector.py
 
       - name: Commit and Push updated data.json
