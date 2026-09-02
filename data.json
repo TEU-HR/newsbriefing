@@ -188,111 +188,216 @@
     ]
   },
   "realtime": {
-    "updated_at": "2026년 09월 02일 16:03",
-    "summary": "[오늘의 종합 브리핑]\n글로벌 시장에서는 중동 리스크 재발과 트럼프의 강경 행보, 국채금리 및 유가 급등으로 인한 금융시장의 불안정성이 다시 확대되고 있습니다. 이에 따라 국제사회에서는 G20 공동성명 불발 및 공급망 안보 이슈가 부각되는 한편, 국내에서는 지자체들의 예산 확보 행보와 함께 강력 범죄 사건이 사회적 충격을 주고 있습니다. 또한 사설과 정치권에서는 국가 재정 건전성 관리, 내각 운영 방식 개선, 경찰 및 체육계 현안에 대한 비판과 대책 마련을 촉구했습니다.\n\n[분야별 핵심요약]\n- **정치:** 부산시의 국회 방문을 통한 지역 사업 지원 요청과 익산시의 2년 연속 1조 원대 정부 예산 확보 등 지자체들의 예산 및 지역 현안 해결 노력이 이어졌습니다.\n- **경제:** 중동 리스크와 트럼프 변수로 유가 및 글로벌 국채금리가 급등하며 세계 증시가 위축된 가운데, 시장에서는 반도체 업종이 위기를 극복할 구원투수가 될지 주목하고 있습니다.\n- **사회:** 이혼 소송 중인 아내를 자녀가 보는 앞에서 살해한 참혹한 사건이 발생해 충격을 주고 있습니다.\n- **생활/문화:** 수집된 주요 기사가 없습니다.\n- **IT/과학:** 수집된 주요 기사가 없습니다.\n- **세계:** 중국의 거부로 G20 경제수장 공동성명이 불발되었으며, 한국의 공급망 안보를 위한 메모리 생산 다변화 필요성이 제기되었습니다. 외에 정보라 작가의 해외 출장기 신간 출간 소식이 포함되었습니다.\n- **사설:** 반도체 특수에 기댄 예산 편성을 지적하며 나랏빚 상환 등 재정 건전성 확보를 촉구했고, 내각의 주도적 국정 운영, 경찰의 개인정보 남용 방지 시스템 도입, 정몽규 축구협회장 입건 등 국정·사회 현안에 대한 제언과 비판이 다루어졌습니다.",
+    "updated_at": "2026년 09월 02일 16:10",
+    "summary": "[오늘의 종합 브리핑]\n국내 정국에서는 고위직 인사를 둘러싼 논란과 경찰 조직의 대대적인 물갈이 인사가 단행된 가운데, 대통령의 한반도 정세 및 경제 성장 메시지가 주목받았습니다. 대외적으로는 중동 리스크 재발로 호르무즈 해협에서 우리 유조선이 피격되고 국제 금융시장이 흔들리는 등 지경학적 불안이 크게 고조되었습니다. 이에 사설에서는 정부의 미흡한 인사 시스템과 청와대 주도 국정 운영을 비판하며, 선심성 예산 편성 대신 나랏빚 상환 등 건전 재정 기조 확립을 촉구했습니다.\n\n---\n\n[분야별 핵심요약]\n\n- **정치:** 고위 공직 후보자의 청와대 조율 발언과 여야 간 갈등이 이어지는 가운데, 여권 내 외연 확장 및 호남 역할론을 둘러싼 정치적 움직임이 활발히 전개되었습니다. 대통령은 트럼프의 결단에 따른 한반도 정세 변화 가능성을 언급하며 건설적 논의 여건 조성을 강조했고, 여권 및 야당 내부에서는 연대와 견제를 둘러싼 기싸움이 지속되고 있습니다.\n\n- **경제:** 중동 리스크 재발로 유가와 국채 금리가 급등하며 세계 증시가 불안정한 모습을 보였고, 국내 코스피 역시 자사주 매입에 의존하는 위태로운 흐름을 이어가고 있습니다. 쿠팡의 법적 이중잣대 논란과 더불어 지난해 고액·상습 체납자가 1만 명을 돌파했다는 소식이 전해졌으며, 지자체 차원의 난임 지원 확대 등 민생 경제 정책도 함께 추진되고 있습니다.\n\n- **사회:** 경찰청 차장 및 서울청장 교체를 포함해 시도경찰청장 18명 중 14명이 교체되는 대폭적인 경찰 물갈이 인사가 단행되었습니다. 정치권과 연계된 '신약 로비 의혹' 논란이 수면 위로 오른 한편, 정부와 여당은 비거주 1주택자 세제 개편과 해상풍력 보급 시스템의 정부 주도 전환 등 부동산·에너지 현안 논의에 착수했습니다.\n\n- **생활/문화:** 연예계에서는 명예훼손에 따른 법적 대응 소식이 전해졌으며, KTX 사고 이후 본질적인 이동권 논의 대신 장애인 혐오로 번지는 사회적 현상에 대한 우려가 제기되었습니다. 이 외에도 신작 영화 개봉 소식, 패션 트렌드, 지자체 신규 시책 발굴 및 호텔 브랜드의 웰니스 시설 위탁 운영 등 생활 밀착형 소식들이 이어졌습니다.\n\n- **IT/과학:** IFA 2026에서 국산 AI 반도체를 탑재한 청소로봇이 공개되는 등 국내 AI 기술의 상용화와 글로벌 시장 진출 노력이 조명받았습니다. 미국 재정 불안에 따른 새로운 투자 트렌드와 함께 애플 신임 CEO의 비전이 발표되었으며, DGIST는 현직 개발자를 위한 AI 전문 교육 과정을 출범시키며 인재 양성에 나섰습니다.\n\n- **세계:** 호르무즈 해협에서 한국 유조선이 피격당하고 미국과 이란 간의 무력 충돌이 격화되는 등 중동발 안보 위기가 심화되었습니다. 대만군이 장기전에 대비해 방폭 탄약고 신축에 나서는 한편, 네팔 대홍수로 인한 빙하 위험, 세계 최초 우주 특파원의 별세 소식 등 다양한 국제 이슈가 전해졌습니다.\n\n- **사설:** 언론들은 김용범 경질 과정에서 나타난 정부의 매끄럽지 못한 인사 행태와 '청와대 해바라기'식 내각 운영을 일제히 비판했습니다. 또한 반도체 특수에 기대어 821조 원 규모의 확장 예산을 편성하기보다는, 세수 여력이 있을 때 국가 채무를 우선 상환하여 미래 재정 건전성을 확보해야 한다고 강력히 주문했습니다.",
     "categories": {
       "정치": [
         {
-          "title": "국회 간 부산시장, 이재정·권칠승 만났다…사업지원 요청",
-          "link": "https://www.newsis.com/view/NISX20260902_0003773558",
+          "title": "이형일 부총리 후보 \"靑과 수시로 모여 의견조율할 것\" - 조선일보",
+          "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQR0NqaXlIQmFWemgzeEJHTGIxTUx6d0I3ZjYxN0V3WUhmSzNVU18wRVk3Ulp2TVlwWGxPeW1KTTZwOGRuN2ZTS0U4VUFKd1gyV3lyYXE3TWYtNTFlUV9ZcG1nQ0lKU1VhendVNW42bnJsTlVGcHlsZFZtb0V2LXhJYnB2ZDU3RXdiVnZaNkl3?oc=5",
+          "source": "Google News (조선일보)"
+        },
+        {
+          "title": "[이진영 칼럼]용혜인 논란이 덮은 김승원 인사 - 동아일보",
+          "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE8yYUxYeWN4WkhicGhIZUtldy1JYU5vR2hmdEFKRWZKMGQ1XzR6NmJ6UTUxNmRERmU3MVlsTVFUUEZraTJqMGU5WVNuN3FkQ3Z2TkxjQkV3bGtZVnZpS2wyckExa0hjelNlT0tSXy11amFuMlFiWkHSAWZBVV95cUxPVWxTWXhvakpBZzI4VENoNWg2R2syWGJreGhROEIwczFUVk9DdkthakF4elU1STV5ZWNVUFZOQmVkdXBJM0FaWk9JNlgtMzZCam5rd0Q5MlpNSl85bzhRRHZaOGg5RUE?oc=5",
+          "source": "Google News (동아일보)"
+        },
+        {
+          "title": "국힘 조경태, YS차남 김현철 만나 'YS민주역사기념관' 논의(종합) - 연합뉴스",
+          "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBlT1ktQUtuMTJNR1BwUHN4bXJkZmNNQ2Y5U003Rk5Yd3VhOWl3QmJFalA5c1UxQkVEWXM0WjRHQjlpcXQ0QUJGYVpfOWJBQXNYaHRON3VNS3R6cE3SAWBBVV95cUxOZ2pZQThFQnhsemVRdmMtZUNYbldQay1Pb1dxeUlndEdVUS1iLUFvOXBpVWxBcUNkcHJlUXZWV3hXaDF0andocktGR3RpcjRrY2tFc3NJaHVmT2ZvVVpRNk4?oc=5",
+          "source": "Google News (연합뉴스)"
+        },
+        {
+          "title": "이 대통령 \"트럼프 결단으로 한반도 변화 가능성…건설적 논의여건 우리...",
+          "link": "https://www.newsis.com/view/NISX20260902_0003773583",
           "source": "Naver News (뉴시스)"
         },
         {
-          "title": "익산시, 정부 예산안 1조24억원 확보…2년 연속 '1조 시대'",
-          "link": "https://www.yna.co.kr/view/AKR20260902139400055?input=1195m",
-          "source": "Naver News (연합뉴스)"
+          "title": "광주 온 한동훈, 호남 역할론 띄우며 국민의힘에 쓴소리",
+          "link": "https://kjmbc.co.kr/NewsArticle/1535087",
+          "source": "Naver News (MBC)"
         },
         {
-          "title": "[생생뉴스] 정치와 세상을 잇는 시간, 정치잇수",
-          "link": "https://news.kbs.co.kr/news/pc/view/view.do?ncd=8652779&ref=A",
-          "source": "Naver News (KBS)"
+          "title": "김민석 연대·통합 띄우자 조국은 靑레드팀 자처…삐걱대는 우당",
+          "link": "https://www.yna.co.kr/view/AKR20260902130600001?input=1195m",
+          "source": "Naver News (연합뉴스)"
         }
       ],
       "경제": [
         {
-          "title": "[직설] 글로벌 국채금리 동시다발 급등에 시장 위축…반도체가 '구원투...",
-          "link": "https://biz.sbs.co.kr/article_hub/20000332221?division=NAVER",
+          "title": "되살아난 중동 리스크…유가·국채금리 급등에 세계증시 '덜컹' - 연합뉴스",
+          "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBHcGg5aUFzaVVYV2o4UW1SWGVLc29TOTV6ZGZvdG1PTGQwRzVOQWNKOEV2WUVNOTktTXp3TGN0dVhKODlkc3JRZWVZLVBLX1JvTkcyTzgzQ2pvU3PSAWBBVV95cUxOQVBPZkdhMUo3c014U2JqTFczeHBxbVBIVTducmlaOWdscmhxcjUwdTlSZ3g3SHk3bUR3dnQtNW9mVzJuZTk0RHQ1aEgzNVdCdTJuVk5BOEhYLXlMdlVsc3g?oc=5",
+          "source": "Google News (연합뉴스)"
+        },
+        {
+          "title": "3대 매수 주체 사라진 코스피, 자사주만 위태롭게 떠받치는 중 - 조선일보",
+          "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQc0ZaRG01UjJhSG5ILVhOdEU4SGtXSTU4VGhTdjZYUDVZc1Nqbm5XODFjZWlrLTZSMHZzbWwyakR4cGZMYkp5eEhONFkxYnFIZmRpX3hhcHZyd0VCT1JJbEd3eFV2N212RWlBUUxaM2JxYTRPQ3ZoNXZWRlhUb1RWVkZuOXFiazFrZUg0?oc=5",
+          "source": "Google News (조선일보)"
+        },
+        {
+          "title": "로비할 땐 ‘미국 기업’ 쿠팡, 집단소송 법정선 ‘한국 플랫폼’ 이중잣대 - 한겨레",
+          "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5IUTNDbXdoSHA3UnA0NUxsV0ZIMUFUenNZZU1TSFZVNVlOUHA1WkVnSDEyd3RQaldDRElmS0RpZTl1MkFhWEREbWd5ZHhEd3h3RVktWEx2d29oOFRMcXJQM3pCaUZMRmRhbUhRUDNIRQ?oc=5",
+          "source": "Google News (한겨레)"
+        },
+        {
+          "title": "대구, 난임 시술비 지원 횟수 제한 폐지",
+          "link": "https://www.chosun.com/national/regional/2026/09/02/2HY5IEW2GNATPOAHIWKHCXSUWU/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
+          "source": "Naver News (조선일보)"
+        },
+        {
+          "title": "日, 시진핑 방미 전 미·일 정상 간 만남 조율...\"일본 패싱 우려\"",
+          "link": "https://www.hankookilbo.com/news/article/A2026090215270001798?did=NA",
+          "source": "Naver News (한국일보)"
+        },
+        {
+          "title": "신규 고액·상습체납자 지난해 첫 1만명 돌파…7조1천억원 체납",
+          "link": "https://biz.sbs.co.kr/article_hub/20000332363?division=NAVER",
           "source": "Naver News (SBS)"
-        },
-        {
-          "title": "금융시장 '발작'...트럼프, '즉각 응징' 선택한 까닭 [자막뉴스]",
-          "link": "https://www.ytn.co.kr/_ln/0134_202609021306313423",
-          "source": "Naver News (YTN)"
-        },
-        {
-          "title": "되살아난 중동 리스크…유가·국채금리 급등에 세계증시 '덜컹'",
-          "link": "https://www.yna.co.kr/view/AKR20260902082500008?input=1195m",
-          "source": "Naver News (연합뉴스)"
         }
       ],
       "사회": [
         {
-          "title": "'자식 보는 앞에서...' 이혼 소송 아내 찾아가 '살해' [뉴스퀘어 2PM]",
-          "link": "https://www.ytn.co.kr/_ln/0103_202609021456023758",
-          "source": "Naver News (YTN)"
+          "title": "경찰청 차장 김종철, 서울청장에 고범석… 시도경찰청장 18명중 14명 대폭 물갈이 - 동아일보",
+          "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE0zbmRoWXVfcUxCNkpqeEFaemhOaDVXS3NITVgzc0I0bEcxUWpkY1BoZmg0Yi1VMEdjc0ZDRzRieUZjcEw1c245b3FOR0YxcFlQVjRyQVZIUTJJcTJidTlWZU5NVlp0NFNxS01sQkJGVk9DQi1QOGfSAWZBVV95cUxQTC1IM21xcVBOR1VodW1ReVBhWGI3X1BUS1ZxQTV4N3NQQ1Z5azZ1V1N0bktXTW90TUtjMFZ1eTNJUnRiWHlpUHFmQTZyaXBWNnZGODFVY2ltbHhBeUhQR0xucWZXSlE?oc=5",
+          "source": "Google News (동아일보)"
+        },
+        {
+          "title": "김승원, 서영교에 “송구합니다” 문자… 도마 오른 ‘신약 로비 의혹’ - 조선일보",
+          "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQMjhkQUpBTDlZSW9TTl9UdXBTWkxUUEc1RGFFRVotYjN3NWV4dFo4NDlMTEp6UXRlX3ZVbC01UkgwaDU1QUNjeDB0SkRybnBCQjVmRjJQT21DdnJ6TGhlVTkwZ2tWZXRQX0dxQ2lxQkRvQUNjV1RQNFVKYjNoV0xNSThkM0pLdw?oc=5",
+          "source": "Google News (조선일보)"
+        },
+        {
+          "title": "이 대통령 “지금은 ‘성장 보릿고개’…성장 집중하며 파이 키울 때” - 한겨레",
+          "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBKVmVxRDBxcXNxcWRyRHFEcEQxNEdwS3d4VmV0dUdaWXpOMnVjcHJfdDlkaU5sOGU5VjlnTWVrZzhNN081cFVDS2FPVFA1b3MxU1R6aTlCaHF5Q0FubS1BS1JtZVppcHJQWWdJ?oc=5",
+          "source": "Google News (한겨레)"
+        },
+        {
+          "title": "대구, 난임 시술비 지원 횟수 제한 폐지",
+          "link": "https://www.chosun.com/national/regional/2026/09/02/2HY5IEW2GNATPOAHIWKHCXSUWU/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
+          "source": "Naver News (조선일보)"
+        },
+        {
+          "title": "비거주 1주택자·임대사업자 더 손보나…與, 부동산 세제 추가 논의 예...",
+          "link": "https://www.mk.co.kr/article/12142418",
+          "source": "Naver News (매일경제)"
+        },
+        {
+          "title": "한 총리 \"해상풍력, 정부 주도 계획입지 체계로 보급시스템 전환\"(종합...",
+          "link": "https://www.newsis.com/view/NISX20260902_0003773591",
+          "source": "Naver News (뉴시스)"
         }
       ],
       "생활/문화": [
         {
-          "title": "생활/문화 분야 최근 24시간 내 지정 언론사 기사가 없습니다.",
-          "link": "#",
-          "source": "System"
+          "title": "김민종, MC몽 고소…\"불법 도박 허위 주장해 명예훼손\" - 연합뉴스",
+          "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBLTWQ3ZVRESm9qcmJobnp1WjdQbzRNSEJuMGVvQVNIRDZQOGtaNkFWbFg5YWcwZW1VaUVSWE5qck5oX2wxd0NNNUdjUFVreUtLUGdoS21vT1NOM2fSAWBBVV95cUxPSzZwalRHWEpsaEVNeDRxZG1iMkRwNmdnOHFGZWFLZXRXZm5JcU9CYWtpMWxIRGpqeVRoaWc2Zm9MSWtfbXV6d21qQWlvSWZfSl9BQmd3cFhMWGMyRXVjMXg?oc=5",
+          "source": "Google News (연합뉴스)"
+        },
+        {
+          "title": "장애인 혐오로 번지는 ‘박위 KTX 사고’…“안전한 이동권 본질은 뒷전” - 경향신문",
+          "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE10YlEtSUZxN01fWTVDQjNsOEZ2RWZtVHVoTlpnU2xKcktYVEROdkpWQ1h1eHFzUDZqWVRYOWVzS2Z4Y2w1T0ctaXdxcHVpMVZDTGdrRC11NmRqdw?oc=5",
+          "source": "Google News (경향신문)"
+        },
+        {
+          "title": "[그 영화 어때] 사랑을 빌었는데 고약한 것이 왔다, ‘옵세션’ - 조선일보",
+          "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNSkxyX0ZNRl9NTmJuRGFzd293N1NhSENoU0ZLWEJ6OTQteE1qOHF6Q1ZWWDVqSzIydUp4Q2VSSEtma0REcVI0dTJDZ3ZXdHpRNC11NFRLX0tvaEF2bjBsWFAtZEo5Wmdla1ZzaGNLNDQtaFRER091dHp2Rm9tMkRwR2Nxc3NrVnMwSFlWbVFCQ0ZUQmpH?oc=5",
+          "source": "Google News (조선일보)"
+        },
+        {
+          "title": "엄마도 딸도 반한 추억템… 비욘세가 선택한 그 신발",
+          "link": "https://www.mk.co.kr/article/12142423",
+          "source": "Naver News (매일경제)"
+        },
+        {
+          "title": "[담양소식] 신규시책 103건 발굴…27개 사업 일몰 등",
+          "link": "https://www.newsis.com/view/NISX20260902_0003773405",
+          "source": "Naver News (뉴시스)"
+        },
+        {
+          "title": "조선호텔앤리조트, 목동윤슬자이 웰니스 시설 위탁운영",
+          "link": "https://news.tvchosun.com/site/data/html_dir/2026/09/02/2026090290146.html",
+          "source": "Naver News (조선일보)"
         }
       ],
       "IT/과학": [
         {
-          "title": "IT/과학 분야 최근 24시간 내 지정 언론사 기사가 없습니다.",
-          "link": "#",
-          "source": "System"
+          "title": "\"달러 빼고 다 오른다\"…흔들리는 美재정에 'ABD 투자' 뜬다 - 한국경제",
+          "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5tb0NHdEg3ZWtRV0xpenYtM2Y4WjFtcHhsbDdWWXBEaE01blVuX0U5ekhqaERSRjNQaVBqeDh3Y1dpSDJhQUJFYVM5ZlBrZVlqS1RHbzRoWml2Zw?oc=5",
+          "source": "Google News (한국경제)"
+        },
+        {
+          "title": "터너스 애플 신임 CEO, 1년 보수 798억원...\"아직 상상하지 못한 제품 꿈꾸고 만들 것\" - 조선일보",
+          "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPNFZQT01xWjZwS2QwZTVkSG16SDN2b3hwaExtaWdIb2Y3d2U3VzhFODJnVnpSR1lvRmRucTR4aGtJVGtqN1NKaV9Fb3hkM0szTGNEcHdwSi1sbDRNX1NRSkpUM2todm1ucDk4emRqVng4OXlDVUtfSHpMOXNXXzR5UEpLNA?oc=5",
+          "source": "Google News (조선일보)"
+        },
+        {
+          "title": "트럼프, 이란서 ‘잔디 깎기’…막 복구된 레이더 공습에 이란 미사일 반격 - 한겨레",
+          "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1zdjJSNk5EVW5ManhYSDFFaGlNR2NoVWVsVjNVYnU4MXhxakNZTk5tbFlVS3R0OFdPeDBzYXlVTW1ybG9JVGt4V0NVMTAwNENVUHNkZm1mSWxFSV9DUWVvb1luSWMtMG10MTlpYXhPalhFRUE?oc=5",
+          "source": "Google News (한겨레)"
+        },
+        {
+          "title": "[IFA 2026] 국산 AI 반도체로 움직이는 청소로봇… 라이노스, 유럽 시장...",
+          "link": "https://biz.chosun.com/it-science/ict/2026/09/02/BWWYOUVWF5D7ZMEH4NSTMXULQQ/?utm_source=naver&utm_medium=original&utm_campaign=biz",
+          "source": "Naver News (조선일보)"
+        },
+        {
+          "title": "DGIST, 현직 개발자 대상 'AI마이크로디그리' 1기 출범…경쟁률 4.8대 1",
+          "link": "https://www.hankookilbo.com/news/article/A2026090209400002480?did=NA",
+          "source": "Naver News (한국일보)"
+        },
+        {
+          "title": "[인사] 직썰",
+          "link": "https://www.yna.co.kr/view/AKR20260902041600505?input=1195m",
+          "source": "Naver News (연합뉴스)"
         }
       ],
       "세계": [
         {
-          "title": "“한국, ‘공급망 안보’ 차원 메모리 생산 다변화 고민해야” “미, 동...",
-          "link": "https://www.khan.co.kr/article/202609021553001",
-          "source": "Naver News (경향신문)"
+          "title": "대만군, 장기 작전 대비 방폭 탄약고 6곳 신축 예정 - 연합뉴스",
+          "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBkTjJZTHlaMFlnUVB1VGRBeVRacVZDQWs0blhpanZiRC1LOWtLOUF0bGJvbVlwczE4NG1NZW50V0phR3JaeXFUTTRpcXBDXzdzdy1abjVZVjN5WknSAWBBVV95cUxQRlVMN2Q0YVpSZVAtOTd2TlMzUDZwZ09HUWI3TDJiQWtWd1VJaTZqUTdGVWlxelpKQVRRWjdFNE8xQ3paVzNSRDVQSHhwOEhsMFpGS2hxdkVOQnl4TnUyNU0?oc=5",
+          "source": "Google News (연합뉴스)"
         },
         {
-          "title": "중국, '수출 의존 성장' 비판 문구 거부…G20 경제수장 공동성명 불발(종...",
-          "link": "https://www.newsis.com/view/NISX20260902_0003773489",
+          "title": "트럼프, 이란서 ‘잔디 깎기’…막 복구된 레이더 공습에 이란 미사일 반격 - 한겨레",
+          "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1zdjJSNk5EVW5ManhYSDFFaGlNR2NoVWVsVjNVYnU4MXhxakNZTk5tbFlVS3R0OFdPeDBzYXlVTW1ybG9JVGt4V0NVMTAwNENVUHNkZm1mSWxFSV9DUWVvb1luSWMtMG10MTlpYXhPalhFRUE?oc=5",
+          "source": "Google News (한겨레)"
+        },
+        {
+          "title": "[속보] FT “한국 장금상선 유조선, 호르무즈서 피격”···원유 200만배럴 운송 중 당했다 - 경향신문",
+          "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1RZ3NmaHdCZ2NqNjRpQkRDeTYtallvYVdVWGwyXzA5MFBaZm5WZkl0MGlNcDZVUUdRVDhpZWk4SnpzQ1Jaa3VaaTlHLUFlSUp3eGNBc2VWVmZhUdIBX0FVX3lxTE9kQWJZTTkzVmpMWmhzcXh3NGRKWEE0czhFT3k4ZTdhczZpSk1WaWJ4TDRod3U3OGxsMTVoaF84cVZjSGp0V0haZ2Jfa3VfUk5vZ09IOWtKSHRLb1gyN0hj?oc=5",
+          "source": "Google News (경향신문)"
+        },
+        {
+          "title": "이 대통령 \"트럼프 결단으로 한반도 변화 가능성…건설적 논의여건 우리...",
+          "link": "https://www.newsis.com/view/NISX20260902_0003773583",
           "source": "Naver News (뉴시스)"
         },
         {
-          "title": "[신간] 정보라 작가의 15개국 32개 도시 출장기…'저 지금 탑승합니다'",
-          "link": "https://www.yna.co.kr/view/AKR20260902118300005?input=1195m",
+          "title": "[네팔 대홍수] 유엔 \"히말라야 수백만 주민, 빙하홍수 위험 심각\"",
+          "link": "https://www.yna.co.kr/view/AKR20260902136600084?input=1195m",
           "source": "Naver News (연합뉴스)"
+        },
+        {
+          "title": "세계 최초 ‘우주 특파원’ 아키야마 별세···“‘생각하는 힘’ 다른...",
+          "link": "https://www.khan.co.kr/article/202609021601001",
+          "source": "Naver News (경향신문)"
         }
       ],
       "사설": [
-        {
-          "title": "[사설] 반도체 특수 기댄 821조 예산…여유 있을 때 나랏빚 갚아야 - 중앙일보",
-          "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBLWnZmdjI1NWFqS0N4VWlDSDY1ODVXUXZGLVFqM3FvMm5kTXFrTllWaGNLdEhNcnpfdWRvb1VHNHg1UGFhMi1vRkFGRDlBM0ZlQjlOMDN3?oc=5",
-          "source": "Google News (중앙일보)"
-        },
         {
           "title": "[사설]김용범 사퇴… 내각이 청와대만 쳐다보도록 해선 안 돼 - 동아일보",
           "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9UVzUtYzhxZFZ0dXVQSVo5N21YcUdrQ2V0TW8ta0dNNzdJQ21hUjNCX2k4aEhyTnZ5NVA4ZVgzZkRSekt6SmU4Q0RzQkNIMFZ2a3VmMWdBVnZGd1EtVl9WTFhKdmlyTkUtZllsYmNlMXZsZVNEQXfSAWZBVV95cUxQOUdiRDJUQ3ZxWWtVZXZER2dWSTlIdS1QNUN4aFhoc3Q3QTVkZnc0OHFnYWNOMXI4ZF9pNVNQZXFHQmExSTJaNzNuSVBkNWxDZFlTYlhEVS1zY0JrVmZIWmRuam9xM1E?oc=5",
           "source": "Google News (동아일보)"
         },
         {
-          "title": "[전국 주요 신문 사설](2일 조간) - 연합뉴스",
-          "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5mdjB6RndlOEo3NVJFQ29CVmlPdzYyOUNKbFpCeVZTendCODJZNmxQbTBfd0xpNmdMZjVOZDVFOUh0cHRrVXpEa19rMGNuTDJRNjdyUGI4TEp5ZGPSAWBBVV95cUxPRWNsakR5dEhmNGZUeTdacWsyeUV0S0o3YU5TOC1Ucmp6aHE2ZFV0OHdNX0dZckd0MlZzTjlrM2s2NWxCbjFhZXVqY3pHTEpnMFVqNnp0NlBPeEVxUFdzWFE?oc=5",
-          "source": "Google News (연합뉴스)"
+          "title": "[사설] 반도체 특수 기댄 821조 예산…여유 있을 때 나랏빚 갚아야 - 중앙일보",
+          "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBLWnZmdjI1NWFqS0N4VWlDSDY1ODVXUXZGLVFqM3FvMm5kTXFrTllWaGNLdEhNcnpfdWRvb1VHNHg1UGFhMi1vRkFGRDlBM0ZlQjlOMDN3?oc=5",
+          "source": "Google News (중앙일보)"
         },
         {
-          "title": "장동혁 \"李, 개각해도 지지율 폭락하자 '전 정권' 카드까지 꺼내 들어\"",
-          "link": "https://www.newsis.com/view/NISX20260902_0003773426",
-          "source": "Naver News (뉴시스)"
-        },
-        {
-          "title": "[단독]경찰 한명이 개인정보 다량 조회땐 상급자에 자동 통보",
-          "link": "https://www.donga.com/news/Society/article/all/20260902/134590463/1",
-          "source": "Naver News (동아일보)"
-        },
-        {
-          "title": "[뉴스브리핑] 오늘의 주요뉴스…'감독 선임 개입 논란' 정몽규, 피의자...",
-          "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008734150&plink=ORI&cooper=NAVER",
-          "source": "Naver News (SBS)"
+          "title": "[사설] 개각서 김용범 뺐다가, 다음날 경질, 희한한 쇄신 인사 - 조선일보",
+          "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOZWtVenN5Ym9FV2FlM3hsbGZfbkRQZlFCQUVtWWo4SmxQdWlqR1V5LTd6YWNDWFJ3NU0wbWtIU2FteThDT2xTT29mNGgxdWlYNmpUTFVIcWtTY29XeWZES0hMV05mTDlrdDFrVmFUYTY1N0drNEUzNzlOS3hVcG1FOF9hWTFHQQ?oc=5",
+          "source": "Google News (조선일보)"
         }
       ]
     }
