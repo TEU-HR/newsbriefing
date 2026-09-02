@@ -4,6 +4,7 @@ import re
 import difflib
 import shutil
 import smtplib
+import time
 import urllib.parse
 import urllib.request
 from datetime import datetime, timezone, timedelta
@@ -51,7 +52,7 @@ def is_duplicate_title(title1, title2, ratio_threshold=0.55, jaccard_threshold=0
             return True
     return False
 
-# --- 2. Gemini 클라이언트 및 모델 호출 ---
+# --- 2. Gemini 클라이언트 및 모델 호출 (재시도 로직 포함) ---
 def get_gemini_client():
     api_key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
     if not api_key:
@@ -73,13 +74,12 @@ def generate_gemini_content(prompt, use_google_search=False):
     if not client:
         return f"Gemini API 키가 없거나 SDK 설정이 올바르지 않습니다. (상태: {sdk_type})"
 
-    # 검증된 정식 모델 목록 순차 시도
-    models_to_try = ["gemini-2.5-flash", "gemini-2.0-flash", "gemini-1.5-flash"]
-    last_error = None
+    model_name = "gemini-3.6-flash"
+    max_retries = 3
 
-    for model_name in models_to_try:
+    for attempt in range(1, max_retries + 1):
         try:
-            print(f"🤖 AI 생성 시도 중... (모델: {model_name})")
+            print(f"🤖 AI 생성 시도 중... ({attempt}/{max_retries}회차, 모델: {model_name})")
             if sdk_type == "genai":
                 from google.genai import types
                 config = None
@@ -100,10 +100,13 @@ def generate_gemini_content(prompt, use_google_search=False):
                 if res and hasattr(res, 'text') and res.text:
                     return res.text
         except Exception as e:
-            print(f"⚠️ 모델 {model_name} 호출 실패: {e}")
-            last_error = e
+            print(f"⚠️ {attempt}회차 호출 실패: {e}")
+            if attempt < max_retries:
+                sleep_time = attempt * 5
+                print(f"⏳ {sleep_time}초 대기 후 재시도합니다...")
+                time.sleep(sleep_time)
 
-    return f"AI 요약 생성 중 오류 발생: {last_error}"
+    return f"AI 요약 생성 실패 (최대 재시도 횟수 초과)"
 
 # --- 3. NAVER API HUB 뉴스 수집 모듈 ---
 def fetch_naver_news(keywords, display=10):
@@ -174,7 +177,7 @@ def fetch_google_news(keywords):
                 item['source'] = 'Google'
             return parsed
     except Exception as e:
-        print(f"구글 뉴스 결과 파싱 건너뜀: {e}")
+        print(f"구글 뉴스 결과 파싱 건너뀀 (네이버 기사 위주로 처리): {e}")
     return []
 
 def merge_and_deduplicate(naver_news, google_news):
@@ -280,6 +283,9 @@ def main():
     naver_news = fetch_naver_news(keywords)
     google_news = fetch_google_news(keywords)
     unique_news = merge_and_deduplicate(naver_news, google_news)
+    
+    # 구글 뉴스 생성 간격 과부하 방지를 위한 3초 대기
+    time.sleep(3)
     
     briefing_summary = generate_summary(unique_news)
     
