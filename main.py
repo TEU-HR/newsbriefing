@@ -166,4 +166,171 @@ def fetch_google_news(keywords):
     response_text = generate_gemini_content(prompt, use_google_search=True)
     try:
         clean_text = re.sub(r"^```(?:json)?\s*", "", response_text, flags=re.MULTILINE)
-        clean_text = re.sub(r"
+        clean_text = re.sub(r"```\s*$", "", clean_text, flags=re.MULTILINE).strip()
+        parsed = json.loads(clean_text)
+        if isinstance(parsed, list):
+            for item in parsed:
+                item['source'] = 'Google'
+            return parsed
+    except Exception as e:
+        print(f"구글 뉴스 결과 파싱 건너뜀: {e}")
+    return []
+
+def merge_and_deduplicate(naver_news, google_news):
+    combined = list(naver_news)
+    dup_count = 0
+    for g_item in google_news:
+        is_dup = False
+        for n_item in combined:
+            if is_duplicate_title(g_item.get('title', ''), n_item.get('title', '')):
+                is_dup = True
+                dup_count += 1
+                break
+        if not is_dup:
+            combined.append(g_item)
+    print(f"🔄 뉴스 중복 제거 완료: 총 {len(naver_news) + len(google_news)}건 중 {dup_count}건 중복 제외 -> 최종 {len(combined)}건")
+    return combined
+
+# --- 4. 요약 및 음성 생성 ---
+def generate_summary(news_list):
+    if not news_list:
+        return "수집된 뉴스가 없어 요약을 생성하지 못했습니다. (API 키 및 수집 상태를 점검해주세요.)"
+
+    news_text = ""
+    for idx, item in enumerate(news_list, 1):
+        news_text += f"{idx}. [{item.get('source')}/{item.get('press_name', '언론사')}] {item.get('title')}\n   요약: {item.get('description')}\n   링크: {item.get('link')}\n\n"
+
+    prompt = f"""
+다음은 수집된 최신 주요 뉴스 기사 목록입니다:
+
+{news_text}
+
+당신은 대한민국 최고 수준의 시사·경제 수석 에디터입니다.
+제공된 기사를 정밀 분석하여, 바쁜 직장인과 리더들이 3분 만에 주요 정세를 파악할 수 있도록 **고품질 인사이트 리포트**를 작성해 주세요.
+
+아래 양식에 맞춰 정확히 작성해 주세요:
+
+# 🚀 오늘의 3대 핵심 이슈
+(동일 사건이나 주요 이슈를 다룬 기사들을 묶어, 가장 중요한 3가지 대형 이슈 정밀 분석)
+
+# ⚖️ 주요 이슈별 언론사 시각 비교
+(주요 이슈에 대해 보수/진보/경제지 및 구글/네이버 수집 채널별 논조 차이 설명)
+
+# 📊 분야별 리포트
+- **정치**: (핵심 내용 정리)
+- **경제**: (핵심 내용 정리)
+- **사회**: (핵심 내용 정리)
+- **IT/과학**: (핵심 내용 정리)
+- **세계**: (핵심 내용 정리)
+
+# 💡 출근길 핵심 인사이트
+(오늘의 이슈가 기업 경영, 개인 자산, 사회 변화에 주는 핵심 시사점 2가지)
+"""
+    return generate_gemini_content(prompt, use_google_search=False)
+
+def generate_audio(text, filepath):
+    if not HAS_GTTS:
+        return False
+    try:
+        # 백틱 문자(chr 96) 및 마크다운 기호 완전히 안전하게 제거
+        bad_chars = "#*_~<>" + chr(96)
+        clean_text = text.translate(str.maketrans("", "", bad_chars))
+        if len(clean_text) > 1500:
+            clean_text = clean_text[:1500] + "... 이하 내용 생략"
+        
+        tts = gTTS(text=clean_text, lang='ko', slow=False)
+        tts.save(filepath)
+        print(f"🔊 음성 파일 생성 완료: {filepath}")
+        return True
+    except Exception as e:
+        print(f"⚠️ TTS 음성 생성 실패: {e}")
+        return False
+
+def send_email(subject, body):
+    sender = os.environ.get("EMAIL_USER") or os.environ.get("SMTP_USER")
+    password = os.environ.get("EMAIL_PASSWORD") or os.environ.get("SMTP_PASSWORD")
+    if not sender or not password:
+        return
+
+    msg = MIMEMultipart()
+    msg["From"] = sender
+    msg["To"] = sender
+    msg["Subject"] = subject
+    msg.attach(MIMEText(body, "plain", "utf-8"))
+    try:
+        server = smtplib.SMTP("smtp.gmail.com", 587)
+        server.starttls()
+        server.login(sender, password)
+        server.sendmail(sender, sender, msg.as_string())
+        server.close()
+        print("✉️ 이메일 발송 성공!")
+    except Exception as e:
+        print(f"이메일 발송 실패: {e}")
+
+# --- 5. 메인 실행 함수 ---
+def main():
+    now_dt = datetime.now(KST)
+    now_str = now_dt.strftime("%Y년 %m월 %d일 %H:%M")
+    today_date_key = now_dt.strftime("%Y-%m-%d")
+
+    print(f"[{now_str}] 통합 뉴스 브리핑 시스템 시작...")
+    
+    keywords = ["정치", "경제", "IT", "AI", "사회", "국제"]
+    
+    naver_news = fetch_naver_news(keywords)
+    google_news = fetch_google_news(keywords)
+    unique_news = merge_and_deduplicate(naver_news, google_news)
+    
+    briefing_summary = generate_summary(unique_news)
+    
+    history_dir = "history"
+    os.makedirs(history_dir, exist_ok=True)
+
+    audio_filename = f"{today_date_key}.mp3"
+    audio_path = os.path.join(history_dir, audio_filename)
+    latest_audio_path = "latest.mp3"
+
+    has_audio = generate_audio(briefing_summary, audio_path)
+    if has_audio:
+        try:
+            shutil.copyfile(audio_path, latest_audio_path)
+        except Exception:
+            pass
+
+    daily_payload = {
+        "date": today_date_key,
+        "updated_at": now_str,
+        "summary": briefing_summary,
+        "has_audio": has_audio,
+        "audio_url": f"history/{audio_filename}",
+        "categories": {"전체": unique_news}
+    }
+
+    daily_file = os.path.join(history_dir, f"{today_date_key}.json")
+    with open(daily_file, "w", encoding="utf-8") as f:
+        json.dump(daily_payload, f, ensure_ascii=False, indent=2)
+
+    idx_file = os.path.join(history_dir, "index.json")
+    date_list = []
+    if os.path.exists(idx_file):
+        try:
+            with open(idx_file, "r", encoding="utf-8") as f:
+                date_list = json.load(f)
+        except Exception:
+            pass
+
+    if today_date_key not in date_list:
+        date_list.append(today_date_key)
+        date_list.sort(reverse=True)
+
+    with open(idx_file, "w", encoding="utf-8") as f:
+        json.dump(date_list, f, ensure_ascii=False, indent=2)
+
+    with open("data.json", "w", encoding="utf-8") as f:
+        json.dump({"morning": daily_payload, "realtime": daily_payload}, f, ensure_ascii=False, indent=2)
+
+    print("\n✅ 모든 프로세스 정상 완료!")
+    send_email(f"[뉴스 브리핑] {now_str}", f"수집 시각: {now_str}\n\n{briefing_summary}")
+
+if __name__ == "__main__":
+    main()
