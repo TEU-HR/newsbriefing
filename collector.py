@@ -3,15 +3,15 @@ import json
 import re
 from datetime import datetime
 import feedparser
-import google.generativeai as genai
+from google import genai
+from google.genai import types
 
-# 1. Gemini API 설정 (환경변수에서 키 로드)
+# 1. Gemini API 설정 (최신 google-genai SDK)
 api_key = os.environ.get("GEMINI_API_KEY")
 if not api_key:
     raise ValueError("GEMINI_API_KEY 환경 변수가 설정되지 않았습니다.")
 
-genai.configure(api_key=api_key)
-model = genai.GenerativeModel("gemini-1.5-flash")
+client = genai.Client(api_key=api_key)
 
 # 2. 수집 대상 주요 언론사 RSS 목록
 RSS_FEEDS = [
@@ -73,9 +73,12 @@ def generate_briefing(articles):
     """
 
     try:
-        response = model.generate_content(
-            prompt,
-            generation_config={"response_mime_type": "application/json"}
+        response = client.models.generate_content(
+            model='gemini-2.5-flash',
+            contents=prompt,
+            config=types.GenerateContentConfig(
+                response_mime_type="application/json"
+            )
         )
         
         raw_text = response.text.strip()
