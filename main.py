@@ -7,10 +7,12 @@ import smtplib
 import time
 import urllib.parse
 import urllib.request
+import xml.etree.ElementTree as ET
 from datetime import datetime, timezone, timedelta
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
+# gTTS 안전 임포트
 try:
     from gtts import gTTS
     HAS_GTTS = True
@@ -19,6 +21,46 @@ except ImportError:
     print("[경고] gTTS 라이브러리가 설치되지 않았습니다. 음성 생성을 건너끕니다.")
 
 KST = timezone(timedelta(hours=9))
+
+# 언론사 도메인 매핑 테이블
+PRESS_DOMAIN_MAP = {
+    "chosun.com": "조선일보",
+    "joongang.co.kr": "중앙일보",
+    "joongang.com": "중앙일보",
+    "donga.com": "동아일보",
+    "hani.co.kr": "한겨레",
+    "khan.co.kr": "경향신문",
+    "hankyung.com": "한국경제",
+    "mk.co.kr": "매일경제",
+    "kbs.co.kr": "KBS",
+    "imbc.com": "MBC",
+    "mbc.co.kr": "MBC",
+    "sbs.co.kr": "SBS",
+    "yna.co.kr": "연합뉴스",
+    "ytn.co.kr": "YTN",
+    "news1.kr": "뉴스1",
+    "newsis.com": "뉴시스",
+    "zdnet.co.kr": "ZDNet Korea",
+    "etnews.com": "전자신문",
+    "sedaily.com": "서울경제",
+    "asiae.co.kr": "아시아경제",
+    "moneytoday.co.kr": "머니투데이",
+    "mt.co.kr": "머니투데이",
+    "heraldcorp.com": "헤럴드경제"
+}
+
+def get_press_name_from_url(url, default_name="언론사"):
+    if not url:
+        return default_name
+    for domain, press in PRESS_DOMAIN_MAP.items():
+        if domain in url:
+            return press
+    try:
+        parsed = urllib.parse.urlparse(url)
+        host = parsed.netloc.replace("www.", "").replace("news.", "")
+        return host if host else default_name
+    except Exception:
+        return default_name
 
 # --- 1. 문자열 정제 및 중복 판별 ---
 def clean_html(text):
@@ -51,7 +93,7 @@ def is_duplicate_title(title1, title2, ratio_threshold=0.55, jaccard_threshold=0
             return True
     return False
 
-# --- 2. Gemini 클라이언트 및 백업 모델 다중 호출 ---
+# --- 2. Gemini 클라이언트 및 백업 모델 호출 ---
 def get_gemini_client():
     api_key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
     if not api_key:
@@ -73,7 +115,6 @@ def generate_gemini_content(prompt):
     if not client:
         return f"Gemini API 키가 없거나 SDK 설정이 올바르지 않습니다. (상태: {sdk_type})"
 
-    # 메인 모델 서버 지연/과부하 시 순차적으로 대체 모델 사용
     candidate_models = ["gemini-2.5-flash", "gemini-2.0-flash", "gemini-1.5-flash"]
 
     for model_name in candidate_models:
@@ -95,49 +136,121 @@ def generate_gemini_content(prompt):
 
     return "AI 요약 생성 중 오류가 발생했습니다."
 
-# --- 3. 뉴스 수집 (카테고리 분리 구조) ---
-def fetch_naver_news_by_categories(category_map, display=10):
+# --- 3. 뉴스 수집 (네이버 + 구글 뉴스 통합) ---
+def fetch_naver_news_for_category(keywords, category_name, display=8):
     client_id = os.environ.get("NAVER_CLIENT_ID", "").strip()
     client_secret = os.environ.get("NAVER_CLIENT_SECRET", "").strip()
     if not client_id or not client_secret:
-        print("[경고] NAVER API 키가 없습니다.")
-        return {}, []
+        return []
 
+    items = []
+    for kw in keywords:
+        try:
+            enc_text = urllib.parse.quote(kw)
+            url = f"https://naverapihub.apigw.ntruss.com/search/v1/news?query={enc_text}&display={display}&sort=date"
+            req = urllib.request.Request(url)
+            req.add_header("X-NCP-APIGW-API-KEY-ID", client_id)
+            req.add_header("X-NCP-APIGW-API-KEY", client_secret)
+            
+            with urllib.request.urlopen(req, timeout=10) as response:
+                if response.getcode() == 200:
+                    data = json.loads(response.read().decode('utf-8'))
+                    for item in data.get('items', []):
+                        clean_t = clean_html(item.get('title', ''))
+                        clean_d = clean_html(item.get('description', ''))
+                        link = item.get('originallink') or item.get('link', '#')
+                        press_name = get_press_name_from_url(link, default_name="네이버뉴스")
+                        
+                        items.append({
+                            'title': clean_t,
+                            'description': clean_d,
+                            'link': link,
+                            'press_name': press_name,
+                            'source': 'Naver',
+                            'pub_time': item.get('pubDate', ''),
+                            'category': category_name
+                        })
+        except Exception as e:
+            print(f"네이버 뉴스 수집 중 오류 ({kw}): {e}")
+
+    return items
+
+def fetch_google_news_for_category(keywords, category_name, display=5):
+    items = []
+    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'}
+    
+    for kw in keywords:
+        try:
+            enc_text = urllib.parse.quote(kw)
+            url = f"https://news.google.com/rss/search?q={enc_text}&hl=ko&gl=KR&ceid=KR:ko"
+            req = urllib.request.Request(url, headers=headers)
+            
+            with urllib.request.urlopen(req, timeout=10) as response:
+                xml_data = response.read()
+                root = ET.fromstring(xml_data)
+                channel = root.find('channel')
+                if channel is None:
+                    continue
+                
+                for item in channel.findall('item')[:display]:
+                    title_elem = item.find('title')
+                    link_elem = item.find('link')
+                    pubDate_elem = item.find('pubDate')
+                    source_elem = item.find('source')
+                    
+                    raw_title = title_elem.text if title_elem is not None else ""
+                    link = link_elem.text if link_elem is not None else "#"
+                    pub_time = pubDate_elem.text if pubDate_elem is not None else ""
+                    
+                    press_name = "구글뉴스"
+                    if source_elem is not None and source_elem.text:
+                        press_name = source_elem.text.strip()
+                    elif " - " in raw_title:
+                        parts = raw_title.rsplit(" - ", 1)
+                        raw_title = parts[0]
+                        press_name = parts[1].strip()
+                        
+                    clean_t = clean_html(raw_title)
+                    if not clean_t:
+                        continue
+
+                    items.append({
+                        'title': clean_t,
+                        'description': clean_t,
+                        'link': link,
+                        'press_name': press_name,
+                        'source': 'Google',
+                        'pub_time': pub_time,
+                        'category': category_name
+                    })
+        except Exception as e:
+            print(f"구글 뉴스 수집 중 오류 ({kw}): {e}")
+
+    return items
+
+def fetch_all_categories_news(category_map):
     categories_result = {}
     all_flat_items = []
 
     for cat_name, keywords in category_map.items():
-        cat_items = []
-        for kw in keywords:
-            try:
-                enc_text = urllib.parse.quote(kw)
-                url = f"https://naverapihub.apigw.ntruss.com/search/v1/news?query={enc_text}&display={display}&sort=date"
-                req = urllib.request.Request(url)
-                req.add_header("X-NCP-APIGW-API-KEY-ID", client_id)
-                req.add_header("X-NCP-APIGW-API-KEY", client_secret)
-                
-                with urllib.request.urlopen(req) as response:
-                    if response.getcode() == 200:
-                        data = json.loads(response.read().decode('utf-8'))
-                        for item in data.get('items', []):
-                            clean_t = clean_html(item.get('title', ''))
-                            clean_d = clean_html(item.get('description', ''))
-                            link = item.get('originallink') or item.get('link', '#')
-                            news_obj = {
-                                'title': clean_t,
-                                'description': clean_d,
-                                'link': link,
-                                'press_name': '네이버뉴스',
-                                'source': 'Naver',
-                                'pub_time': item.get('pubDate', ''),
-                                'category': cat_name
-                            }
-                            cat_items.append(news_obj)
-                            all_flat_items.append(news_obj)
-            except Exception as e:
-                print(f"카테고리 '{cat_name}' 키워드 '{kw}' 수집 오류: {e}")
+        print(f"📰 카테고리 [{cat_name}] 뉴스 수집 중...")
+        naver_items = fetch_naver_news_for_category(keywords, cat_name)
+        google_items = fetch_google_news_for_category(keywords, cat_name)
         
-        categories_result[cat_name] = cat_items
+        combined = naver_items + google_items
+        unique_cat_items = []
+        
+        # 카테고리 내 중복 기사 제거
+        for item in combined:
+            if not any(is_duplicate_title(item['title'], u['title']) for u in unique_cat_items):
+                unique_cat_items.append(item)
+
+        categories_result[cat_name] = unique_cat_items
+        
+        # 전체 목록에도 추가
+        for item in unique_cat_items:
+            if not any(is_duplicate_title(item['title'], u['title']) for u in all_flat_items):
+                all_flat_items.append(item)
 
     return categories_result, all_flat_items
 
@@ -233,7 +346,7 @@ def main():
         "세계": ["국제", "미국", "중국"]
     }
     
-    categories_data, all_news_list = fetch_naver_news_by_categories(category_map)
+    categories_data, all_news_list = fetch_all_categories_news(category_map)
     categories_data["전체"] = all_news_list
     
     briefing_summary = generate_summary(all_news_list)
