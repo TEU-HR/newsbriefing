@@ -34,7 +34,7 @@ PRESS_DOMAIN_MAP = {
 
 ALLOWED_PRESS = list(set(PRESS_DOMAIN_MAP.values()))
 
-# 카테고리 수정: '오피니언' 삭제 -> '사설' 변경
+# '사설' 검색 시 사회 사건 관련 사설(私設) 단어 제외 쿼리 적용
 KEYWORDS = {
     "정치": "정치 국회 정부",
     "경제": "경제 증시 금융",
@@ -42,7 +42,7 @@ KEYWORDS = {
     "생활/문화": "생활 문화 여행 건강",
     "IT/과학": "IT AI 테크 과학",
     "세계": "세계 국제 해외",
-    "사설": "사설"
+    "사설": "사설 -사설학원 -사설구급차 -사설탐정 -사설토토 -사설업체 -사설묘지"
 }
 
 HEADERS = {
@@ -93,6 +93,14 @@ def is_within_24h_window(pub_date_str, run_type="realtime"):
     except Exception:
         return True
 
+def is_valid_editorial(title):
+    """'사설' 카테고리 수집 시 사회성 사설(私設) 키워드 2차 검증"""
+    invalid_words = ["사설학원", "사설 구급차", "사설구급차", "사설 탐정", "사설탐정", "사설 토토", "사설토토", "사설 업체", "사설업체", "사설 묘지", "사설묘지"]
+    for word in invalid_words:
+        if word in title:
+            return False
+    return True
+
 def fetch_google_news(category, run_type="realtime"):
     max_per_press = 2 if run_type == "morning" else 1
     max_total = 12 if run_type == "morning" else 3
@@ -112,8 +120,12 @@ def fetch_google_news(category, run_type="realtime"):
                     continue
 
                 cleaned_title = clean_html(entry.title)
+
+                # 사설 카테고리 오검색 필터링
+                if category == "사설" and not is_valid_editorial(cleaned_title):
+                    continue
+
                 allowed, press_name = parse_google_publisher(cleaned_title)
-                
                 if allowed:
                     curr_count = press_count.get(press_name, 0)
                     if curr_count < max_per_press:
@@ -146,7 +158,7 @@ def fetch_naver_news(category, run_type="realtime"):
     articles = []
     press_count = {}
 
-    # 1. NAVER API HUB 시도 (sort=date 설정으로 최신 기사 우선 수집)
+    # 1. NAVER API HUB 시도 (sort=date 적용)
     hub_url = f"https://naverapihub.apigw.ntruss.com/search/v1/news?query={kw}&display=50&sort=date&format=json"
     hub_headers = {
         "X-NCP-APIGW-API-KEY-ID": client_id,
@@ -163,6 +175,10 @@ def fetch_naver_news(category, run_type="realtime"):
                 if not is_within_24h_window(pub_date, run_type):
                     continue
 
+                cleaned_title = clean_html(item.get("title", ""))
+                if category == "사설" and not is_valid_editorial(cleaned_title):
+                    continue
+
                 link = item.get("originallink") or item.get("link")
                 press_name = get_naver_press_name(link)
                 if press_name:
@@ -170,7 +186,7 @@ def fetch_naver_news(category, run_type="realtime"):
                     if curr_count < max_per_press:
                         press_count[press_name] = curr_count + 1
                         articles.append({
-                            "title": clean_html(item.get("title", "")),
+                            "title": cleaned_title,
                             "link": link,
                             "source": f"Naver News ({press_name})"
                         })
@@ -180,7 +196,7 @@ def fetch_naver_news(category, run_type="realtime"):
     except Exception:
         pass
 
-    # 2. 구형 API Fallback (sort=date 설정)
+    # 2. 구형 API Fallback (sort=date 적용)
     legacy_url = f"https://openapi.naver.com/v1/search/news.json?query={kw}&display=50&sort=date"
     legacy_headers = {
         "X-Naver-Client-Id": client_id,
@@ -197,6 +213,10 @@ def fetch_naver_news(category, run_type="realtime"):
                 if not is_within_24h_window(pub_date, run_type):
                     continue
 
+                cleaned_title = clean_html(item.get("title", ""))
+                if category == "사설" and not is_valid_editorial(cleaned_title):
+                    continue
+
                 link = item.get("originallink") or item.get("link")
                 press_name = get_naver_press_name(link)
                 if press_name:
@@ -204,7 +224,7 @@ def fetch_naver_news(category, run_type="realtime"):
                     if curr_count < max_per_press:
                         press_count[press_name] = curr_count + 1
                         articles.append({
-                            "title": clean_html(item.get("title", "")),
+                            "title": cleaned_title,
                             "link": link,
                             "source": f"Naver News ({press_name})"
                         })
@@ -251,6 +271,10 @@ def summarize_news(categorized_articles):
 {prompt_text}
 
 위 기사들의 내용을 바탕으로 종합 브리핑을 작성해 주세요.
+
+[요청 사항]
+- '사설' 항목에는 언론사의 사설/칼럼 논평 기사 내용만 요약해 주세요. (단순 사회 사건/사고 기사가 섞여 있다면 제외하거나 '사회' 요약으로 재배치)
+- 전체적인 흐름과 핵심 이슈 위주로 간결하게 요약해 주세요.
 
 [오늘의 종합 브리핑]
 전체 주요 흐름 요약 (3~4줄)
