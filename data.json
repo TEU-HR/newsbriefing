@@ -1,448 +1,82 @@
 {
-  "updated_at": "2026년 09월 02일 15:45",
-  "summary": "[오늘의 종합 브리핑]\n정기국회가 막을 올리며 821조 원 규모의 예산안 처리와 기초연금, 금융 입법을 둘러싼 여야의 정국 주도권 다툼이 본격화되었습니다. 경제적으로는 중동 리스크 재발과 인플레이션 우려로 증시 변동성과 국채 금리가 급등하는 등 글로벌 금융 시장의 불안감이 고조되고 있습니다. 사회 면에서는 고령 운전자 교통사고와 산업재해 등 안전 문제가 주요 현안으로 대두되었으며, IT 분야에서는 의료 AI를 둘러싼 글로벌 빅테크 간의 주도권 경쟁이 치열하게 펼쳐지고 있습니다.\n\n---\n\n[분야별 핵심요약]\n\n- **정치:** 821조 원 규모의 예산안과 중동사태 대응, 추경, 기초연금 개편안 등을 놓고 정기국회 막이 올랐습니다. 이 대통령이 정치권과의 협력을 강조한 가운데, 보완수사권 폐지 논의와 국회 부의장 출마 등 여야 간 정치적 움직임이 활발해지고 있습니다.\n- **경제:** 중동 리스크 재부상과 인플레이션 우려로 유가와 국채 금리가 급등하며 뉴욕 및 글로벌 증시가 하락했습니다. 특히 한국 증시의 일중 변동률이 역대 최대치를 기록하며 금융시장 불안에 대한 경고가 이어지는 가운데, 정기국회 내 지배구조 및 디지털자산 관련 금융 입법이 주목받고 있습니다.\n- **사회:** 고령 운전자로 인한 교통사고 사망자 증가와 경기 광주 쿠팡 물류센터 끼임 사고 등 안전 및 산업재해 이슈가 잇따랐습니다. 또한 통영 살인 사건 용의자 수배, 초고령사회 요양원 돌봄 문제 등 다양한 사회적 현안이 조명되었습니다.\n- **생활/문화:** 수집된 주요 뉴스 기사가 없습니다.\n- **IT/과학:** 정부의 AI 정책을 이끌 AI수석의 과제가 주목받는 가운데, 글로벌 빅테크 기업들이 진단을 넘어 의료 생태계 전반으로 '의료 AI' 영토 확장 경쟁을 벌이고 있습니다. 중국 테크 기업들의 홍콩을 통한 해외 진출 움직임도 포착되었습니다.\n- **세계:** 세계 해외 관광객 수가 연간 14억 명을 돌파한 가운데, 네팔 카트만두에 한국 해외 긴급구호대가 도착해 구호 활동을 시작했습니다. 식약처의 WHO 규제역량 훈련 지정 및 여수 세계섬박람회 준비 상황 등 국제 협력과 행사 소식이 전해졌습니다.\n- **오피니언:** 일제고사 폐해를 영국 사례로 지적한 시론, 역사적 교훈과 정체성을 되새기는 칼럼, 그리고 언론 매체의 특정 칼럼을 둘러싼 논란 등 정치·사회·교육 현안에 대한 다양한 비판적 시각이 제기되었습니다.",
-  "categories": {
-    "정치": [
-      {
-        "title": "국회 정치·외교안보 대정부질문…정부 중동사태 대응·추경 쟁점 - 경향신문",
-        "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9iSFBHam5keXFpSmE5R3kwN0pQd2pyd1BZb245WnVGZU1iM0pkbUd4RE1RQnU3aGN0THFhdzZmbTB3bVdXVFJSTjlDM1I3RFRfY0JWOTh5M0NGZ9IBX0FVX3lxTE10TnZzRzFiMG1uRUZGbU5RTUVEbnJxa05wdjA0M2QzUFoxYnVWOGFFaEIyMlcybi1JbjZpM285UVBVdHcwWWx6WjZWTEpld3RzWWQ2eWhpY1RLSnBMOC13?oc=5",
-        "source": "Google News (경향신문)"
-      },
-      {
-        "title": "김민석 “보완수사권 폐지로 최종 정리…정부 입법 안 해” - 한겨레",
-        "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBLYXRxS2p5Q0lUbzVFbm12R3RKa09rX3h6MXh3TWU1Wjc0NGRWbF8zaW9nWC1rc2FKN1lWdy0wM240bHZNd0kya0psTVl4c0JsWU1hY1FLekhPVURZOVZQcjdDRVlEcHZxVUE?oc=5",
-        "source": "Google News (한겨레)"
-      },
-      {
-        "title": "'국회 부의장 출마' 남인순, 민주당 의원에 친전…\"李정부 성공 뒷받침\" - 뉴시스",
-        "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5ZWG5PNHh1dnQwaDg5dWo5eUxnaV9EdDktWDY0MWlKSllWZmgwRzFudndQZDFodjRJZHBzd2tqNGNZQlc4cXVfb1hNNDJIWDBCUFc0WDNJYU84TFI1d0RnWdIBeEFVX3lxTE0wSElHMkxxNVA0YWtXS2VYc3NhdWRTQzBmZFhQRXVsams2Tzh6VFFldDF0OTJBVG92TmhHOGFsWUNScktuWG5ZSUtBSnVVT1FTYnBBNzc3U2FpNW1CRlM1dm8tU3RjdXdEMm50dEpDM0RpVUJVVEJmQg?oc=5",
-        "source": "Google News (뉴시스)"
-      },
-      {
-        "title": "1년 반 뒤 총선인데…기초연금 개편안, 국회 문턱 넘을까[기초연금 개편...",
-        "link": "https://www.newsis.com/view/NISX20260901_0003771370",
-        "source": "Naver News"
-      },
-      {
-        "title": "821조 ‘예산 전쟁’ 시작…李정부 두 번째 정기국회 막 올랐다",
-        "link": "https://www.mk.co.kr/article/12141442",
-        "source": "Naver News"
-      },
-      {
-        "title": "이 대통령 “정부 혼자 ‘완벽할 수 없다’ 인정하고 정치권과 협력”",
-        "link": "https://www.khan.co.kr/article/202609011653001",
-        "source": "Naver News"
-      }
-    ],
-    "경제": [
-      {
-        "title": "한국증권금융, 연 2.96% 모바일 파킹통장 출시 - 서울경제",
-        "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFAzQTFjYXJlOGFJWmE4eDV1S01aX1E2VzlTcG5sVkZQbHlTR0JkdFdpZUlvcTZhMjFtY0RuZ3NlUm5PRm42dGRObnJUWVNQRHVHc1HSAVNBVV95cUxNU18xbGlmOTBqRE9RbGlOcWNnbVF1VHNaOV85ZnVwZkhrY1RiYWtyU2M0MERQblBHX2xIX1E5Rzl3dEZmT0plcXM2Z3MzTGZuQzJscw?oc=5",
-        "source": "Google News (서울경제)"
-      },
-      {
-        "title": "“韓 증시 변동성이 전체 금융시장 흔들어” 블룸버그의 경고 - 서울경제",
-        "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1BNUZhal9QZ1JOVVQwUTFiSE1pM1pFOXNOZGRZakFEMDVNOTAzZ09qVUxfcG1RNTVGOGFuVHRlaXV6MDY2RndUQVJveDllcm9UdHfSAVNBVV95cUxOb0diZ1JHYjdVQXhXUmQzUHg2RDRYNE1xTlJVcWxVMTNUaUxzNDNEOVhZWVl4dGw2SVBsWWdjeDMyR3VHb214MXVHSS1vV2IyQXR4SQ?oc=5",
-        "source": "Google News (서울경제)"
-      },
-      {
-        "title": "\"금융위기 때 보다 높은 수치\"...역대 최대 일중변동률 어쩌나 [이슈톺] - YTN",
-        "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE82cE00V0cwS1ZxaGdEMHJDbjFXeXhPZlZBWU5JYUY5NXFMeTBWZWRSUkoxeC1Wa3BxMFptb2hFYW5hX2xCdHQ5aGtaMEtMOWhhX0FlN2c3YXQzVk5uYkE?oc=5",
-        "source": "Google News (YTN)"
-      },
-      {
-        "title": "되살아난 중동 리스크…유가·국채금리 급등에 세계증시 '덜컹'",
-        "link": "https://www.yna.co.kr/view/AKR20260902082500008?input=1195m",
-        "source": "Naver News"
-      },
-      {
-        "title": "인플레이션 우려에 글로벌 국채 금리 급등...뉴욕 증시 하락",
-        "link": "https://www.ytn.co.kr/_ln/0104_202609020730094787",
-        "source": "Naver News"
-      },
-      {
-        "title": "정기국회 막 올랐다…지배구조·디지털자산 등 금융입법 주목",
-        "link": "https://www.newsis.com/view/NISX20260901_0003771155",
-        "source": "Naver News"
-      }
-    ],
-    "사회": [
-      {
-        "title": "시간당 219명 죽거나 다쳐…교통사고 손실액은 ‘62만명분 연봉’ - 중앙일보",
-        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE52OElQQl84d3VyenZtZGJjZG9Ib3RKeGJSMDcycTBnV0ZrbERmZVBpS2VucVZoekJyOWJEbk4wZEdsUlZpeFRnbXFnWmRMNUxDREtVNk9B?oc=5",
-        "source": "Google News (중앙일보)"
-      },
-      {
-        "title": "'통영 60대 살인 사건' 용의자를 찾습니다… 경찰, CCTV 공개 - 한국일보",
-        "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBwakNGcUZOU09oM3loRDhGWTl4NWhmSl9LU0VKZGs4dnpURm4xM1NPbXl6SHBXRGxNMUVBLWgybEhaaXJxQmlvQzJ6XzVYVjJpRzRpTEllcEhXOVR6Rl9LUzI5czdIUFZGY040aUpR0gFzQVVfeXFMUFZOWTYtdDUwYVNHTWZqbFVVWndzWmdnSWdDUVVKN0VBMHN6NmFWWEdCWF9PODRwVTVWVEVPbEFBNFBmTTgzLXNaQlhTTXdwZGNGbHB0NUxzVmhLZUlMV1FwY2t2Umxtc2ZOSkU2bjdjTU5tZw?oc=5",
-        "source": "Google News (한국일보)"
-      },
-      {
-        "title": "교통사고 사망 3명 중 1명은 ‘고령운전 사건’…지난해 사망자 반등 - 한겨레",
-        "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE43N1RlekczLUZXRHNoNlM3TkQ5NDNnZTZKaVJPMUJfb2hrTk83WEN5M3dJMjJJSHdGcTNJek81THFMWXF1RUdZd1V1TnlEMTBMVHY3X1hyUENiY3BuSTRiZHVaeFV6TTI0RFlhTWpnTHRPZw?oc=5",
-        "source": "Google News (한겨레)"
-      },
-      {
-        "title": "경기 광주 쿠팡 물류센터에서 40대 끼임 사고...심정지 이송",
-        "link": "https://www.ytn.co.kr/_ln/0103_202608231456242917",
-        "source": "Naver News"
-      },
-      {
-        "title": "사건 기록으로 만나는 19세기 서울…내달 4일 서울역사학술대회",
-        "link": "https://www.yna.co.kr/view/AKR20260827178800004?input=1195m",
-        "source": "Naver News"
-      },
-      {
-        "title": "‘추적 60분’ 초고령사회의 민낯 3부작 - 3부 ‘돌봄 장사’ 요양원과...",
-        "link": "https://sports.khan.co.kr/article/202608281832003?pt=nv",
-        "source": "Naver News"
-      }
-    ],
-    "생활/문화": [
-      {
-        "title": "생활/문화 분야 지정 언론사 최신 기사가 없습니다.",
-        "link": "#",
-        "source": "System"
-      }
-    ],
-    "IT/과학": [
-      {
-        "title": "구글 출신 이해민 AI수석이 짊어진 '두 과제'",
-        "link": "https://it.chosun.com/news/articleView.html?idxno=2023092169165",
-        "source": "Naver News"
-      },
-      {
-        "title": "진단 넘어 의료 생태계까지…글로벌 빅테크, 의료AI 영토전쟁 [환자 곁...",
-        "link": "https://it.chosun.com/news/articleView.html?idxno=2023092167434",
-        "source": "Naver News"
-      },
-      {
-        "title": "홍콩, 中 테크기업 해외 진출 도약대로 변신",
-        "link": "https://www.chosun.com/economy/tech_it/2026/09/01/CLREB5JCR5C3THZLNGDMPOXURU/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
-        "source": "Naver News"
-      }
-    ],
-    "세계": [
-      {
-        "title": "제11회 울산울주세계산악영화제 방문 해외 게스트 라인업 공개 - 연합뉴스",
-        "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1xQjhNUXR3NkZFNl9CbFVhak9VTExnUVJTVGl5N2dCcFd2c0FKOFVTWTNWU084RWFVX2ZQNzRpV0xQVHhDWFk1U3FpUjU0akVmVXU3c1p0d25Db0nSAWBBVV95cUxQaEJua0hHa3BvZDRYejIzdW5zODhjZHlZbnBzalA0NmJNSzVHcl9DZDVfYTNqeDZKNmpTbi1YcHZmU1p6bWx1UVEwckc2TDBGRldubk1lUDVEYS01aDUwc2c?oc=5",
-        "source": "Google News (연합뉴스)"
-      },
-      {
-        "title": "세계 해외관광객 연간 14억명 돌파 - 한겨레",
-        "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1SVEdOcGt1NDEwVGI0eHlYWHJSckg3T3NhUm0yRzVKeUhNWWRTYVJTYk9YWDJGdGhxZElVYlZjbGZfUjB2clVmNm1yREluZFhiTG9RSC1uNGFPMHlNd1dNWWlBdXI?oc=5",
-        "source": "Google News (한겨레)"
-      },
-      {
-        "title": "세계부동산연맹 한국대표부, 해외동포 국제복합도시 해외 투자 유치 - 중앙일보",
-        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5GNkJVd2RkXzJvZ21kODc2dGU3c2kwOHRMcDJSYk4wSWxzSFU4clBjTjNvdHFFOHV1M0ljaWdiMkY1Qlc5cjdpUHF3MDNBOWZHbFZmdHpR?oc=5",
-        "source": "Google News (중앙일보)"
-      },
-      {
-        "title": "\"WHO 첫 지정\"…식약처에 '규제역량 훈련' 맡긴다",
-        "link": "https://www.newsis.com/view/NISX20260902_0003772839",
-        "source": "Naver News"
-      },
-      {
-        "title": "미리 본 여수 세계섬박람회…뻥뚫린 조망 '합격'·콘텐츠 '글쎄'",
-        "link": "https://www.yna.co.kr/view/AKR20260901130100054?input=1195m",
-        "source": "Naver News"
-      },
-      {
-        "title": "한국 해외 긴급구호대 카트만두 도착...\"시간과 싸움\" [뉴스퀘어 2PM]",
-        "link": "https://www.ytn.co.kr/_ln/0104_202609021421432640",
-        "source": "Naver News"
-      }
-    ],
-    "오피니언": [
-      {
-        "title": "[시론] 오바마는 ‘좌빨’ 아닌가? / 조국 - 한겨레",
-        "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9TMFlCdVFzQjYzcVktVndvZDlTQ2lpb2c1bU5WOUlBSVg5bGJsUGtibjJyUncyXy1XTWFsVFdoU25jamhHLURvZm5ENndkTWd0UDhONV9oQjhfbE96N25jeGdRbEo?oc=5",
-        "source": "Google News (한겨레)"
-      },
-      {
-        "title": "[시론] 역사를 두려워하라 / 김삼웅 - 한겨레",
-        "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE96a0NTSUozUElKcjBPMlI4dGdXcWVCOTZacnZubmgwM0ZuUzNybEZ4V01UOEFfTUpGTmRxdW05ZXZyeEpveHJaVUVPcDZ5U0RYdHZrZzR2dkpnbThXOWVmVm9Bazg?oc=5",
-        "source": "Google News (한겨레)"
-      },
-      {
-        "title": "[시론] 일제고사, 영국의 실패에서 배우자 / 하태욱 - 한겨레",
-        "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9SNmR5SDdwdnkzcjFVa0RxV1BYdFR3OXRUbzdseW1LYTYxOEFjVEdyMU1EV1lIU0MwZ0ExejJ5Q0t1bm0ycTlQZjhHTHcwOFZ4cjZrMERQaXBPMWNkc2JzQU1uQVE?oc=5",
-        "source": "Google News (한겨레)"
-      },
-      {
-        "title": "[율곡로] 칼럼니스트는 무엇으로 사는가",
-        "link": "https://www.yna.co.kr/view/AKR20251107074400546?input=1195m",
-        "source": "Naver News"
-      },
-      {
-        "title": "중앙일보 시론 “리스트 사실이라면, 장자연은 대스타 됐을 것” 논란",
-        "link": "http://star.mk.co.kr/star_today_view.php?sc=41100001&cm=스타투데이-방송&year=2009&no=175222&selFlag=sc&relatedcode=&wonNo=&sID=507",
-        "source": "Naver News"
-      },
-      {
-        "title": "‘민주화 20년의 열망과 절망’을 읽고",
-        "link": "http://www.khan.co.kr/kh_news/art_view.html?artid=200702271823451&code=210000",
-        "source": "Naver News"
-      }
-    ]
-  },
-  "realtime": {
-    "updated_at": "2026년 09월 02일 16:15",
-    "summary": "[오늘의 종합 브리핑]\n오늘의 뉴스는 중동 지역의 군사적 긴장 재발로 인한 글로벌 경제 리스크 확대와 국내 정치권의 인사 변동 및 특검·연대 논의를 중심으로 전개되었습니다. 경제 면에서는 중동 리스크에 따른 유가·환율 변동성과 체납/주택 관련 정책이 주목받았으며, 사회적으로는 사법부 인사 검증 및 경찰의 실종 기록 관리 부실 등 치안·사법 이슈가 떠올랐습니다. 세계적으로는 미국-이란 간 갈등 심화와 호르무즈 해협에서의 한국 유조선 피격, 그리고 북미 회담 타진 등 대외 정세의 불안정성이 지속되고 있습니다.\n\n---\n\n[분야별 핵심요약]\n\n- 정치:\n  여야 정치권에서는 여권 내부의 연대·통합 논의와 주도권 다툼이 일어나는 가운데, 한동훈 전 위원장의 호남 방문 등 외연 확장을 위한 행보가 이어졌습니다.\n  정부·여당 측에서는 선관위 특검보에 검사 출신을 임명하고, 미·북 회담 타진 및 트럼프 변수에 대응하는 대외 메시지를 내놓았습니다.\n  또한 장관 후보자 및 여성 정책을 둘러싼 정쟁과 함께 과거 정치 행적 및 성평등 부처 개편을 둘러싼 대립각이 지속되고 있습니다.\n\n- 경제:\n  중동 지역의 정세 불안으로 국제 유가와 국채 금리가 급등하며 글로벌 증시 및 세계 경제의 변동성이 다시 확대되었습니다.\n  국내에서는 고액·상습 체납자가 역대 처음으로 1만 명을 돌파하며 7조 원이 넘는 체납액이 발생해 조세 정의 문제가 수면 위로 올랐습니다.\n  한편 기업 및 지자체 차원에서는 최태원 회장의 반도체 협력 구상, LH의 주택 조기 착공 계획, 대구시의 난임 시술비 지원 확대 등 실물 경제 지원책이 발표되었습니다.\n\n- 사회:\n  제주 경찰의 실종 아동 및 치매 노인 기록 삭제 등 부실 수사 행태가 드러나 공분을 사고 있으며, 대법관 후보자의 부동산 관련 탈세 의혹도 제기되었습니다.\n  가정폭력을 피신한 아내를 살해한 공무원 사건 등 강력 범죄에 대한 엄벌 목소리와 함께 여당 내 비거주 주택 관련 세제 추가 개편 논의가 본격화되고 있습니다.\n  정부 차원에서는 해상풍력 사업을 정부 주도 계획입지 체계로 전환하여 에너지 보급 효율을 높이겠다는 방침을 밝혔습니다.\n\n- 생활/문화:\n  연예계에서는 방송인 지예은과 안무가 바타의 결혼 소식과 함께 K-팝 그룹 엔하이픈이 빌보드 메인 앨범 차트 정상에 오르는 쾌거를 이루었습니다.\n  유통 및 패션 분야에서는 과거 추억의 아이템이 글로벌 셀럽의 선택을 받으며 새로운 트렌드로 부상하고 있습니다.\n  또한 조선호텔앤리조트의 아파트 단지 내 웰니스 시설 위탁 운영 등 주거 문화의 고급화·다변화 트렌드가 지속되는 양상입니다.\n\n- IT/과학:\n  글로벌 IT 업계에서는 애플의 신임 CEO 터너스가 천문학적인 보수와 함께 차세대 혁신 제품에 대한 비전을 제시해 주목받았습니다.\n  국내 기술 분야에서는 국산 AI 반도체를 탑재한 청소 로봇이 유럽 최대 가전 전시회(IFA)에 출품되어 글로벌 기술력을 입증했습니다.\n  교육 및 인재 양성 측면에서는 DGIST가 현직 개발자를 대상으로 한 AI 교육 과정을 출범시키며 높은 경쟁률 속에서 인공지능 전문 인력 양성에 나섰습니다.\n\n- 세계:\n  중동 호르무즈 해협에서 한국 선사 소유 유조선이 피격당하고 미국-이란 간 공습과 반격이 이어지는 등 군사적 긴장이 극도로 고조되고 있습니다.\n  미국 백악관이 북미 회담을 대비해 미군 유해 발굴을 문의하는 등 한반도 주변 외교 기류에도 미묘한 변화의 움직임이 감지되었습니다.\n  이 외에도 네팔 대홍수로 인한 히말라야 빙하 홍수 위험 경고와 함께 세계 최초 우주 특파원인 아키야마의 별세 소식이 전해졌습니다.\n\n- 사설:\n  주요 언론들은 김용범 정책실장의 사퇴 소식에 집중하며 국정 운영의 공백을 최소화해야 한다고 일제히 제언했습니다.\n  보수와 진보 언론 모두 이번 사퇴를 계기로 국정 전열을 조속히 가다듬고 민생 현안에 집중해야 한다는 점을 강조했습니다.\n  특히 내각이 대통령실만 바라보는 수동적 구조에서 벗어나 스스로 책임감 있고 주도적인 국정 수행을 보여주어야 한다는 당부의 목소리가 이어졌습니다.",
+  "morning": {
+    "date": "2026-09-02",
+    "updated_at": "2026년 09월 02일 17:23",
+    "summary": "지정된 시간 범위(전일 22:00~당일 07:20) 내 수집된 기사가 없습니다.",
     "categories": {
       "정치": [
         {
-          "title": "'공산주의 혁명' 반여성적 지하조직이 키운 정치인 용혜인 - 한국경제",
-          "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9Hd0hoQ2xRUkpmLVJzUnFTaE9vS3B0NGh5aWIycXpjX21IbDBvaEZtbHVLTmNlS25PWTBZVjVMenJ5cnF4Vk4yUmNDeGc2NlVtT1Q3UXUycE1YZw?oc=5",
-          "source": "Google News (한국경제)",
-          "pub_time": "09월 02일 10:27"
-        },
-        {
-          "title": "[사설] 기소유예 법무장관, 여성단체가 반대하는 성평등장관 - 조선일보",
-          "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQUUhWWHNYdUJIazRaeEJNblNSUl8xNloySDR5d1JVaXlUaElhVTY2SGxFNmcxd2MydjZVX2JmMFJ5NmszdUlwLUh3MGhpSnZrR3hDRnExbHhLTmlneUV6WGdWUjhSN1ZWaUV3RVFYWXNZTW5mMlBPQU1zdU1WLTBPVHMtTEhDZw?oc=5",
-          "source": "Google News (조선일보)",
-          "pub_time": "09월 02일 00:06"
-        },
-        {
-          "title": "李, 선관위특검 특검보 5명 임명…4명이 검사 출신 - 동아일보",
-          "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE50RUFmWjJ2ZG9TZnk2TXhpR1NpM2VkM1ZFQXN3YTRZaXBWcmRhOXgxLTgxaGd0cXd5aUVfck1PNFBkQV9uaU0wSVJMRjhYWERmX0pvblYwbnRHSGFEVGp5NlUybkd1ODM4ZlE1ZVBDVVVSOXBRc0HSAWZBVV95cUxQanpZUmdQX1lzUTIxd0laRzBUVGxiaHREb2xYZkpsWm85NGp4aHlLZm5JQlNTRERfdmUybnF1bzlzU182MU53dFhYaGZkOU14Rms5Y0UyakVuTm04OE9NWjZJR2hpTFE?oc=5",
-          "source": "Google News (동아일보)",
-          "pub_time": "09월 01일 22:43"
-        },
-        {
-          "title": "이 대통령 \"트럼프 결단으로 한반도 변화 가능성…건설적 논의여건 우리...",
-          "link": "https://www.newsis.com/view/NISX20260902_0003773583",
-          "source": "Naver News (뉴시스)",
-          "pub_time": "09월 02일 16:08"
-        },
-        {
-          "title": "광주 온 한동훈, 호남 역할론 띄우며 국민의힘에 쓴소리",
-          "link": "https://kjmbc.co.kr/NewsArticle/1535087",
-          "source": "Naver News (MBC)",
-          "pub_time": "09월 02일 16:06"
-        },
-        {
-          "title": "김민석 연대·통합 띄우자 조국은 靑레드팀 자처…삐걱대는 우당",
-          "link": "https://www.yna.co.kr/view/AKR20260902130600001?input=1195m",
-          "source": "Naver News (연합뉴스)",
-          "pub_time": "09월 02일 16:04"
+          "title": "해당 시간에 지정 10대 언론사의 정치 기사가 출고되지 않았습니다.",
+          "link": "#",
+          "source": "System",
+          "press_name": "안내",
+          "pub_time": ""
         }
       ],
       "경제": [
         {
-          "title": "되살아난 중동 리스크…유가·국채금리 급등에 세계증시 '덜컹' - 연합뉴스",
-          "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBHcGg5aUFzaVVYV2o4UW1SWGVLc29TOTV6ZGZvdG1PTGQwRzVOQWNKOEV2WUVNOTktTXp3TGN0dVhKODlkc3JRZWVZLVBLX1JvTkcyTzgzQ2pvU3PSAWBBVV95cUxOQVBPZkdhMUo3c014U2JqTFczeHBxbVBIVTducmlaOWdscmhxcjUwdTlSZ3g3SHk3bUR3dnQtNW9mVzJuZTk0RHQ1aEgzNVdCdTJuVk5BOEhYLXlMdlVsc3g?oc=5",
-          "source": "Google News (연합뉴스)",
-          "pub_time": "09월 02일 11:30"
-        },
-        {
-          "title": "최태원 \"키옥시아와 R&D·공급망 등 협력 가능\"… 日투자도 검토 - 한국경제",
-          "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5BQ0JZalBEOUFDc2h2X3c0MHEtZDNxTF9NRUhaenZpWUozMUtFb2FNQW5DdUpyb1ZHX05KMkx0a0FiVlVRVXJQQ21FcnFrbUNMTl9iTXBHMFRsZw?oc=5",
-          "source": "Google News (한국경제)",
-          "pub_time": "09월 02일 08:52"
-        },
-        {
-          "title": "LH, 주택 착공 20개월 앞당긴다…전문인력 250명 채용 - 매일경제",
-          "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1jb0RnQkdNcGQ0N2U5WkNqcTdlVW1Dc2lxMUFyX0trdEpHWTYxTWNXN2RZRjNuMzAzVXZxbGZKbWRIQzFlN2gyc3FnQ1BXSHlYcUJTeFpoSS0?oc=5",
-          "source": "Google News (매일경제)",
-          "pub_time": "09월 02일 13:00"
-        },
-        {
-          "title": "대구, 난임 시술비 지원 횟수 제한 폐지",
-          "link": "https://www.chosun.com/national/regional/2026/09/02/2HY5IEW2GNATPOAHIWKHCXSUWU/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
-          "source": "Naver News (조선일보)",
-          "pub_time": "09월 02일 16:08"
-        },
-        {
-          "title": "日, 시진핑 방미 전 미·일 정상 간 만남 조율...\"일본 패싱 우려\"",
-          "link": "https://www.hankookilbo.com/news/article/A2026090215270001798?did=NA",
-          "source": "Naver News (한국일보)",
-          "pub_time": "09월 02일 16:08"
-        },
-        {
-          "title": "신규 고액·상습체납자 지난해 첫 1만명 돌파…7조1천억원 체납",
-          "link": "https://biz.sbs.co.kr/article_hub/20000332363?division=NAVER",
-          "source": "Naver News (SBS)",
-          "pub_time": "09월 02일 16:07"
+          "title": "해당 시간에 지정 10대 언론사의 경제 기사가 출고되지 않았습니다.",
+          "link": "#",
+          "source": "System",
+          "press_name": "안내",
+          "pub_time": ""
         }
       ],
       "사회": [
         {
-          "title": "‘허위종결’ 제주 경찰, 아동·치매노인 실종 기록도 삭제·미입력 - 동아일보",
-          "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9yanBrZDd4bTVTOUxpQmtBZnFFM25wRVEzQ25sSjJQTE90V01XZGpfZlFLaFFPMmhmU2NidVRXdnFHM3JfMXM2UGNVeHBKc19rQW9FeEFhb0liT3lwNlBsM2hGRnBacmM0dVN5bFlLR2gxaktSZVHSAWZBVV95cUxOc0pDdGc5TzczdFpUakdQazJLcmF6Wld4MUI4QmFoWUhtWmhyQTh3bWtEaDJjOWcycF9feFpCeTUyMmN3ZFJWSGhUbXcwOUJSZUFYQVJULWpzNkh3TDBSRy1LalRVZEE?oc=5",
-          "source": "Google News (동아일보)",
-          "pub_time": "09월 02일 13:00"
-        },
-        {
-          "title": "野 \"김성수 대법관 후보, 보증금 3.5억에 도곡렉슬 전세…탈세 의혹\" - 조선일보",
-          "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPYnpwTG5vMmFvQmpncUttTUI0SHp4dFpUZzZyeWMzT2pWaHByY2dpV29fdTNpdkZYSGl3Y1BiN0IzZzdCZW1fYjZxSFJibHloMHBTSEFkTlUtZlRGMEpENmtScnk2c3MwYVZjNTNUWWdHNVBUZVhNQzNuanF0T3dRckI2eUhRQQ?oc=5",
-          "source": "Google News (조선일보)",
-          "pub_time": "09월 02일 11:02"
-        },
-        {
-          "title": "\"이혼소송 불리할까 봐\"…피신한 아내 살해 공무원, 자백 - 연합뉴스",
-          "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFA2OW9vbEl5LXRHT00wZmIyaW1UcFlUSW1rR0VnSmZmUnEtVlNCOTZOY2dQTVdxSDAxR2htYkxldzFiSzRqVEZyZ1UtRXkteGdvVjhKcDNka0NDb3PSAWBBVV95cUxPYzJDV19HcDZzQy1EWG11am9sQVlkelJOUkhSZUVGSDFlaktiMnZta05fSXFBV2J2dkt1ZTZoc0xWaUg0Q3o0WU1TSE5qbDFFcXNxN052Q1ZteWlaemd2VEw?oc=5",
-          "source": "Google News (연합뉴스)",
-          "pub_time": "09월 01일 19:14"
-        },
-        {
-          "title": "대구, 난임 시술비 지원 횟수 제한 폐지",
-          "link": "https://www.chosun.com/national/regional/2026/09/02/2HY5IEW2GNATPOAHIWKHCXSUWU/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
-          "source": "Naver News (조선일보)",
-          "pub_time": "09월 02일 16:08"
-        },
-        {
-          "title": "비거주 1주택자·임대사업자 더 손보나…與, 부동산 세제 추가 논의 예...",
-          "link": "https://www.mk.co.kr/article/12142418",
-          "source": "Naver News (매일경제)",
-          "pub_time": "09월 02일 16:07"
-        },
-        {
-          "title": "한 총리 \"해상풍력, 정부 주도 계획입지 체계로 보급시스템 전환\"(종합...",
-          "link": "https://www.newsis.com/view/NISX20260902_0003773591",
-          "source": "Naver News (뉴시스)",
-          "pub_time": "09월 02일 16:07"
+          "title": "해당 시간에 지정 10대 언론사의 사회 기사가 출고되지 않았습니다.",
+          "link": "#",
+          "source": "System",
+          "press_name": "안내",
+          "pub_time": ""
         }
       ],
       "생활/문화": [
         {
-          "title": "지예은·바타, 이제 부부…\"인생 함께하기로 약속\" [공식] - 한국경제",
-          "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5tNlNnWnc2N1hKS0JXM2R1TENjNFBUc2g2c0JHTUl0U0p3c3dVOFBzMG5WSkhtVkJ3amd0VzRpc2ZSLUJtRXQ3VjRlNjIya1hMMGNLTnNPM1J6Zw?oc=5",
-          "source": "Google News (한국경제)",
-          "pub_time": "09월 02일 09:24"
-        },
-        {
-          "title": "현빈, 활동 열심히 해야겠네..MZ에 인지도 굴욕 ('틈만나면') - 조선일보",
-          "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQWnlyanotaWQ5WWNpY1J6d2NHXzlVWVhaSE1pSTRJWmhQYUZlbWdBYjdxVkVVWkxod20wSHUwd3lGWVpxanNNejdFYnQwaFpLcG9EZndvWWNsS1NQU0xnWHdMNEJ1U3M2V0gyem9mVm1BOUVwMTNhY3hMY2o5cGZ4UWQ2NUZVTkhPNktpamcwdw?oc=5",
-          "source": "Google News (조선일보)",
-          "pub_time": "09월 02일 07:31"
-        },
-        {
-          "title": "엔하이픈 빌보드 앨범 차트 첫 정상…캣츠아이·스키즈 '톱 10' - 연합뉴스",
-          "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE41clRRQVlqRGkwQzRjWi1kUUUtODZoSDJWSlpBVkpBNTE2Mnk2UnJGUzNVUVRKT3ZOZlQwOXlXRnBpekJ2cHliSUJHNTdkcHh1RnQyODFfbzg4emvSAWBBVV95cUxOVm5sckwyYmM2enQ3dTlFZVJBYmo1bERGNG04LTc4aTAwRDRRTUJ2ZWlPRVlNd0FsRXVudTk5VGNraGtwaUFuTWF3OGp1bk1xUFhzV29TXzZrV1JjaTk0MDI?oc=5",
-          "source": "Google News (연합뉴스)",
-          "pub_time": "09월 02일 10:13"
-        },
-        {
-          "title": "엄마도 딸도 반한 추억템… 비욘세가 선택한 그 신발",
-          "link": "https://www.mk.co.kr/article/12142423",
-          "source": "Naver News (매일경제)",
-          "pub_time": "09월 02일 16:09"
-        },
-        {
-          "title": "[담양소식] 신규시책 103건 발굴…27개 사업 일몰 등",
-          "link": "https://www.newsis.com/view/NISX20260902_0003773405",
-          "source": "Naver News (뉴시스)",
-          "pub_time": "09월 02일 15:00"
-        },
-        {
-          "title": "조선호텔앤리조트, 목동윤슬자이 웰니스 시설 위탁운영",
-          "link": "https://news.tvchosun.com/site/data/html_dir/2026/09/02/2026090290146.html",
-          "source": "Naver News (조선일보)",
-          "pub_time": "09월 02일 14:13"
+          "title": "해당 시간에 지정 10대 언론사의 생활/문화 기사가 출고되지 않았습니다.",
+          "link": "#",
+          "source": "System",
+          "press_name": "안내",
+          "pub_time": ""
         }
       ],
       "IT/과학": [
         {
-          "title": "\"달러 빼고 다 오른다\"…흔들리는 美재정에 'ABD 투자' 뜬다 - 한국경제",
-          "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5tb0NHdEg3ZWtRV0xpenYtM2Y4WjFtcHhsbDdWWXBEaE01blVuX0U5ekhqaERSRjNQaVBqeDh3Y1dpSDJhQUJFYVM5ZlBrZVlqS1RHbzRoWml2Zw?oc=5",
-          "source": "Google News (한국경제)",
-          "pub_time": "09월 01일 16:36"
-        },
-        {
-          "title": "터너스 애플 신임 CEO, 1년 보수 798억원...\"아직 상상하지 못한 제품 꿈꾸고 만들 것\" - 조선일보",
-          "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPNFZQT01xWjZwS2QwZTVkSG16SDN2b3hwaExtaWdIb2Y3d2U3VzhFODJnVnpSR1lvRmRucTR4aGtJVGtqN1NKaV9Fb3hkM0szTGNEcHdwSi1sbDRNX1NRSkpUM2todm1ucDk4emRqVng4OXlDVUtfSHpMOXNXXzR5UEpLNA?oc=5",
-          "source": "Google News (조선일보)",
-          "pub_time": "09월 02일 08:46"
-        },
-        {
-          "title": "트럼프, 이란서 ‘잔디 깎기’…막 복구된 레이더 공습에 이란 미사일 반격 - 한겨레",
-          "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1zdjJSNk5EVW5ManhYSDFFaGlNR2NoVWVsVjNVYnU4MXhxakNZTk5tbFlVS3R0OFdPeDBzYXlVTW1ybG9JVGt4V0NVMTAwNENVUHNkZm1mSWxFSV9DUWVvb1luSWMtMG10MTlpYXhPalhFRUE?oc=5",
-          "source": "Google News (한겨레)",
-          "pub_time": "09월 02일 09:25"
-        },
-        {
-          "title": "[IFA 2026] 국산 AI 반도체로 움직이는 청소로봇… 라이노스, 유럽 시장...",
-          "link": "https://biz.chosun.com/it-science/ict/2026/09/02/BWWYOUVWF5D7ZMEH4NSTMXULQQ/?utm_source=naver&utm_medium=original&utm_campaign=biz",
-          "source": "Naver News (조선일보)",
-          "pub_time": "09월 02일 14:13"
-        },
-        {
-          "title": "DGIST, 현직 개발자 대상 'AI마이크로디그리' 1기 출범…경쟁률 4.8대 1",
-          "link": "https://www.hankookilbo.com/news/article/A2026090209400002480?did=NA",
-          "source": "Naver News (한국일보)",
-          "pub_time": "09월 02일 10:41"
-        },
-        {
-          "title": "[인사] 직썰",
-          "link": "https://www.yna.co.kr/view/AKR20260902041600505?input=1195m",
-          "source": "Naver News (연합뉴스)",
-          "pub_time": "09월 02일 09:21"
+          "title": "해당 시간에 지정 10대 언론사의 IT/과학 기사가 출고되지 않았습니다.",
+          "link": "#",
+          "source": "System",
+          "press_name": "안내",
+          "pub_time": ""
         }
       ],
       "세계": [
         {
-          "title": "트럼프, 이란서 ‘잔디 깎기’…막 복구된 레이더 공습에 이란 미사일 반격 - 한겨레",
-          "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1zdjJSNk5EVW5ManhYSDFFaGlNR2NoVWVsVjNVYnU4MXhxakNZTk5tbFlVS3R0OFdPeDBzYXlVTW1ybG9JVGt4V0NVMTAwNENVUHNkZm1mSWxFSV9DUWVvb1luSWMtMG10MTlpYXhPalhFRUE?oc=5",
-          "source": "Google News (한겨레)",
-          "pub_time": "09월 02일 09:25"
-        },
-        {
-          "title": "FT \"호르무즈 해협서 韓 장금상선 소유 유조선 피격\" - 연합뉴스",
-          "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBLb2V0TUZjUi11bDhQWHBWVHktX0FHbTdSVnV3R3oyYkFaNGpONWhWdEVEcjhUcGY1TDZBc0RqXzY2TGdmRHJ6UUJUd2RmeW5oa291TkhQb2kwbHfSAWBBVV95cUxQcjdoSWRlV1g4ZTdMYTMweUdHMzBHR095cndoSU1uM1dlaGtRM0RWemlZR0dHVUtFZ2ZHU25DdFhWSThjeDBYanctY1JMcHlSdm1sakhLVk0wSzF4X3k3S2s?oc=5",
-          "source": "Google News (연합뉴스)",
-          "pub_time": "09월 02일 07:30"
-        },
-        {
-          "title": "백악관, 북미회담 대비 ‘北서 미군 유해 발굴’ 문의 - 동아일보",
-          "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5rOExmN2ltUmdiNVl1SFNnXzlFbEdRQVBpRkpmcnhmMVlTNk8wR0hrak4zS2w1a3FaU1lCVEgyMjRUc2dZM3VIMDhOUGpGZVRlQ0s5NDJfc0NaVkRLSEVDUVJzeWR5N1FyME5ERTFVbVJOYknSAWZBVV95cUxPSDVnWXJrclAxRTVjQV9IbmhHMUZUV0NzU3h4Nnp5VEcwMFp0eVJPTmlnVnRxWEFHcThSWG5hXzd0UDZDQTd0Zi11amFUcTQ2TnA0Uzl2RTZ2RDZXZllwcmU4ZTlRRkE?oc=5",
-          "source": "Google News (동아일보)",
-          "pub_time": "09월 02일 04:30"
-        },
-        {
-          "title": "이 대통령 \"트럼프 결단으로 한반도 변화 가능성…건설적 논의여건 우리...",
-          "link": "https://www.newsis.com/view/NISX20260902_0003773583",
-          "source": "Naver News (뉴시스)",
-          "pub_time": "09월 02일 16:08"
-        },
-        {
-          "title": "[네팔 대홍수] 유엔 \"히말라야 수백만 주민, 빙하홍수 위험 심각\"",
-          "link": "https://www.yna.co.kr/view/AKR20260902136600084?input=1195m",
-          "source": "Naver News (연합뉴스)",
-          "pub_time": "09월 02일 16:04"
-        },
-        {
-          "title": "세계 최초 ‘우주 특파원’ 아키야마 별세···“‘생각하는 힘’ 다른...",
-          "link": "https://www.khan.co.kr/article/202609021601001",
-          "source": "Naver News (경향신문)",
-          "pub_time": "09월 02일 16:01"
+          "title": "해당 시간에 지정 10대 언론사의 세계 기사가 출고되지 않았습니다.",
+          "link": "#",
+          "source": "System",
+          "press_name": "안내",
+          "pub_time": ""
         }
       ],
       "사설": [
         {
-          "title": "[사설]김용범 사퇴… 내각이 청와대만 쳐다보도록 해선 안 돼 - 동아일보",
-          "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9UVzUtYzhxZFZ0dXVQSVo5N21YcUdrQ2V0TW8ta0dNNzdJQ21hUjNCX2k4aEhyTnZ5NVA4ZVgzZkRSekt6SmU4Q0RzQkNIMFZ2a3VmMWdBVnZGd1EtVl9WTFhKdmlyTkUtZllsYmNlMXZsZVNEQXfSAWZBVV95cUxQOUdiRDJUQ3ZxWWtVZXZER2dWSTlIdS1QNUN4aFhoc3Q3QTVkZnc0OHFnYWNOMXI4ZF9pNVNQZXFHQmExSTJaNzNuSVBkNWxDZFlTYlhEVS1zY0JrVmZIWmRuam9xM1E?oc=5",
-          "source": "Google News (동아일보)",
-          "pub_time": "09월 01일 23:27"
-        },
-        {
-          "title": "[사설] 김용범 실장 사퇴, 국정 공백 없게 전열 가다듬길 - 한겨레",
-          "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9nQmdNUTRNbHNBSHdFM3p5WTc5bm5pdm9WNVo2Q2NLcUJqU1dQR2JXeXN6VUJOSzloTDM4dmpEd0xNVDI0ZkMtSzFPSDNDb2JfRktGT0Z2WTQ3aWo1ZDQzRkdWcXRoRkJCbkE?oc=5",
-          "source": "Google News (한겨레)",
-          "pub_time": "09월 01일 19:25"
+          "title": "해당 시간에 지정 10대 언론사의 사설 기사가 출고되지 않았습니다.",
+          "link": "#",
+          "source": "System",
+          "press_name": "안내",
+          "pub_time": ""
         }
       ]
     }
   },
-  "morning": {
+  "realtime": {
     "date": "2026-09-02",
-    "updated_at": "2026년 09월 02일 17:14",
-    "summary": "수집 시간 범위 내 뉴스가 없습니다.",
+    "updated_at": "2026년 09월 02일 17:23",
+    "summary": "지정된 시간 범위(전일 22:00~당일 07:20) 내 수집된 기사가 없습니다.",
     "categories": {
       "정치": [
         {
-          "title": "정치 분야 수집 시간 내 네이버 기사가 없습니다.",
+          "title": "해당 시간에 지정 10대 언론사의 정치 기사가 출고되지 않았습니다.",
           "link": "#",
           "source": "System",
           "press_name": "안내",
@@ -451,7 +85,7 @@
       ],
       "경제": [
         {
-          "title": "경제 분야 수집 시간 내 네이버 기사가 없습니다.",
+          "title": "해당 시간에 지정 10대 언론사의 경제 기사가 출고되지 않았습니다.",
           "link": "#",
           "source": "System",
           "press_name": "안내",
@@ -460,7 +94,7 @@
       ],
       "사회": [
         {
-          "title": "사회 분야 수집 시간 내 네이버 기사가 없습니다.",
+          "title": "해당 시간에 지정 10대 언론사의 사회 기사가 출고되지 않았습니다.",
           "link": "#",
           "source": "System",
           "press_name": "안내",
@@ -469,7 +103,7 @@
       ],
       "생활/문화": [
         {
-          "title": "생활/문화 분야 수집 시간 내 네이버 기사가 없습니다.",
+          "title": "해당 시간에 지정 10대 언론사의 생활/문화 기사가 출고되지 않았습니다.",
           "link": "#",
           "source": "System",
           "press_name": "안내",
@@ -478,7 +112,7 @@
       ],
       "IT/과학": [
         {
-          "title": "IT/과학 분야 수집 시간 내 네이버 기사가 없습니다.",
+          "title": "해당 시간에 지정 10대 언론사의 IT/과학 기사가 출고되지 않았습니다.",
           "link": "#",
           "source": "System",
           "press_name": "안내",
@@ -487,7 +121,7 @@
       ],
       "세계": [
         {
-          "title": "세계 분야 수집 시간 내 네이버 기사가 없습니다.",
+          "title": "해당 시간에 지정 10대 언론사의 세계 기사가 출고되지 않았습니다.",
           "link": "#",
           "source": "System",
           "press_name": "안내",
@@ -496,7 +130,7 @@
       ],
       "사설": [
         {
-          "title": "사설 분야 수집 시간 내 네이버 기사가 없습니다.",
+          "title": "해당 시간에 지정 10대 언론사의 사설 기사가 출고되지 않았습니다.",
           "link": "#",
           "source": "System",
           "press_name": "안내",
