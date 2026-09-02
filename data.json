@@ -1,8 +1,8 @@
 {
   "morning": {
     "date": "2026-09-02",
-    "updated_at": "2026년 09월 02일 23:38",
-    "summary": "AI 요약 생성 중 오류 발생: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-3.6-pro is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}",
+    "updated_at": "2026년 09월 02일 23:43",
+    "summary": "AI 요약 생성 중 오류 발생: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}",
     "has_audio": true,
     "audio_url": "history/2026-09-02.mp3",
     "categories": {
@@ -88,84 +88,84 @@
           "pub_time": "Wed, 02 Sep 2026 23:04:00 +0900"
         },
         {
-          "title": "온, 포스트아카이브팩션(PAF)과 마지막 협업 ‘커렌트 폼 5.0’ 컬렉션 공...",
-          "description": "또 On은 수상 경력에 빛나는 CloudTec® 및 LightSpray™ 기술과 혁신적인 디자인, 순환 경제를 추구하는 대담한 행보를 통해 전 세계 팬층을 빠르게 확보해 나가고 있으며, 움직임을 통해 더 많은 것을 탐구하고...",
-          "link": "https://sports.khan.co.kr/article/202609022327003?pt=nv",
+          "title": "선정환 서울시의원, \"정독도서관 재구조화, 실행 가능한 재원·로드맵 마...",
+          "description": "문화경제 | CNB저널 | 씨앤비저널 서울특별시의회 교육위원회 선정환 의원(더불어민주당, 종로구 제2선거구)은 서울시교육청 정독도서관 업무보고에서 재구조화 사업의 실행력을 높이기 위해 관계기관과 협력해 안정적인...",
+          "link": "https://www.cnbizm.com/news/articleView.html?idxno=313742",
           "press_name": "네이버뉴스",
           "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:28:00 +0900"
+          "pub_time": "Wed, 02 Sep 2026 23:38:00 +0900"
         },
         {
-          "title": "[사설]“사교육 아니면 자녀 0.53명 더 낳았을 것”",
-          "description": "한국은행·경제정책연구센터(CEPR)·경제협력개발기구(OECD) 공동 콘퍼런스에서 발표된 ‘지위 경쟁 그리고 한국의 저출산’ 논문에 따르면, 1970∼1975년생 여성의 평균 자녀 수가 사교육의 ‘지위 경쟁’ 효과를 제거하면...",
-          "link": "https://www.donga.com/news/Opinion/article/all/20260902/134595436/2",
+          "title": "[뉴욕증시]10년물 4.81% 찍고 후퇴…일제히 상승세",
+          "description": "앞서 케빈 워시 Fed 의장은 지난주 잭슨홀 경제 심포지엄에서 노동시장 일부에 우려 요인이 있다고 인정하면서도 전체적으로는 완전고용에 부합한다고 평가했다. 이에 시장에서는 Fed의 정책 초점이 당분간 고용보다...",
+          "link": "https://view.asiae.co.kr/article/2026090223380255237",
           "press_name": "네이버뉴스",
           "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:28:00 +0900"
+          "pub_time": "Wed, 02 Sep 2026 23:38:00 +0900"
         },
         {
-          "title": "군산시, 전기차 456대 추가 보급…대기질 개선 기여",
-          "description": "김재준 군산시장./군산시 | 군산=한스경제 이인호 기자 | 전북 군산시가 하반기 전기자동차 456대를 추가로 보급한다. 신청은 7일부터 전기차 구매보조금 지원시스템을 통해 가능하다. 시는 탄소중립과 미세먼지...",
-          "link": "http://www.hansbiz.co.kr/news/articleView.html?idxno=861746",
+          "title": "이강인, 2주 연속 해외파 스포츠 인물 관심도 1위",
+          "description": "/한국체대 AI융합 스포츠분석센터 제공 | 서울=한스경제 신희재 기자 | 이강인이 해외파 스포츠 인물 관심도에서 2주 연속 1위에 올랐다. 한국체대 AI융합 스포츠분석센터가 지난달 24일부터 30일까지 네이버...",
+          "link": "http://www.hansbiz.co.kr/news/articleView.html?idxno=861748",
           "press_name": "네이버뉴스",
           "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:26:00 +0900"
+          "pub_time": "Wed, 02 Sep 2026 23:38:00 +0900"
         },
         {
-          "title": "연 2만 원... 익산시, 장난감 대여 서비스 회원 1300명 넘어",
-          "description": "지속되는 고물가와 경기 침체 속에서 아이의 빠른 성장 단계에 맞춰 고가의 장난감과 교구를 지속해서 구매하는 일은 영유아 가정에 상당한 경제적 부담으로 작용해 왔다. 익산시는 부모들의 양육 부담을 덜고...",
-          "link": "https://www.newstnt.com/news/articleView.html?idxno=716501",
+          "title": "장수군, 농민공익수당 32억 지급…\"공익적 가치 증진\"",
+          "description": "최훈식 장수군수./장수군 | 장수=한스경제 이인호 기자 | 전북 장수군이 농업의 공익적 가치를 높이고... 농민공익수당은 농촌 공동체 유지와 환경·생태 보전 등 농업의 공익적 기능을 증진하고 농가의 경제적 부담을...",
+          "link": "http://www.hansbiz.co.kr/news/articleView.html?idxno=861749",
           "press_name": "네이버뉴스",
           "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:26:00 +0900"
+          "pub_time": "Wed, 02 Sep 2026 23:38:00 +0900"
         },
         {
-          "title": "KT&G, 광주 북구와 깨끗한 도시환경 만든다",
-          "description": "협력해 더 나은 생활환경을 만드는 데 기여하겠다\"고 말했다. KT&G는 KT&G Green Impact 비전을 기반으로 기후변화 영향 저감과 순환경제 전환, 자연자본 관리 및 생물다양성 보호를 중심으로 환경경영을 추진하고 있다.",
-          "link": "https://www.kdpress.co.kr/news/articleView.html?idxno=208272",
+          "title": "서울시의회 김현우 의원, 학교폭력 피해학생의 전학제도에 대한 서울시...",
+          "description": "문화경제 | CNB저널 | 씨앤비저널 서울시의회 교육위원회 김현우 의원(더불어민주당, 성동2)이 학교폭력 피해학생의 전학제도에 대한 서울시교육청의 기준과 절차를 재검토해야 한다고 촉구했다. 김 의원은 9월 1일 열린...",
+          "link": "https://www.cnbizm.com/news/articleView.html?idxno=313741",
           "press_name": "네이버뉴스",
           "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:24:00 +0900"
+          "pub_time": "Wed, 02 Sep 2026 23:38:00 +0900"
         },
         {
-          "title": "경남 농산물값 5.8% 뚝…추석 앞두고 '장바구니 물가' 숨통",
-          "description": "김인수 경남도 경제통상국장은 \"전체 소비자물가는 상승세를 보이고 있지만 농축수산물이 하락세로 전환되고 석유류의 상승폭도 둔화되는 등 주요 품목에서 안정적인 흐름이 나타나고 있다. 추석을 앞두고 성수품 등...",
-          "link": "https://www.straightnews.co.kr/news/articleView.html?idxno=310313",
+          "title": "서울시의회 박상근 의원,사교육 의존도를 낮추고 공교육의 신뢰도를 높...",
+          "description": "문화경제 | CNB저널 | 씨앤비저널 서울특별시의회 교육위원회 소속 박상근 의원(더불어민주당, 도봉2)은 1일 열린 제339회 임시회 교육위원회 업무보고에서 공교육 중심의 학습 환경 조성을 강조하며, 사교육 의존도를...",
+          "link": "https://www.cnbizm.com/news/articleView.html?idxno=313740",
           "press_name": "네이버뉴스",
           "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:24:00 +0900"
+          "pub_time": "Wed, 02 Sep 2026 23:38:00 +0900"
         },
         {
-          "title": "서울시의회 함대건 의원, 안전취약계층 이용 건물 화재 예방 위한 안전...",
-          "description": "문화경제 | CNB저널 | 씨앤비저널 서울특별시의회 도시안전건설위원회 함대건 부위원장(더불어민주당·비례)이 발의한 '서울특별시 안전취약계층 이용 건물의 화재 예방 안전시설 지원에 관한 조례안'이 지난 9월 1일...",
-          "link": "https://www.cnbizm.com/news/articleView.html?idxno=313734",
+          "title": "전남광주통합특별시의회, '청년 정착'... 선순환 창업 생태계 조성",
+          "description": "2일 전남광주통합특별시의회 일자리경제위원회(위원장 진호건)는 청년 취업 및 창업 지원과 구도심 활성화를 긴밀하게 연계하는 지역경제 발전 해법을 찾기 위해 제주더큰내일센터 현장 방문을 실시했다. 이번 현장 점검은...",
+          "link": "https://www.newsworker.co.kr/news/articleView.html?idxno=502282",
           "press_name": "네이버뉴스",
           "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:20:00 +0900"
+          "pub_time": "Wed, 02 Sep 2026 23:36:00 +0900"
         },
         {
-          "title": "뱃길 줄고 물가는 뛰고…울릉 관광객 19% 급감",
-          "description": "관광객 감소가 장기화하면 숙박업과 음식점, 렌터카 등 관광 의존도가 높은 지역경제 전반으로 충격이 번질 수 있다. 울릉군의회는 관광산업 회복을 위한 대책 마련에 착수했다. 지난 8월 말 '울릉관광 재도약을 위한...",
-          "link": "https://www.newscj.com/news/articleView.html?idxno=3429679",
+          "title": "네팔 정부 “히말라야 관광 많이 와달라” 호소",
+          "description": "이 같은 메시지는 대홍수로 인해 관광산업과 네팔 경제가 받는 타격을 최소화하기 위한 것으로 보입니다.... 네팔 경제의 약 10%를 차지하는 것으로 추산됩니다. 특히 빈곤한 농업국인 네팔에서 히말라야 관광산업은...",
+          "link": "https://news.kbs.co.kr/news/pc/view/view.do?ncd=8653307&ref=A",
           "press_name": "네이버뉴스",
           "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:20:00 +0900"
+          "pub_time": "Wed, 02 Sep 2026 23:33:00 +0900"
         },
         {
-          "title": "홍재희 서울시의원, 마곡 ENS 건설사업 관련 남동발전 출자 승인확인…...",
-          "description": "문화경제 | CNB저널 | 씨앤비저널 서울특별시의회 환경수자원위원회 홍재희 부위원장(더불어민주당·강서5)... 서울에너지공사 사장은 이날 업무보고에서 한국남동발전의 사업 출자에 대한 재정경제부 승인이 지난 8월...",
-          "link": "https://www.cnbizm.com/news/articleView.html?idxno=313738",
+          "title": "목포역, 낡은 역사 넘어 서남권 교통거점으로",
+          "description": "목포=에너지경제신문 문남석기자 호남선의 시·종착역으로 100년 넘게 서남권의 관문 역할을 해온 목포역이... 목포시는 복합환승센터를 통해 역 주변 원도심의 접근성을 개선하고 지역경제 활성화에도 도움이 될 것으로...",
+          "link": "https://www.ekn.kr/web/view.php?key=20260902024139714",
           "press_name": "네이버뉴스",
           "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:20:00 +0900"
+          "pub_time": "Wed, 02 Sep 2026 23:32:00 +0900"
         },
         {
-          "title": "이영숙 서울시의원, \"서울로봇인공지능과학관, AI 전략거점이자 글로벌...",
-          "description": "문화경제 | CNB저널 | 씨앤비저널 서울시의회 이영숙 의원(더불어민주당, 도봉1)은 지난 1일 열린 제339회 임시회 서울시립과학관 대상 질의에서 도봉구에 위치한 서울 로봇인공지능과학관이 단순 체험형 시설을 넘어...",
-          "link": "https://www.cnbizm.com/news/articleView.html?idxno=313739",
+          "title": "춘천시, 강원과학기술원 설립 준비 ‘착착’…국가급 R&D 거점 밑그림",
+          "description": "춘천=에너지경제신문 박에스더 기자 춘천시가 강원과학기수루언 설립을 위한 밑그림을 마련했다. 기존 대학과 경쟁하는 새로운 교육기관보다는 강원지역 대학과 연구기관, 기업을 연결해 연구개발(R&D) 성과를 산업으로...",
+          "link": "https://www.ekn.kr/web/view.php?key=20260902022589762",
           "press_name": "네이버뉴스",
           "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:20:00 +0900"
+          "pub_time": "Wed, 02 Sep 2026 23:32:00 +0900"
         },
         {
           "title": "동양생명·ABL생명, 임원 대상 AI 에이전트 실습 교육 실시",
@@ -248,84 +248,132 @@
           "pub_time": "Wed, 02 Sep 2026 23:14:00 +0900"
         },
         {
-          "title": "사흘 연속 내린 뉴욕증시, 저가 매수세에 반등 시도…다우 0.5%↑",
-          "description": "시장 예상보다 좋은 실적을 낸 데다 인공지능(AI) 서비스 사업의 성장세를 반영해 2027 회계연도 실적 전망을 높인 것이 호재로 작용했다. 오디오 엔터테인먼트 업체 시리우스도 6.21% 올랐다. 도이체방크가 이 회사에...",
-          "link": "https://biz.chosun.com/international/international_economy/2026/09/02/RUBIZEFFNZBBRHNNCL3Y5QZII4/?utm_source=naver&utm_medium=original&utm_campaign=biz",
+          "title": "서울시의회 박상근 의원,사교육 의존도를 낮추고 공교육의 신뢰도를 높...",
+          "description": "이어 미래 역량 함양을 위해 추진 중인 서·논술형 평가 및 AI 보조 채점 시스템 도입과 관련해 교육 현장의 우려를 전달했다. 박 의원은 \"평가 방식이 서·논술형으로 전환될 경우 초등학교 단계부터 사교육 논술 학원이...",
+          "link": "https://www.cnbizm.com/news/articleView.html?idxno=313740",
           "press_name": "네이버뉴스",
           "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:25:00 +0900"
+          "pub_time": "Wed, 02 Sep 2026 23:38:00 +0900"
         },
         {
-          "title": "교사 불법 촬영한 중학생…교사노조 \"스마트폰 소지 금지 학칙 도입하라...",
-          "description": "특히 촬영 대상이 된 신체 부위 확인을 통한 피해자 특정은 물론, 인공지능(AI) 기반 딥페이크 기술을 활용한 2차 합성물 제작 여부까지 수사 범위를 넓혔다. 경찰 관계자는 \"일부 신체가 찍힌 사진이나 영상의 경우 피해자를...",
-          "link": "https://www.insight.co.kr/news/571624",
+          "title": "[뉴욕증시]10년물 4.81% 찍고 후퇴…일제히 상승세",
+          "description": "연간 매출 전망을 250억달러 상향 조정하면서 전 거래일 대비 4.34% 상승하고 있다. 인공지능(AI)용 서버 수요가 견조하게 이어질 것이라는 전망이 주가를 끌어올렸다. 브로드컴은 이날 장 마감 후 실적 발표를 앞두고 있다.",
+          "link": "https://view.asiae.co.kr/article/2026090223380255237",
           "press_name": "네이버뉴스",
           "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:24:00 +0900"
+          "pub_time": "Wed, 02 Sep 2026 23:38:00 +0900"
         },
         {
-          "title": "[송평인 칼럼]부동산 허위의식, 진보와 보수의 합작품",
-          "description": "인공지능(AI)은 이런 것도 상세하게 계산해 준다. 환율은 달러당 1400원, 100엔당 880원을 적용해 현 시세보다 양도세가 적어지게 하는 대신 필요경비는 마찬가지로 0원으로 했다. 이 대통령의 양도차익 25억4400만 원은...",
-          "link": "https://www.donga.com/news/Opinion/article/all/20260902/134595137/2",
+          "title": "이강인, 2주 연속 해외파 스포츠 인물 관심도 1위",
+          "description": "/한국체대 AI융합 스포츠분석센터 제공 | 서울=한스경제 신희재 기자 | 이강인이 해외파 스포츠 인물 관심도에서 2주 연속 1위에 올랐다. 한국체대 AI융합 스포츠분석센터가 지난달 24일부터 30일까지 네이버...",
+          "link": "http://www.hansbiz.co.kr/news/articleView.html?idxno=861748",
           "press_name": "네이버뉴스",
           "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:22:00 +0900"
+          "pub_time": "Wed, 02 Sep 2026 23:38:00 +0900"
         },
         {
-          "title": "앤트로픽 '클로드 페이블 5.1' 공개...첫 응답에 4분 넘어",
-          "description": "앤트로픽이 차세대 인공지능(AI) 모델 클로드 페이블(Claude Fable) 5.1과 클로드 미토스(Claude Mythos) 5.1을... 그러나 AI 모델 독립 평가 사이트인 AA와 일부 외신에서는 앤트로픽의 토큰 비용 인하가 실질적이지...",
-          "link": "https://www.thelec.kr/news/articleView.html?idxno=61715",
+          "title": "윤홍근 BBQ 회장 “AI로 글로벌 경영체계 구축”",
+          "description": "인공지능(AI)과 데이터를 기반으로 글로벌 사업의 운영 체계를 전면 혁신하겠다는 구상을 내놓았다. 윤 회장은 1일 경기도 이천 치킨대학에서 열린 창립 31주년 기념식에서 미래 성장 전략으로 ‘AX 트랜스포메이션’(AI...",
+          "link": "https://www.sedaily.com/article/20086549?ref=naver",
           "press_name": "네이버뉴스",
           "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:22:00 +0900"
+          "pub_time": "Wed, 02 Sep 2026 23:37:00 +0900"
         },
         {
-          "title": "[2026 전남광주미래산업박람회] 콘텐츠랩 슬러그, 콘텐츠 제작·행사 중...",
-          "description": "주요 전시 품목은 △모빌리티·친환경자동차·퍼스널 모빌리티·특수목적용 자동차·도심항공교통(UAM)·자율주행차 △핵심 뿌리기술·3D 프린팅·부품 및 기술 △인공지능(AI) 가전·홈 디바이스 △드론 관련 부품 및 기술...",
-          "link": "https://www.etnews.com/20260902000462",
+          "title": "AI로 통학차 아동 방치 막는다…KT·현대차·MTR·키즈노트, 승하차 확인...",
+          "description": "KT(030200)가 현대자동차와 손잡고 인공지능(AI)을 활용한 통학차 안전 시스템 개발에 나선다. KT는 현대차... 향후 AI와 초광대역(UWB), 저전력 블루투스(BLE) 기술 등을 적용해 차량 내 잔존 아동 감지, 실시간 위치 공유...",
+          "link": "https://www.sedaily.com/article/20086550?ref=naver",
           "press_name": "네이버뉴스",
           "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:22:00 +0900"
+          "pub_time": "Wed, 02 Sep 2026 23:37:00 +0900"
         },
         {
-          "title": "[신간] OTT미디어 산업 생존 전략서, 『K-OTT 로드』출간",
-          "description": "저자 김희경 교수는 영화 및 만화 평론가이자 미디어 정책 및 AI 영상 콘텐츠 분야를 연구해온 전문가다. 저자는 각 장 끝에 '한눈에 보기' 요약표를 구성하고 부록으로 K-OTT 연대기, 플랫폼별 오리지널 콘텐츠 목록...",
-          "link": "https://www.abcn.kr/news/articleView.html?idxno=91267",
+          "title": "윤건영 교육감, 교육교부금 재검토 촉구…교육재정 '이중고'",
+          "description": "이런 가운데 지출 구조조정과 재정 정상화에 나선 충청북도가 무상급식비와 AI바이오영재고 운영비의 분담 조정을 요구하면서 충북교육청의 재정 부담도 더욱 커지고 있다. 앞서 충북도와 충북교육청은 민선 8기...",
+          "link": "https://www.nocutnews.co.kr/news/6572463?utm_source=naver&utm_medium=article&utm_campaign=20260902113334",
           "press_name": "네이버뉴스",
           "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:20:00 +0900"
+          "pub_time": "Wed, 02 Sep 2026 23:34:00 +0900"
         },
         {
-          "title": "美ADP 8월 민간 고용 증가폭 3만8천명으로 둔화…전망치 하회",
-          "description": "넬라 리처드슨 ADP 수석 이코노미스트는 \"급여는 오늘날 변동이 심한 고용시장에 대해 많은 것을 알려준다\"며 \"한때 예측 가능했던 임금 상승률은 (이제) 인구 구조 변화, 지속적인 인플레이션, 인공지능(AI)이 일자리에...",
-          "link": "https://www.yna.co.kr/view/AKR20260902180700072?input=1195m",
+          "title": "영주시 “풍기인삼축제 영상 제작·공유 지시 사실 없어”",
+          "description": "영주시는 2일 입장문을 통해 해당 영상은 지난 8월 24일 한 간부 공무원이 개인 페이스북에 게시한 AI 활용 영상으로, 황병직 영주시장과 지역 기관·단체장 등이 풍기인삼을 들고 춤추는 모습이 담겨 있다고 설명했다....",
+          "link": "https://www.ekn.kr/web/view.php?key=20260902027189870",
           "press_name": "네이버뉴스",
           "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:20:00 +0900"
+          "pub_time": "Wed, 02 Sep 2026 23:32:00 +0900"
         },
         {
-          "title": "이영숙 서울시의원, \"서울로봇인공지능과학관, AI 전략거점이자 글로벌...",
-          "description": "서울시 AI·로봇 산업의 전략적 전시 거점으로 자리매김해야 한다고 강조했다. 이영숙 의원은 \"빠르게 변화하는 로봇 및 AI 기술 트렌드에 발맞춰 민간 기업과의 기술협력을 대폭 강화해야 한다\"라며, \"단순 관람을 넘어...",
-          "link": "https://www.cnbizm.com/news/articleView.html?idxno=313739",
+          "title": "비트와이즈 CIO \"비트코인(BTC)과 인공지능(AI) 주식 둘 다 보유하라\"",
+          "description": "비트와이즈(Bitwise) 최고투자책임자(CIO) 매트 호건(Matt Hougan)이 미국의 40조달러 부채 위기에서 인공지능(AI... 호건은 미국이 AI 기반 생산성 향상으로 부채 부담을 극복하면 AI 주식이 수혜를 볼 것으로 전망했다....",
+          "link": "http://coinreaders.com/256189",
           "press_name": "네이버뉴스",
           "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:20:00 +0900"
+          "pub_time": "Wed, 02 Sep 2026 23:32:00 +0900"
         },
         {
-          "title": "골목길 복병 '스텔스 보행'…가을밤 사고 최다",
-          "description": "여기에 ‘AI CCTV’를 도입해 도로 위 보행자를 감지하고 현장에서 경고하는 방식도 제언됐습니다. <이성렬 / 삼성교통안전문화연구소 수석연구원> “차도 상에 쓰러져 있는 보행자를 인식하고 미리 대응을 한다면 스텔스...",
-          "link": "http://www.yonhapnewstv.co.kr/news/MYH20260902231935lmI",
+          "title": "김정관 산업장관, G20서 AI 혁신 강조…공급망 협력 제안",
+          "description": "G20 혁신장관회의에 대표로 참석 “AI 혁신, 공급망 회복력 기여할 것” “韓, G20 회원국들과 적극 협력”... 인공지능(AI) 혁신을 강조하며 공급망 협력을 제안했다. G20 혁신장관회의 참석 및 한미 경제협력 확대 위해...",
+          "link": "https://www.segye.com/newsView/20260902521168?OutUrl=naver",
           "press_name": "네이버뉴스",
           "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:20:00 +0900"
+          "pub_time": "Wed, 02 Sep 2026 23:32:00 +0900"
         },
         {
-          "title": "러트닉 美상무 \"목표 정확히 겨냥한 반도체 관세 준비중\"",
-          "description": "한편 러트닉 장관은 이날 노스캐롤라이나주 채플힐에서 G20 혁신장관회의를 열고 인공지능(AI) 지식재산권과 AI 표준·공급망 등을 논의한다. 김정관 산업통상부 장관도 회의에 참석할 예정이며, 김 장관은 회의를 계기로...",
-          "link": "https://www.newsis.com/view/NISX20260902_0003773983",
+          "title": "AI·AR로 K뷰티 체험…이베이재팬, 큐텐재팬 맞춤형 쇼핑 기술 강화",
+          "description": "큐텐재팬에 AI 및 AR 기술을 활용한 맞춤형 쇼핑 서비스를 대거 도입한다. 이베이재팬은 2일 \"뷰티 테크 기업 퍼펙트 코퍼레이션과 협력해 오는 9월 중 'AI 피부진단' 서비스를 선보인다\"고 밝혔다. 이에 앞서 지난달...",
+          "link": "https://www.thedailypost.kr/news/articleView.html?idxno=115344",
           "press_name": "네이버뉴스",
           "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:19:00 +0900"
+          "pub_time": "Wed, 02 Sep 2026 23:32:00 +0900"
+        },
+        {
+          "title": "李대통령 “공정하게 기회받는 ‘성평등 대한민국’ 만들 것”",
+          "description": "이 대통령은 2일 X(엑스·옛 트위터)를 통해 “우리 사회는 성평등을 향해 꾸준히 걸어왔지만 아직 가야 할... 누리는 사회를 만들어야 한다”고 강조했다. 이어 “국민 여러분께서 성평등을 삶 속에서 더 넓고 더 깊게...",
+          "link": "https://www.munhwa.com/article/11614101?ref=naver",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:40:00 +0900"
+        },
+        {
+          "title": "[9월 2일 병원계 이모저모④]국립중앙의료원, 삼육서울, 전북대, 한양대...",
+          "description": "김수명 미주삼육봉사회(ASIMA) 회장은 오랜 기간 해외 의료지원과 봉사, 선교 활동에 힘써왔다. 김 회장은... 우리 사회에 따뜻한 빛을 밝히는 병원이 되기를 바란다”고 덧붙였다. 양거승 병원장은 “김수명·이원자...",
+          "link": "https://medicalworldnews.co.kr/news/view.php?idx=1510977006",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:40:00 +0900"
+        },
+        {
+          "title": "델타항공, 미국 배려하는 기업 1위 올랐다",
+          "description": "임직원 중심의 기업문화와 지역사회에 대한 지속적인 기여가 높은 평가를 받았다. 배려하는 기업은 피플과... 지역사회와 연계한 사회공헌 활동도 이어가고 있다. 지난해 전 세계에서 임직원 봉사활동을 13만5000시간...",
+          "link": "https://www.kdpress.co.kr/news/articleView.html?idxno=208276",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:38:00 +0900"
+        },
+        {
+          "title": "선정환 서울시의원, \"정독도서관 재구조화, 실행 가능한 재원·로드맵 마...",
+          "description": "선정환 의원은 정독도서관이 서울을 대표하는 역사·문화 공간이자 지역사회 거점 도서관으로서 역할을 강화하려면 프로그램뿐만 아니라 공간 자체의 재구조화가 필요하다고 강조했다. 특히 재구조화 사업비가 2023년...",
+          "link": "https://www.cnbizm.com/news/articleView.html?idxno=313742",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:38:00 +0900"
+        },
+        {
+          "title": "[기고] 네팔 대홍수 비극, 20년 전 경고는 왜 묻혔나",
+          "description": "온실가스 배출에 따른 피해에 가장 먼저 노출되는 취약 국가들로서 국제사회의 지원을 이끌어내기 위해서도 중요한 문장이었다. 그러나 미국 대표단은 기후변화에 따른 빙하 융해를 어디까지 입증할 수 있는지 의문을...",
+          "link": "https://www.chosun.com/opinion/contribution/2026/09/02/IXSD5QFAMZG4ZMSWIDACMFJZ6Y/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:35:00 +0900"
+        },
+        {
+          "title": "[사설]“사교육 아니면 자녀 0.53명 더 낳았을 것”",
+          "description": "결국 우리 사회가 다양한 직업을 존중하고 특정 집단이 자원을 독식하는 구조를 깨야만 한다. 그러려면 공교육의 질적 혁신과 노동시장의 체질 개선이라는 정공법을 써야 한다.",
+          "link": "https://www.donga.com/news/Opinion/article/all/20260902/134595436/2",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:28:00 +0900"
         },
         {
           "title": "李 \"임기 내 전작권 환수 차질없이 추진\"",
@@ -344,30 +392,6 @@
           "pub_time": "Wed, 02 Sep 2026 23:28:00 +0900"
         },
         {
-          "title": "[사설]“사교육 아니면 자녀 0.53명 더 낳았을 것”",
-          "description": "결국 우리 사회가 다양한 직업을 존중하고 특정 집단이 자원을 독식하는 구조를 깨야만 한다. 그러려면 공교육의 질적 혁신과 노동시장의 체질 개선이라는 정공법을 써야 한다.",
-          "link": "https://www.donga.com/news/Opinion/article/all/20260902/134595436/2",
-          "press_name": "네이버뉴스",
-          "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:28:00 +0900"
-        },
-        {
-          "title": "'코트부터 미술관까지' KB금융의 스포츠 ESG... 'Kiaf SEOUL 2026' 3년 연속...",
-          "description": "금융회사의 ESG 활동 영역을 환경이나 사회공헌 캠페인에 한정하지 않고 문화와 체육 생태계까지 확장한 셈이다. KB금융 관계자는 \"한국 미술의 역동적인 에너지를 세계에 전하는 키아프 서울에 리드 파트너로 함께하게...",
-          "link": "https://www.stnsports.co.kr/news/articleView.html?idxno=321963",
-          "press_name": "네이버뉴스",
-          "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:26:00 +0900"
-        },
-        {
-          "title": "공무원노조 \"직역연금만 소득45% 기준, 신분차별 철폐해야\"",
-          "description": "공노총은 그동안 공무원 신분만으로 소득과 재산 심사 기회조차 박탈당했던 불합리가 해소되고, 퇴직 공직자들의 노후 생계에 최소한의 사회안전망이 마련됐다고 평가했다. 공노총은 관련 연구용역 추진, 복지부와의...",
-          "link": "https://www.gukjenews.com/news/articleView.html?idxno=3683035",
-          "press_name": "네이버뉴스",
-          "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:26:00 +0900"
-        },
-        {
           "title": "부산 북구 \"하굣길 안전에 어르신이 나선다\"…22개교에 112명 배치",
           "description": "하굣길 안심지원 도우미 배치 현장/제공=북구청 북구는 기존 등교 시간 중심으로 운영하던 교통안전 지도를 하교 시간까지 확대하고, 노인 일자리와 연계해 학생 안전과 어르신들의 사회 참여를 지원하기 위해 이번...",
           "link": "https://www.gukjenews.com/news/articleView.html?idxno=3683031",
@@ -382,30 +406,6 @@
           "press_name": "네이버뉴스",
           "source": "Naver",
           "pub_time": "Wed, 02 Sep 2026 23:26:00 +0900"
-        },
-        {
-          "title": "강동시니어클럽, 기능보강사업 선정…작업환경 개선 안전사고 예방",
-          "description": "강동시니어클럽 관계자들이 서울사회복지공동모금회 2026년 기능보강사업비 지원 현판을 들고 있다. [사진제공=강동시니어클럽]  강동시니어클럽이 서울사회복지공동모금회의 '2026년 기능보강사업'에 선정돼 지난달...",
-          "link": "https://www.gukjenews.com/news/articleView.html?idxno=3683032",
-          "press_name": "네이버뉴스",
-          "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:26:00 +0900"
-        },
-        {
-          "title": "은가은, 화이트 드레스 거울 셀카…'전설의사내' 무대 예고",
-          "description": "은가은은 사회공헌 활동에도 적극적이다. 2018년 김해시 자원봉사 홍보대사로 위촉된 데 이어 2023년에는 대한불교조계종사회복지재단 자비나눔 홍보대사, 김해 홍보대사, 새 생명 장기 기증 운동본부 홍보대사로...",
-          "link": "https://www.topstarnews.net/news/articleView.html?idxno=16181241",
-          "press_name": "네이버뉴스",
-          "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:24:00 +0900"
-        },
-        {
-          "title": "KT&G, 광주 북구와 깨끗한 도시환경 만든다",
-          "description": "지역사회와 연계한 환경경영 활동으로 확대한다는 방침이다. 심영아 KT&G ESG경영실장은 \"이번 지원이 지역 도시환경에 실질적인 변화를 만드는 출발점이 되길 바란다\"며 \"지역사회와 지속적으로 협력해 더 나은...",
-          "link": "https://www.kdpress.co.kr/news/articleView.html?idxno=208272",
-          "press_name": "네이버뉴스",
-          "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:24:00 +0900"
         },
         {
           "title": "[뉴욕증시]10년물 4.81% 찍고 후퇴…일제히 상승세",
@@ -492,8 +492,8 @@
   },
   "realtime": {
     "date": "2026-09-02",
-    "updated_at": "2026년 09월 02일 23:38",
-    "summary": "AI 요약 생성 중 오류 발생: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-3.6-pro is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}",
+    "updated_at": "2026년 09월 02일 23:43",
+    "summary": "AI 요약 생성 중 오류 발생: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}",
     "has_audio": true,
     "audio_url": "history/2026-09-02.mp3",
     "categories": {
@@ -579,84 +579,84 @@
           "pub_time": "Wed, 02 Sep 2026 23:04:00 +0900"
         },
         {
-          "title": "온, 포스트아카이브팩션(PAF)과 마지막 협업 ‘커렌트 폼 5.0’ 컬렉션 공...",
-          "description": "또 On은 수상 경력에 빛나는 CloudTec® 및 LightSpray™ 기술과 혁신적인 디자인, 순환 경제를 추구하는 대담한 행보를 통해 전 세계 팬층을 빠르게 확보해 나가고 있으며, 움직임을 통해 더 많은 것을 탐구하고...",
-          "link": "https://sports.khan.co.kr/article/202609022327003?pt=nv",
+          "title": "선정환 서울시의원, \"정독도서관 재구조화, 실행 가능한 재원·로드맵 마...",
+          "description": "문화경제 | CNB저널 | 씨앤비저널 서울특별시의회 교육위원회 선정환 의원(더불어민주당, 종로구 제2선거구)은 서울시교육청 정독도서관 업무보고에서 재구조화 사업의 실행력을 높이기 위해 관계기관과 협력해 안정적인...",
+          "link": "https://www.cnbizm.com/news/articleView.html?idxno=313742",
           "press_name": "네이버뉴스",
           "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:28:00 +0900"
+          "pub_time": "Wed, 02 Sep 2026 23:38:00 +0900"
         },
         {
-          "title": "[사설]“사교육 아니면 자녀 0.53명 더 낳았을 것”",
-          "description": "한국은행·경제정책연구센터(CEPR)·경제협력개발기구(OECD) 공동 콘퍼런스에서 발표된 ‘지위 경쟁 그리고 한국의 저출산’ 논문에 따르면, 1970∼1975년생 여성의 평균 자녀 수가 사교육의 ‘지위 경쟁’ 효과를 제거하면...",
-          "link": "https://www.donga.com/news/Opinion/article/all/20260902/134595436/2",
+          "title": "[뉴욕증시]10년물 4.81% 찍고 후퇴…일제히 상승세",
+          "description": "앞서 케빈 워시 Fed 의장은 지난주 잭슨홀 경제 심포지엄에서 노동시장 일부에 우려 요인이 있다고 인정하면서도 전체적으로는 완전고용에 부합한다고 평가했다. 이에 시장에서는 Fed의 정책 초점이 당분간 고용보다...",
+          "link": "https://view.asiae.co.kr/article/2026090223380255237",
           "press_name": "네이버뉴스",
           "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:28:00 +0900"
+          "pub_time": "Wed, 02 Sep 2026 23:38:00 +0900"
         },
         {
-          "title": "군산시, 전기차 456대 추가 보급…대기질 개선 기여",
-          "description": "김재준 군산시장./군산시 | 군산=한스경제 이인호 기자 | 전북 군산시가 하반기 전기자동차 456대를 추가로 보급한다. 신청은 7일부터 전기차 구매보조금 지원시스템을 통해 가능하다. 시는 탄소중립과 미세먼지...",
-          "link": "http://www.hansbiz.co.kr/news/articleView.html?idxno=861746",
+          "title": "이강인, 2주 연속 해외파 스포츠 인물 관심도 1위",
+          "description": "/한국체대 AI융합 스포츠분석센터 제공 | 서울=한스경제 신희재 기자 | 이강인이 해외파 스포츠 인물 관심도에서 2주 연속 1위에 올랐다. 한국체대 AI융합 스포츠분석센터가 지난달 24일부터 30일까지 네이버...",
+          "link": "http://www.hansbiz.co.kr/news/articleView.html?idxno=861748",
           "press_name": "네이버뉴스",
           "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:26:00 +0900"
+          "pub_time": "Wed, 02 Sep 2026 23:38:00 +0900"
         },
         {
-          "title": "연 2만 원... 익산시, 장난감 대여 서비스 회원 1300명 넘어",
-          "description": "지속되는 고물가와 경기 침체 속에서 아이의 빠른 성장 단계에 맞춰 고가의 장난감과 교구를 지속해서 구매하는 일은 영유아 가정에 상당한 경제적 부담으로 작용해 왔다. 익산시는 부모들의 양육 부담을 덜고...",
-          "link": "https://www.newstnt.com/news/articleView.html?idxno=716501",
+          "title": "장수군, 농민공익수당 32억 지급…\"공익적 가치 증진\"",
+          "description": "최훈식 장수군수./장수군 | 장수=한스경제 이인호 기자 | 전북 장수군이 농업의 공익적 가치를 높이고... 농민공익수당은 농촌 공동체 유지와 환경·생태 보전 등 농업의 공익적 기능을 증진하고 농가의 경제적 부담을...",
+          "link": "http://www.hansbiz.co.kr/news/articleView.html?idxno=861749",
           "press_name": "네이버뉴스",
           "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:26:00 +0900"
+          "pub_time": "Wed, 02 Sep 2026 23:38:00 +0900"
         },
         {
-          "title": "KT&G, 광주 북구와 깨끗한 도시환경 만든다",
-          "description": "협력해 더 나은 생활환경을 만드는 데 기여하겠다\"고 말했다. KT&G는 KT&G Green Impact 비전을 기반으로 기후변화 영향 저감과 순환경제 전환, 자연자본 관리 및 생물다양성 보호를 중심으로 환경경영을 추진하고 있다.",
-          "link": "https://www.kdpress.co.kr/news/articleView.html?idxno=208272",
+          "title": "서울시의회 김현우 의원, 학교폭력 피해학생의 전학제도에 대한 서울시...",
+          "description": "문화경제 | CNB저널 | 씨앤비저널 서울시의회 교육위원회 김현우 의원(더불어민주당, 성동2)이 학교폭력 피해학생의 전학제도에 대한 서울시교육청의 기준과 절차를 재검토해야 한다고 촉구했다. 김 의원은 9월 1일 열린...",
+          "link": "https://www.cnbizm.com/news/articleView.html?idxno=313741",
           "press_name": "네이버뉴스",
           "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:24:00 +0900"
+          "pub_time": "Wed, 02 Sep 2026 23:38:00 +0900"
         },
         {
-          "title": "경남 농산물값 5.8% 뚝…추석 앞두고 '장바구니 물가' 숨통",
-          "description": "김인수 경남도 경제통상국장은 \"전체 소비자물가는 상승세를 보이고 있지만 농축수산물이 하락세로 전환되고 석유류의 상승폭도 둔화되는 등 주요 품목에서 안정적인 흐름이 나타나고 있다. 추석을 앞두고 성수품 등...",
-          "link": "https://www.straightnews.co.kr/news/articleView.html?idxno=310313",
+          "title": "서울시의회 박상근 의원,사교육 의존도를 낮추고 공교육의 신뢰도를 높...",
+          "description": "문화경제 | CNB저널 | 씨앤비저널 서울특별시의회 교육위원회 소속 박상근 의원(더불어민주당, 도봉2)은 1일 열린 제339회 임시회 교육위원회 업무보고에서 공교육 중심의 학습 환경 조성을 강조하며, 사교육 의존도를...",
+          "link": "https://www.cnbizm.com/news/articleView.html?idxno=313740",
           "press_name": "네이버뉴스",
           "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:24:00 +0900"
+          "pub_time": "Wed, 02 Sep 2026 23:38:00 +0900"
         },
         {
-          "title": "서울시의회 함대건 의원, 안전취약계층 이용 건물 화재 예방 위한 안전...",
-          "description": "문화경제 | CNB저널 | 씨앤비저널 서울특별시의회 도시안전건설위원회 함대건 부위원장(더불어민주당·비례)이 발의한 '서울특별시 안전취약계층 이용 건물의 화재 예방 안전시설 지원에 관한 조례안'이 지난 9월 1일...",
-          "link": "https://www.cnbizm.com/news/articleView.html?idxno=313734",
+          "title": "전남광주통합특별시의회, '청년 정착'... 선순환 창업 생태계 조성",
+          "description": "2일 전남광주통합특별시의회 일자리경제위원회(위원장 진호건)는 청년 취업 및 창업 지원과 구도심 활성화를 긴밀하게 연계하는 지역경제 발전 해법을 찾기 위해 제주더큰내일센터 현장 방문을 실시했다. 이번 현장 점검은...",
+          "link": "https://www.newsworker.co.kr/news/articleView.html?idxno=502282",
           "press_name": "네이버뉴스",
           "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:20:00 +0900"
+          "pub_time": "Wed, 02 Sep 2026 23:36:00 +0900"
         },
         {
-          "title": "뱃길 줄고 물가는 뛰고…울릉 관광객 19% 급감",
-          "description": "관광객 감소가 장기화하면 숙박업과 음식점, 렌터카 등 관광 의존도가 높은 지역경제 전반으로 충격이 번질 수 있다. 울릉군의회는 관광산업 회복을 위한 대책 마련에 착수했다. 지난 8월 말 '울릉관광 재도약을 위한...",
-          "link": "https://www.newscj.com/news/articleView.html?idxno=3429679",
+          "title": "네팔 정부 “히말라야 관광 많이 와달라” 호소",
+          "description": "이 같은 메시지는 대홍수로 인해 관광산업과 네팔 경제가 받는 타격을 최소화하기 위한 것으로 보입니다.... 네팔 경제의 약 10%를 차지하는 것으로 추산됩니다. 특히 빈곤한 농업국인 네팔에서 히말라야 관광산업은...",
+          "link": "https://news.kbs.co.kr/news/pc/view/view.do?ncd=8653307&ref=A",
           "press_name": "네이버뉴스",
           "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:20:00 +0900"
+          "pub_time": "Wed, 02 Sep 2026 23:33:00 +0900"
         },
         {
-          "title": "홍재희 서울시의원, 마곡 ENS 건설사업 관련 남동발전 출자 승인확인…...",
-          "description": "문화경제 | CNB저널 | 씨앤비저널 서울특별시의회 환경수자원위원회 홍재희 부위원장(더불어민주당·강서5)... 서울에너지공사 사장은 이날 업무보고에서 한국남동발전의 사업 출자에 대한 재정경제부 승인이 지난 8월...",
-          "link": "https://www.cnbizm.com/news/articleView.html?idxno=313738",
+          "title": "목포역, 낡은 역사 넘어 서남권 교통거점으로",
+          "description": "목포=에너지경제신문 문남석기자 호남선의 시·종착역으로 100년 넘게 서남권의 관문 역할을 해온 목포역이... 목포시는 복합환승센터를 통해 역 주변 원도심의 접근성을 개선하고 지역경제 활성화에도 도움이 될 것으로...",
+          "link": "https://www.ekn.kr/web/view.php?key=20260902024139714",
           "press_name": "네이버뉴스",
           "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:20:00 +0900"
+          "pub_time": "Wed, 02 Sep 2026 23:32:00 +0900"
         },
         {
-          "title": "이영숙 서울시의원, \"서울로봇인공지능과학관, AI 전략거점이자 글로벌...",
-          "description": "문화경제 | CNB저널 | 씨앤비저널 서울시의회 이영숙 의원(더불어민주당, 도봉1)은 지난 1일 열린 제339회 임시회 서울시립과학관 대상 질의에서 도봉구에 위치한 서울 로봇인공지능과학관이 단순 체험형 시설을 넘어...",
-          "link": "https://www.cnbizm.com/news/articleView.html?idxno=313739",
+          "title": "춘천시, 강원과학기술원 설립 준비 ‘착착’…국가급 R&D 거점 밑그림",
+          "description": "춘천=에너지경제신문 박에스더 기자 춘천시가 강원과학기수루언 설립을 위한 밑그림을 마련했다. 기존 대학과 경쟁하는 새로운 교육기관보다는 강원지역 대학과 연구기관, 기업을 연결해 연구개발(R&D) 성과를 산업으로...",
+          "link": "https://www.ekn.kr/web/view.php?key=20260902022589762",
           "press_name": "네이버뉴스",
           "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:20:00 +0900"
+          "pub_time": "Wed, 02 Sep 2026 23:32:00 +0900"
         },
         {
           "title": "동양생명·ABL생명, 임원 대상 AI 에이전트 실습 교육 실시",
@@ -739,84 +739,132 @@
           "pub_time": "Wed, 02 Sep 2026 23:14:00 +0900"
         },
         {
-          "title": "사흘 연속 내린 뉴욕증시, 저가 매수세에 반등 시도…다우 0.5%↑",
-          "description": "시장 예상보다 좋은 실적을 낸 데다 인공지능(AI) 서비스 사업의 성장세를 반영해 2027 회계연도 실적 전망을 높인 것이 호재로 작용했다. 오디오 엔터테인먼트 업체 시리우스도 6.21% 올랐다. 도이체방크가 이 회사에...",
-          "link": "https://biz.chosun.com/international/international_economy/2026/09/02/RUBIZEFFNZBBRHNNCL3Y5QZII4/?utm_source=naver&utm_medium=original&utm_campaign=biz",
+          "title": "서울시의회 박상근 의원,사교육 의존도를 낮추고 공교육의 신뢰도를 높...",
+          "description": "이어 미래 역량 함양을 위해 추진 중인 서·논술형 평가 및 AI 보조 채점 시스템 도입과 관련해 교육 현장의 우려를 전달했다. 박 의원은 \"평가 방식이 서·논술형으로 전환될 경우 초등학교 단계부터 사교육 논술 학원이...",
+          "link": "https://www.cnbizm.com/news/articleView.html?idxno=313740",
           "press_name": "네이버뉴스",
           "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:25:00 +0900"
+          "pub_time": "Wed, 02 Sep 2026 23:38:00 +0900"
         },
         {
-          "title": "교사 불법 촬영한 중학생…교사노조 \"스마트폰 소지 금지 학칙 도입하라...",
-          "description": "특히 촬영 대상이 된 신체 부위 확인을 통한 피해자 특정은 물론, 인공지능(AI) 기반 딥페이크 기술을 활용한 2차 합성물 제작 여부까지 수사 범위를 넓혔다. 경찰 관계자는 \"일부 신체가 찍힌 사진이나 영상의 경우 피해자를...",
-          "link": "https://www.insight.co.kr/news/571624",
+          "title": "[뉴욕증시]10년물 4.81% 찍고 후퇴…일제히 상승세",
+          "description": "연간 매출 전망을 250억달러 상향 조정하면서 전 거래일 대비 4.34% 상승하고 있다. 인공지능(AI)용 서버 수요가 견조하게 이어질 것이라는 전망이 주가를 끌어올렸다. 브로드컴은 이날 장 마감 후 실적 발표를 앞두고 있다.",
+          "link": "https://view.asiae.co.kr/article/2026090223380255237",
           "press_name": "네이버뉴스",
           "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:24:00 +0900"
+          "pub_time": "Wed, 02 Sep 2026 23:38:00 +0900"
         },
         {
-          "title": "[송평인 칼럼]부동산 허위의식, 진보와 보수의 합작품",
-          "description": "인공지능(AI)은 이런 것도 상세하게 계산해 준다. 환율은 달러당 1400원, 100엔당 880원을 적용해 현 시세보다 양도세가 적어지게 하는 대신 필요경비는 마찬가지로 0원으로 했다. 이 대통령의 양도차익 25억4400만 원은...",
-          "link": "https://www.donga.com/news/Opinion/article/all/20260902/134595137/2",
+          "title": "이강인, 2주 연속 해외파 스포츠 인물 관심도 1위",
+          "description": "/한국체대 AI융합 스포츠분석센터 제공 | 서울=한스경제 신희재 기자 | 이강인이 해외파 스포츠 인물 관심도에서 2주 연속 1위에 올랐다. 한국체대 AI융합 스포츠분석센터가 지난달 24일부터 30일까지 네이버...",
+          "link": "http://www.hansbiz.co.kr/news/articleView.html?idxno=861748",
           "press_name": "네이버뉴스",
           "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:22:00 +0900"
+          "pub_time": "Wed, 02 Sep 2026 23:38:00 +0900"
         },
         {
-          "title": "앤트로픽 '클로드 페이블 5.1' 공개...첫 응답에 4분 넘어",
-          "description": "앤트로픽이 차세대 인공지능(AI) 모델 클로드 페이블(Claude Fable) 5.1과 클로드 미토스(Claude Mythos) 5.1을... 그러나 AI 모델 독립 평가 사이트인 AA와 일부 외신에서는 앤트로픽의 토큰 비용 인하가 실질적이지...",
-          "link": "https://www.thelec.kr/news/articleView.html?idxno=61715",
+          "title": "윤홍근 BBQ 회장 “AI로 글로벌 경영체계 구축”",
+          "description": "인공지능(AI)과 데이터를 기반으로 글로벌 사업의 운영 체계를 전면 혁신하겠다는 구상을 내놓았다. 윤 회장은 1일 경기도 이천 치킨대학에서 열린 창립 31주년 기념식에서 미래 성장 전략으로 ‘AX 트랜스포메이션’(AI...",
+          "link": "https://www.sedaily.com/article/20086549?ref=naver",
           "press_name": "네이버뉴스",
           "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:22:00 +0900"
+          "pub_time": "Wed, 02 Sep 2026 23:37:00 +0900"
         },
         {
-          "title": "[2026 전남광주미래산업박람회] 콘텐츠랩 슬러그, 콘텐츠 제작·행사 중...",
-          "description": "주요 전시 품목은 △모빌리티·친환경자동차·퍼스널 모빌리티·특수목적용 자동차·도심항공교통(UAM)·자율주행차 △핵심 뿌리기술·3D 프린팅·부품 및 기술 △인공지능(AI) 가전·홈 디바이스 △드론 관련 부품 및 기술...",
-          "link": "https://www.etnews.com/20260902000462",
+          "title": "AI로 통학차 아동 방치 막는다…KT·현대차·MTR·키즈노트, 승하차 확인...",
+          "description": "KT(030200)가 현대자동차와 손잡고 인공지능(AI)을 활용한 통학차 안전 시스템 개발에 나선다. KT는 현대차... 향후 AI와 초광대역(UWB), 저전력 블루투스(BLE) 기술 등을 적용해 차량 내 잔존 아동 감지, 실시간 위치 공유...",
+          "link": "https://www.sedaily.com/article/20086550?ref=naver",
           "press_name": "네이버뉴스",
           "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:22:00 +0900"
+          "pub_time": "Wed, 02 Sep 2026 23:37:00 +0900"
         },
         {
-          "title": "[신간] OTT미디어 산업 생존 전략서, 『K-OTT 로드』출간",
-          "description": "저자 김희경 교수는 영화 및 만화 평론가이자 미디어 정책 및 AI 영상 콘텐츠 분야를 연구해온 전문가다. 저자는 각 장 끝에 '한눈에 보기' 요약표를 구성하고 부록으로 K-OTT 연대기, 플랫폼별 오리지널 콘텐츠 목록...",
-          "link": "https://www.abcn.kr/news/articleView.html?idxno=91267",
+          "title": "윤건영 교육감, 교육교부금 재검토 촉구…교육재정 '이중고'",
+          "description": "이런 가운데 지출 구조조정과 재정 정상화에 나선 충청북도가 무상급식비와 AI바이오영재고 운영비의 분담 조정을 요구하면서 충북교육청의 재정 부담도 더욱 커지고 있다. 앞서 충북도와 충북교육청은 민선 8기...",
+          "link": "https://www.nocutnews.co.kr/news/6572463?utm_source=naver&utm_medium=article&utm_campaign=20260902113334",
           "press_name": "네이버뉴스",
           "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:20:00 +0900"
+          "pub_time": "Wed, 02 Sep 2026 23:34:00 +0900"
         },
         {
-          "title": "美ADP 8월 민간 고용 증가폭 3만8천명으로 둔화…전망치 하회",
-          "description": "넬라 리처드슨 ADP 수석 이코노미스트는 \"급여는 오늘날 변동이 심한 고용시장에 대해 많은 것을 알려준다\"며 \"한때 예측 가능했던 임금 상승률은 (이제) 인구 구조 변화, 지속적인 인플레이션, 인공지능(AI)이 일자리에...",
-          "link": "https://www.yna.co.kr/view/AKR20260902180700072?input=1195m",
+          "title": "영주시 “풍기인삼축제 영상 제작·공유 지시 사실 없어”",
+          "description": "영주시는 2일 입장문을 통해 해당 영상은 지난 8월 24일 한 간부 공무원이 개인 페이스북에 게시한 AI 활용 영상으로, 황병직 영주시장과 지역 기관·단체장 등이 풍기인삼을 들고 춤추는 모습이 담겨 있다고 설명했다....",
+          "link": "https://www.ekn.kr/web/view.php?key=20260902027189870",
           "press_name": "네이버뉴스",
           "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:20:00 +0900"
+          "pub_time": "Wed, 02 Sep 2026 23:32:00 +0900"
         },
         {
-          "title": "이영숙 서울시의원, \"서울로봇인공지능과학관, AI 전략거점이자 글로벌...",
-          "description": "서울시 AI·로봇 산업의 전략적 전시 거점으로 자리매김해야 한다고 강조했다. 이영숙 의원은 \"빠르게 변화하는 로봇 및 AI 기술 트렌드에 발맞춰 민간 기업과의 기술협력을 대폭 강화해야 한다\"라며, \"단순 관람을 넘어...",
-          "link": "https://www.cnbizm.com/news/articleView.html?idxno=313739",
+          "title": "비트와이즈 CIO \"비트코인(BTC)과 인공지능(AI) 주식 둘 다 보유하라\"",
+          "description": "비트와이즈(Bitwise) 최고투자책임자(CIO) 매트 호건(Matt Hougan)이 미국의 40조달러 부채 위기에서 인공지능(AI... 호건은 미국이 AI 기반 생산성 향상으로 부채 부담을 극복하면 AI 주식이 수혜를 볼 것으로 전망했다....",
+          "link": "http://coinreaders.com/256189",
           "press_name": "네이버뉴스",
           "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:20:00 +0900"
+          "pub_time": "Wed, 02 Sep 2026 23:32:00 +0900"
         },
         {
-          "title": "골목길 복병 '스텔스 보행'…가을밤 사고 최다",
-          "description": "여기에 ‘AI CCTV’를 도입해 도로 위 보행자를 감지하고 현장에서 경고하는 방식도 제언됐습니다. <이성렬 / 삼성교통안전문화연구소 수석연구원> “차도 상에 쓰러져 있는 보행자를 인식하고 미리 대응을 한다면 스텔스...",
-          "link": "http://www.yonhapnewstv.co.kr/news/MYH20260902231935lmI",
+          "title": "김정관 산업장관, G20서 AI 혁신 강조…공급망 협력 제안",
+          "description": "G20 혁신장관회의에 대표로 참석 “AI 혁신, 공급망 회복력 기여할 것” “韓, G20 회원국들과 적극 협력”... 인공지능(AI) 혁신을 강조하며 공급망 협력을 제안했다. G20 혁신장관회의 참석 및 한미 경제협력 확대 위해...",
+          "link": "https://www.segye.com/newsView/20260902521168?OutUrl=naver",
           "press_name": "네이버뉴스",
           "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:20:00 +0900"
+          "pub_time": "Wed, 02 Sep 2026 23:32:00 +0900"
         },
         {
-          "title": "러트닉 美상무 \"목표 정확히 겨냥한 반도체 관세 준비중\"",
-          "description": "한편 러트닉 장관은 이날 노스캐롤라이나주 채플힐에서 G20 혁신장관회의를 열고 인공지능(AI) 지식재산권과 AI 표준·공급망 등을 논의한다. 김정관 산업통상부 장관도 회의에 참석할 예정이며, 김 장관은 회의를 계기로...",
-          "link": "https://www.newsis.com/view/NISX20260902_0003773983",
+          "title": "AI·AR로 K뷰티 체험…이베이재팬, 큐텐재팬 맞춤형 쇼핑 기술 강화",
+          "description": "큐텐재팬에 AI 및 AR 기술을 활용한 맞춤형 쇼핑 서비스를 대거 도입한다. 이베이재팬은 2일 \"뷰티 테크 기업 퍼펙트 코퍼레이션과 협력해 오는 9월 중 'AI 피부진단' 서비스를 선보인다\"고 밝혔다. 이에 앞서 지난달...",
+          "link": "https://www.thedailypost.kr/news/articleView.html?idxno=115344",
           "press_name": "네이버뉴스",
           "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:19:00 +0900"
+          "pub_time": "Wed, 02 Sep 2026 23:32:00 +0900"
+        },
+        {
+          "title": "李대통령 “공정하게 기회받는 ‘성평등 대한민국’ 만들 것”",
+          "description": "이 대통령은 2일 X(엑스·옛 트위터)를 통해 “우리 사회는 성평등을 향해 꾸준히 걸어왔지만 아직 가야 할... 누리는 사회를 만들어야 한다”고 강조했다. 이어 “국민 여러분께서 성평등을 삶 속에서 더 넓고 더 깊게...",
+          "link": "https://www.munhwa.com/article/11614101?ref=naver",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:40:00 +0900"
+        },
+        {
+          "title": "[9월 2일 병원계 이모저모④]국립중앙의료원, 삼육서울, 전북대, 한양대...",
+          "description": "김수명 미주삼육봉사회(ASIMA) 회장은 오랜 기간 해외 의료지원과 봉사, 선교 활동에 힘써왔다. 김 회장은... 우리 사회에 따뜻한 빛을 밝히는 병원이 되기를 바란다”고 덧붙였다. 양거승 병원장은 “김수명·이원자...",
+          "link": "https://medicalworldnews.co.kr/news/view.php?idx=1510977006",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:40:00 +0900"
+        },
+        {
+          "title": "델타항공, 미국 배려하는 기업 1위 올랐다",
+          "description": "임직원 중심의 기업문화와 지역사회에 대한 지속적인 기여가 높은 평가를 받았다. 배려하는 기업은 피플과... 지역사회와 연계한 사회공헌 활동도 이어가고 있다. 지난해 전 세계에서 임직원 봉사활동을 13만5000시간...",
+          "link": "https://www.kdpress.co.kr/news/articleView.html?idxno=208276",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:38:00 +0900"
+        },
+        {
+          "title": "선정환 서울시의원, \"정독도서관 재구조화, 실행 가능한 재원·로드맵 마...",
+          "description": "선정환 의원은 정독도서관이 서울을 대표하는 역사·문화 공간이자 지역사회 거점 도서관으로서 역할을 강화하려면 프로그램뿐만 아니라 공간 자체의 재구조화가 필요하다고 강조했다. 특히 재구조화 사업비가 2023년...",
+          "link": "https://www.cnbizm.com/news/articleView.html?idxno=313742",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:38:00 +0900"
+        },
+        {
+          "title": "[기고] 네팔 대홍수 비극, 20년 전 경고는 왜 묻혔나",
+          "description": "온실가스 배출에 따른 피해에 가장 먼저 노출되는 취약 국가들로서 국제사회의 지원을 이끌어내기 위해서도 중요한 문장이었다. 그러나 미국 대표단은 기후변화에 따른 빙하 융해를 어디까지 입증할 수 있는지 의문을...",
+          "link": "https://www.chosun.com/opinion/contribution/2026/09/02/IXSD5QFAMZG4ZMSWIDACMFJZ6Y/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:35:00 +0900"
+        },
+        {
+          "title": "[사설]“사교육 아니면 자녀 0.53명 더 낳았을 것”",
+          "description": "결국 우리 사회가 다양한 직업을 존중하고 특정 집단이 자원을 독식하는 구조를 깨야만 한다. 그러려면 공교육의 질적 혁신과 노동시장의 체질 개선이라는 정공법을 써야 한다.",
+          "link": "https://www.donga.com/news/Opinion/article/all/20260902/134595436/2",
+          "press_name": "네이버뉴스",
+          "source": "Naver",
+          "pub_time": "Wed, 02 Sep 2026 23:28:00 +0900"
         },
         {
           "title": "李 \"임기 내 전작권 환수 차질없이 추진\"",
@@ -835,30 +883,6 @@
           "pub_time": "Wed, 02 Sep 2026 23:28:00 +0900"
         },
         {
-          "title": "[사설]“사교육 아니면 자녀 0.53명 더 낳았을 것”",
-          "description": "결국 우리 사회가 다양한 직업을 존중하고 특정 집단이 자원을 독식하는 구조를 깨야만 한다. 그러려면 공교육의 질적 혁신과 노동시장의 체질 개선이라는 정공법을 써야 한다.",
-          "link": "https://www.donga.com/news/Opinion/article/all/20260902/134595436/2",
-          "press_name": "네이버뉴스",
-          "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:28:00 +0900"
-        },
-        {
-          "title": "'코트부터 미술관까지' KB금융의 스포츠 ESG... 'Kiaf SEOUL 2026' 3년 연속...",
-          "description": "금융회사의 ESG 활동 영역을 환경이나 사회공헌 캠페인에 한정하지 않고 문화와 체육 생태계까지 확장한 셈이다. KB금융 관계자는 \"한국 미술의 역동적인 에너지를 세계에 전하는 키아프 서울에 리드 파트너로 함께하게...",
-          "link": "https://www.stnsports.co.kr/news/articleView.html?idxno=321963",
-          "press_name": "네이버뉴스",
-          "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:26:00 +0900"
-        },
-        {
-          "title": "공무원노조 \"직역연금만 소득45% 기준, 신분차별 철폐해야\"",
-          "description": "공노총은 그동안 공무원 신분만으로 소득과 재산 심사 기회조차 박탈당했던 불합리가 해소되고, 퇴직 공직자들의 노후 생계에 최소한의 사회안전망이 마련됐다고 평가했다. 공노총은 관련 연구용역 추진, 복지부와의...",
-          "link": "https://www.gukjenews.com/news/articleView.html?idxno=3683035",
-          "press_name": "네이버뉴스",
-          "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:26:00 +0900"
-        },
-        {
           "title": "부산 북구 \"하굣길 안전에 어르신이 나선다\"…22개교에 112명 배치",
           "description": "하굣길 안심지원 도우미 배치 현장/제공=북구청 북구는 기존 등교 시간 중심으로 운영하던 교통안전 지도를 하교 시간까지 확대하고, 노인 일자리와 연계해 학생 안전과 어르신들의 사회 참여를 지원하기 위해 이번...",
           "link": "https://www.gukjenews.com/news/articleView.html?idxno=3683031",
@@ -873,30 +897,6 @@
           "press_name": "네이버뉴스",
           "source": "Naver",
           "pub_time": "Wed, 02 Sep 2026 23:26:00 +0900"
-        },
-        {
-          "title": "강동시니어클럽, 기능보강사업 선정…작업환경 개선 안전사고 예방",
-          "description": "강동시니어클럽 관계자들이 서울사회복지공동모금회 2026년 기능보강사업비 지원 현판을 들고 있다. [사진제공=강동시니어클럽]  강동시니어클럽이 서울사회복지공동모금회의 '2026년 기능보강사업'에 선정돼 지난달...",
-          "link": "https://www.gukjenews.com/news/articleView.html?idxno=3683032",
-          "press_name": "네이버뉴스",
-          "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:26:00 +0900"
-        },
-        {
-          "title": "은가은, 화이트 드레스 거울 셀카…'전설의사내' 무대 예고",
-          "description": "은가은은 사회공헌 활동에도 적극적이다. 2018년 김해시 자원봉사 홍보대사로 위촉된 데 이어 2023년에는 대한불교조계종사회복지재단 자비나눔 홍보대사, 김해 홍보대사, 새 생명 장기 기증 운동본부 홍보대사로...",
-          "link": "https://www.topstarnews.net/news/articleView.html?idxno=16181241",
-          "press_name": "네이버뉴스",
-          "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:24:00 +0900"
-        },
-        {
-          "title": "KT&G, 광주 북구와 깨끗한 도시환경 만든다",
-          "description": "지역사회와 연계한 환경경영 활동으로 확대한다는 방침이다. 심영아 KT&G ESG경영실장은 \"이번 지원이 지역 도시환경에 실질적인 변화를 만드는 출발점이 되길 바란다\"며 \"지역사회와 지속적으로 협력해 더 나은...",
-          "link": "https://www.kdpress.co.kr/news/articleView.html?idxno=208272",
-          "press_name": "네이버뉴스",
-          "source": "Naver",
-          "pub_time": "Wed, 02 Sep 2026 23:24:00 +0900"
         },
         {
           "title": "[뉴욕증시]10년물 4.81% 찍고 후퇴…일제히 상승세",
