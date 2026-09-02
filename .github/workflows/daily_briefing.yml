@@ -1,0 +1,39 @@
+name: Daily Morning Briefing Collector
+
+on:
+  schedule:
+    - cron: '0 21 * * *' # 매일 아침 6시 (KST) 자동 실행
+  workflow_dispatch: # 수동 즉시 실행 버튼 활성화
+
+permissions:
+  contents: write
+
+jobs:
+  run-collector:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 레포지토리 체크아웃
+      uses: actions/checkout@v4
+
+    - name: Python 설정
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+
+    - name: 라이브러리 설치
+      run: |
+        pip install feedparser google-generativeai
+
+    - name: 수집 및 AI 요약 실행
+      env:
+        GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      run: python collector.py
+
+    - name: data.json 자동 커밋 & 푸시
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git add data.json
+        git diff-index --quiet HEAD || git commit -m "chore: 오늘의 아침 뉴스 브리핑 자동 업데이트"
+        git push
