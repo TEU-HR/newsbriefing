@@ -1,73 +1,94 @@
 {
-  "updated_at": "2026년 09월 02일 15:33",
-  "summary": "[오늘의 종합 브리핑]\n오늘 주요 뉴스는 정치·사회 분야의 올바른 정규 교육 필요성 및 편향성 문제와 함께, 경제 분야의 증시 바닥 확인 및 중소형주 투자 전략을 조명했습니다. IT/과학 분야에서는 국내 최대 ICT 전시회 개최 등 AI 기술의 발전과 이에 따른 일자리 지형 변화가 다루어졌으며, 국제 분야는 금융·농업·문화 콘텐츠 등 다양한 산업 영역에서의 글로벌 시장 진출 행보가 두드러졌습니다.\n\n[분야별 핵심요약]\n- 정치/사회: 도서 심사 문제 및 정치적 편향성에 대한 경각심이 대두된 가운데, 국가교육위원회는 유튜브 등 자극적 미디어를 대신해 학교에서 정치·사회적 논쟁을 다뤄야 한다고 강조했습니다.\n- 경제: 국내 증시가 바닥을 확인하고 박스권에 진입함에 따라 홀수 해 강세 패턴 및 중소형주 중심의 투자 전략이 제시되었으며, 해외 기업들의 국내 증시 상장 추진도 활발히 이어지고 있습니다.\n- IT/과학: '월드 IT 쇼' 개막과 고령자 안전용 레이더 AI 등 AI 기술이 대세로 자리 잡은 반면, 인도를 중심으로 AI 도입에 따른 기존 IT 일자리 감소라는 위기감도 함께 고조되고 있습니다.\n- 국제: 한국투자공사의 해외투자 실무 교육, 농진청 식용곤충의 국제식품박람회 참가, 영화 콘텐츠의 북미 진출 등 금융·농업·문화 전반에서 글로벌 시장 공략이 가속화되고 있습니다.",
+  "updated_at": "2026년 09월 02일 15:39",
+  "summary": "수집된 주요 뉴스 기사를 바탕으로 작성한 종합 브리핑입니다.\n\n---\n\n[오늘의 종합 브리핑]  \n정국에서는 '검찰청 폐지'를 골자로 한 정부조직법 개정안 통과와 보완수사권 폐지 추진을 둘러싸고 여야 간 첨예한 대립이 이어지고 있습니다. 경제 분야에서는 한국 증시의 높은 변동성에 대한 경고가 나온 가운데, 배당 매력이 높은 금융·증권주가 투자 피난처로 부각되고 있습니다. 세계 분야에서는 글로벌 해외관광객 14억 명 돌파 및 해외 유수 대학 진학 사례 등이 주목받았으며, 사회·생활/문화·IT/과학 분야는 수집된 기사가 없습니다.\n\n---\n\n[분야별 핵심요약]\n\n- **정치**: 검찰청 폐지 내용을 담은 정부조직법 개정안이 국회 행안위를 통과하면서 여당의 반발이 거세지고 있습니다. 보완수사권 폐지 방침 정리와 함께 국회 대정부 질문에서 3대 특검 및 정부조직법을 둘러싼 여야의 대격돌이 예고되고 있습니다.\n\n- **경제**: 블룸버그가 한국 증시의 변동성이 전체 금융시장에 미치는 위험을 경고했습니다. 이에 따라 호실적과 높은 배당을 제공하는 증권·금융주가 안정적인 피난처로 주목받고 있으며, 연 2.96% 금리의 모바일 파킹통장 등 신규 금융상품도 출시되었습니다.\n\n- **사회**: 수집된 기사 내용이 없습니다.\n\n- **생활/문화**: 수집된 기사 내용이 없습니다.\n\n- **IT/과학**: 수집된 기사 내용이 없습니다.\n\n- **세계**: 연간 세계 해외관광객 수가 14억 명을 돌파했습니다. 또한 제11회 울산울주세계산악영화제의 해외 게스트 라인업이 공개되었으며, 세계 1위 성적을 거두고도 국내 대학에 탈락한 후 MIT에 진학한 교육 관련 사례가 보도되었습니다.\n\n- **오피니언**: 정치적 이념 프레임에 대한 비판, 역사적 의식에 대한 경각심 촉구, 영국의 사례를 통해 본 일제고사 평가 정책의 문제점 등 다양한 시사·교육적 현안을 다룬 시론이 기증되었습니다.",
   "categories": {
-    "정치/사회": [
+    "정치": [
       {
-        "title": "정치와 심리적 인버스의 함정 [똑똑! 한국사회] - 한겨레",
-        "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBqcUFkM3NxU0w5Y2p3SWdqbDVZbzR0ZmJhNmthRTNwUGZQRUgzY19iODFJSmRPLTNjU0pvaVB3QVBVcVdlOGwxaFgtbTJ3S0cxRk13LVY5RXlRU18weDNYeXNxa0xOUQ?oc=5",
+        "title": "김민석 “보완수사권 폐지로 최종 정리…정부 입법 안 해” - 한겨레",
+        "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBLYXRxS2p5Q0lUbzVFbm12R3RKa09rX3h6MXh3TWU1Wjc0NGRWbF8zaW9nWC1rc2FKN1lWdy0wM240bHZNd0kya0psTVl4c0JsWU1hY1FLekhPVURZOVZQcjdDRVlEcHZxVUE?oc=5",
         "source": "Google News (한겨레)"
       },
       {
-        "title": "목차에 '민주주의' 나왔다고 정치 책?…공공도서관 '황당한 도서 심사' - 한국일보",
-        "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5VYmZ5aUh0VHdwZ3RiY085TFBpTnJpRGs2YURJZXhhUHM0OGZzUExxZmNOUlpWZ3JPa093OG4wLU9iQk56R0gzZzdlNHJmNk9qQlhFMTNsMFk0eWFhdzNtcEN5eVFvRXVSZnIyc2NB0gFzQVVfeXFMUDliYk5ZTE9LSDBMNEVTaHRmZHBucjgwYTJnZ3lDdkR4N1lQUnhYTWwxcDRzVkpVNEh0MkxIM19zTDJyYXZTZ20tRklrQW56M0lfYXRMeWFlVG56Nm1HTER0YkNtVkdQWlBoTHNrR2hucy1qaw?oc=5",
-        "source": "Google News (한국일보)"
+        "title": "국회, 대정부 질문 시작…3대 특검·정부조직법 대격돌 예고 - 연합뉴스",
+        "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9aOXRTdGozenAtVXI1S29nc29udFR6Wl82UXpVNU1qbUNtZ19WSEFDRVBEQ003dVRFN2dGZTMtVVc2bDB4TlRzYWtOWHFET3R6WlFzZDJUUTFPc1HSAWBBVV95cUxOMUx4OE5odFJ6RllqMFI4R2FFN1llRG1kTC03aDRtWnFSM05NOTJ5TnVmQnhLeDVrZzY1aFRrTFdHLUF4cGphVFZVVEZ6cWpWZkZtb01GS0R1aUZkUmZ4TFI?oc=5",
+        "source": "Google News (연합뉴스)"
       },
       {
-        "title": "국가교육위원장 “정치·사회 논쟁, 학교가 안 다루면 유튜브가 메워” - 한겨레",
-        "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5VTFVtZDJzeHNTWjF3VUhRQW1oYlJlc1QycmM1UnNDR3hrWGxNczFVbTRwcXpVLXR1VUU1T1laSFlPOVpGeS1QQTNNeG9Va1d6M0tqSGFzVnJ6bHBLT1cxZ29lRFBUY2RySmc?oc=5",
+        "title": "‘검찰청 폐지’ 정부조직법 개정안 국회 행안위 통과…국힘 반발 - 한겨레",
+        "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE44aDhrOC1IT19udVhELWFaVUYxeW1qbi1nR2FxOWoyYXp6RUJ1ZG55WDZ1RTRDaWNJYXJCVzBfTEg4ZHhrVjdGVE93NEVHNGdSRXBIV19fRVlsOFFLUmhzVEx0VV9fWmhTMkE?oc=5",
         "source": "Google News (한겨레)"
       }
     ],
     "경제": [
       {
-        "title": "\"바닥 확인한 증시, 당분간 박스권\" - 한국경제",
-        "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE95Qko4MW9OdnhlOXliOWtVb3owdUQtUVQ5c3FjQnQ1VlIzeElMTjNyMXhDUk5EYXFnZnNtdFlyZENkS1A4RnpLaXB5ZlJPS21uMFNteWZZSG92Zw?oc=5",
-        "source": "Google News (한국경제)"
+        "title": "한국증권금융, 연 2.96% 모바일 파킹통장 출시 - 서울경제",
+        "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFAzQTFjYXJlOGFJWmE4eDV1S01aX1E2VzlTcG5sVkZQbHlTR0JkdFdpZUlvcTZhMjFtY0RuZ3NlUm5PRm42dGRObnJUWVNQRHVHc1HSAVNBVV95cUxNU18xbGlmOTBqRE9RbGlOcWNnbVF1VHNaOV85ZnVwZkhrY1RiYWtyU2M0MERQblBHX2xIX1E5Rzl3dEZmT0plcXM2Z3MzTGZuQzJscw?oc=5",
+        "source": "Google News (서울경제)"
       },
       {
-        "title": "해외 기업들, 잇따라 한국증시 상장 추진 - 한국경제",
-        "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE12YXVsRXIzVW1zaHFUcVlBLXZFY2p1eEY5Q21pazJ6dFB5Sm9VWTd6UHg4YTJzb1Y5NFhZVWp3eDBlbU9IRlNWUDlLQnotRWYzQkxrUDhMYnRfUQ?oc=5",
-        "source": "Google News (한국경제)"
+        "title": "“韓 증시 변동성이 전체 금융시장 흔들어” 블룸버그의 경고 - 서울경제",
+        "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1BNUZhal9QZ1JOVVQwUTFiSE1pM1pFOXNOZGRZakFEMDVNOTAzZ09qVUxfcG1RNTVGOGFuVHRlaXV6MDY2RndUQVJveDllcm9UdHfSAVNBVV95cUxOb0diZ1JHYjdVQXhXUmQzUHg2RDRYNE1xTlJVcWxVMTNUaUxzNDNEOVhZWVl4dGw2SVBsWWdjeDMyR3VHb214MXVHSS1vV2IyQXR4SQ?oc=5",
+        "source": "Google News (서울경제)"
       },
       {
-        "title": "\"증시, 짝수 해 약세·홀수 해 강세 패턴…덜 오른 중소형株 담아라\" - 한국경제",
-        "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE8zNExZVmJJWGNDdzh3aE9PcUpiN1dBOTg3N1hsbjQwVnA4TFRGY1V4QjNPT293VzNzQkRETlhHa1RlWTRPc2pGY1F4VXhiRjgtR2RxdWEyejZNZw?oc=5",
-        "source": "Google News (한국경제)"
+        "title": "호실적에 배당 짭짤…피난처된 증권·금융株 - 매일경제",
+        "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9ybHBQbnJNQ0N6RTNVemZxeU9ZN0MxbHk1djBHVVJiWDBhekN0R1RSdjZpS2JLdlN0bzhubkVXWjAtRlhMTG15eFliZ0lWeWdpeFE?oc=5",
+        "source": "Google News (매일경제)"
+      }
+    ],
+    "사회": [
+      {
+        "title": "사회 분야 지정 언론사 최신 기사가 없습니다.",
+        "link": "#",
+        "source": "System"
+      }
+    ],
+    "생활/문화": [
+      {
+        "title": "생활/문화 분야 지정 언론사 최신 기사가 없습니다.",
+        "link": "#",
+        "source": "System"
       }
     ],
     "IT/과학": [
       {
-        "title": "[2026 혁신 IT 대상] 제타모빌리티, 레이더 AI로 고령자 안전 모니터링 - 중앙일보",
-        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE96bFV2UHJiT3VoQjF3bmVvSTRtTlNiS1J1VlA5cmUybzJ2MU9PZWZYODZuY0lLZzdpTUIxV045MGs5bnFad0RqZ2dmaDR6RlVaUDBScjln?oc=5",
-        "source": "Google News (중앙일보)"
-      },
-      {
-        "title": "AI에 무너진 '가성비 IT강국' 인도…'쉬운 일자리의 종말' 닥쳤다 - 한국경제",
-        "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBqaFNfZXFRYVdTT3dfSUw3WkF6MmtkcUdud3dmOVZNclFNdEtfcUhLUDBtVkhnQ0dPc1R6amd3MjV0VHdFRUlYYzBxTVdDcTV2ZXJyci03YWJvUQ?oc=5",
-        "source": "Google News (한국경제)"
-      },
-      {
-        "title": "AI 기술 총출동···국내 최대 ICT 전시회 ‘월드IT쇼’ 내일 개막 - 경향신문",
-        "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFA3WWZaTWNsM0hUOEoxbWRwS3NQWXllNXh1MUcyOThxZlVUc3dqeTFiczVXa0FSb3RsQTBOaGItaGZEZnp1ZFZ5QnN3T2FhVm9rZHVmRkdEa0ZtUdIBX0FVX3lxTE5RQzFCMG94N1ZyYWdDaEJjX1RkcnlzSXJqQ3pLYS11d1J4dmlqRzZNUUVocEswNjdrQzl5TXJWZUhCb0xUVWlzUVRhOUdwdm9kRHByY3RvMzZycWtvbEww?oc=5",
-        "source": "Google News (경향신문)"
+        "title": "IT/과학 분야 지정 언론사 최신 기사가 없습니다.",
+        "link": "#",
+        "source": "System"
       }
     ],
-    "국제": [
+    "세계": [
       {
-        "title": "한국투자공사, 2~4일 국제금융아카데미…해외투자 실무강좌 - 뉴시스",
-        "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5YN1I2VF94N0hvYkZpNG0yREY1U2N6cXB2bExSdkdqUFJsNEQxNVhPRHlxRVBIVE10ZWJwcS15Ry1MaUZyOGRXN0ZXRlYzZ0tIZDM3ak1abTJSR3g5cnJxRtIBeEFVX3lxTE56Nk9MbmVVNWY3R3lCZk90Q3p1ak55eUZzYmhBSWF0VDhTZlNYUkYtM2VFcThQTE5HeTB0WHo2VkRrQ1JaU0t4aHJPbm9vTnhoRUkwQ2toWXZRajdyVHJ6OUV1MjJ2YmxiTEpqUVZuMjViNUJzaGtUeg?oc=5",
-        "source": "Google News (뉴시스)"
-      },
-      {
-        "title": "농진청, 식용곤충 '고소애' 해외시장 도전…국제식품박람회 참가 - 연합뉴스",
-        "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBneHZCdjhzdmRkTUZ5dHFUZnd3cGdCTGdxSW5JYnlPQlNQM3FPSEloVzRVNVNCbEd1bXJSUV92QjFxaVVOUklUSkdSakVtQ3owajJCQ2N6c3QwSm1LSHlidtIBYEFVX3lxTFBneHZCdjhzdmRkTUZ5dHFUZnd3cGdCTGdxSW5JYnlPQlNQM3FPSEloVzRVNVNCbEd1bXJSUV92QjFxaVVOUklUSkdSakVtQ3owajJCQ2N6c3QwSm1LSHlidg?oc=5",
+        "title": "제11회 울산울주세계산악영화제 방문 해외 게스트 라인업 공개 - 연합뉴스",
+        "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1xQjhNUXR3NkZFNl9CbFVhak9VTExnUVJTVGl5N2dCcFd2c0FKOFVTWTNWU084RWFVX2ZQNzRpV0xQVHhDWFk1U3FpUjU0akVmVXU3c1p0d25Db0nSAWBBVV95cUxQaEJua0hHa3BvZDRYejIzdW5zODhjZHlZbnBzalA0NmJNSzVHcl9DZDVfYTNqeDZKNmpTbi1YcHZmU1p6bWx1UVEwckc2TDBGRldubk1lUDVEYS01aDUwc2c?oc=5",
         "source": "Google News (연합뉴스)"
       },
       {
-        "title": "'호프' 이제 베트남→북미 해외로 나간다..10월 부국제까지 질주 - 조선일보",
-        "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPTWphTzdRMlY5ZklmNVh1eXM5Z2dfQUcydnExeFd5SmcycHNYdE1mU2E4VjcyOHFMWDM5VGtOMHhyWWNIRFZIcGgxWmxBZ3BaTGptT0FxaUZINHFoUnl3cUVIN2ktVW5nUGw1Y002OEhXYzMzMHdXQnEtSEtZOUVZblZNazVpbFM0RGc?oc=5",
-        "source": "Google News (조선일보)"
+        "title": "세계 해외관광객 연간 14억명 돌파 - 한겨레",
+        "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1SVEdOcGt1NDEwVGI0eHlYWHJSckg3T3NhUm0yRzVKeUhNWWRTYVJTYk9YWDJGdGhxZElVYlZjbGZfUjB2clVmNm1yREluZFhiTG9RSC1uNGFPMHlNd1dNWWlBdXI?oc=5",
+        "source": "Google News (한겨레)"
+      },
+      {
+        "title": "세계 1등하고도 서울대 '탈락'…눈여겨 본 MIT가 데려갔다 [이미경의 교육지책] - 한국경제",
+        "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1mclcxUTdIYmZmcEVxRUc0RURXbndKZHl6SUJIbHRfbENEQVYxZVMwdGhUdlBaMzdGRFJJcDRLenBqQnFYYkJFUWJSS2YzNWJsMTczNEJLb3IzUQ?oc=5",
+        "source": "Google News (한국경제)"
+      }
+    ],
+    "오피니언": [
+      {
+        "title": "[시론] 오바마는 ‘좌빨’ 아닌가? / 조국 - 한겨레",
+        "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9TMFlCdVFzQjYzcVktVndvZDlTQ2lpb2c1bU5WOUlBSVg5bGJsUGtibjJyUncyXy1XTWFsVFdoU25jamhHLURvZm5ENndkTWd0UDhONV9oQjhfbE96N25jeGdRbEo?oc=5",
+        "source": "Google News (한겨레)"
+      },
+      {
+        "title": "[시론] 역사를 두려워하라 / 김삼웅 - 한겨레",
+        "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE96a0NTSUozUElKcjBPMlI4dGdXcWVCOTZacnZubmgwM0ZuUzNybEZ4V01UOEFfTUpGTmRxdW05ZXZyeEpveHJaVUVPcDZ5U0RYdHZrZzR2dkpnbThXOWVmVm9Bazg?oc=5",
+        "source": "Google News (한겨레)"
+      },
+      {
+        "title": "[시론] 일제고사, 영국의 실패에서 배우자 / 하태욱 - 한겨레",
+        "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9SNmR5SDdwdnkzcjFVa0RxV1BYdFR3OXRUbzdseW1LYTYxOEFjVEdyMU1EV1lIU0MwZ0ExejJ5Q0t1bm0ycTlQZjhHTHcwOFZ4cjZrMERQaXBPMWNkc2JzQU1uQVE?oc=5",
+        "source": "Google News (한겨레)"
       }
     ]
   }
