@@ -2,7 +2,11 @@ name: Daily AI & Tech News Bot
 
 on:
   schedule:
-    - cron: '30 22 * * *'  # 매일 한국시간 오전 07:30 (UTC 22:30)
+    # KST 기준 오전 8시 05분 실행 (UTC 기준 전날 23시 05분)
+    # 8시 정각으로 변경하고 싶으시면 '0 23 * * *' 로 수정하시면 됩니다.
+    - cron: '5 23 * * *'
+  
+  # GitHub UI에서 수동 실행 버튼 활성화
   workflow_dispatch:
 
 jobs:
@@ -12,22 +16,21 @@ jobs:
     steps:
       - name: 저장소 체크아웃
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: 파이썬 환경 설정
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.10'
 
       - name: 패키지 설치
         run: |
           python -m pip install --upgrade pip
-          pip install requests google-genai gTTS python-dotenv
+          pip install google-genai gtts
 
       - name: 수집 및 AI 요약 실행
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
           NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
           NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
           EMAIL_USER: ${{ secrets.EMAIL_USER }}
@@ -40,5 +43,6 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add data.json history/ latest.mp3 || true
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto update news briefing data" && git push)
+          git add .
+          git diff --staged --quiet || git commit -m "Auto-update news briefing data [skip ci]"
+          git push
