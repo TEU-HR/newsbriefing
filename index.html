@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>일간 AI 뉴스 브리핑</title>
+  <title>팀 뉴스 브리핑</title>
   <style>
     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 850px; margin: 0 auto; padding: 20px; line-height: 1.6; background-color: #f8f9fa; color: #212529; }
     .header { border-bottom: 2px solid #212529; padding-bottom: 15px; margin-bottom: 20px; }
-    .header-top { display: flex; justify-content: space-between; align-items: center; }
+    .header-top { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
     .header h1 { margin: 0; font-size: 1.8rem; }
     .btn-refresh { background-color: #2b8a3e; color: white; padding: 8px 14px; text-decoration: none; border-radius: 6px; font-size: 0.85rem; font-weight: bold; }
     .btn-refresh:hover { background-color: #2b7036; }
     
-    .tab-container { display: flex; gap: 10px; margin-bottom: 20px; }
-    .tab-btn { flex: 1; padding: 12px; font-size: 1rem; font-weight: bold; border: 1px solid #dee2e6; background-color: #e9ecef; border-radius: 8px; cursor: pointer; text-align: center; color: #495057; }
-    .tab-btn.active { background-color: #1c7ed6; color: white; border-color: #1c7ed6; }
+    .toolbar { display: flex; justify-content: space-between; align-items: center; background: white; padding: 12px 18px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.05); flex-wrap: wrap; gap: 10px; }
+    .date-picker-group { display: flex; align-items: center; gap: 8px; font-weight: bold; font-size: 0.95rem; }
+    input[type="date"] { padding: 6px 10px; border: 1px solid #ced4da; border-radius: 6px; font-size: 0.9rem; font-weight: bold; cursor: pointer; }
     
-    .date { font-size: 0.9rem; color: #6c757d; margin-top: 8px; font-weight: bold; }
+    .date { font-size: 0.88rem; color: #6c757d; font-weight: bold; }
     .card { background: white; border-radius: 10px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
     .summary { white-space: pre-line; background-color: #f1f3f5; padding: 18px; border-radius: 8px; font-size: 0.98rem; }
     .category-title { font-size: 1.15rem; margin-top: 25px; margin-bottom: 10px; color: #1c7ed6; border-bottom: 1px solid #e9ecef; padding-bottom: 5px; }
@@ -25,23 +25,24 @@
     a { color: #1b6ec2; text-decoration: none; font-weight: 500; }
     a:hover { text-decoration: underline; }
     .badge { font-size: 0.75rem; background: #e9ecef; color: #495057; padding: 2px 6px; border-radius: 4px; margin-left: 6px; font-weight: bold; }
-    .pub-time { font-size: 0.78rem; color: #868e96; margin-left: 6px; font-weight: normal; }
+    .pub-time { font-size: 0.78rem; color: #868e96; margin-left: 6px; }
   </style>
 </head>
 <body>
   <div class="header">
     <div class="header-top">
-      <h1>📰 AI 뉴스 브리핑</h1>
-      <a href="https://github.com/teu-hr/newsbriefing/actions" target="_blank" class="btn-refresh">⚡ 실시간 뉴스 즉시 수집</a>
+      <h1>📰 임직원 AI 뉴스 브리핑</h1>
+      <a href="https://github.com/teu-hr/newsbriefing/actions" target="_blank" class="btn-refresh">⚡ 즉시 수집 실행</a>
     </div>
   </div>
 
-  <div class="tab-container">
-    <button id="tab-morning" class="tab-btn active" onclick="switchTrack('morning')">🌅 아침 정기 브리핑 (08:00)</button>
-    <button id="tab-realtime" class="tab-btn" onclick="switchTrack('realtime')">⚡ 실시간 수집 브리핑</button>
+  <div class="toolbar">
+    <div class="date-picker-group">
+      <span>📅 브리핑 날짜 선택:</span>
+      <input type="date" id="date-picker" onchange="loadHistoricalData(this.value)">
+    </div>
+    <div id="updated-at" class="date">업데이트: -</div>
   </div>
-
-  <div id="updated-at" class="date">최근 업데이트: -</div>
 
   <div class="card">
     <h2>🤖 AI 핵심 요약</h2>
@@ -54,47 +55,69 @@
   </div>
 
   <script>
-    let globalData = {};
-    let currentTrack = 'morning';
+    let availableDates = [];
 
-    fetch('./data.json')
-      .then(response => response.json())
-      .then(data => {
-        globalData = data;
-        if (!globalData.morning && globalData.realtime) {
-          currentTrack = 'realtime';
+    // 페이지 진입 시 인덱스 및 오늘 데이터 로드
+    fetch('./history/index.json')
+      .then(res => res.json())
+      .then(dates => {
+        availableDates = dates;
+        const picker = document.getElementById('date-picker');
+        if (dates.length > 0) {
+          picker.min = dates[dates.length - 1];
+          picker.max = dates[0];
+          picker.value = dates[0]; // 최신 날짜 기본 선택
+          loadHistoricalData(dates[0]);
+        } else {
+          loadLatestData();
         }
-        renderTrack(currentTrack);
       })
-      .catch(err => {
-        document.getElementById('summary').innerText = '데이터를 불러오지 못했습니다. 뉴스 즉시 수집하기 버튼을 눌러주세요.';
-        console.error(err);
+      .catch(() => {
+        loadLatestData();
       });
 
-    function switchTrack(track) {
-      currentTrack = track;
-      document.getElementById('tab-morning').classList.toggle('active', track === 'morning');
-      document.getElementById('tab-realtime').classList.toggle('active', track === 'realtime');
-      renderTrack(track);
+    function loadLatestData() {
+      fetch('./data.json')
+        .then(res => res.json())
+        .then(data => {
+          const payload = data.morning || data.realtime;
+          if (payload) {
+            renderPayload(payload);
+            if (payload.date) {
+              document.getElementById('date-picker').value = payload.date;
+            }
+          }
+        })
+        .catch(err => {
+          document.getElementById('summary').innerText = '데이터를 불러올 수 없습니다.';
+        });
     }
 
-    function renderTrack(track) {
-      const trackData = globalData[track];
-      const container = document.getElementById('categories-container');
-      
-      if (!trackData) {
-        document.getElementById('updated-at').innerText = '최근 업데이트: 정보 없음';
-        document.getElementById('summary').innerText = '해당 트랙의 수집된 데이터가 없습니다.';
-        container.innerHTML = '';
-        return;
-      }
+    function loadHistoricalData(dateStr) {
+      fetch(`./history/${dateStr}.json`)
+        .then(res => {
+          if (!res.ok) throw new Error("File not found");
+          return res.json();
+        })
+        .then(data => {
+          renderPayload(data);
+        })
+        .catch(() => {
+          document.getElementById('summary').innerText = `${dateStr} 자로 수집된 아침 브리핑 기록이 없습니다.`;
+          document.getElementById('categories-container').innerHTML = '';
+          document.getElementById('updated-at').innerText = '데이터 없음';
+        });
+    }
 
-      document.getElementById('updated-at').innerText = '최근 업데이트: ' + (trackData.updated_at || '알 수 없음');
-      document.getElementById('summary').innerText = trackData.summary;
-      
+    function renderPayload(payload) {
+      document.getElementById('updated-at').innerText = '수집 시각: ' + (payload.updated_at || '-');
+      document.getElementById('summary').innerText = payload.summary || '요약 내용이 없습니다.';
+
+      const container = document.getElementById('categories-container');
       container.innerHTML = '';
-      if (trackData.categories) {
-        for (const [category, articles] of Object.entries(trackData.categories)) {
+
+      if (payload.categories) {
+        for (const [category, articles] of Object.entries(payload.categories)) {
           const catTitle = document.createElement('h3');
           catTitle.className = 'category-title';
           catTitle.innerText = `■ ${category}`;
