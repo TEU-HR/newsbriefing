@@ -1,67 +1,50 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI 모닝 뉴스 브리핑</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>일간 뉴스 브리핑</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6; background-color: #f9f9f9; color: #333; }
+    h1 { border-bottom: 2px solid #333; padding-bottom: 10px; }
+    .card { background: white; border-radius: 8px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    .summary { white-space: pre-line; background-color: #f0f4f8; padding: 15px; border-radius: 6px; }
+    ul { padding-left: 20px; }
+    li { margin-bottom: 10px; }
+    a { color: #0066cc; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans min-h-screen">
+<body>
+  <h1>📰 일간 AI 뉴스 브리핑</h1>
+  
+  <div class="card">
+    <h2>AI 요약</h2>
+    <div id="summary" class="summary">데이터를 불러오는 중...</div>
+  </div>
 
-    <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-            <div>
-                <span class="text-xs font-semibold text-indigo-600 uppercase">AI Morning Briefing</span>
-                <h1 class="text-2xl font-bold text-slate-900">오늘의 아침 뉴스 브리핑</h1>
-            </div>
-            <div id="updated-time" class="text-xs font-medium text-slate-500">로딩 중...</div>
-        </div>
-    </header>
+  <div class="card">
+    <h2>주요 뉴스 목록</h2>
+    <ul id="article-list"></ul>
+  </div>
 
-    <main class="max-w-6xl mx-auto px-4 py-8">
-        <div id="card-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <!-- data.json 연동 데이터가 여기에 표시됩니다 -->
-        </div>
-    </main>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', async () => {
-            try {
-                const res = await fetch('./data.json');
-                const data = await res.json();
-
-                document.getElementById('updated-time').innerText = `최근 업데이트: ${data.updated_at || '오늘'}`;
-                
-                const grid = document.getElementById('card-grid');
-                grid.innerHTML = '';
-
-                data.feed_articles.forEach(item => {
-                    grid.innerHTML += `
-                        <article class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm flex flex-col justify-between">
-                            <div>
-                                <div class="flex justify-between items-center mb-3">
-                                    <span class="text-xs font-bold px-2.5 py-1 rounded bg-indigo-50 text-indigo-700">${item.press}</span>
-                                    <span class="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">${item.category}</span>
-                                </div>
-                                <h2 class="text-base font-bold text-slate-900 mb-3">${item.title}</h2>
-                                <ul class="text-xs text-slate-600 space-y-1.5 mb-4 bg-slate-50 p-3 rounded-lg">
-                                    ${item.summary.map(s => `<li>• ${s}</li>`).join('')}
-                                </ul>
-                            </div>
-                            <div>
-                                <div class="text-xs text-slate-400 mb-3">${item.keywords.join(' ')}</div>
-                                <a href="${item.link}" target="_blank" class="block w-full text-center py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold rounded-lg transition">
-                                    원문 기사 보기 ↗
-                                </a>
-                            </div>
-                        </article>
-                    `;
-                });
-            } catch (err) {
-                document.getElementById('card-grid').innerHTML = '<p class="text-slate-500">아직 생성된 브리핑 데이터가 없습니다. Actions에서 첫 실행을 진행해 주세요.</p>';
-            }
+  <script>
+    fetch('./data.json')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('summary').innerText = data.summary;
+        
+        const list = document.getElementById('article-list');
+        data.articles.forEach(article => {
+          const li = document.createElement('li');
+          li.innerHTML = `<a href="${article.link}" target="_blank">${article.title}</a>`;
+          list.appendChild(li);
         });
-    </script>
+      })
+      .catch(err => {
+        document.getElementById('summary').innerText = '데이터를 불러오지 못했습니다.';
+        console.error(err);
+      });
+  </script>
 </body>
 </html>
