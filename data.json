@@ -1,140 +1,1862 @@
 {
   "morning": {
     "date": "2026-09-02",
-    "updated_at": "2026년 09월 02일 17:41",
-    "summary": "지정된 시간 범위 내 수집된 기사가 없어 요약을 생성하지 못했습니다.",
+    "updated_at": "2026년 09월 02일 17:47",
+    "summary": "# 📰 [데스크 브리핑] 3분 만에 읽는 오늘의 핵심 뉴스\n\n---\n\n# 🚀 오늘의 3대 핵심 이슈\n\n1. **821조 ‘슈퍼 예산’ 타결과 나랏빚·물가 경고등**\n   * 내년도 예산이 역대 최대 규모인 821조 원으로 윤곽을 잡았으나, 8월 소비자물가가 다시 3.1%로 반등하고 나랏빚 1,500조 우려가 겹치며 재정건전성과 물가 자극에 대한 언론의 집중 포화가 이어지고 있습니다.\n\n2. **‘설익은 세제 정책’ 후폭풍… 靑 정책실장 경질 및 법조계 반발**\n   * 세제 개편 철회 및 김용범 정책실장 사퇴/경질을 둘러싸고 여권 내 국정 쇄신 잡음이 커지고 있습니다. 한편, 원로 법조인 84명은 대통령의 대법관 재제청 요구에 대해 \"헌법적 근거가 없다\"며 집단 성명을 냈습니다.\n\n3. **‘장윤기 사건 분리수사’ 박성주 전 국수본부장 기소**\n   * 경찰 수사 지휘부였던 박성주 전 국가수사본부장이 장윤기 사건 축소 및 분리수사를 지휘한 혐의로 검찰에 기소되면서 사법·경찰 라인에 상당한 파장이 일고 있습니다.\n\n---\n\n# 📊 분야별 리포트\n\n### 🏛️ 정치\n* **평화체제·전작권 추진 vs 헌법 논란:** 이 대통령은 정전체제의 평화체제 전환 및 전작권 환수를 강조했으나, 대법관 재제청 요구와 관련해 원로 법조인 84명이 \"헌법 유턴\"이라며 강하게 반발했습니다.\n* **여야 내분 지속:** 국민의힘은 권영진·서범수의 징계 불복 재심 청구와 함운경 위원장 압수수색으로 어수선하며, 야권에서는 조국 대표가 종부세 정책 유턴 등을 언급하며 현 정부에 대한 쓴소리를 이어갔습니다.\n\n### 💳 경제\n* **물가 3.1% 재상승 & 코스피 불안:** 8월 소비자물가가 3.1% 오르며 근원물가 상승세가 지속되는 가운데, 유가·금리 불안으로 코스피가 큰 폭으로 흔들렸습니다.\n* **기초연금 개편 무산:** 소득 하위 30%에 3만 원을 추가 지급하는 선에서 마무리되며 기대했던 ‘하후상박’ 구조 개편은 사실상 무산됐습니다.\n\n### ⚖️ 사회\n* **수사 외압 파장:** 박성주 전 국수본부장이 장윤기 사건 기소 과정에서 \"정상적 업무 지시\"라며 반발했으나 검찰 기소가 강행되었습니다.\n* **대입 셈법 복잡:** N수생 대폭 증가와 지역의사제 도입 이슈가 맞물려 올해 대입 수험생들의 눈치싸움이 더욱 치열해질 전망입니다.\n\n### 🔬 IT/과학\n* **카카오, 계열사 혜택 묶은 ‘유료 멤버십’ 추진:** 카톡, 택시, 멜론 등을 결합한 유료 멤버십 연내 출시를 검토 중입니다.\n* **AI·데이터센터 금융 폭발:** 두산퓨얼셀의 미국 데이터센터 진출 등 AI 전력 인프라 및 데이터센터 관련 금융이 사상 최대 규모로 성장하고 있습니다.\n\n### 🌍 세계\n* **중동 정세 격화 & 유엔 1.5도 경고:** 미국이 이틀 만에 대(對)이란 재공습을 단행했습니다. 유엔은 기후변화 지구 기온 상승 폭 1.5도 제한이 현실적으로 불가능함을 인정하고 정책 패러다임 전환을 선언했습니다.\n* **삼성 금융계열사 해외 M&A:** 삼성 금융 계열사가 반도체 배당금 수익을 바탕으로 첫 해외 M&A에 나서는 등 공격적 투자에 착수했습니다.\n\n### 🎭 생활/문화\n* **스트레이 키즈, 빌보드 3주 연속 톱10:** K-팝 글로벌 흥행을 이어가고 있습니다.\n* **날씨:** 내일은 낮 기온이 30도 안팎까지 오르는 막바지 더위 속에 충청 및 남부 지방에 소나기가 내리겠습니다.\n\n### 📝 사설 핵심 비교\n* **보수/경제지 (조선·중앙·매경·한경):** \"821조 슈퍼 예산은 물가를 자극하고 나랏빚 1,500조 시대를 당길 것\"이라 경고. 잇따른 세제 유턴과 청와대 정책실장 경질 등 '아마추어적 국정 운영'을 강력 비판했습니다.\n* **진보지 (경향·한겨레):** 기초연금 3만 원 인상에 그친 복지 개편의 '생색내기'를 비판하며, 821조 예산이 말뿐인 성장이 아닌 실질적 양극화 해소에 쓰여야 한다고 촉구했습니다.\n\n---\n\n# 💡 출근길 인사이트\n\n1. **\"나랏돈은 푸는데 내 주머니는 팍팍\"… 고물가·고금리 장기화 대비 필요**\n   * 821조 원의 확장 재정이 편성되었으나 8월 물가가 다시 3.1%로 튀어 올랐습니다. 국가 재정 지출과 서민 체감 경기 간의 괴리가 커질 수 있으므로 개인 자산 관리에 있어 고금리·고물가 장기화에 대비한 리스크 관리가 시급합니다.\n\n2. **빅테크의 차세대 생존법: '유료 멤버십'과 'AI 인프라'**\n   * 카카오의 유료 멤버십 추진과 데이터센터 금융 폭증은 IT 산업의 중심이 '무료 사용자 확보'에서 '수익화(유료화) 및 AI 실질 인프라 구축'으로 완벽히 이동했음을 보여줍니다. 관련 기술 및 플랫폼 기업들의 주가 체질 변화를 주목할 필요가 있습니다.",
     "categories": {
       "정치": [
         {
-          "title": "해당 시간 범위 내 10대 언론사의 정치 기사가 출고되지 않았습니다.",
-          "link": "#",
-          "source": "System",
-          "press_name": "안내",
-          "pub_time": ""
+          "title": "‘당원권 정지’ 권영진·서범수 징계 불복…“재심 청구할 것”",
+          "link": "https://news.kbs.co.kr/news/pc/view/view.do?ncd=8652843&ref=A",
+          "source": "Naver (KBS)",
+          "press_name": "KBS",
+          "pub_time": "09월 02일 17:33"
+        },
+        {
+          "title": "경찰, 함운경 국힘 당협위원장 ‘구의원 금품 각출의혹’ 압수수색",
+          "link": "https://news.kbs.co.kr/news/pc/view/view.do?ncd=8652847&ref=A",
+          "source": "Naver (KBS)",
+          "press_name": "KBS",
+          "pub_time": "09월 02일 17:36"
+        },
+        {
+          "title": "광주 온 한동훈, 호남 역할론 띄우며 국민의힘에 쓴소리",
+          "link": "https://kjmbc.co.kr/NewsArticle/1535093",
+          "source": "Naver (MBC)",
+          "press_name": "MBC",
+          "pub_time": "09월 02일 17:05"
+        },
+        {
+          "title": "이 대통령 \"대결 전제 정전 체제를 협력 기반 평화 체제로\"",
+          "link": "https://imnews.imbc.com/news/2026/politics/article/6849165_36911.html",
+          "source": "Naver (MBC)",
+          "press_name": "MBC",
+          "pub_time": "09월 02일 17:13"
+        },
+        {
+          "title": "이 대통령 \"트럼프 결단에 한반도 변화 가능성…여건 만들어 가야\"",
+          "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008734769&plink=ORI&cooper=NAVER",
+          "source": "Naver (SBS)",
+          "press_name": "SBS",
+          "pub_time": "09월 02일 17:26"
+        },
+        {
+          "title": "왜 나한테만 가혹할까 싶겠지만… [이브닝 브리핑]",
+          "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008734727&plink=ORI&cooper=NAVER",
+          "source": "Naver (SBS)",
+          "press_name": "SBS",
+          "pub_time": "09월 02일 17:38"
+        },
+        {
+          "title": "시진핑, 10년 만의 이집트 국빈방문…미·중 정상회담 앞두고 ‘글로벌...",
+          "link": "https://www.khan.co.kr/article/202609021653001",
+          "source": "Naver (경향신문)",
+          "press_name": "경향신문",
+          "pub_time": "09월 02일 16:53"
+        },
+        {
+          "title": "6년째 옥살이 홍콩 민주화 운동가 조슈아 웡, ‘외국과의 공모’ 혐의 ...",
+          "link": "https://www.khan.co.kr/article/202609021719001",
+          "source": "Naver (경향신문)",
+          "press_name": "경향신문",
+          "pub_time": "09월 02일 17:19"
+        },
+        {
+          "title": "또 李에 날세운 조국 “종부세 유턴, 상위 1% 이익만 지켰다”",
+          "link": "https://www.donga.com/news/Politics/article/all/20260902/134591484/1",
+          "source": "Naver (동아일보)",
+          "press_name": "동아일보",
+          "pub_time": "09월 02일 16:44"
+        },
+        {
+          "title": "[신간]‘스포츠워싱’ 오프사이드보다 무서운 머니사이드",
+          "link": "https://sports.donga.com/life/article/all/20260902/134592332/1",
+          "source": "Naver (동아일보)",
+          "press_name": "동아일보",
+          "pub_time": "09월 02일 17:13"
+        },
+        {
+          "title": "“강남아파트에서 전세 3억5천만에 거주”…탈세의혹에 김성수 “정리할...",
+          "link": "https://www.mk.co.kr/article/12142510",
+          "source": "Naver (매일경제)",
+          "press_name": "매일경제",
+          "pub_time": "09월 02일 17:28"
+        },
+        {
+          "title": "이 대통령 \"한반도 평화, 우리가 주역…전작권 환수로 책임 다할 것\"",
+          "link": "http://mbn.mk.co.kr/pages/news/newsView.php?category=mbn00006&news_seq_no=5216512",
+          "source": "Naver (매일경제)",
+          "press_name": "매일경제",
+          "pub_time": "09월 02일 17:33"
+        },
+        {
+          "title": "K-컬처 관광객 지역 분산 어떻게?…한반도문화관광연구원 '관광상생포럼...",
+          "link": "https://www.sportschosun.com/life/2026-09-02/202609020100016860000888",
+          "source": "Naver (조선일보)",
+          "press_name": "조선일보",
+          "pub_time": "09월 02일 17:24"
+        },
+        {
+          "title": "조국 \"내가 반명? 그냥 웃고 만다…李 정부 성공 위해 쓴소리 필요\"",
+          "link": "http://weekly.chosun.com/news/articleView.html?idxno=54893",
+          "source": "Naver (조선일보)",
+          "press_name": "조선일보",
+          "pub_time": "09월 02일 17:40"
+        },
+        {
+          "title": "“위성정당, 소수정당 생존 방식” 용혜인 옹호에…장혜영 “당당한 궤...",
+          "link": "https://www.joongang.co.kr/article/25458549",
+          "source": "Naver (중앙일보)",
+          "press_name": "중앙일보",
+          "pub_time": "09월 02일 17:16"
+        },
+        {
+          "title": "연수원 14기 84명 “李대통령 대법관 재제청 요구, 헌법 근거 없어…중...",
+          "link": "https://www.joongang.co.kr/article/25458555",
+          "source": "Naver (중앙일보)",
+          "press_name": "중앙일보",
+          "pub_time": "09월 02일 17:40"
+        },
+        {
+          "title": "“이재명 전 지사는 책임 없어”…추미애, 재정 위기 김동연 탓",
+          "link": "https://www.hani.co.kr/arti/area/capital/1275902.html",
+          "source": "Naver (한겨레)",
+          "press_name": "한겨레",
+          "pub_time": "09월 02일 17:02"
+        },
+        {
+          "title": "‘사직 사유:헤그세스’…미 육군 장관, 트럼프 찾아가 사표 던졌다",
+          "link": "https://www.hani.co.kr/arti/international/america/1275918.html",
+          "source": "Naver (한겨레)",
+          "press_name": "한겨레",
+          "pub_time": "09월 02일 17:28"
+        },
+        {
+          "title": "'건진법사에 공천 대가 1억' 박창욱 전 경북도의원 징역 1년 확정",
+          "link": "https://www.hankyung.com/article/202609029763i",
+          "source": "Naver (한국경제)",
+          "press_name": "한국경제",
+          "pub_time": "09월 02일 16:42"
+        },
+        {
+          "title": "\"헌법의 경계 넘지 말라\"…원로 법조인 84명, 대법관 제청 논란에 집단...",
+          "link": "https://www.hankyung.com/article/202609020021i",
+          "source": "Naver (한국경제)",
+          "press_name": "한국경제",
+          "pub_time": "09월 02일 16:42"
         }
       ],
       "경제": [
         {
-          "title": "해당 시간 범위 내 10대 언론사의 경제 기사가 출고되지 않았습니다.",
-          "link": "#",
-          "source": "System",
-          "press_name": "안내",
-          "pub_time": ""
+          "title": "쿠팡, 로비선 “미국 기업”…법정에선 “한국 플랫폼”",
+          "link": "https://news.kbs.co.kr/news/pc/view/view.do?ncd=8652767&ref=A",
+          "source": "Naver (KBS)",
+          "press_name": "KBS",
+          "pub_time": "09월 02일 15:33"
+        },
+        {
+          "title": "“감독 선임에 왜 개입?” 질문에 정몽규 “부당 개입한 거 없다” [지금...",
+          "link": "https://news.kbs.co.kr/news/pc/view/view.do?ncd=8652830&ref=A",
+          "source": "Naver (KBS)",
+          "press_name": "KBS",
+          "pub_time": "09월 02일 17:16"
+        },
+        {
+          "title": "일제히 하락했던 지수‥약보합권 머물러",
+          "link": "https://imnews.imbc.com/replay/2026/nw1700/article/6849158_36981.html",
+          "source": "Naver (MBC)",
+          "press_name": "MBC",
+          "pub_time": "09월 02일 17:06"
+        },
+        {
+          "title": "오늘의 증시",
+          "link": "https://imnews.imbc.com/replay/2026/nw1700/article/6849160_36981.html",
+          "source": "Naver (MBC)",
+          "press_name": "MBC",
+          "pub_time": "09월 02일 17:07"
+        },
+        {
+          "title": "[집중진단] 기초연금 ‘하후상박’ 개편 결국 무산…소득 하위 30%에 3만...",
+          "link": "https://biz.sbs.co.kr/article_hub/20000332015?division=NAVER",
+          "source": "Naver (SBS)",
+          "press_name": "SBS",
+          "pub_time": "09월 02일 17:32"
+        },
+        {
+          "title": "\"미국 필요한 것 다 해주는 동맹!\" 트럼프 '모든 나라와 잘 지내는 법'?...",
+          "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008733726&plink=ORI&cooper=NAVER",
+          "source": "Naver (SBS)",
+          "press_name": "SBS",
+          "pub_time": "09월 02일 17:36"
+        },
+        {
+          "title": "“정청래 세력이 작업” ‘윤리감찰단 텔레’ 파문, 끝나지 않는 민주당...",
+          "link": "https://www.khan.co.kr/article/202609021633001",
+          "source": "Naver (경향신문)",
+          "press_name": "경향신문",
+          "pub_time": "09월 02일 16:33"
+        },
+        {
+          "title": "車사고 나이롱 환자 거르는 ‘8주룰’ 10일부터 시행",
+          "link": "https://www.donga.com/news/Economy/article/all/20260902/134590902/1",
+          "source": "Naver (동아일보)",
+          "press_name": "동아일보",
+          "pub_time": "09월 02일 17:20"
+        },
+        {
+          "title": "북한과 러시아 군사·경제 밀착 강화할 두만강 자동차 전용 다리 개통",
+          "link": "https://weekly.donga.com/3/all/11/6371083/1",
+          "source": "Naver (동아일보)",
+          "press_name": "동아일보",
+          "pub_time": "09월 02일 17:36"
+        },
+        {
+          "title": "\"단장은 든든한 울타리 …'원 팀 코리아' 감동드릴 것\"",
+          "link": "https://www.mk.co.kr/article/12142530",
+          "source": "Naver (매일경제)",
+          "press_name": "매일경제",
+          "pub_time": "09월 02일 17:38"
+        },
+        {
+          "title": "[알립니다] AI 경영혁신 이끈 기업 찾습니다",
+          "link": "https://www.mk.co.kr/article/12142547",
+          "source": "Naver (매일경제)",
+          "press_name": "매일경제",
+          "pub_time": "09월 02일 17:39"
+        },
+        {
+          "title": "K-컬처 관광객 지역 분산 어떻게?…한반도문화관광연구원 '관광상생포럼...",
+          "link": "https://www.sportschosun.com/life/2026-09-02/202609020100016860000888",
+          "source": "Naver (조선일보)",
+          "press_name": "조선일보",
+          "pub_time": "09월 02일 17:24"
+        },
+        {
+          "title": "변광용 거제시장 “양대 조선소 설계 인력, 부산 확대 계획 재검토해야...",
+          "link": "https://www.chosun.com/national/2026/09/02/JH3CI55KZZDODERIFZZKM5WDSU/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
+          "source": "Naver (조선일보)",
+          "press_name": "조선일보",
+          "pub_time": "09월 02일 17:30"
+        },
+        {
+          "title": "해외금융계좌 신고액 3년만에 100조 돌파…신고자도 9.1% 늘었다",
+          "link": "https://www.joongang.co.kr/article/25458552",
+          "source": "Naver (중앙일보)",
+          "press_name": "중앙일보",
+          "pub_time": "09월 02일 17:25"
+        },
+        {
+          "title": "유가·금리 불안에 코스피 4% 털썩, 6500선…“고금리 장기화 대비해야...",
+          "link": "https://www.hani.co.kr/arti/economy/finance/1275900.html",
+          "source": "Naver (한겨레)",
+          "press_name": "한겨레",
+          "pub_time": "09월 02일 16:56"
+        },
+        {
+          "title": "8월 소비자물가 3.1%↑…“근원물가 기조적 상승세”",
+          "link": "https://www.hani.co.kr/arti/economy/economy_general/1275921.html",
+          "source": "Naver (한겨레)",
+          "press_name": "한겨레",
+          "pub_time": "09월 02일 17:34"
+        },
+        {
+          "title": "[포토] 베스트 퇴직연금 2026 시상식",
+          "link": "https://www.hankyung.com/article/2026090202691",
+          "source": "Naver (한국경제)",
+          "press_name": "한국경제",
+          "pub_time": "09월 02일 17:37"
+        },
+        {
+          "title": "이형일 \"거주·비거주 세금 차이 둬야\"",
+          "link": "https://www.hankyung.com/article/2026090202627",
+          "source": "Naver (한국경제)",
+          "press_name": "한국경제",
+          "pub_time": "09월 02일 17:37"
         }
       ],
       "사회": [
         {
-          "title": "해당 시간 범위 내 10대 언론사의 사회 기사가 출고되지 않았습니다.",
-          "link": "#",
-          "source": "System",
-          "press_name": "안내",
-          "pub_time": ""
+          "title": "“중증 장애인 시설장이 성폭행”…색동원 대표, 1심 징역 15년 [지금뉴...",
+          "link": "https://news.kbs.co.kr/news/pc/view/view.do?ncd=8652838&ref=A",
+          "source": "Naver (KBS)",
+          "press_name": "KBS",
+          "pub_time": "09월 02일 17:24"
+        },
+        {
+          "title": "일본 민단에 면도칼 든 우편물…극우 소행 추정",
+          "link": "https://news.kbs.co.kr/news/pc/view/view.do?ncd=8652844&ref=A",
+          "source": "Naver (KBS)",
+          "press_name": "KBS",
+          "pub_time": "09월 02일 17:33"
+        },
+        {
+          "title": "'장윤기 분리수사' 전 국수본부장 등 기소.. \"통상 지시\" 반박",
+          "link": "https://kjmbc.co.kr/NewsArticle/1535094",
+          "source": "Naver (MBC)",
+          "press_name": "MBC",
+          "pub_time": "09월 02일 17:05"
+        },
+        {
+          "title": "[리포트] \"몰린 N수생에 지역의사제까지\".. 셈법 복잡해진 대입",
+          "link": "https://chmbc.co.kr/article/UxAklup0ED-ld8K4zey-F2",
+          "source": "Naver (MBC)",
+          "press_name": "MBC",
+          "pub_time": "09월 02일 17:30"
+        },
+        {
+          "title": "[집중진단] 기초연금 ‘하후상박’ 개편 결국 무산…소득 하위 30%에 3만...",
+          "link": "https://biz.sbs.co.kr/article_hub/20000332015?division=NAVER",
+          "source": "Naver (SBS)",
+          "press_name": "SBS",
+          "pub_time": "09월 02일 17:32"
+        },
+        {
+          "title": "[자막뉴스] \"비난 피하려 분리 수사\" 기소에…전 국수본부장 \"상식 밖 논...",
+          "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008734682&plink=ORI&cooper=NAVER",
+          "source": "Naver (SBS)",
+          "press_name": "SBS",
+          "pub_time": "09월 02일 17:42"
+        },
+        {
+          "title": "6년째 옥살이 홍콩 민주화 운동가 조슈아 웡, ‘외국과의 공모’ 혐의 ...",
+          "link": "https://www.khan.co.kr/article/202609021719001",
+          "source": "Naver (경향신문)",
+          "press_name": "경향신문",
+          "pub_time": "09월 02일 17:19"
+        },
+        {
+          "title": "커지는 기후재난에 선진국들 발행 늘리는 ‘재해채권’, 한국은 ‘0’",
+          "link": "https://www.khan.co.kr/article/202609021737001",
+          "source": "Naver (경향신문)",
+          "press_name": "경향신문",
+          "pub_time": "09월 02일 17:37"
+        },
+        {
+          "title": "박성주 前국수본부장 “기소 부당…장윤기 사건 정상적 업무지시”",
+          "link": "https://www.donga.com/news/Society/article/all/20260902/134591296/1",
+          "source": "Naver (동아일보)",
+          "press_name": "동아일보",
+          "pub_time": "09월 02일 15:44"
+        },
+        {
+          "title": "檢, 박성주 前국수본부장 기소…장윤기 ‘분리수사’ 지시 혐의",
+          "link": "https://www.donga.com/news/Society/article/all/20260902/134591515/1",
+          "source": "Naver (동아일보)",
+          "press_name": "동아일보",
+          "pub_time": "09월 02일 16:34"
+        },
+        {
+          "title": "굶기고 오물 속 방치…고양이 10마리 숨지게 한 30대 집유",
+          "link": "http://mbn.mk.co.kr/pages/news/newsView.php?category=mbn00009&news_seq_no=5216506",
+          "source": "Naver (매일경제)",
+          "press_name": "매일경제",
+          "pub_time": "09월 02일 17:20"
+        },
+        {
+          "title": "\"단장은 든든한 울타리 …'원 팀 코리아' 감동드릴 것\"",
+          "link": "https://www.mk.co.kr/article/12142530",
+          "source": "Naver (매일경제)",
+          "press_name": "매일경제",
+          "pub_time": "09월 02일 17:38"
+        },
+        {
+          "title": "“권리 중심 공공 일자리, 최중증 발달장애인 소외” 장애인거주시설이...",
+          "link": "https://health.chosun.com/site/data/html_dir/2026/09/02/2026090202903.html",
+          "source": "Naver (조선일보)",
+          "press_name": "조선일보",
+          "pub_time": "09월 02일 17:27"
+        },
+        {
+          "title": "변광용 거제시장 “양대 조선소 설계 인력, 부산 확대 계획 재검토해야...",
+          "link": "https://www.chosun.com/national/2026/09/02/JH3CI55KZZDODERIFZZKM5WDSU/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
+          "source": "Naver (조선일보)",
+          "press_name": "조선일보",
+          "pub_time": "09월 02일 17:30"
+        },
+        {
+          "title": "선관위, 후원회없이 1000여만원 모금한 경선후보 검찰 고발",
+          "link": "https://www.joongang.co.kr/article/25458545",
+          "source": "Naver (중앙일보)",
+          "press_name": "중앙일보",
+          "pub_time": "09월 02일 17:07"
+        },
+        {
+          "title": "교육시설안전원, 네팔 대홍수 피해돕기 긴급구호금 전달",
+          "link": "https://www.joongang.co.kr/article/25458554",
+          "source": "Naver (중앙일보)",
+          "press_name": "중앙일보",
+          "pub_time": "09월 02일 17:35"
+        },
+        {
+          "title": "‘15살 여공 출신’ 박영숙 활동가, 국민훈장 목련장 수훈",
+          "link": "https://www.hani.co.kr/arti/area/honam/1275910.html",
+          "source": "Naver (한겨레)",
+          "press_name": "한겨레",
+          "pub_time": "09월 02일 17:18"
+        },
+        {
+          "title": "인천공항 노숙인 퇴거 조치, 관음증적 혐오 보도가 문제다",
+          "link": "https://h21.hani.co.kr/arti/society/society_general/59822.html",
+          "source": "Naver (한겨레)",
+          "press_name": "한겨레",
+          "pub_time": "09월 02일 17:26"
+        },
+        {
+          "title": "'장윤기 사건 축소' 박성주 前국수본부장 기소",
+          "link": "https://www.hankyung.com/article/2026090203471",
+          "source": "Naver (한국경제)",
+          "press_name": "한국경제",
+          "pub_time": "09월 02일 17:46"
+        },
+        {
+          "title": "'국회 불출석·위증' 쿠팡 김범석·로저스 무혐의",
+          "link": "https://www.hankyung.com/article/2026090203431",
+          "source": "Naver (한국경제)",
+          "press_name": "한국경제",
+          "pub_time": "09월 02일 17:46"
         }
       ],
       "생활/문화": [
         {
-          "title": "해당 시간 범위 내 10대 언론사의 생활/문화 기사가 출고되지 않았습니다.",
-          "link": "#",
-          "source": "System",
-          "press_name": "안내",
-          "pub_time": ""
+          "title": "[사사건건] 기초연금, 일단 손은 봤지만…",
+          "link": "https://news.kbs.co.kr/news/pc/view/view.do?ncd=8652794&ref=A",
+          "source": "Naver (KBS)",
+          "press_name": "KBS",
+          "pub_time": "09월 02일 16:38"
+        },
+        {
+          "title": "[퇴근길 날씨] 내일, 30도 안팎 더위…충청·남부지방 소나기",
+          "link": "https://news.kbs.co.kr/news/pc/view/view.do?ncd=8652839&ref=A",
+          "source": "Naver (KBS)",
+          "press_name": "KBS",
+          "pub_time": "09월 02일 17:24"
+        },
+        {
+          "title": "원주 선언한 현대미술관 유치전, 전국 지자체 가세",
+          "link": "https://chmbc.co.kr/article/uUUO6i5lZa1fGep",
+          "source": "Naver (MBC)",
+          "press_name": "MBC",
+          "pub_time": "09월 02일 17:26"
+        },
+        {
+          "title": "문수체육관에서 여성·관광 일자리페스타 열려",
+          "link": "https://www.usmbc.co.kr/NewsArticle/860144",
+          "source": "Naver (MBC)",
+          "press_name": "MBC",
+          "pub_time": "09월 02일 17:38"
+        },
+        {
+          "title": "[날씨] 정체전선 약화로 비 '주춤'…남부 무더위 계속",
+          "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008733990&plink=ORI&cooper=NAVER",
+          "source": "Naver (SBS)",
+          "press_name": "SBS",
+          "pub_time": "09월 02일 12:52"
+        },
+        {
+          "title": "[날씨] 경주·양산 낮 34도…남부 소나기",
+          "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008734466&plink=ORI&cooper=NAVER",
+          "source": "Naver (SBS)",
+          "press_name": "SBS",
+          "pub_time": "09월 02일 17:11"
+        },
+        {
+          "title": "‘고민 상담한다’며 학생 추행한 교사 징역형 집유",
+          "link": "https://www.khan.co.kr/article/202609021706001",
+          "source": "Naver (경향신문)",
+          "press_name": "경향신문",
+          "pub_time": "09월 02일 17:06"
+        },
+        {
+          "title": "‘세 자녀 살해’ 여성에 지지자 수백명···미국 사회 달군 클랜시 사...",
+          "link": "https://www.khan.co.kr/article/202609021709011",
+          "source": "Naver (경향신문)",
+          "press_name": "경향신문",
+          "pub_time": "09월 02일 17:09"
+        },
+        {
+          "title": "여주시 대신면, 주민 1천여 명 함께한 ‘면민 화합의 장’ 열어",
+          "link": "https://sports.donga.com/region/article/all/20260902/134589564/1",
+          "source": "Naver (동아일보)",
+          "press_name": "동아일보",
+          "pub_time": "09월 02일 12:16"
+        },
+        {
+          "title": "박준면, 신기루와 낮술 다음 날 해장밥상…“국물 미쳤다”",
+          "link": "https://sports.donga.com/ent/article/all/20260902/134589968/1",
+          "source": "Naver (동아일보)",
+          "press_name": "동아일보",
+          "pub_time": "09월 02일 13:30"
+        },
+        {
+          "title": "[알립니다] AI 경영혁신 이끈 기업 찾습니다",
+          "link": "https://www.mk.co.kr/article/12142547",
+          "source": "Naver (매일경제)",
+          "press_name": "매일경제",
+          "pub_time": "09월 02일 17:39"
+        },
+        {
+          "title": "\"키옥시아와 공동 생산 가능… 연내 일본 투자안 내놓을것\"",
+          "link": "https://www.mk.co.kr/article/12142538",
+          "source": "Naver (매일경제)",
+          "press_name": "매일경제",
+          "pub_time": "09월 02일 17:39"
+        },
+        {
+          "title": "송광석 코레일관광개발 대표이사 취임…\"사람과 지역 연결, 관광의 가치...",
+          "link": "https://www.sportschosun.com/life/2026-09-02/202609020100017290000928",
+          "source": "Naver (조선일보)",
+          "press_name": "조선일보",
+          "pub_time": "09월 02일 17:37"
+        },
+        {
+          "title": "카카오톡 광고 10월 일본 상륙… K뷰티·K팝 관심층 공략",
+          "link": "https://it.chosun.com/news/articleView.html?idxno=2023092169359",
+          "source": "Naver (조선일보)",
+          "press_name": "조선일보",
+          "pub_time": "09월 02일 17:38"
+        },
+        {
+          "title": "이탈리아 스파클링 와인 프로세코 DOC, 13일까지 행사",
+          "link": "https://www.joongang.co.kr/article/25458550",
+          "source": "Naver (중앙일보)",
+          "press_name": "중앙일보",
+          "pub_time": "09월 02일 17:25"
+        },
+        {
+          "title": "용혜인 ‘의원 겸직’ 논란에 청와대 고심…‘부정적 여론’에 우려",
+          "link": "https://www.hani.co.kr/arti/politics/bluehouse/1275917.html",
+          "source": "Naver (한겨레)",
+          "press_name": "한겨레",
+          "pub_time": "09월 02일 17:28"
+        },
+        {
+          "title": "‘사직 사유:헤그세스’…미 육군 장관, 트럼프 찾아가 사표 던졌다",
+          "link": "https://www.hani.co.kr/arti/international/america/1275918.html",
+          "source": "Naver (한겨레)",
+          "press_name": "한겨레",
+          "pub_time": "09월 02일 17:28"
+        },
+        {
+          "title": "카메라 필터 열풍 시들자…스노우, 캐릭터채팅으로 日공략",
+          "link": "https://www.hankyung.com/article/2026090202251",
+          "source": "Naver (한국경제)",
+          "press_name": "한국경제",
+          "pub_time": "09월 02일 17:31"
+        },
+        {
+          "title": "콜롬비아 메데진 도서축제…한국이 주빈국으로 참가",
+          "link": "https://www.hankyung.com/article/2026090202831",
+          "source": "Naver (한국경제)",
+          "press_name": "한국경제",
+          "pub_time": "09월 02일 17:38"
         }
       ],
       "IT/과학": [
         {
-          "title": "해당 시간 범위 내 10대 언론사의 IT/과학 기사가 출고되지 않았습니다.",
-          "link": "#",
-          "source": "System",
-          "press_name": "안내",
-          "pub_time": ""
+          "title": "[News Today] ‘Panstar Acro’ navigates arctic route",
+          "link": "https://news.kbs.co.kr/news/pc/view/view.do?ncd=8652802&ref=A",
+          "source": "Naver (KBS)",
+          "press_name": "KBS",
+          "pub_time": "09월 02일 16:40"
+        },
+        {
+          "title": "[News Today] ‘Complete collection’ buying popular",
+          "link": "https://news.kbs.co.kr/news/pc/view/view.do?ncd=8652803&ref=A",
+          "source": "Naver (KBS)",
+          "press_name": "KBS",
+          "pub_time": "09월 02일 16:41"
+        },
+        {
+          "title": "[음악중심M] 여름밤 뜨겁게 달군 스트레이 키즈, 내가 콘서트 최강자",
+          "link": "http://enews.imbc.com/News/RetrieveNewsInfo/516438",
+          "source": "Naver (MBC)",
+          "press_name": "MBC",
+          "pub_time": "09월 02일 16:01"
+        },
+        {
+          "title": "광양경자청, ‘K-FEZ Day 2026’에서 글로벌 투자 유치",
+          "link": "https://ysmbc.co.kr/NewsArticle/1535107",
+          "source": "Naver (MBC)",
+          "press_name": "MBC",
+          "pub_time": "09월 02일 17:16"
+        },
+        {
+          "title": "[인터뷰] 이광재 \"용혜인, 장관직에 맞는지 자신과 대화해야…이소영 지...",
+          "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008734614&plink=ORI&cooper=NAVER",
+          "source": "Naver (SBS)",
+          "press_name": "SBS",
+          "pub_time": "09월 02일 16:36"
+        },
+        {
+          "title": "[집중진단] 기초연금 ‘하후상박’ 개편 결국 무산…소득 하위 30%에 3만...",
+          "link": "https://biz.sbs.co.kr/article_hub/20000332015?division=NAVER",
+          "source": "Naver (SBS)",
+          "press_name": "SBS",
+          "pub_time": "09월 02일 17:32"
+        },
+        {
+          "title": "카카오도 ‘유료 멤버십’ 띄운다…톡·택시·멜론 등 계열사 혜택 묶나",
+          "link": "https://www.khan.co.kr/article/202609021630001",
+          "source": "Naver (경향신문)",
+          "press_name": "경향신문",
+          "pub_time": "09월 02일 16:30"
+        },
+        {
+          "title": "나를 대체할 AI를 가르쳐 돈 번다…커지는 ‘AI 전문지식 판매’ 시장, ...",
+          "link": "https://www.khan.co.kr/article/202609021634001",
+          "source": "Naver (경향신문)",
+          "press_name": "경향신문",
+          "pub_time": "09월 02일 16:34"
+        },
+        {
+          "title": "스트레이 키즈, 새 앨범으로 ‘빌보드 200’ 3주 연속 톱10 기록",
+          "link": "https://sports.donga.com/ent/article/all/20260902/134590879/1",
+          "source": "Naver (동아일보)",
+          "press_name": "동아일보",
+          "pub_time": "09월 02일 15:21"
+        },
+        {
+          "title": "“사교육 경쟁 없었다면 자녀 28% 더 낳았다…엄친아 비교에 저출산”",
+          "link": "https://www.donga.com/news/Economy/article/all/20260902/134590407/1",
+          "source": "Naver (동아일보)",
+          "press_name": "동아일보",
+          "pub_time": "09월 02일 17:10"
+        },
+        {
+          "title": "스트레이 키즈, 美 ‘빌보드 200’ 3주 연속 톱10…글로벌 기록 행진",
+          "link": "https://www.mk.co.kr/article/12142459",
+          "source": "Naver (매일경제)",
+          "press_name": "매일경제",
+          "pub_time": "09월 02일 16:42"
+        },
+        {
+          "title": "두산퓨얼셀, 美데이터센터 뚫었다",
+          "link": "https://www.mk.co.kr/article/12142540",
+          "source": "Naver (매일경제)",
+          "press_name": "매일경제",
+          "pub_time": "09월 02일 17:39"
+        },
+        {
+          "title": "카카오, 카톡·택시·음악 묶은 ‘유료 멤버십’ 출시한다",
+          "link": "https://www.chosun.com/economy/tech_it/2026/09/02/66E7ZOT47ZCJDPH5YG7MEMZAEQ/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
+          "source": "Naver (조선일보)",
+          "press_name": "조선일보",
+          "pub_time": "09월 02일 16:13"
+        },
+        {
+          "title": "KISO \"허위정보 판단 확대하면 플랫폼 권력화\"",
+          "link": "https://it.chosun.com/news/articleView.html?idxno=2023092169348",
+          "source": "Naver (조선일보)",
+          "press_name": "조선일보",
+          "pub_time": "09월 02일 16:58"
+        },
+        {
+          "title": "[2026 하반기 혁신 IT 대상] 엑서스, 생성AI 기반 에듀테크 플랫폼",
+          "link": "https://www.joongang.co.kr/article/25458500",
+          "source": "Naver (중앙일보)",
+          "press_name": "중앙일보",
+          "pub_time": "09월 02일 15:20"
+        },
+        {
+          "title": "[2026 하반기 혁신 IT 대상] 엑타스, AI 비전 기반 정제 품질검사 기술",
+          "link": "https://www.joongang.co.kr/article/25458505",
+          "source": "Naver (중앙일보)",
+          "press_name": "중앙일보",
+          "pub_time": "09월 02일 15:30"
+        },
+        {
+          "title": "유가·금리 불안에 코스피 4% 털썩, 6500선…“고금리 장기화 대비해야...",
+          "link": "https://www.hani.co.kr/arti/economy/finance/1275900.html",
+          "source": "Naver (한겨레)",
+          "press_name": "한겨레",
+          "pub_time": "09월 02일 16:56"
+        },
+        {
+          "title": "PF 대체하나…데이터센터 금융 사상 최대",
+          "link": "https://www.hankyung.com/article/2026090202741",
+          "source": "Naver (한국경제)",
+          "press_name": "한국경제",
+          "pub_time": "09월 02일 17:37"
+        },
+        {
+          "title": "\"올해 보험 M&A트렌드는 AI·데이터 역량과 자산운용 등 수익원 확보\"",
+          "link": "https://www.hankyung.com/article/202609016303r",
+          "source": "Naver (한국경제)",
+          "press_name": "한국경제",
+          "pub_time": "09월 02일 17:39"
         }
       ],
       "세계": [
         {
-          "title": "해당 시간 범위 내 10대 언론사의 세계 기사가 출고되지 않았습니다.",
-          "link": "#",
-          "source": "System",
-          "press_name": "안내",
-          "pub_time": ""
+          "title": "미국, 이틀 만에 다시 대이란 공습…이란 ‘결정적 작전’ 대응",
+          "link": "https://news.kbs.co.kr/news/pc/view/view.do?ncd=8652834&ref=A",
+          "source": "Naver (KBS)",
+          "press_name": "KBS",
+          "pub_time": "09월 02일 17:19"
+        },
+        {
+          "title": "‘치폴레’ 아시아 1호 상륙은 서울 강남…한국 시장에도 통할까",
+          "link": "https://news.kbs.co.kr/news/pc/view/view.do?ncd=8652841&ref=A",
+          "source": "Naver (KBS)",
+          "press_name": "KBS",
+          "pub_time": "09월 02일 17:26"
+        },
+        {
+          "title": "전주기상지청, 100년 관측소 인증 현판식 개최",
+          "link": "http://www.jmbc.co.kr/news/view/67607",
+          "source": "Naver (MBC)",
+          "press_name": "MBC",
+          "pub_time": "09월 02일 17:31"
+        },
+        {
+          "title": "액화 이산화탄소 운반 기술‥'IR52 장영실상' 수상",
+          "link": "https://www.usmbc.co.kr/NewsArticle/860150",
+          "source": "Naver (MBC)",
+          "press_name": "MBC",
+          "pub_time": "09월 02일 17:38"
+        },
+        {
+          "title": "G20 재무장관회의 中겨냥 의장성명 채택…美中회담 샅바싸움",
+          "link": "https://biz.sbs.co.kr/article_hub/20000332387?division=NAVER",
+          "source": "Naver (SBS)",
+          "press_name": "SBS",
+          "pub_time": "09월 02일 17:29"
+        },
+        {
+          "title": "\"미국 필요한 것 다 해주는 동맹!\" 트럼프 '모든 나라와 잘 지내는 법'?...",
+          "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008733726&plink=ORI&cooper=NAVER",
+          "source": "Naver (SBS)",
+          "press_name": "SBS",
+          "pub_time": "09월 02일 17:36"
+        },
+        {
+          "title": "블랙핑크 로제, 100억대 中 광고 거절…‘아파트’ 흥행 후 달라진 위상",
+          "link": "https://sports.khan.co.kr/article/202609021726003?pt=nv",
+          "source": "Naver (경향신문)",
+          "press_name": "경향신문",
+          "pub_time": "09월 02일 17:27"
+        },
+        {
+          "title": "커지는 기후재난에 선진국들 발행 늘리는 ‘재해채권’, 한국은 ‘0’",
+          "link": "https://www.khan.co.kr/article/202609021737001",
+          "source": "Naver (경향신문)",
+          "press_name": "경향신문",
+          "pub_time": "09월 02일 17:37"
+        },
+        {
+          "title": "북한과 러시아 군사·경제 밀착 강화할 두만강 자동차 전용 다리 개통",
+          "link": "https://weekly.donga.com/3/all/11/6371083/1",
+          "source": "Naver (동아일보)",
+          "press_name": "동아일보",
+          "pub_time": "09월 02일 17:36"
+        },
+        {
+          "title": "로제, ‘中 100억 광고’도 거절하더니…1년 준비한 협업도 기준 안 맞으...",
+          "link": "https://sports.donga.com/ent/article/all/20260902/134593287/1",
+          "source": "Naver (동아일보)",
+          "press_name": "동아일보",
+          "pub_time": "09월 02일 17:40"
+        },
+        {
+          "title": "뜨거워진 GPU·CPU 냉각블록 붙여 식힌다",
+          "link": "https://www.mk.co.kr/article/12142546",
+          "source": "Naver (매일경제)",
+          "press_name": "매일경제",
+          "pub_time": "09월 02일 17:39"
+        },
+        {
+          "title": "[매경이코노미스트] 재정건전성도 '투자'다",
+          "link": "https://www.mk.co.kr/article/12142554",
+          "source": "Naver (매일경제)",
+          "press_name": "매일경제",
+          "pub_time": "09월 02일 17:44"
+        },
+        {
+          "title": "변광용 거제시장 “양대 조선소 설계 인력, 부산 확대 계획 재검토해야...",
+          "link": "https://www.chosun.com/national/2026/09/02/JH3CI55KZZDODERIFZZKM5WDSU/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
+          "source": "Naver (조선일보)",
+          "press_name": "조선일보",
+          "pub_time": "09월 02일 17:30"
+        },
+        {
+          "title": "KBS교향악단 10일 830회 정기연주회…9대 음악감독 잉키넨 지휘",
+          "link": "https://news.tvchosun.com/site/data/html_dir/2026/09/02/2026090290198.html",
+          "source": "Naver (조선일보)",
+          "press_name": "조선일보",
+          "pub_time": "09월 02일 17:33"
+        },
+        {
+          "title": "이 대통령 “트럼프 결단으로 한반도 변화 가능성…대화 여건 우리가 만...",
+          "link": "https://www.joongang.co.kr/article/25458556",
+          "source": "Naver (중앙일보)",
+          "press_name": "중앙일보",
+          "pub_time": "09월 02일 17:43"
+        },
+        {
+          "title": "2010 프랑스, 2026 한국...악몽의 축구 데자뷔",
+          "link": "https://www.joongang.co.kr/article/25458557",
+          "source": "Naver (중앙일보)",
+          "press_name": "중앙일보",
+          "pub_time": "09월 02일 17:44"
+        },
+        {
+          "title": "‘사직 사유:헤그세스’…미 육군 장관, 트럼프 찾아가 사표 던졌다",
+          "link": "https://www.hani.co.kr/arti/international/america/1275918.html",
+          "source": "Naver (한겨레)",
+          "press_name": "한겨레",
+          "pub_time": "09월 02일 17:28"
+        },
+        {
+          "title": "유엔, “기온상승폭 1.5도 제한 불가능” 인정…‘초과 후 재감축’으로...",
+          "link": "https://www.hani.co.kr/arti/international/international_general/1275923.html",
+          "source": "Naver (한겨레)",
+          "press_name": "한겨레",
+          "pub_time": "09월 02일 17:46"
+        },
+        {
+          "title": "[단독] '반도체 배당'만 수조원…삼성 금융계열사, 첫 해외 M&A",
+          "link": "https://www.hankyung.com/article/2026090202781",
+          "source": "Naver (한국경제)",
+          "press_name": "한국경제",
+          "pub_time": "09월 02일 17:46"
+        },
+        {
+          "title": "돌다리만 두드리다 실기했던 삼성, M&A 자신감 붙었다",
+          "link": "https://www.hankyung.com/article/202609029951r",
+          "source": "Naver (한국경제)",
+          "press_name": "한국경제",
+          "pub_time": "09월 02일 17:47"
         }
       ],
       "사설": [
         {
-          "title": "해당 시간 범위 내 10대 언론사의 사설 기사가 출고되지 않았습니다.",
-          "link": "#",
-          "source": "System",
-          "press_name": "안내",
-          "pub_time": ""
+          "title": "[사설]821조 역대 최대 예산, 성장과 격차해소 둘 다 잡아야",
+          "link": "https://www.khan.co.kr/article/202609011849001",
+          "source": "Naver (경향신문)",
+          "press_name": "경향신문",
+          "pub_time": "09월 01일 18:49"
+        },
+        {
+          "title": "[사설]첫발 뗀 ‘서울대 10개 만들기’, 지역 살리기 실질 거점 만들어...",
+          "link": "https://www.khan.co.kr/article/202609011851001",
+          "source": "Naver (경향신문)",
+          "press_name": "경향신문",
+          "pub_time": "09월 01일 18:51"
+        },
+        {
+          "title": "[사설]김용범 사퇴… 내각이 청와대만 쳐다보도록 해선 안 돼",
+          "link": "https://www.donga.com/news/Opinion/article/all/20260901/134586842/2",
+          "source": "Naver (동아일보)",
+          "press_name": "동아일보",
+          "pub_time": "09월 01일 23:28"
+        },
+        {
+          "title": "[사설]내년 예산 821조, 나랏빚 1500조… ‘빚의 역습’ 대비해야",
+          "link": "https://www.donga.com/news/Opinion/article/all/20260901/134586836/2",
+          "source": "Naver (동아일보)",
+          "press_name": "동아일보",
+          "pub_time": "09월 01일 23:31"
+        },
+        {
+          "title": "슈퍼 예산 풀기도 전인데…물가는 다시 3%대 [사설]",
+          "link": "https://www.mk.co.kr/article/12142555",
+          "source": "Naver (매일경제)",
+          "press_name": "매일경제",
+          "pub_time": "09월 02일 17:44"
+        },
+        {
+          "title": "출범 앞두고 정원 40% 비는 중수청, 중대 범죄 누가 막나 [사설]",
+          "link": "https://www.mk.co.kr/article/12142557",
+          "source": "Naver (매일경제)",
+          "press_name": "매일경제",
+          "pub_time": "09월 02일 17:45"
+        },
+        {
+          "title": "[사설] 개각서 김용범 뺐다가, 다음날 경질, 희한한 쇄신 인사",
+          "link": "https://www.chosun.com/opinion/editorial/2026/09/02/XURGIR75M5ELJJUY6E2TUFB7TM/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
+          "source": "Naver (조선일보)",
+          "press_name": "조선일보",
+          "pub_time": "09월 02일 00:11"
+        },
+        {
+          "title": "[사설] 박·문·윤 정부 합친 것만큼 늘리겠다는 이재명 정부 예산",
+          "link": "https://www.chosun.com/opinion/editorial/2026/09/02/7L64TSZB5FGH3FTPMJ2XSHCMV4/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
+          "source": "Naver (조선일보)",
+          "press_name": "조선일보",
+          "pub_time": "09월 02일 00:21"
+        },
+        {
+          "title": "[사설] 반도체 특수 기댄 821조 예산…여유 있을 때 나랏빚 갚아야",
+          "link": "https://www.joongang.co.kr/article/25458270",
+          "source": "Naver (중앙일보)",
+          "press_name": "중앙일보",
+          "pub_time": "09월 02일 00:24"
+        },
+        {
+          "title": "[사설] 세제 개편 철회, 정책실장 경질…설익은 정책이 남긴 교훈",
+          "link": "https://www.joongang.co.kr/article/25458272",
+          "source": "Naver (중앙일보)",
+          "press_name": "중앙일보",
+          "pub_time": "09월 02일 00:26"
+        },
+        {
+          "title": "[사설] 기초연금 개편, 월 3만원으로 ‘하후’라고 말할 수 있나",
+          "link": "https://www.hani.co.kr/arti/opinion/editorial/1275779.html",
+          "source": "Naver (한겨레)",
+          "press_name": "한겨레",
+          "pub_time": "09월 01일 21:56"
+        },
+        {
+          "title": "[사설] 5년 끈 임신중지 약물 승인, 더는 미루지 말아야",
+          "link": "https://www.hani.co.kr/arti/opinion/editorial/1275922.html",
+          "source": "Naver (한겨레)",
+          "press_name": "한겨레",
+          "pub_time": "09월 02일 17:42"
+        },
+        {
+          "title": "[사설] 靑 정책실장 사퇴…국정 현안 돌아보는 계기 돼야",
+          "link": "https://www.hankyung.com/article/2026090175041",
+          "source": "Naver (한국경제)",
+          "press_name": "한국경제",
+          "pub_time": "09월 02일 00:10"
+        },
+        {
+          "title": "[사설] 노동감독관·교원 대폭 증원…국민 체감할 어떤 실익이 있나",
+          "link": "https://www.hankyung.com/article/2026090175051",
+          "source": "Naver (한국경제)",
+          "press_name": "한국경제",
+          "pub_time": "09월 02일 00:10"
         }
       ]
     }
   },
   "realtime": {
     "date": "2026-09-02",
-    "updated_at": "2026년 09월 02일 17:41",
-    "summary": "지정된 시간 범위 내 수집된 기사가 없어 요약을 생성하지 못했습니다.",
+    "updated_at": "2026년 09월 02일 17:47",
+    "summary": "# 📰 [데스크 브리핑] 3분 만에 읽는 오늘의 핵심 뉴스\n\n---\n\n# 🚀 오늘의 3대 핵심 이슈\n\n1. **821조 ‘슈퍼 예산’ 타결과 나랏빚·물가 경고등**\n   * 내년도 예산이 역대 최대 규모인 821조 원으로 윤곽을 잡았으나, 8월 소비자물가가 다시 3.1%로 반등하고 나랏빚 1,500조 우려가 겹치며 재정건전성과 물가 자극에 대한 언론의 집중 포화가 이어지고 있습니다.\n\n2. **‘설익은 세제 정책’ 후폭풍… 靑 정책실장 경질 및 법조계 반발**\n   * 세제 개편 철회 및 김용범 정책실장 사퇴/경질을 둘러싸고 여권 내 국정 쇄신 잡음이 커지고 있습니다. 한편, 원로 법조인 84명은 대통령의 대법관 재제청 요구에 대해 \"헌법적 근거가 없다\"며 집단 성명을 냈습니다.\n\n3. **‘장윤기 사건 분리수사’ 박성주 전 국수본부장 기소**\n   * 경찰 수사 지휘부였던 박성주 전 국가수사본부장이 장윤기 사건 축소 및 분리수사를 지휘한 혐의로 검찰에 기소되면서 사법·경찰 라인에 상당한 파장이 일고 있습니다.\n\n---\n\n# 📊 분야별 리포트\n\n### 🏛️ 정치\n* **평화체제·전작권 추진 vs 헌법 논란:** 이 대통령은 정전체제의 평화체제 전환 및 전작권 환수를 강조했으나, 대법관 재제청 요구와 관련해 원로 법조인 84명이 \"헌법 유턴\"이라며 강하게 반발했습니다.\n* **여야 내분 지속:** 국민의힘은 권영진·서범수의 징계 불복 재심 청구와 함운경 위원장 압수수색으로 어수선하며, 야권에서는 조국 대표가 종부세 정책 유턴 등을 언급하며 현 정부에 대한 쓴소리를 이어갔습니다.\n\n### 💳 경제\n* **물가 3.1% 재상승 & 코스피 불안:** 8월 소비자물가가 3.1% 오르며 근원물가 상승세가 지속되는 가운데, 유가·금리 불안으로 코스피가 큰 폭으로 흔들렸습니다.\n* **기초연금 개편 무산:** 소득 하위 30%에 3만 원을 추가 지급하는 선에서 마무리되며 기대했던 ‘하후상박’ 구조 개편은 사실상 무산됐습니다.\n\n### ⚖️ 사회\n* **수사 외압 파장:** 박성주 전 국수본부장이 장윤기 사건 기소 과정에서 \"정상적 업무 지시\"라며 반발했으나 검찰 기소가 강행되었습니다.\n* **대입 셈법 복잡:** N수생 대폭 증가와 지역의사제 도입 이슈가 맞물려 올해 대입 수험생들의 눈치싸움이 더욱 치열해질 전망입니다.\n\n### 🔬 IT/과학\n* **카카오, 계열사 혜택 묶은 ‘유료 멤버십’ 추진:** 카톡, 택시, 멜론 등을 결합한 유료 멤버십 연내 출시를 검토 중입니다.\n* **AI·데이터센터 금융 폭발:** 두산퓨얼셀의 미국 데이터센터 진출 등 AI 전력 인프라 및 데이터센터 관련 금융이 사상 최대 규모로 성장하고 있습니다.\n\n### 🌍 세계\n* **중동 정세 격화 & 유엔 1.5도 경고:** 미국이 이틀 만에 대(對)이란 재공습을 단행했습니다. 유엔은 기후변화 지구 기온 상승 폭 1.5도 제한이 현실적으로 불가능함을 인정하고 정책 패러다임 전환을 선언했습니다.\n* **삼성 금융계열사 해외 M&A:** 삼성 금융 계열사가 반도체 배당금 수익을 바탕으로 첫 해외 M&A에 나서는 등 공격적 투자에 착수했습니다.\n\n### 🎭 생활/문화\n* **스트레이 키즈, 빌보드 3주 연속 톱10:** K-팝 글로벌 흥행을 이어가고 있습니다.\n* **날씨:** 내일은 낮 기온이 30도 안팎까지 오르는 막바지 더위 속에 충청 및 남부 지방에 소나기가 내리겠습니다.\n\n### 📝 사설 핵심 비교\n* **보수/경제지 (조선·중앙·매경·한경):** \"821조 슈퍼 예산은 물가를 자극하고 나랏빚 1,500조 시대를 당길 것\"이라 경고. 잇따른 세제 유턴과 청와대 정책실장 경질 등 '아마추어적 국정 운영'을 강력 비판했습니다.\n* **진보지 (경향·한겨레):** 기초연금 3만 원 인상에 그친 복지 개편의 '생색내기'를 비판하며, 821조 예산이 말뿐인 성장이 아닌 실질적 양극화 해소에 쓰여야 한다고 촉구했습니다.\n\n---\n\n# 💡 출근길 인사이트\n\n1. **\"나랏돈은 푸는데 내 주머니는 팍팍\"… 고물가·고금리 장기화 대비 필요**\n   * 821조 원의 확장 재정이 편성되었으나 8월 물가가 다시 3.1%로 튀어 올랐습니다. 국가 재정 지출과 서민 체감 경기 간의 괴리가 커질 수 있으므로 개인 자산 관리에 있어 고금리·고물가 장기화에 대비한 리스크 관리가 시급합니다.\n\n2. **빅테크의 차세대 생존법: '유료 멤버십'과 'AI 인프라'**\n   * 카카오의 유료 멤버십 추진과 데이터센터 금융 폭증은 IT 산업의 중심이 '무료 사용자 확보'에서 '수익화(유료화) 및 AI 실질 인프라 구축'으로 완벽히 이동했음을 보여줍니다. 관련 기술 및 플랫폼 기업들의 주가 체질 변화를 주목할 필요가 있습니다.",
     "categories": {
       "정치": [
         {
-          "title": "해당 시간 범위 내 10대 언론사의 정치 기사가 출고되지 않았습니다.",
-          "link": "#",
-          "source": "System",
-          "press_name": "안내",
-          "pub_time": ""
+          "title": "‘당원권 정지’ 권영진·서범수 징계 불복…“재심 청구할 것”",
+          "link": "https://news.kbs.co.kr/news/pc/view/view.do?ncd=8652843&ref=A",
+          "source": "Naver (KBS)",
+          "press_name": "KBS",
+          "pub_time": "09월 02일 17:33"
+        },
+        {
+          "title": "경찰, 함운경 국힘 당협위원장 ‘구의원 금품 각출의혹’ 압수수색",
+          "link": "https://news.kbs.co.kr/news/pc/view/view.do?ncd=8652847&ref=A",
+          "source": "Naver (KBS)",
+          "press_name": "KBS",
+          "pub_time": "09월 02일 17:36"
+        },
+        {
+          "title": "광주 온 한동훈, 호남 역할론 띄우며 국민의힘에 쓴소리",
+          "link": "https://kjmbc.co.kr/NewsArticle/1535093",
+          "source": "Naver (MBC)",
+          "press_name": "MBC",
+          "pub_time": "09월 02일 17:05"
+        },
+        {
+          "title": "이 대통령 \"대결 전제 정전 체제를 협력 기반 평화 체제로\"",
+          "link": "https://imnews.imbc.com/news/2026/politics/article/6849165_36911.html",
+          "source": "Naver (MBC)",
+          "press_name": "MBC",
+          "pub_time": "09월 02일 17:13"
+        },
+        {
+          "title": "이 대통령 \"트럼프 결단에 한반도 변화 가능성…여건 만들어 가야\"",
+          "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008734769&plink=ORI&cooper=NAVER",
+          "source": "Naver (SBS)",
+          "press_name": "SBS",
+          "pub_time": "09월 02일 17:26"
+        },
+        {
+          "title": "왜 나한테만 가혹할까 싶겠지만… [이브닝 브리핑]",
+          "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008734727&plink=ORI&cooper=NAVER",
+          "source": "Naver (SBS)",
+          "press_name": "SBS",
+          "pub_time": "09월 02일 17:38"
+        },
+        {
+          "title": "시진핑, 10년 만의 이집트 국빈방문…미·중 정상회담 앞두고 ‘글로벌...",
+          "link": "https://www.khan.co.kr/article/202609021653001",
+          "source": "Naver (경향신문)",
+          "press_name": "경향신문",
+          "pub_time": "09월 02일 16:53"
+        },
+        {
+          "title": "6년째 옥살이 홍콩 민주화 운동가 조슈아 웡, ‘외국과의 공모’ 혐의 ...",
+          "link": "https://www.khan.co.kr/article/202609021719001",
+          "source": "Naver (경향신문)",
+          "press_name": "경향신문",
+          "pub_time": "09월 02일 17:19"
+        },
+        {
+          "title": "또 李에 날세운 조국 “종부세 유턴, 상위 1% 이익만 지켰다”",
+          "link": "https://www.donga.com/news/Politics/article/all/20260902/134591484/1",
+          "source": "Naver (동아일보)",
+          "press_name": "동아일보",
+          "pub_time": "09월 02일 16:44"
+        },
+        {
+          "title": "[신간]‘스포츠워싱’ 오프사이드보다 무서운 머니사이드",
+          "link": "https://sports.donga.com/life/article/all/20260902/134592332/1",
+          "source": "Naver (동아일보)",
+          "press_name": "동아일보",
+          "pub_time": "09월 02일 17:13"
+        },
+        {
+          "title": "“강남아파트에서 전세 3억5천만에 거주”…탈세의혹에 김성수 “정리할...",
+          "link": "https://www.mk.co.kr/article/12142510",
+          "source": "Naver (매일경제)",
+          "press_name": "매일경제",
+          "pub_time": "09월 02일 17:28"
+        },
+        {
+          "title": "이 대통령 \"한반도 평화, 우리가 주역…전작권 환수로 책임 다할 것\"",
+          "link": "http://mbn.mk.co.kr/pages/news/newsView.php?category=mbn00006&news_seq_no=5216512",
+          "source": "Naver (매일경제)",
+          "press_name": "매일경제",
+          "pub_time": "09월 02일 17:33"
+        },
+        {
+          "title": "K-컬처 관광객 지역 분산 어떻게?…한반도문화관광연구원 '관광상생포럼...",
+          "link": "https://www.sportschosun.com/life/2026-09-02/202609020100016860000888",
+          "source": "Naver (조선일보)",
+          "press_name": "조선일보",
+          "pub_time": "09월 02일 17:24"
+        },
+        {
+          "title": "조국 \"내가 반명? 그냥 웃고 만다…李 정부 성공 위해 쓴소리 필요\"",
+          "link": "http://weekly.chosun.com/news/articleView.html?idxno=54893",
+          "source": "Naver (조선일보)",
+          "press_name": "조선일보",
+          "pub_time": "09월 02일 17:40"
+        },
+        {
+          "title": "“위성정당, 소수정당 생존 방식” 용혜인 옹호에…장혜영 “당당한 궤...",
+          "link": "https://www.joongang.co.kr/article/25458549",
+          "source": "Naver (중앙일보)",
+          "press_name": "중앙일보",
+          "pub_time": "09월 02일 17:16"
+        },
+        {
+          "title": "연수원 14기 84명 “李대통령 대법관 재제청 요구, 헌법 근거 없어…중...",
+          "link": "https://www.joongang.co.kr/article/25458555",
+          "source": "Naver (중앙일보)",
+          "press_name": "중앙일보",
+          "pub_time": "09월 02일 17:40"
+        },
+        {
+          "title": "“이재명 전 지사는 책임 없어”…추미애, 재정 위기 김동연 탓",
+          "link": "https://www.hani.co.kr/arti/area/capital/1275902.html",
+          "source": "Naver (한겨레)",
+          "press_name": "한겨레",
+          "pub_time": "09월 02일 17:02"
+        },
+        {
+          "title": "‘사직 사유:헤그세스’…미 육군 장관, 트럼프 찾아가 사표 던졌다",
+          "link": "https://www.hani.co.kr/arti/international/america/1275918.html",
+          "source": "Naver (한겨레)",
+          "press_name": "한겨레",
+          "pub_time": "09월 02일 17:28"
+        },
+        {
+          "title": "'건진법사에 공천 대가 1억' 박창욱 전 경북도의원 징역 1년 확정",
+          "link": "https://www.hankyung.com/article/202609029763i",
+          "source": "Naver (한국경제)",
+          "press_name": "한국경제",
+          "pub_time": "09월 02일 16:42"
+        },
+        {
+          "title": "\"헌법의 경계 넘지 말라\"…원로 법조인 84명, 대법관 제청 논란에 집단...",
+          "link": "https://www.hankyung.com/article/202609020021i",
+          "source": "Naver (한국경제)",
+          "press_name": "한국경제",
+          "pub_time": "09월 02일 16:42"
         }
       ],
       "경제": [
         {
-          "title": "해당 시간 범위 내 10대 언론사의 경제 기사가 출고되지 않았습니다.",
-          "link": "#",
-          "source": "System",
-          "press_name": "안내",
-          "pub_time": ""
+          "title": "쿠팡, 로비선 “미국 기업”…법정에선 “한국 플랫폼”",
+          "link": "https://news.kbs.co.kr/news/pc/view/view.do?ncd=8652767&ref=A",
+          "source": "Naver (KBS)",
+          "press_name": "KBS",
+          "pub_time": "09월 02일 15:33"
+        },
+        {
+          "title": "“감독 선임에 왜 개입?” 질문에 정몽규 “부당 개입한 거 없다” [지금...",
+          "link": "https://news.kbs.co.kr/news/pc/view/view.do?ncd=8652830&ref=A",
+          "source": "Naver (KBS)",
+          "press_name": "KBS",
+          "pub_time": "09월 02일 17:16"
+        },
+        {
+          "title": "일제히 하락했던 지수‥약보합권 머물러",
+          "link": "https://imnews.imbc.com/replay/2026/nw1700/article/6849158_36981.html",
+          "source": "Naver (MBC)",
+          "press_name": "MBC",
+          "pub_time": "09월 02일 17:06"
+        },
+        {
+          "title": "오늘의 증시",
+          "link": "https://imnews.imbc.com/replay/2026/nw1700/article/6849160_36981.html",
+          "source": "Naver (MBC)",
+          "press_name": "MBC",
+          "pub_time": "09월 02일 17:07"
+        },
+        {
+          "title": "[집중진단] 기초연금 ‘하후상박’ 개편 결국 무산…소득 하위 30%에 3만...",
+          "link": "https://biz.sbs.co.kr/article_hub/20000332015?division=NAVER",
+          "source": "Naver (SBS)",
+          "press_name": "SBS",
+          "pub_time": "09월 02일 17:32"
+        },
+        {
+          "title": "\"미국 필요한 것 다 해주는 동맹!\" 트럼프 '모든 나라와 잘 지내는 법'?...",
+          "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008733726&plink=ORI&cooper=NAVER",
+          "source": "Naver (SBS)",
+          "press_name": "SBS",
+          "pub_time": "09월 02일 17:36"
+        },
+        {
+          "title": "“정청래 세력이 작업” ‘윤리감찰단 텔레’ 파문, 끝나지 않는 민주당...",
+          "link": "https://www.khan.co.kr/article/202609021633001",
+          "source": "Naver (경향신문)",
+          "press_name": "경향신문",
+          "pub_time": "09월 02일 16:33"
+        },
+        {
+          "title": "車사고 나이롱 환자 거르는 ‘8주룰’ 10일부터 시행",
+          "link": "https://www.donga.com/news/Economy/article/all/20260902/134590902/1",
+          "source": "Naver (동아일보)",
+          "press_name": "동아일보",
+          "pub_time": "09월 02일 17:20"
+        },
+        {
+          "title": "북한과 러시아 군사·경제 밀착 강화할 두만강 자동차 전용 다리 개통",
+          "link": "https://weekly.donga.com/3/all/11/6371083/1",
+          "source": "Naver (동아일보)",
+          "press_name": "동아일보",
+          "pub_time": "09월 02일 17:36"
+        },
+        {
+          "title": "\"단장은 든든한 울타리 …'원 팀 코리아' 감동드릴 것\"",
+          "link": "https://www.mk.co.kr/article/12142530",
+          "source": "Naver (매일경제)",
+          "press_name": "매일경제",
+          "pub_time": "09월 02일 17:38"
+        },
+        {
+          "title": "[알립니다] AI 경영혁신 이끈 기업 찾습니다",
+          "link": "https://www.mk.co.kr/article/12142547",
+          "source": "Naver (매일경제)",
+          "press_name": "매일경제",
+          "pub_time": "09월 02일 17:39"
+        },
+        {
+          "title": "K-컬처 관광객 지역 분산 어떻게?…한반도문화관광연구원 '관광상생포럼...",
+          "link": "https://www.sportschosun.com/life/2026-09-02/202609020100016860000888",
+          "source": "Naver (조선일보)",
+          "press_name": "조선일보",
+          "pub_time": "09월 02일 17:24"
+        },
+        {
+          "title": "변광용 거제시장 “양대 조선소 설계 인력, 부산 확대 계획 재검토해야...",
+          "link": "https://www.chosun.com/national/2026/09/02/JH3CI55KZZDODERIFZZKM5WDSU/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
+          "source": "Naver (조선일보)",
+          "press_name": "조선일보",
+          "pub_time": "09월 02일 17:30"
+        },
+        {
+          "title": "해외금융계좌 신고액 3년만에 100조 돌파…신고자도 9.1% 늘었다",
+          "link": "https://www.joongang.co.kr/article/25458552",
+          "source": "Naver (중앙일보)",
+          "press_name": "중앙일보",
+          "pub_time": "09월 02일 17:25"
+        },
+        {
+          "title": "유가·금리 불안에 코스피 4% 털썩, 6500선…“고금리 장기화 대비해야...",
+          "link": "https://www.hani.co.kr/arti/economy/finance/1275900.html",
+          "source": "Naver (한겨레)",
+          "press_name": "한겨레",
+          "pub_time": "09월 02일 16:56"
+        },
+        {
+          "title": "8월 소비자물가 3.1%↑…“근원물가 기조적 상승세”",
+          "link": "https://www.hani.co.kr/arti/economy/economy_general/1275921.html",
+          "source": "Naver (한겨레)",
+          "press_name": "한겨레",
+          "pub_time": "09월 02일 17:34"
+        },
+        {
+          "title": "[포토] 베스트 퇴직연금 2026 시상식",
+          "link": "https://www.hankyung.com/article/2026090202691",
+          "source": "Naver (한국경제)",
+          "press_name": "한국경제",
+          "pub_time": "09월 02일 17:37"
+        },
+        {
+          "title": "이형일 \"거주·비거주 세금 차이 둬야\"",
+          "link": "https://www.hankyung.com/article/2026090202627",
+          "source": "Naver (한국경제)",
+          "press_name": "한국경제",
+          "pub_time": "09월 02일 17:37"
         }
       ],
       "사회": [
         {
-          "title": "해당 시간 범위 내 10대 언론사의 사회 기사가 출고되지 않았습니다.",
-          "link": "#",
-          "source": "System",
-          "press_name": "안내",
-          "pub_time": ""
+          "title": "“중증 장애인 시설장이 성폭행”…색동원 대표, 1심 징역 15년 [지금뉴...",
+          "link": "https://news.kbs.co.kr/news/pc/view/view.do?ncd=8652838&ref=A",
+          "source": "Naver (KBS)",
+          "press_name": "KBS",
+          "pub_time": "09월 02일 17:24"
+        },
+        {
+          "title": "일본 민단에 면도칼 든 우편물…극우 소행 추정",
+          "link": "https://news.kbs.co.kr/news/pc/view/view.do?ncd=8652844&ref=A",
+          "source": "Naver (KBS)",
+          "press_name": "KBS",
+          "pub_time": "09월 02일 17:33"
+        },
+        {
+          "title": "'장윤기 분리수사' 전 국수본부장 등 기소.. \"통상 지시\" 반박",
+          "link": "https://kjmbc.co.kr/NewsArticle/1535094",
+          "source": "Naver (MBC)",
+          "press_name": "MBC",
+          "pub_time": "09월 02일 17:05"
+        },
+        {
+          "title": "[리포트] \"몰린 N수생에 지역의사제까지\".. 셈법 복잡해진 대입",
+          "link": "https://chmbc.co.kr/article/UxAklup0ED-ld8K4zey-F2",
+          "source": "Naver (MBC)",
+          "press_name": "MBC",
+          "pub_time": "09월 02일 17:30"
+        },
+        {
+          "title": "[집중진단] 기초연금 ‘하후상박’ 개편 결국 무산…소득 하위 30%에 3만...",
+          "link": "https://biz.sbs.co.kr/article_hub/20000332015?division=NAVER",
+          "source": "Naver (SBS)",
+          "press_name": "SBS",
+          "pub_time": "09월 02일 17:32"
+        },
+        {
+          "title": "[자막뉴스] \"비난 피하려 분리 수사\" 기소에…전 국수본부장 \"상식 밖 논...",
+          "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008734682&plink=ORI&cooper=NAVER",
+          "source": "Naver (SBS)",
+          "press_name": "SBS",
+          "pub_time": "09월 02일 17:42"
+        },
+        {
+          "title": "6년째 옥살이 홍콩 민주화 운동가 조슈아 웡, ‘외국과의 공모’ 혐의 ...",
+          "link": "https://www.khan.co.kr/article/202609021719001",
+          "source": "Naver (경향신문)",
+          "press_name": "경향신문",
+          "pub_time": "09월 02일 17:19"
+        },
+        {
+          "title": "커지는 기후재난에 선진국들 발행 늘리는 ‘재해채권’, 한국은 ‘0’",
+          "link": "https://www.khan.co.kr/article/202609021737001",
+          "source": "Naver (경향신문)",
+          "press_name": "경향신문",
+          "pub_time": "09월 02일 17:37"
+        },
+        {
+          "title": "박성주 前국수본부장 “기소 부당…장윤기 사건 정상적 업무지시”",
+          "link": "https://www.donga.com/news/Society/article/all/20260902/134591296/1",
+          "source": "Naver (동아일보)",
+          "press_name": "동아일보",
+          "pub_time": "09월 02일 15:44"
+        },
+        {
+          "title": "檢, 박성주 前국수본부장 기소…장윤기 ‘분리수사’ 지시 혐의",
+          "link": "https://www.donga.com/news/Society/article/all/20260902/134591515/1",
+          "source": "Naver (동아일보)",
+          "press_name": "동아일보",
+          "pub_time": "09월 02일 16:34"
+        },
+        {
+          "title": "굶기고 오물 속 방치…고양이 10마리 숨지게 한 30대 집유",
+          "link": "http://mbn.mk.co.kr/pages/news/newsView.php?category=mbn00009&news_seq_no=5216506",
+          "source": "Naver (매일경제)",
+          "press_name": "매일경제",
+          "pub_time": "09월 02일 17:20"
+        },
+        {
+          "title": "\"단장은 든든한 울타리 …'원 팀 코리아' 감동드릴 것\"",
+          "link": "https://www.mk.co.kr/article/12142530",
+          "source": "Naver (매일경제)",
+          "press_name": "매일경제",
+          "pub_time": "09월 02일 17:38"
+        },
+        {
+          "title": "“권리 중심 공공 일자리, 최중증 발달장애인 소외” 장애인거주시설이...",
+          "link": "https://health.chosun.com/site/data/html_dir/2026/09/02/2026090202903.html",
+          "source": "Naver (조선일보)",
+          "press_name": "조선일보",
+          "pub_time": "09월 02일 17:27"
+        },
+        {
+          "title": "변광용 거제시장 “양대 조선소 설계 인력, 부산 확대 계획 재검토해야...",
+          "link": "https://www.chosun.com/national/2026/09/02/JH3CI55KZZDODERIFZZKM5WDSU/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
+          "source": "Naver (조선일보)",
+          "press_name": "조선일보",
+          "pub_time": "09월 02일 17:30"
+        },
+        {
+          "title": "선관위, 후원회없이 1000여만원 모금한 경선후보 검찰 고발",
+          "link": "https://www.joongang.co.kr/article/25458545",
+          "source": "Naver (중앙일보)",
+          "press_name": "중앙일보",
+          "pub_time": "09월 02일 17:07"
+        },
+        {
+          "title": "교육시설안전원, 네팔 대홍수 피해돕기 긴급구호금 전달",
+          "link": "https://www.joongang.co.kr/article/25458554",
+          "source": "Naver (중앙일보)",
+          "press_name": "중앙일보",
+          "pub_time": "09월 02일 17:35"
+        },
+        {
+          "title": "‘15살 여공 출신’ 박영숙 활동가, 국민훈장 목련장 수훈",
+          "link": "https://www.hani.co.kr/arti/area/honam/1275910.html",
+          "source": "Naver (한겨레)",
+          "press_name": "한겨레",
+          "pub_time": "09월 02일 17:18"
+        },
+        {
+          "title": "인천공항 노숙인 퇴거 조치, 관음증적 혐오 보도가 문제다",
+          "link": "https://h21.hani.co.kr/arti/society/society_general/59822.html",
+          "source": "Naver (한겨레)",
+          "press_name": "한겨레",
+          "pub_time": "09월 02일 17:26"
+        },
+        {
+          "title": "'장윤기 사건 축소' 박성주 前국수본부장 기소",
+          "link": "https://www.hankyung.com/article/2026090203471",
+          "source": "Naver (한국경제)",
+          "press_name": "한국경제",
+          "pub_time": "09월 02일 17:46"
+        },
+        {
+          "title": "'국회 불출석·위증' 쿠팡 김범석·로저스 무혐의",
+          "link": "https://www.hankyung.com/article/2026090203431",
+          "source": "Naver (한국경제)",
+          "press_name": "한국경제",
+          "pub_time": "09월 02일 17:46"
         }
       ],
       "생활/문화": [
         {
-          "title": "해당 시간 범위 내 10대 언론사의 생활/문화 기사가 출고되지 않았습니다.",
-          "link": "#",
-          "source": "System",
-          "press_name": "안내",
-          "pub_time": ""
+          "title": "[사사건건] 기초연금, 일단 손은 봤지만…",
+          "link": "https://news.kbs.co.kr/news/pc/view/view.do?ncd=8652794&ref=A",
+          "source": "Naver (KBS)",
+          "press_name": "KBS",
+          "pub_time": "09월 02일 16:38"
+        },
+        {
+          "title": "[퇴근길 날씨] 내일, 30도 안팎 더위…충청·남부지방 소나기",
+          "link": "https://news.kbs.co.kr/news/pc/view/view.do?ncd=8652839&ref=A",
+          "source": "Naver (KBS)",
+          "press_name": "KBS",
+          "pub_time": "09월 02일 17:24"
+        },
+        {
+          "title": "원주 선언한 현대미술관 유치전, 전국 지자체 가세",
+          "link": "https://chmbc.co.kr/article/uUUO6i5lZa1fGep",
+          "source": "Naver (MBC)",
+          "press_name": "MBC",
+          "pub_time": "09월 02일 17:26"
+        },
+        {
+          "title": "문수체육관에서 여성·관광 일자리페스타 열려",
+          "link": "https://www.usmbc.co.kr/NewsArticle/860144",
+          "source": "Naver (MBC)",
+          "press_name": "MBC",
+          "pub_time": "09월 02일 17:38"
+        },
+        {
+          "title": "[날씨] 정체전선 약화로 비 '주춤'…남부 무더위 계속",
+          "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008733990&plink=ORI&cooper=NAVER",
+          "source": "Naver (SBS)",
+          "press_name": "SBS",
+          "pub_time": "09월 02일 12:52"
+        },
+        {
+          "title": "[날씨] 경주·양산 낮 34도…남부 소나기",
+          "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008734466&plink=ORI&cooper=NAVER",
+          "source": "Naver (SBS)",
+          "press_name": "SBS",
+          "pub_time": "09월 02일 17:11"
+        },
+        {
+          "title": "‘고민 상담한다’며 학생 추행한 교사 징역형 집유",
+          "link": "https://www.khan.co.kr/article/202609021706001",
+          "source": "Naver (경향신문)",
+          "press_name": "경향신문",
+          "pub_time": "09월 02일 17:06"
+        },
+        {
+          "title": "‘세 자녀 살해’ 여성에 지지자 수백명···미국 사회 달군 클랜시 사...",
+          "link": "https://www.khan.co.kr/article/202609021709011",
+          "source": "Naver (경향신문)",
+          "press_name": "경향신문",
+          "pub_time": "09월 02일 17:09"
+        },
+        {
+          "title": "여주시 대신면, 주민 1천여 명 함께한 ‘면민 화합의 장’ 열어",
+          "link": "https://sports.donga.com/region/article/all/20260902/134589564/1",
+          "source": "Naver (동아일보)",
+          "press_name": "동아일보",
+          "pub_time": "09월 02일 12:16"
+        },
+        {
+          "title": "박준면, 신기루와 낮술 다음 날 해장밥상…“국물 미쳤다”",
+          "link": "https://sports.donga.com/ent/article/all/20260902/134589968/1",
+          "source": "Naver (동아일보)",
+          "press_name": "동아일보",
+          "pub_time": "09월 02일 13:30"
+        },
+        {
+          "title": "[알립니다] AI 경영혁신 이끈 기업 찾습니다",
+          "link": "https://www.mk.co.kr/article/12142547",
+          "source": "Naver (매일경제)",
+          "press_name": "매일경제",
+          "pub_time": "09월 02일 17:39"
+        },
+        {
+          "title": "\"키옥시아와 공동 생산 가능… 연내 일본 투자안 내놓을것\"",
+          "link": "https://www.mk.co.kr/article/12142538",
+          "source": "Naver (매일경제)",
+          "press_name": "매일경제",
+          "pub_time": "09월 02일 17:39"
+        },
+        {
+          "title": "송광석 코레일관광개발 대표이사 취임…\"사람과 지역 연결, 관광의 가치...",
+          "link": "https://www.sportschosun.com/life/2026-09-02/202609020100017290000928",
+          "source": "Naver (조선일보)",
+          "press_name": "조선일보",
+          "pub_time": "09월 02일 17:37"
+        },
+        {
+          "title": "카카오톡 광고 10월 일본 상륙… K뷰티·K팝 관심층 공략",
+          "link": "https://it.chosun.com/news/articleView.html?idxno=2023092169359",
+          "source": "Naver (조선일보)",
+          "press_name": "조선일보",
+          "pub_time": "09월 02일 17:38"
+        },
+        {
+          "title": "이탈리아 스파클링 와인 프로세코 DOC, 13일까지 행사",
+          "link": "https://www.joongang.co.kr/article/25458550",
+          "source": "Naver (중앙일보)",
+          "press_name": "중앙일보",
+          "pub_time": "09월 02일 17:25"
+        },
+        {
+          "title": "용혜인 ‘의원 겸직’ 논란에 청와대 고심…‘부정적 여론’에 우려",
+          "link": "https://www.hani.co.kr/arti/politics/bluehouse/1275917.html",
+          "source": "Naver (한겨레)",
+          "press_name": "한겨레",
+          "pub_time": "09월 02일 17:28"
+        },
+        {
+          "title": "‘사직 사유:헤그세스’…미 육군 장관, 트럼프 찾아가 사표 던졌다",
+          "link": "https://www.hani.co.kr/arti/international/america/1275918.html",
+          "source": "Naver (한겨레)",
+          "press_name": "한겨레",
+          "pub_time": "09월 02일 17:28"
+        },
+        {
+          "title": "카메라 필터 열풍 시들자…스노우, 캐릭터채팅으로 日공략",
+          "link": "https://www.hankyung.com/article/2026090202251",
+          "source": "Naver (한국경제)",
+          "press_name": "한국경제",
+          "pub_time": "09월 02일 17:31"
+        },
+        {
+          "title": "콜롬비아 메데진 도서축제…한국이 주빈국으로 참가",
+          "link": "https://www.hankyung.com/article/2026090202831",
+          "source": "Naver (한국경제)",
+          "press_name": "한국경제",
+          "pub_time": "09월 02일 17:38"
         }
       ],
       "IT/과학": [
         {
-          "title": "해당 시간 범위 내 10대 언론사의 IT/과학 기사가 출고되지 않았습니다.",
-          "link": "#",
-          "source": "System",
-          "press_name": "안내",
-          "pub_time": ""
+          "title": "[News Today] ‘Panstar Acro’ navigates arctic route",
+          "link": "https://news.kbs.co.kr/news/pc/view/view.do?ncd=8652802&ref=A",
+          "source": "Naver (KBS)",
+          "press_name": "KBS",
+          "pub_time": "09월 02일 16:40"
+        },
+        {
+          "title": "[News Today] ‘Complete collection’ buying popular",
+          "link": "https://news.kbs.co.kr/news/pc/view/view.do?ncd=8652803&ref=A",
+          "source": "Naver (KBS)",
+          "press_name": "KBS",
+          "pub_time": "09월 02일 16:41"
+        },
+        {
+          "title": "[음악중심M] 여름밤 뜨겁게 달군 스트레이 키즈, 내가 콘서트 최강자",
+          "link": "http://enews.imbc.com/News/RetrieveNewsInfo/516438",
+          "source": "Naver (MBC)",
+          "press_name": "MBC",
+          "pub_time": "09월 02일 16:01"
+        },
+        {
+          "title": "광양경자청, ‘K-FEZ Day 2026’에서 글로벌 투자 유치",
+          "link": "https://ysmbc.co.kr/NewsArticle/1535107",
+          "source": "Naver (MBC)",
+          "press_name": "MBC",
+          "pub_time": "09월 02일 17:16"
+        },
+        {
+          "title": "[인터뷰] 이광재 \"용혜인, 장관직에 맞는지 자신과 대화해야…이소영 지...",
+          "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008734614&plink=ORI&cooper=NAVER",
+          "source": "Naver (SBS)",
+          "press_name": "SBS",
+          "pub_time": "09월 02일 16:36"
+        },
+        {
+          "title": "[집중진단] 기초연금 ‘하후상박’ 개편 결국 무산…소득 하위 30%에 3만...",
+          "link": "https://biz.sbs.co.kr/article_hub/20000332015?division=NAVER",
+          "source": "Naver (SBS)",
+          "press_name": "SBS",
+          "pub_time": "09월 02일 17:32"
+        },
+        {
+          "title": "카카오도 ‘유료 멤버십’ 띄운다…톡·택시·멜론 등 계열사 혜택 묶나",
+          "link": "https://www.khan.co.kr/article/202609021630001",
+          "source": "Naver (경향신문)",
+          "press_name": "경향신문",
+          "pub_time": "09월 02일 16:30"
+        },
+        {
+          "title": "나를 대체할 AI를 가르쳐 돈 번다…커지는 ‘AI 전문지식 판매’ 시장, ...",
+          "link": "https://www.khan.co.kr/article/202609021634001",
+          "source": "Naver (경향신문)",
+          "press_name": "경향신문",
+          "pub_time": "09월 02일 16:34"
+        },
+        {
+          "title": "스트레이 키즈, 새 앨범으로 ‘빌보드 200’ 3주 연속 톱10 기록",
+          "link": "https://sports.donga.com/ent/article/all/20260902/134590879/1",
+          "source": "Naver (동아일보)",
+          "press_name": "동아일보",
+          "pub_time": "09월 02일 15:21"
+        },
+        {
+          "title": "“사교육 경쟁 없었다면 자녀 28% 더 낳았다…엄친아 비교에 저출산”",
+          "link": "https://www.donga.com/news/Economy/article/all/20260902/134590407/1",
+          "source": "Naver (동아일보)",
+          "press_name": "동아일보",
+          "pub_time": "09월 02일 17:10"
+        },
+        {
+          "title": "스트레이 키즈, 美 ‘빌보드 200’ 3주 연속 톱10…글로벌 기록 행진",
+          "link": "https://www.mk.co.kr/article/12142459",
+          "source": "Naver (매일경제)",
+          "press_name": "매일경제",
+          "pub_time": "09월 02일 16:42"
+        },
+        {
+          "title": "두산퓨얼셀, 美데이터센터 뚫었다",
+          "link": "https://www.mk.co.kr/article/12142540",
+          "source": "Naver (매일경제)",
+          "press_name": "매일경제",
+          "pub_time": "09월 02일 17:39"
+        },
+        {
+          "title": "카카오, 카톡·택시·음악 묶은 ‘유료 멤버십’ 출시한다",
+          "link": "https://www.chosun.com/economy/tech_it/2026/09/02/66E7ZOT47ZCJDPH5YG7MEMZAEQ/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
+          "source": "Naver (조선일보)",
+          "press_name": "조선일보",
+          "pub_time": "09월 02일 16:13"
+        },
+        {
+          "title": "KISO \"허위정보 판단 확대하면 플랫폼 권력화\"",
+          "link": "https://it.chosun.com/news/articleView.html?idxno=2023092169348",
+          "source": "Naver (조선일보)",
+          "press_name": "조선일보",
+          "pub_time": "09월 02일 16:58"
+        },
+        {
+          "title": "[2026 하반기 혁신 IT 대상] 엑서스, 생성AI 기반 에듀테크 플랫폼",
+          "link": "https://www.joongang.co.kr/article/25458500",
+          "source": "Naver (중앙일보)",
+          "press_name": "중앙일보",
+          "pub_time": "09월 02일 15:20"
+        },
+        {
+          "title": "[2026 하반기 혁신 IT 대상] 엑타스, AI 비전 기반 정제 품질검사 기술",
+          "link": "https://www.joongang.co.kr/article/25458505",
+          "source": "Naver (중앙일보)",
+          "press_name": "중앙일보",
+          "pub_time": "09월 02일 15:30"
+        },
+        {
+          "title": "유가·금리 불안에 코스피 4% 털썩, 6500선…“고금리 장기화 대비해야...",
+          "link": "https://www.hani.co.kr/arti/economy/finance/1275900.html",
+          "source": "Naver (한겨레)",
+          "press_name": "한겨레",
+          "pub_time": "09월 02일 16:56"
+        },
+        {
+          "title": "PF 대체하나…데이터센터 금융 사상 최대",
+          "link": "https://www.hankyung.com/article/2026090202741",
+          "source": "Naver (한국경제)",
+          "press_name": "한국경제",
+          "pub_time": "09월 02일 17:37"
+        },
+        {
+          "title": "\"올해 보험 M&A트렌드는 AI·데이터 역량과 자산운용 등 수익원 확보\"",
+          "link": "https://www.hankyung.com/article/202609016303r",
+          "source": "Naver (한국경제)",
+          "press_name": "한국경제",
+          "pub_time": "09월 02일 17:39"
         }
       ],
       "세계": [
         {
-          "title": "해당 시간 범위 내 10대 언론사의 세계 기사가 출고되지 않았습니다.",
-          "link": "#",
-          "source": "System",
-          "press_name": "안내",
-          "pub_time": ""
+          "title": "미국, 이틀 만에 다시 대이란 공습…이란 ‘결정적 작전’ 대응",
+          "link": "https://news.kbs.co.kr/news/pc/view/view.do?ncd=8652834&ref=A",
+          "source": "Naver (KBS)",
+          "press_name": "KBS",
+          "pub_time": "09월 02일 17:19"
+        },
+        {
+          "title": "‘치폴레’ 아시아 1호 상륙은 서울 강남…한국 시장에도 통할까",
+          "link": "https://news.kbs.co.kr/news/pc/view/view.do?ncd=8652841&ref=A",
+          "source": "Naver (KBS)",
+          "press_name": "KBS",
+          "pub_time": "09월 02일 17:26"
+        },
+        {
+          "title": "전주기상지청, 100년 관측소 인증 현판식 개최",
+          "link": "http://www.jmbc.co.kr/news/view/67607",
+          "source": "Naver (MBC)",
+          "press_name": "MBC",
+          "pub_time": "09월 02일 17:31"
+        },
+        {
+          "title": "액화 이산화탄소 운반 기술‥'IR52 장영실상' 수상",
+          "link": "https://www.usmbc.co.kr/NewsArticle/860150",
+          "source": "Naver (MBC)",
+          "press_name": "MBC",
+          "pub_time": "09월 02일 17:38"
+        },
+        {
+          "title": "G20 재무장관회의 中겨냥 의장성명 채택…美中회담 샅바싸움",
+          "link": "https://biz.sbs.co.kr/article_hub/20000332387?division=NAVER",
+          "source": "Naver (SBS)",
+          "press_name": "SBS",
+          "pub_time": "09월 02일 17:29"
+        },
+        {
+          "title": "\"미국 필요한 것 다 해주는 동맹!\" 트럼프 '모든 나라와 잘 지내는 법'?...",
+          "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008733726&plink=ORI&cooper=NAVER",
+          "source": "Naver (SBS)",
+          "press_name": "SBS",
+          "pub_time": "09월 02일 17:36"
+        },
+        {
+          "title": "블랙핑크 로제, 100억대 中 광고 거절…‘아파트’ 흥행 후 달라진 위상",
+          "link": "https://sports.khan.co.kr/article/202609021726003?pt=nv",
+          "source": "Naver (경향신문)",
+          "press_name": "경향신문",
+          "pub_time": "09월 02일 17:27"
+        },
+        {
+          "title": "커지는 기후재난에 선진국들 발행 늘리는 ‘재해채권’, 한국은 ‘0’",
+          "link": "https://www.khan.co.kr/article/202609021737001",
+          "source": "Naver (경향신문)",
+          "press_name": "경향신문",
+          "pub_time": "09월 02일 17:37"
+        },
+        {
+          "title": "북한과 러시아 군사·경제 밀착 강화할 두만강 자동차 전용 다리 개통",
+          "link": "https://weekly.donga.com/3/all/11/6371083/1",
+          "source": "Naver (동아일보)",
+          "press_name": "동아일보",
+          "pub_time": "09월 02일 17:36"
+        },
+        {
+          "title": "로제, ‘中 100억 광고’도 거절하더니…1년 준비한 협업도 기준 안 맞으...",
+          "link": "https://sports.donga.com/ent/article/all/20260902/134593287/1",
+          "source": "Naver (동아일보)",
+          "press_name": "동아일보",
+          "pub_time": "09월 02일 17:40"
+        },
+        {
+          "title": "뜨거워진 GPU·CPU 냉각블록 붙여 식힌다",
+          "link": "https://www.mk.co.kr/article/12142546",
+          "source": "Naver (매일경제)",
+          "press_name": "매일경제",
+          "pub_time": "09월 02일 17:39"
+        },
+        {
+          "title": "[매경이코노미스트] 재정건전성도 '투자'다",
+          "link": "https://www.mk.co.kr/article/12142554",
+          "source": "Naver (매일경제)",
+          "press_name": "매일경제",
+          "pub_time": "09월 02일 17:44"
+        },
+        {
+          "title": "변광용 거제시장 “양대 조선소 설계 인력, 부산 확대 계획 재검토해야...",
+          "link": "https://www.chosun.com/national/2026/09/02/JH3CI55KZZDODERIFZZKM5WDSU/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
+          "source": "Naver (조선일보)",
+          "press_name": "조선일보",
+          "pub_time": "09월 02일 17:30"
+        },
+        {
+          "title": "KBS교향악단 10일 830회 정기연주회…9대 음악감독 잉키넨 지휘",
+          "link": "https://news.tvchosun.com/site/data/html_dir/2026/09/02/2026090290198.html",
+          "source": "Naver (조선일보)",
+          "press_name": "조선일보",
+          "pub_time": "09월 02일 17:33"
+        },
+        {
+          "title": "이 대통령 “트럼프 결단으로 한반도 변화 가능성…대화 여건 우리가 만...",
+          "link": "https://www.joongang.co.kr/article/25458556",
+          "source": "Naver (중앙일보)",
+          "press_name": "중앙일보",
+          "pub_time": "09월 02일 17:43"
+        },
+        {
+          "title": "2010 프랑스, 2026 한국...악몽의 축구 데자뷔",
+          "link": "https://www.joongang.co.kr/article/25458557",
+          "source": "Naver (중앙일보)",
+          "press_name": "중앙일보",
+          "pub_time": "09월 02일 17:44"
+        },
+        {
+          "title": "‘사직 사유:헤그세스’…미 육군 장관, 트럼프 찾아가 사표 던졌다",
+          "link": "https://www.hani.co.kr/arti/international/america/1275918.html",
+          "source": "Naver (한겨레)",
+          "press_name": "한겨레",
+          "pub_time": "09월 02일 17:28"
+        },
+        {
+          "title": "유엔, “기온상승폭 1.5도 제한 불가능” 인정…‘초과 후 재감축’으로...",
+          "link": "https://www.hani.co.kr/arti/international/international_general/1275923.html",
+          "source": "Naver (한겨레)",
+          "press_name": "한겨레",
+          "pub_time": "09월 02일 17:46"
+        },
+        {
+          "title": "[단독] '반도체 배당'만 수조원…삼성 금융계열사, 첫 해외 M&A",
+          "link": "https://www.hankyung.com/article/2026090202781",
+          "source": "Naver (한국경제)",
+          "press_name": "한국경제",
+          "pub_time": "09월 02일 17:46"
+        },
+        {
+          "title": "돌다리만 두드리다 실기했던 삼성, M&A 자신감 붙었다",
+          "link": "https://www.hankyung.com/article/202609029951r",
+          "source": "Naver (한국경제)",
+          "press_name": "한국경제",
+          "pub_time": "09월 02일 17:47"
         }
       ],
       "사설": [
         {
-          "title": "해당 시간 범위 내 10대 언론사의 사설 기사가 출고되지 않았습니다.",
-          "link": "#",
-          "source": "System",
-          "press_name": "안내",
-          "pub_time": ""
+          "title": "[사설]821조 역대 최대 예산, 성장과 격차해소 둘 다 잡아야",
+          "link": "https://www.khan.co.kr/article/202609011849001",
+          "source": "Naver (경향신문)",
+          "press_name": "경향신문",
+          "pub_time": "09월 01일 18:49"
+        },
+        {
+          "title": "[사설]첫발 뗀 ‘서울대 10개 만들기’, 지역 살리기 실질 거점 만들어...",
+          "link": "https://www.khan.co.kr/article/202609011851001",
+          "source": "Naver (경향신문)",
+          "press_name": "경향신문",
+          "pub_time": "09월 01일 18:51"
+        },
+        {
+          "title": "[사설]김용범 사퇴… 내각이 청와대만 쳐다보도록 해선 안 돼",
+          "link": "https://www.donga.com/news/Opinion/article/all/20260901/134586842/2",
+          "source": "Naver (동아일보)",
+          "press_name": "동아일보",
+          "pub_time": "09월 01일 23:28"
+        },
+        {
+          "title": "[사설]내년 예산 821조, 나랏빚 1500조… ‘빚의 역습’ 대비해야",
+          "link": "https://www.donga.com/news/Opinion/article/all/20260901/134586836/2",
+          "source": "Naver (동아일보)",
+          "press_name": "동아일보",
+          "pub_time": "09월 01일 23:31"
+        },
+        {
+          "title": "슈퍼 예산 풀기도 전인데…물가는 다시 3%대 [사설]",
+          "link": "https://www.mk.co.kr/article/12142555",
+          "source": "Naver (매일경제)",
+          "press_name": "매일경제",
+          "pub_time": "09월 02일 17:44"
+        },
+        {
+          "title": "출범 앞두고 정원 40% 비는 중수청, 중대 범죄 누가 막나 [사설]",
+          "link": "https://www.mk.co.kr/article/12142557",
+          "source": "Naver (매일경제)",
+          "press_name": "매일경제",
+          "pub_time": "09월 02일 17:45"
+        },
+        {
+          "title": "[사설] 개각서 김용범 뺐다가, 다음날 경질, 희한한 쇄신 인사",
+          "link": "https://www.chosun.com/opinion/editorial/2026/09/02/XURGIR75M5ELJJUY6E2TUFB7TM/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
+          "source": "Naver (조선일보)",
+          "press_name": "조선일보",
+          "pub_time": "09월 02일 00:11"
+        },
+        {
+          "title": "[사설] 박·문·윤 정부 합친 것만큼 늘리겠다는 이재명 정부 예산",
+          "link": "https://www.chosun.com/opinion/editorial/2026/09/02/7L64TSZB5FGH3FTPMJ2XSHCMV4/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
+          "source": "Naver (조선일보)",
+          "press_name": "조선일보",
+          "pub_time": "09월 02일 00:21"
+        },
+        {
+          "title": "[사설] 반도체 특수 기댄 821조 예산…여유 있을 때 나랏빚 갚아야",
+          "link": "https://www.joongang.co.kr/article/25458270",
+          "source": "Naver (중앙일보)",
+          "press_name": "중앙일보",
+          "pub_time": "09월 02일 00:24"
+        },
+        {
+          "title": "[사설] 세제 개편 철회, 정책실장 경질…설익은 정책이 남긴 교훈",
+          "link": "https://www.joongang.co.kr/article/25458272",
+          "source": "Naver (중앙일보)",
+          "press_name": "중앙일보",
+          "pub_time": "09월 02일 00:26"
+        },
+        {
+          "title": "[사설] 기초연금 개편, 월 3만원으로 ‘하후’라고 말할 수 있나",
+          "link": "https://www.hani.co.kr/arti/opinion/editorial/1275779.html",
+          "source": "Naver (한겨레)",
+          "press_name": "한겨레",
+          "pub_time": "09월 01일 21:56"
+        },
+        {
+          "title": "[사설] 5년 끈 임신중지 약물 승인, 더는 미루지 말아야",
+          "link": "https://www.hani.co.kr/arti/opinion/editorial/1275922.html",
+          "source": "Naver (한겨레)",
+          "press_name": "한겨레",
+          "pub_time": "09월 02일 17:42"
+        },
+        {
+          "title": "[사설] 靑 정책실장 사퇴…국정 현안 돌아보는 계기 돼야",
+          "link": "https://www.hankyung.com/article/2026090175041",
+          "source": "Naver (한국경제)",
+          "press_name": "한국경제",
+          "pub_time": "09월 02일 00:10"
+        },
+        {
+          "title": "[사설] 노동감독관·교원 대폭 증원…국민 체감할 어떤 실익이 있나",
+          "link": "https://www.hankyung.com/article/2026090175051",
+          "source": "Naver (한국경제)",
+          "press_name": "한국경제",
+          "pub_time": "09월 02일 00:10"
         }
       ]
     }
