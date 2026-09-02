@@ -1,55 +1,10 @@
 {
-  "summary": "요약 생성 중 오류 발생: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}",
-  "articles": [
-    {
-      "title": "정부 긴급구호대 네팔 도착…헬기·육로·드론·휴대전화 정보 총동원 ‘수색 집중’ - 한겨레",
-      "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBBUlppclo5TDhCWFdTd3hrcHFqLVRxTWVxRWFyVWRmYWF4dmFOeDZuaGpETlk2WnlORlUtekZoREdROGYzZWw4c04yZzlGV3huN0o0T21yYm1SNlBUVmhadlhBdzNxT3N3cTREbFBhSnRNV0VO?oc=5",
-      "published": "Wed, 02 Sep 2026 03:08:00 GMT"
-    },
-    {
-      "title": "[속보] FT “한국 장금상선 유조선, 호르무즈서 피격”···원유 200만배럴 운송 중 당했다 - 경향신문",
-      "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1RZ3NmaHdCZ2NqNjRpQkRDeTYtallvYVdVWGwyXzA5MFBaZm5WZkl0MGlNcDZVUUdRVDhpZWk4SnpzQ1Jaa3VaaTlHLUFlSUp3eGNBc2VWVmZhUdIBX0FVX3lxTE9kQWJZTTkzVmpMWmhzcXh3NGRKWEE0czhFT3k4ZTdhczZpSk1WaWJ4TDRod3U3OGxsMTVoaF84cVZjSGp0V0haZ2Jfa3VfUk5vZ09IOWtKSHRLb1gyN0hj?oc=5",
-      "published": "Wed, 02 Sep 2026 01:22:00 GMT"
-    },
-    {
-      "title": "송영길 “용혜인 장관 임명, 2030에 소구력?…민심 수용 쉽잖을 것” - 한겨레",
-      "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5LRHdkM3FxNlFWOXIzeG95Z2RGWVE2R0EtMDNoWlpBU1NGVnZYNXdvaHJYRHk3TzBfdmxNMzEwUExZTGFrekVzZUlXSjBwMkJlMkVOYmpZNGg5RGZMYzRWRzk1Y1RPNXlLeUJ0UXlVOXRXbS1k?oc=5",
-      "published": "Wed, 02 Sep 2026 02:18:00 GMT"
-    },
-    {
-      "title": "이형일 부총리 내정자 “실거주중심 변화없어, 합리적 지적 수용할 것···양극화 고려 물가안정 최우선으로” - 경향신문",
-      "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBLdmFsODlRcTBfY3JZQmlFYmdaYTkwX0Z6dEVuREtzRl9qLUtDOHFuLVVJeUdpU2VSV0lZYk1IWmoyNW9BNzRLSDN6N2NqRGZreUplMzd6ellUUdIBX0FVX3lxTE9FQjZsNmhXRXZfcmhhbnEzcXhSclJuSUpwRVRoZV81UExnSFNOZ0VmQ2JheUczYXkxcThULVZyOFd0QTY0S1duZ0hMdHdSZnQ5ZkFBM3BBb2k4OTViWEU0?oc=5",
-      "published": "Wed, 02 Sep 2026 02:42:00 GMT"
-    },
-    {
-      "title": "[속보]검찰, ‘장윤기 사건 분리수사 지시’ 전 국수본부장 등 4명 기소 - 경향신문",
-      "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9LU09WcExZakRQdmU4VWMwbUU3NUhGVmNJYVFzaDh0QVp3Y2dicmZnaW51emIyS210YjY1TjJOSFVndjJmcXNqcE9tNkdYZ0lKeGtCWEF1Mk9Vd9IBX0FVX3lxTE9icVM3VXpMUERxZDdxTTloWFFrb25qYjlFZFVhODA2d1E2dkJSYVRDOHp1ZC05UTRQWDdEZUZPY2kyUTYyNkpjeERnaEthZU0yZEppU2RzOEd5NjVvSkZR?oc=5",
-      "published": "Wed, 02 Sep 2026 05:01:00 GMT"
-    },
-    {
-      "title": "미국, 이틀 만에 또 이란 공습···이란 “미국 후회하게 될 것” - 경향신문",
-      "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1pZ2doVzNwOXpxRmZXWUZvOFYzcWNQOGFRM2RqYVV5QldnblpqYXN5WE1yc0doeTMwQ3gxbnFMd2Z4ZUR1OW5PZ0o1OTRzbGl4dUhJOUhPTThtUdIBX0FVX3lxTE5UMTRaaHp6VkxVODJZV3Y3STdfeExIZ0x6TGVwM0JBb0luOWx0dnNNMUFEN2VRRlMzTUtqZXNCbEJfR1N1TmhkSzVrczhDX093ODZhRVdfZkpTWjNQdWo0?oc=5",
-      "published": "Tue, 01 Sep 2026 22:45:00 GMT"
-    },
-    {
-      "title": "‘홍명보 선임 의혹’ 정몽규 전 축구협회장 경찰 소환 - 조선일보",
-      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOSFBSRmxKQi03U08yYUIwbW1fWkpYdWowcDhNbXVyaHBEU1UwbHNUeDFldWprNHY1RmtwSHZzcnRkalRXbGY0ZVdaYTlxclNIbTVXM1dIR2V0aEpFQTFfbTJFRWVKZExId2RYLWtvU3ZDU0ZaZ1d5NXNMcV9zNjhaYTlhdU9INFBPbXpFQXFUT04?oc=5",
-      "published": "Wed, 02 Sep 2026 03:33:00 GMT"
-    },
-    {
-      "title": "김종철 신임 경찰청장 대행 \"국민 불신 높은 상황…마음 무겁다\" - 연합뉴스",
-      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1mcVh2SU9uREU0eFBKMzhSVXNLam9SaklyRndkUGNxamp2Z3pXYWl6MU1XNHIwV2wzUFRTa01oVlFYRE1seFAzdWU4c1F5dWhXbF9HMGZ2Ti1xeDDSAWBBVV95cUxPdHd2aTZSYzVkWkl6NEZmbWJDOEpQbno3ZUk2TmdLcWxfdTA1ZlF5MU82LUhYaUlJUGNOcmRkUVBuRXRla2F2ZHlyQm5vSGFJUl9YRnZTNEJmRDR0Q1VIcDY?oc=5",
-      "published": "Tue, 01 Sep 2026 23:32:49 GMT"
-    },
-    {
-      "title": "제주 허위종결 실종 여성 유족측, 국가배상 소송 준비 - 연합뉴스",
-      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE52UlUycV9aa2V4ODQwOE84Yy03N0Rpckh2a3BMWHdKTlRzYmlBdzJIYjFNamZEckM5UkFzLVg0WlB4aVRoVDdCV2ZwNjZaQXYwOWJZN2hUUkJQSnfSAWBBVV95cUxOa1ZtVnRLMXQ5aHZwOU1zM0c3RzAtOGxkZVM2NEd2U3VWTUZKNlZEZ0hHNEdBaVU1QnhyRFpKNHFQQTlpZ1RUckpaVGRzTHJjcTAtT3F4MUp4UGY2TndpVGo?oc=5",
-      "published": "Wed, 02 Sep 2026 02:41:24 GMT"
-    },
-    {
-      "title": "조국 \"이 대통령, 2심 유죄 가능성 높아\"…與 \"자다가 봉창\" - yonhapnewstv.co.kr",
-      "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5wYUZCWmxBLUhGVHg1YXVSdkgzV3FKQ2NEdm1NTTBzM19lVDlDNjVfZ0dHTElVSnpSdHJ6Z1ZhUHhPMzBicEZhbDNsSkgzbzh3MEVnZ0tpdFIyemtzRkRyTkVOYW41d28?oc=5",
-      "published": "Tue, 01 Sep 2026 23:23:00 GMT"
-    }
-  ]
+  "updated_at": "2026년 09월 02일 14:43",
+  "summary": "제공해 주신 기사 내용이 비어 있어, **최근의 주요 뉴스 트렌드를 바탕으로 작성한 예시 브리핑**을 안내해 드립니다. \n\n만약 요약하고자 하는 **실제 기사 목록을 입력해 주시면**, 해당 내용을 바탕으로 즉시 다시 작성해 드리겠습니다.\n\n---\n\n### 1. [오늘의 종합 브리핑]\n오늘의 주요 뉴스는 국내외 주요 정책 변화와 글로벌 경제·산업계의 격변을 조명하고 있습니다. 국내에서는 주요 사회적 이슈에 대한 정부와 국회의 대응이 이어지는 가운데, 내수 회복과 물가 안정을 위한 경제 정책 논의가 구체화되고 있습니다. 글로벌 시장에서는 빅테크의 AI 주도권 경쟁과 거시경제 불확실성이 지속되며, 중동 정세를 비롯한 국제 안보 불안이 전 세계 시장에 영향을 미치고 있습니다.\n\n---\n\n### 2. [분야별 핵심요약]\n\n* **정치/사회:** \n  의정 갈등 및 주요 민생 법안 처리를 둘러싼 여야의 대립과 협의가 이어지며, 사회적 합의를 도출하기 위한 정부 정책 발표가 계속되고 있습니다.\n\n* **경제:** \n  반도체 등 주요 품목의 수출 회복세에도 불구하고 고물가·고금리 여파로 내수 회복이 더뎌지면서, 중앙은행의 금리 결정에 시장의 관심이 집중되고 있습니다.\n\n* **IT/과학:** \n  글로벌 빅테크 기업 간 차세대 생성형 AI 주도권 경쟁이 심화되는 가운데, 국내 우주항공 및 첨단 바이오 분야에 대한 정부와 기업의 투자가 가속화되고 있습니다.\n\n* **국제:** \n  미국 대선 정국과 글로벌 경제 지표 발표를 앞두고 관망세가 이어지는 한편, 중동 지역의 지오폴리틱스(지정학적) 리스크가 확대되며 국제 유가와 환율이 요동치고 있습니다.",
+  "categories": {
+    "정치/사회": [],
+    "경제": [],
+    "IT/과학": [],
+    "국제": []
+  }
 }
