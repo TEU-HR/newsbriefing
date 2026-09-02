@@ -24,14 +24,14 @@ KST = timezone(timedelta(hours=9))
 def clean_html(text):
     if not text:
         return ""
-    text = re.sub(r'<[^>]+>', '', text)
+    text = re.sub(r"<[^>]+>", "", text)
     return text.replace('&quot;', '"').replace('&amp;', '&').replace('&lt;', '<').replace('&gt;', '>').replace('&apos;', "'").strip()
 
 def normalize_title(title):
     if not title:
         return ""
-    title = re.sub(r'\[.*?\]|\(.*?\)|<.*?>', '', title)
-    title = re.sub(r'[^\w\s]', '', title)
+    title = re.sub(r"\[.*?\]|\(.*?\)|<.*?>", "", title)
+    title = re.sub(r"[^\w\s]", "", title)
     return title.strip().lower()
 
 def is_duplicate_title(title1, title2, ratio_threshold=0.55, jaccard_threshold=0.45):
@@ -73,7 +73,6 @@ def generate_gemini_content(prompt, use_google_search=False):
     if not client:
         return f"Gemini API 키가 없거나 SDK 설정이 올바르지 않습니다. (상태: {sdk_type})"
 
-    # 구글 Gemini 최신 모델(gemini-3.6-flash) 적용
     models_to_try = ["gemini-3.6-flash", "gemini-3.6-pro"]
     last_error = None
 
@@ -117,11 +116,9 @@ def fetch_naver_news(keywords, display=10):
     for kw in keywords:
         try:
             enc_text = urllib.parse.quote(kw)
-            # NAVER API HUB 뉴스 검색 전용 API URL
             url = f"https://naverapihub.apigw.ntruss.com/search/v1/news?query={enc_text}&display={display}&sort=date"
             req = urllib.request.Request(url)
             
-            # NAVER API HUB 헤더 규격 적용
             req.add_header("X-NCP-APIGW-API-KEY-ID", client_id)
             req.add_header("X-NCP-APIGW-API-KEY", client_secret)
             
@@ -168,5 +165,5 @@ def fetch_google_news(keywords):
 """
     response_text = generate_gemini_content(prompt, use_google_search=True)
     try:
-        clean_text = re.sub(r'^```(?:json)?\s*', '', response_text, flags=re.MULTILINE)
-        clean_text = re.sub(r'
+        clean_text = re.sub(r"^```(?:json)?\s*", "", response_text, flags=re.MULTILINE)
+        clean_text = re.sub(r"
