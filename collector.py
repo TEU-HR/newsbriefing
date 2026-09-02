@@ -10,12 +10,16 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from google import genai
 
-# 카테고리별 검색 키워드
 KEYWORDS = {
-    "정치/사회": "정치 OR 사회",
-    "경제": "경제 OR 증시",
-    "IT/과학": "IT OR AI OR 기술",
-    "국제": "국제 OR 해외"
+    "정치/사회": "정치 사회",
+    "경제": "경제 증시",
+    "IT/과학": "IT AI 기술",
+    "국제": "국제 해외"
+}
+
+# 브라우저 요청으로 위장하여 구글 차단 방지
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 }
 
 def clean_html(text):
@@ -26,15 +30,21 @@ def fetch_google_news(category):
     kw = urllib.parse.quote(KEYWORDS.get(category, category))
     url = f"https://news.google.com/rss/search?q={kw}&hl=ko&gl=KR&ceid=KR:ko"
     
-    feed = feedparser.parse(url)
-    articles = []
-    for entry in feed.entries[:3]:
-        articles.append({
-            "title": entry.title,
-            "link": entry.link,
-            "source": "Google News"
-        })
-    return articles
+    try:
+        response = requests.get(url, headers=HEADERS, timeout=10)
+        if response.status_code == 200:
+            feed = feedparser.parse(response.content)
+            articles = []
+            for entry in feed.entries[:3]:
+                articles.append({
+                    "title": clean_html(entry.title),
+                    "link": entry.link,
+                    "source": "Google News"
+                })
+            return articles
+    except Exception as e:
+        print(f"구글 뉴스 수집 오류 ({category}): {e}")
+    return []
 
 def fetch_naver_news(category):
     client_id = os.environ.get("NAVER_CLIENT_ID")
@@ -43,11 +53,12 @@ def fetch_naver_news(category):
     if not client_id or not client_secret:
         return []
 
-    kw = urllib.parse.quote(KEYWORDS.get(category, category).replace(" OR ", " "))
+    kw = urllib.parse.quote(KEYWORDS.get(category, category))
     url = f"https://openapi.naver.com/v1/search/news.json?query={kw}&display=3&sort=sim"
     headers = {
         "X-Naver-Client-Id": client_id,
-        "X-Naver-Client-Secret": client_secret
+        "X-Naver-Client-Secret": client_secret,
+        "User-Agent": HEADERS["User-Agent"]
     }
 
     try:
@@ -72,7 +83,10 @@ def fetch_all_news():
         g_list = fetch_google_news(cat)
         n_list = fetch_naver_news(cat)
         combined = g_list + n_list
-        categorized[cat] = combined if combined else [{"title": "수집된 기사가 없습니다.", "link": "#", "source": "System"}]
+        if combined:
+            categorized[cat] = combined
+        else:
+            categorized[cat] = [{"title": f"{cat} 관련 최신 기사를 불러올 수 없습니다.", "link": "#", "source": "System"}]
     return categorized
 
 def summarize_news(categorized_articles):
@@ -82,18 +96,32 @@ def summarize_news(categorized_articles):
 
     client = genai.Client(api_key=api_key)
     
-    prompt_text = "다음은 오늘 수집된 주요 뉴스 목록입니다:\n"
+    prompt_text = "다음은 수집된 주요 뉴스 기사 목록입니다:\n"
+    has_valid_articles = False
     for cat, articles in categorized_articles.items():
         prompt_text += f"\n[{cat}]\n"
         for a in articles:
-            prompt_text += f"- {a['title']} ({a['source']})\n"
+            if a['link'] != "#":
+                has_valid_articles = True
+                prompt_text += f"- {a['title']} ({a['source']})\n"
+
+    if not has_valid_articles:
+        return "수집된 뉴스가 없어 요약을 생성할 수 없습니다."
 
     prompt = f"""
 {prompt_text}
 
-위 기사들을 바탕으로 주요 소식을 핵심 내용 위주로 요약해 주세요.
-1. [오늘의 종합 브리핑]: 전체 핵심 이슈 3~4줄 요약
-2. [분야별 핵심요약]: 카테고리별 주요 흐름 요약
+위 기사들의 내용을 바탕으로 종합 브리핑을 작성해 주세요.
+반드시 아래 형식에 맞추어 작성하고, 기사 정보가 부족하더라도 시스템 안내문이나 질문을 출력하지 마세요.
+
+[오늘의 종합 브리핑]
+전체 주요 흐름 요약 (3~4줄)
+
+[분야별 핵심요약]
+- 정치/사회: 주요 내용 요약
+- 경제: 주요 내용 요약
+- IT/과학: 주요 내용 요약
+- 국제: 주요 내용 요약
 """
 
     try:
