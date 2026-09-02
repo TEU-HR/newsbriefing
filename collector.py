@@ -10,7 +10,7 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from google import genai
 
-# 수집을 허용할 정확한 언론사 이름 목록
+# 지정 언론사 목록
 ALLOWED_PRESS = [
     "조선일보", "중앙일보", "동아일보", "한겨레", "경향신문", "한국일보",
     "연합뉴스", "뉴시스",
@@ -26,11 +26,15 @@ ALLOWED_DOMAINS = [
     "kbs.co.kr", "imbc.com", "mbc.co.kr", "sbs.co.kr", "ytn.co.kr"
 ]
 
+# 요청하신 7개 세분화 분야 키워드
 KEYWORDS = {
-    "정치/사회": "정치 사회",
-    "경제": "경제 증시",
-    "IT/과학": "IT AI 기술",
-    "국제": "국제 해외"
+    "정치": "정치 국회 정부",
+    "경제": "경제 증시 금융",
+    "사회": "사회 사건 사고",
+    "생활/문화": "생활 문화 여행 건강",
+    "IT/과학": "IT AI 테크 과학",
+    "세계": "세계 국제 해외",
+    "오피니언": "사설 칼럼 시론"
 }
 
 HEADERS = {
@@ -42,16 +46,10 @@ def clean_html(text):
     return text.replace('&quot;', '"').replace('&amp;', '&').replace('&lt;', '<').replace('&gt;', '>')
 
 def parse_google_publisher(title):
-    """
-    구글 뉴스 제목('기사제목 - 언론사명')에서 맨 뒤 언론사명을 추출하여
-    지정한 ALLOWED_PRESS와 정확히 일치하는지 검증
-    """
+    """구글 뉴스 제목('제목 - 언론사명')에서 맨 뒤 언론사명이 지정 목록과 일치하는지 확인"""
     if " - " not in title:
         return False, None
-    
-    # 맨 뒤의 '- 언론사명' 분리
     parts = title.rsplit(" - ", 1)
-    article_title = parts[0].strip()
     publisher = parts[1].strip()
 
     if publisher in ALLOWED_PRESS:
@@ -94,18 +92,21 @@ def fetch_naver_news(category):
     client_secret = os.environ.get("NAVER_CLIENT_SECRET")
     
     if not client_id or not client_secret:
-        print("[경고] NAVER_CLIENT_ID 또는 NAVER_CLIENT_SECRET이 설정되지 않았습니다.")
+        print("[경고] NAVER_CLIENT_ID 또는 NAVER_CLIENT_SECRET 설정이 없습니다.")
         return []
 
-    # 환경변수 앞뒤 공백 제거
     client_id = client_id.strip()
     client_secret = client_secret.strip()
 
     kw = urllib.parse.quote(KEYWORDS.get(category, category))
     url = f"https://openapi.naver.com/v1/search/news.json?query={kw}&display=30&sort=sim"
+    
+    # 네이버 클라우드 플랫폼(NAVER API HUB) 및 구형 개발자센터 인증 헤더 모두 지원
     headers = {
-        "X-Naver-Client-Id": client_id,
-        "X-Naver-Client-Secret": client_secret,
+        "X-NCP-APIGW-API-KEY-ID": client_id,      # 네이버 클라우드 플랫폼 헤더
+        "X-NCP-APIGW-API-KEY": client_secret,     # 네이버 클라우드 플랫폼 헤더
+        "X-Naver-Client-Id": client_id,          # 개발자센터 구형 헤더
+        "X-Naver-Client-Secret": client_secret,  # 개발자센터 구형 헤더
         "User-Agent": HEADERS["User-Agent"]
     }
 
@@ -124,9 +125,9 @@ def fetch_naver_news(category):
                     })
                 if len(articles) >= 3:
                     break
-            print(f"[네이버 API 성공] {category}: {len(articles)}개 필터링 수집 완료")
+            print(f"[네이버 API 성공] {category}: {len(articles)}개 수집 완료")
         else:
-            print(f"[네이버 API 오류 코드: {res.status_code}] 응답 메시지: {res.text}")
+            print(f"[네이버 API 오류 {res.status_code}] {res.text}")
     except Exception as e:
         print(f"네이버 API 호출 실패 ({category}): {e}")
     return articles
@@ -171,10 +172,13 @@ def summarize_news(categorized_articles):
 전체 주요 흐름 요약 (3~4줄)
 
 [분야별 핵심요약]
-- 정치/사회: 주요 내용 요약
+- 정치: 주요 내용 요약
 - 경제: 주요 내용 요약
+- 사회: 주요 내용 요약
+- 생활/문화: 주요 내용 요약
 - IT/과학: 주요 내용 요약
-- 국제: 주요 내용 요약
+- 세계: 주요 내용 요약
+- 오피니언: 주요 내용 요약
 """
 
     try:
@@ -213,7 +217,7 @@ def main():
     kst = timezone(timedelta(hours=9))
     now_str = datetime.now(kst).strftime("%Y년 %m월 %d일 %H:%M")
 
-    print(f"[{now_str}] 지정 언론사 뉴스 수집 시작...")
+    print(f"[{now_str}] 7개 분야 지정 언론사 뉴스 수집 시작...")
     categorized_articles = fetch_all_news()
 
     print("AI 요약 생성 중...")
