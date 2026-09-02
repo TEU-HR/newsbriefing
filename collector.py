@@ -10,7 +10,7 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from google import genai
 
-# 10대 지정 언론사 매핑 (도메인 & 네이버 고유 코드)
+# 10대 지정 언론사 정보 (도메인 및 네이버 언론사 고유 코드)
 TARGET_PRESSES = {
     "조선일보": {"domains": ["chosun.com"], "code": "023"},
     "중앙일보": {"domains": ["joongang.co.kr"], "code": "025"},
@@ -24,14 +24,14 @@ TARGET_PRESSES = {
     "SBS": {"domains": ["sbs.co.kr"], "code": "055"}
 }
 
-# 카테고리별 풍부한 검색 키워드 (네이버 API에 직접 검색)
-CATEGORY_KEYWORDS = {
-    "정치": ["정치", "국회", "대통령", "여당 야당"],
-    "경제": ["경제", "금리", "증시", "물가"],
-    "사회": ["사회", "검찰", "경찰", "법원"],
-    "생활/문화": ["문화", "날씨", "건강", "여행"],
-    "IT/과학": ["IT", "AI", "반도체", "과학"],
-    "세계": ["세계", "미국", "중국", "국제"],
+# 카테고리별 검색 키워드
+CATEGORIES = {
+    "정치": ["정치", "국회", "대통령"],
+    "경제": ["경제", "금융", "증시"],
+    "사회": ["사회", "검찰", "경찰"],
+    "생활/문화": ["문화", "날씨", "건강"],
+    "IT/과학": ["IT", "AI", "반도체"],
+    "세계": ["세계", "미국", "국제"],
     "사설": ["[사설]", "사설"]
 }
 
@@ -51,8 +51,8 @@ def clean_html(text):
 
 def get_target_time_window(now_kst):
     """
-    아침 정기 수집(07:00 ~ 08:30 사이 실행 시): 전일 22:00 ~ 당일 07:20
-    수시/낮 테스트 실행 시: 최근 24시간
+    아침 정기 수집(07:00 ~ 08:30 실행 시): 전일 22:00 ~ 당일 07:20
+    수시/테스트 실행 시: 최근 24시간
     """
     if now_kst.hour == 7 or (now_kst.hour == 8 and now_kst.minute <= 30):
         end_time = now_kst.replace(hour=7, minute=20, second=0, microsecond=0)
@@ -81,21 +81,21 @@ def format_pub_date(pub_date_str):
     except Exception:
         return ""
 
-def identify_target_press(link, orig_link):
+def identify_press(link, orig_link):
     """
-    기사 URL을 통해 10대 지정 언론사 중 어느 곳인지 판별
+    기사 URL(원문 및 네이버 링크)을 분석해 10대 언론사 중 어디인지 판별
     """
-    target_url = (orig_link or link).lower()
-
+    combined_url = f"{orig_link} {link}".lower()
+    
     for press_name, info in TARGET_PRESSES.items():
-        # 1. 도메인 일치 확인
+        # 1. 자사 도메인 검사
         for domain in info["domains"]:
-            if domain in target_url:
+            if domain in combined_url:
                 return press_name
         
-        # 2. 네이버 언론사 고유 코드 일치 확인
+        # 2. 네이버 언론사 고유 코드 검사 (/article/023/ 또는 office_id=023)
         code = info["code"]
-        if f"/article/{code}/" in target_url:
+        if f"/article/{code}/" in combined_url or f"office_id={code}" in combined_url or f"officeid={code}" in combined_url:
             return press_name
 
     return None
@@ -129,50 +129,58 @@ def fetch_category_news(category, start_time, end_time):
 
     collected_articles = []
     seen_links = set()
-    press_count = {press: 0 for press in TARGET_PRESSES.keys()}
-
-    keywords = CATEGORY_KEYWORDS.get(category, [category])
+    press_counts = {press: 0 for press in TARGET_PRESSES.keys()}
+    keywords = CATEGORIES.get(category, [category])
 
     for kw in keywords:
         encoded_kw = urllib.parse.quote(kw)
-        url = f"https://openapi.naver.com/v1/search/news.json?query={encoded_kw}&display=100&sort=date"
+        
+        # 페이지네이션: 1페이지(1~100), 2페이지(101~200), 3페이지(201~300) 탐색 (총 300개 수집)
+        for start_idx in range(1, 301, 100):
+            url = f"https://openapi.naver.com/v1/search/news.json?query={encoded_kw}&display=100&start={start_idx}&sort=date"
 
-        try:
-            res = requests.get(url, headers=headers, timeout=8)
-            if res.status_code != 200:
-                print(f"[{category}-{kw}] API 호출 오류 (Code: {res.status_code})")
-                continue
+            try:
+                res = requests.get(url, headers=headers, timeout=8)
+                if res.status_code != 200:
+                    print(f"  └ [{kw}] API 호출 오류 ({res.status_code})")
+                    break
 
-            items = res.json().get("items", [])
-            for item in items:
-                pub_date = item.get("pubDate")
-                if not is_within_time_window(pub_date, start_time, end_time):
-                    continue
+                items = res.json().get("items", [])
+                if not items:
+                    break
 
-                cleaned_title = clean_html(item.get("title", ""))
-                if not is_valid_for_category(cleaned_title, category):
-                    continue
+                for item in items:
+                    pub_date = item.get("pubDate")
+                    if not is_within_time_window(pub_date, start_time, end_time):
+                        continue
 
-                orig_link = item.get("originallink", "")
-                norm_link = item.get("link", "")
-                final_link = orig_link if orig_link else norm_link
+                    cleaned_title = clean_html(item.get("title", ""))
+                    if not is_valid_for_category(cleaned_title, category):
+                        continue
 
-                if final_link in seen_links:
-                    continue
+                    orig_link = item.get("originallink", "")
+                    norm_link = item.get("link", "")
+                    final_link = orig_link if orig_link else norm_link
 
-                press_name = identify_target_press(norm_link, orig_link)
-                if press_name and press_count[press_name] < 3: # 언론사당 카테고리별 최대 3개 수집
-                    seen_links.add(final_link)
-                    press_count[press_name] += 1
-                    collected_articles.append({
-                        "title": cleaned_title,
-                        "link": final_link,
-                        "source": f"Naver ({press_name})",
-                        "press_name": press_name,
-                        "pub_time": format_pub_date(pub_date)
-                    })
-        except Exception as e:
-            print(f"[{category}-{kw}] 예외 발생: {e}")
+                    if final_link in seen_links:
+                        continue
+
+                    press_name = identify_press(norm_link, orig_link)
+                    if press_name:
+                        # 동일 언론사당 카테고리별 최대 2개 기사 제한
+                        if press_counts[press_name] < 2:
+                            seen_links.add(final_link)
+                            press_counts[press_name] += 1
+                            collected_articles.append({
+                                "title": cleaned_title,
+                                "link": final_link,
+                                "source": f"Naver ({press_name})",
+                                "press_name": press_name,
+                                "pub_time": format_pub_date(pub_date)
+                            })
+            except Exception as e:
+                print(f"  └ [{kw}] 수집 예외 발생: {e}")
+                break
 
     return collected_articles
 
@@ -180,19 +188,19 @@ def fetch_all_news():
     now_kst = datetime.now(KST)
     start_time, end_time = get_target_time_window(now_kst)
     
-    print(f"=== 수집 적용 시간 범위: {start_time.strftime('%Y-%m-%d %H:%M')} ~ {end_time.strftime('%Y-%m-%d %H:%M')} ===")
+    print(f"=== 탐색 시간 범위: {start_time.strftime('%Y-%m-%d %H:%M')} ~ {end_time.strftime('%Y-%m-%d %H:%M')} ===")
 
     categorized = {}
-    for cat in CATEGORY_KEYWORDS.keys():
-        print(f"\n▶ 카테고리 수집 진행 중: [{cat}]")
+    for cat in CATEGORIES.keys():
+        print(f"\n▶ [{cat}] 카테고리 탐색 중...")
         articles = fetch_category_news(cat, start_time, end_time)
         
         if articles:
-            # 언론사 이름 및 시간순 정렬
-            articles.sort(key=lambda x: (x['press_name'], x['pub_time']), reverse=False)
+            articles.sort(key=lambda x: (x['press_name'], x['pub_time']))
             categorized[cat] = articles
-            print(f"  └ 총 {len(articles)}개 10대 언론사 기사 수집 성공")
+            print(f"  └ 성공: 총 {len(articles)}개 10대 언론사 기사 수집됨")
         else:
+            print(f"  └ 실패: 해당 시간 내 조건에 맞는 기사 없음")
             categorized[cat] = [{
                 "title": f"해당 시간 범위 내 10대 언론사의 {cat} 기사가 출고되지 않았습니다.",
                 "link": "#",
@@ -206,10 +214,10 @@ def fetch_all_news():
 def summarize_news(categorized_articles):
     api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
-        return "GEMINI_API_KEY 설정이 되어있지 않습니다."
+        return "GEMINI_API_KEY가 설정되지 않았습니다."
 
     client = genai.Client(api_key=api_key)
-    prompt_text = "다음은 10대 언론사에서 출고된 네이버 뉴스 목록입니다:\n"
+    prompt_text = "다음은 10대 언론사에서 출고된 최신 뉴스 목록입니다:\n"
     has_valid = False
 
     for cat, articles in categorized_articles.items():
@@ -226,15 +234,10 @@ def summarize_news(categorized_articles):
 {prompt_text}
 
 당신은 최고 수석 언론 편집장입니다. 
-독자들이 3분 만에 최신 정세를 완벽히 이해할 수 있도록 **카드형 뉴스 브리핑**을 작성해 주세요.
-
-[작성 지침]
-1. 제목과 각 항목마다 직관적인 이모지를 사용하세요.
-2. 각 카드 항목은 단순 기사 나열이 아닌, **[배경/쟁점 ➔ 핵심 내용 ➔ 전망/시사점]**을 구체적으로 정리하세요.
-3. 중요 단어 및 숫자는 **볼드체**로 강조하세요.
+독자들이 3분 만에 최신 정세를 이해할 수 있도록 **카드형 뉴스 브리핑**을 작성해 주세요.
 
 # 🚀 오늘의 3대 핵심 이슈
-(전체 분야를 통틀어 가장 중요한 이슈 3가지를 선별하여 작성)
+(전체 분야 통틀어 가장 중요한 이슈 3가지 선별)
 
 # 📊 분야별 리포트
 - **정치**: (핵심 내용 정리)
@@ -246,39 +249,20 @@ def summarize_news(categorized_articles):
 - **사설**: (주요 언론사별 핵심 논조 비교)
 
 # 💡 출근길 인사이트
-(오늘 이슈가 비즈니스 및 사회에 주는 핵심 시사점 2가지)
+(오늘 이슈가 주는 핵심 시사점 2가지)
 """
     try:
         res = client.models.generate_content(model="gemini-3.6-flash", contents=prompt)
         return res.text
     except Exception as e:
-        return f"AI 요약 생성 실패: {e}"
-
-def send_email(subject, body):
-    sender = os.environ.get("EMAIL_USER")
-    password = os.environ.get("EMAIL_PASSWORD")
-    if not sender or not password: return
-
-    msg = MIMEMultipart()
-    msg["From"] = sender
-    msg["To"] = sender
-    msg["Subject"] = subject
-    msg.attach(MIMEText(body, "plain", "utf-8"))
-    try:
-        server = smtplib.SMTP("smtp.gmail.com", 587)
-        server.starttls()
-        server.login(sender, password)
-        server.sendmail(sender, sender, msg.as_string())
-        server.close()
-    except Exception as e:
-        print(f"이메일 발송 실패: {e}")
+        return f"AI 요약 생성 중 오류 발생: {e}"
 
 def main():
     now_dt = datetime.now(KST)
     now_str = now_dt.strftime("%Y년 %m월 %d일 %H:%M")
     today_date_key = now_dt.strftime("%Y-%m-%d")
 
-    print(f"[{now_str}] 10대 언론사 네이버 뉴스 수집 프로세스 시작...")
+    print(f"[{now_str}] 뉴스 수집 프로세스 실행...")
     categorized_articles = fetch_all_news()
 
     print("\nAI 요약 브리핑 생성 중...")
@@ -316,8 +300,7 @@ def main():
     with open("data.json", "w", encoding="utf-8") as f:
         json.dump({"morning": daily_payload, "realtime": daily_payload}, f, ensure_ascii=False, indent=2)
 
-    print("\n✅ 수집 및 업데이트 완료!")
-    send_email(f"[뉴스 브리핑] {now_str}", f"수집 시각: {now_str}\n\n{briefing_summary}")
+    print("\n✅ 수집 완료 및 파일 저장 성공!")
 
 if __name__ == "__main__":
     main()
