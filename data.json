@@ -1,56 +1,55 @@
 {
-  "feed_articles": [
+  "summary": "요약 생성 중 오류 발생: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}",
+  "articles": [
     {
-      "press": "연합뉴스",
-      "press_type": "주요통신사",
-      "category": "IT/과학",
-      "title": "'AI 활용'·'집중력 향상 제품' 광고하려면 실증 의무 생긴다",
-      "link": "https://www.yonhapnewstv.co.kr/news/AKR20260902135633PvE",
-      "summary": [
-        "공정위가 '표시·광고 내용의 실증에 관한 운영 고시' 개정안을 시행함",
-        "인공지능(AI) 등 신기술 제품 광고 시 사전·사후 실증 요청 의무가 강화됨",
-        "사업자는 표시·광고에서 주장하는 성능 사실에 대한 합리적 근거를 제시해야 함"
-      ],
-      "keywords": [
-        "#공정위",
-        "#AI광고실증",
-        "#표시광고법"
-      ]
+      "title": "정부 긴급구호대 네팔 도착…헬기·육로·드론·휴대전화 정보 총동원 ‘수색 집중’ - 한겨레",
+      "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBBUlppclo5TDhCWFdTd3hrcHFqLVRxTWVxRWFyVWRmYWF4dmFOeDZuaGpETlk2WnlORlUtekZoREdROGYzZWw4c04yZzlGV3huN0o0T21yYm1SNlBUVmhadlhBdzNxT3N3cTREbFBhSnRNV0VO?oc=5",
+      "published": "Wed, 02 Sep 2026 03:08:00 GMT"
     },
     {
-      "press": "연합뉴스",
-      "press_type": "주요통신사",
-      "category": "IT/과학",
-      "title": "LG전자, 메리어트와 스마트 호텔 플랫폼 구축 협약",
-      "link": "https://www.yonhapnewstv.co.kr/news/AKR20260902135541DBA",
-      "summary": [
-        "LG전자가 메리어트 인터내셔널과 차세대 스마트 호텔 구축 업무협약을 체결함",
-        "미국 메리어트 본사에서 객실 엔터테인먼트 및 기술 플랫폼 고도화를 추진함",
-        "통합형 클라우드 플랫폼 기반의 혁신적인 호텔 기술 솔루션을 선보일 계획임"
-      ],
-      "keywords": [
-        "#LG전자",
-        "#메리어트",
-        "#스마트호텔"
-      ]
+      "title": "[속보] FT “한국 장금상선 유조선, 호르무즈서 피격”···원유 200만배럴 운송 중 당했다 - 경향신문",
+      "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1RZ3NmaHdCZ2NqNjRpQkRDeTYtallvYVdVWGwyXzA5MFBaZm5WZkl0MGlNcDZVUUdRVDhpZWk4SnpzQ1Jaa3VaaTlHLUFlSUp3eGNBc2VWVmZhUdIBX0FVX3lxTE9kQWJZTTkzVmpMWmhzcXh3NGRKWEE0czhFT3k4ZTdhczZpSk1WaWJ4TDRod3U3OGxsMTVoaF84cVZjSGp0V0haZ2Jfa3VfUk5vZ09IOWtKSHRLb1gyN0hj?oc=5",
+      "published": "Wed, 02 Sep 2026 01:22:00 GMT"
     },
     {
-      "press": "연합뉴스",
-      "press_type": "주요통신사",
-      "category": "경제",
-      "title": "기아, 8월 미국서 역대 최다 판매…현대차는 1.9% 감소",
-      "link": "https://www.yonhapnewstv.co.kr/news/AKR20260902135204bFT",
-      "summary": [
-        "현대차·기아의 8월 미국 합산 판매량이 17만 8,405대로 전년 대비 0.6% 감소함",
-        "기아는 0.9% 증가한 실적을 거두며 8월 기준 미국 역대 최다 판매 기록을 경신함",
-        "현대차(제네시스 포함)는 9만 4,612대를 판매하여 전년 대비 1.9% 감소함"
-      ],
-      "keywords": [
-        "#기아",
-        "#현대차",
-        "#미국실적"
-      ]
+      "title": "송영길 “용혜인 장관 임명, 2030에 소구력?…민심 수용 쉽잖을 것” - 한겨레",
+      "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5LRHdkM3FxNlFWOXIzeG95Z2RGWVE2R0EtMDNoWlpBU1NGVnZYNXdvaHJYRHk3TzBfdmxNMzEwUExZTGFrekVzZUlXSjBwMkJlMkVOYmpZNGg5RGZMYzRWRzk1Y1RPNXlLeUJ0UXlVOXRXbS1k?oc=5",
+      "published": "Wed, 02 Sep 2026 02:18:00 GMT"
+    },
+    {
+      "title": "이형일 부총리 내정자 “실거주중심 변화없어, 합리적 지적 수용할 것···양극화 고려 물가안정 최우선으로” - 경향신문",
+      "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBLdmFsODlRcTBfY3JZQmlFYmdaYTkwX0Z6dEVuREtzRl9qLUtDOHFuLVVJeUdpU2VSV0lZYk1IWmoyNW9BNzRLSDN6N2NqRGZreUplMzd6ellUUdIBX0FVX3lxTE9FQjZsNmhXRXZfcmhhbnEzcXhSclJuSUpwRVRoZV81UExnSFNOZ0VmQ2JheUczYXkxcThULVZyOFd0QTY0S1duZ0hMdHdSZnQ5ZkFBM3BBb2k4OTViWEU0?oc=5",
+      "published": "Wed, 02 Sep 2026 02:42:00 GMT"
+    },
+    {
+      "title": "[속보]검찰, ‘장윤기 사건 분리수사 지시’ 전 국수본부장 등 4명 기소 - 경향신문",
+      "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9LU09WcExZakRQdmU4VWMwbUU3NUhGVmNJYVFzaDh0QVp3Y2dicmZnaW51emIyS210YjY1TjJOSFVndjJmcXNqcE9tNkdYZ0lKeGtCWEF1Mk9Vd9IBX0FVX3lxTE9icVM3VXpMUERxZDdxTTloWFFrb25qYjlFZFVhODA2d1E2dkJSYVRDOHp1ZC05UTRQWDdEZUZPY2kyUTYyNkpjeERnaEthZU0yZEppU2RzOEd5NjVvSkZR?oc=5",
+      "published": "Wed, 02 Sep 2026 05:01:00 GMT"
+    },
+    {
+      "title": "미국, 이틀 만에 또 이란 공습···이란 “미국 후회하게 될 것” - 경향신문",
+      "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1pZ2doVzNwOXpxRmZXWUZvOFYzcWNQOGFRM2RqYVV5QldnblpqYXN5WE1yc0doeTMwQ3gxbnFMd2Z4ZUR1OW5PZ0o1OTRzbGl4dUhJOUhPTThtUdIBX0FVX3lxTE5UMTRaaHp6VkxVODJZV3Y3STdfeExIZ0x6TGVwM0JBb0luOWx0dnNNMUFEN2VRRlMzTUtqZXNCbEJfR1N1TmhkSzVrczhDX093ODZhRVdfZkpTWjNQdWo0?oc=5",
+      "published": "Tue, 01 Sep 2026 22:45:00 GMT"
+    },
+    {
+      "title": "‘홍명보 선임 의혹’ 정몽규 전 축구협회장 경찰 소환 - 조선일보",
+      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOSFBSRmxKQi03U08yYUIwbW1fWkpYdWowcDhNbXVyaHBEU1UwbHNUeDFldWprNHY1RmtwSHZzcnRkalRXbGY0ZVdaYTlxclNIbTVXM1dIR2V0aEpFQTFfbTJFRWVKZExId2RYLWtvU3ZDU0ZaZ1d5NXNMcV9zNjhaYTlhdU9INFBPbXpFQXFUT04?oc=5",
+      "published": "Wed, 02 Sep 2026 03:33:00 GMT"
+    },
+    {
+      "title": "김종철 신임 경찰청장 대행 \"국민 불신 높은 상황…마음 무겁다\" - 연합뉴스",
+      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1mcVh2SU9uREU0eFBKMzhSVXNLam9SaklyRndkUGNxamp2Z3pXYWl6MU1XNHIwV2wzUFRTa01oVlFYRE1seFAzdWU4c1F5dWhXbF9HMGZ2Ti1xeDDSAWBBVV95cUxPdHd2aTZSYzVkWkl6NEZmbWJDOEpQbno3ZUk2TmdLcWxfdTA1ZlF5MU82LUhYaUlJUGNOcmRkUVBuRXRla2F2ZHlyQm5vSGFJUl9YRnZTNEJmRDR0Q1VIcDY?oc=5",
+      "published": "Tue, 01 Sep 2026 23:32:49 GMT"
+    },
+    {
+      "title": "제주 허위종결 실종 여성 유족측, 국가배상 소송 준비 - 연합뉴스",
+      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE52UlUycV9aa2V4ODQwOE84Yy03N0Rpckh2a3BMWHdKTlRzYmlBdzJIYjFNamZEckM5UkFzLVg0WlB4aVRoVDdCV2ZwNjZaQXYwOWJZN2hUUkJQSnfSAWBBVV95cUxOa1ZtVnRLMXQ5aHZwOU1zM0c3RzAtOGxkZVM2NEd2U3VWTUZKNlZEZ0hHNEdBaVU1QnhyRFpKNHFQQTlpZ1RUckpaVGRzTHJjcTAtT3F4MUp4UGY2TndpVGo?oc=5",
+      "published": "Wed, 02 Sep 2026 02:41:24 GMT"
+    },
+    {
+      "title": "조국 \"이 대통령, 2심 유죄 가능성 높아\"…與 \"자다가 봉창\" - yonhapnewstv.co.kr",
+      "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5wYUZCWmxBLUhGVHg1YXVSdkgzV3FKQ2NEdm1NTTBzM19lVDlDNjVfZ0dHTElVSnpSdHJ6Z1ZhUHhPMzBicEZhbDNsSkgzbzh3MEVnZ0tpdFIyemtzRkRyTkVOYW41d28?oc=5",
+      "published": "Tue, 01 Sep 2026 23:23:00 GMT"
     }
-  ],
-  "updated_at": "2026-09-02 04:57:27"
+  ]
 }
