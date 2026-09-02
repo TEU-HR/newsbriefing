@@ -188,176 +188,111 @@
     ]
   },
   "realtime": {
-    "updated_at": "2026년 09월 02일 15:58",
-    "summary": "요약 생성 실패: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+    "updated_at": "2026년 09월 02일 16:03",
+    "summary": "[오늘의 종합 브리핑]\n글로벌 시장에서는 중동 리스크 재발과 트럼프의 강경 행보, 국채금리 및 유가 급등으로 인한 금융시장의 불안정성이 다시 확대되고 있습니다. 이에 따라 국제사회에서는 G20 공동성명 불발 및 공급망 안보 이슈가 부각되는 한편, 국내에서는 지자체들의 예산 확보 행보와 함께 강력 범죄 사건이 사회적 충격을 주고 있습니다. 또한 사설과 정치권에서는 국가 재정 건전성 관리, 내각 운영 방식 개선, 경찰 및 체육계 현안에 대한 비판과 대책 마련을 촉구했습니다.\n\n[분야별 핵심요약]\n- **정치:** 부산시의 국회 방문을 통한 지역 사업 지원 요청과 익산시의 2년 연속 1조 원대 정부 예산 확보 등 지자체들의 예산 및 지역 현안 해결 노력이 이어졌습니다.\n- **경제:** 중동 리스크와 트럼프 변수로 유가 및 글로벌 국채금리가 급등하며 세계 증시가 위축된 가운데, 시장에서는 반도체 업종이 위기를 극복할 구원투수가 될지 주목하고 있습니다.\n- **사회:** 이혼 소송 중인 아내를 자녀가 보는 앞에서 살해한 참혹한 사건이 발생해 충격을 주고 있습니다.\n- **생활/문화:** 수집된 주요 기사가 없습니다.\n- **IT/과학:** 수집된 주요 기사가 없습니다.\n- **세계:** 중국의 거부로 G20 경제수장 공동성명이 불발되었으며, 한국의 공급망 안보를 위한 메모리 생산 다변화 필요성이 제기되었습니다. 외에 정보라 작가의 해외 출장기 신간 출간 소식이 포함되었습니다.\n- **사설:** 반도체 특수에 기댄 예산 편성을 지적하며 나랏빚 상환 등 재정 건전성 확보를 촉구했고, 내각의 주도적 국정 운영, 경찰의 개인정보 남용 방지 시스템 도입, 정몽규 축구협회장 입건 등 국정·사회 현안에 대한 제언과 비판이 다루어졌습니다.",
     "categories": {
       "정치": [
         {
-          "title": "김민석 “보완수사권 폐지로 최종 정리…정부 입법 안 해” - 한겨레",
-          "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBLYXRxS2p5Q0lUbzVFbm12R3RKa09rX3h6MXh3TWU1Wjc0NGRWbF8zaW9nWC1rc2FKN1lWdy0wM240bHZNd0kya0psTVl4c0JsWU1hY1FLekhPVURZOVZQcjdDRVlEcHZxVUE?oc=5",
-          "source": "Google News (한겨레)"
-        },
-        {
-          "title": "민주당 서영교, 서울시장 불출마… \"국회서 이재명 정부 성공 뒷받침하겠다\" - 한국일보",
-          "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5Zc0V6am9GN1U4cFVwb054Q212QmpjVHgtWEFHRjNFSjg4U05QTG0yQ2UyelplRVpqTkxlMFJSaGpTWmhEMllybHVZUUJiZ2ItNjNQMy1DUWlfcXBJT0Q5SXdjZEpHTHM5LWpka1hR0gFzQVVfeXFMT3MyUWU4VGZIRDJZMUFMSDgteDRDUU51YU9QRkZ2Nks1bDBsemlFclQyRURfemNpaTRkSmRoQnNYZFpEcGtCeWdZOWFsRHAzX0RlV1lhT1oxT2hoaDFveVBVVS1lbUdWQUIxeVVFQS1RSHc3NA?oc=5",
-          "source": "Google News (한국일보)"
-        },
-        {
-          "title": "국회, 대정부 질문 시작…3대 특검·정부조직법 대격돌 예고 - 연합뉴스",
-          "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9aOXRTdGozenAtVXI1S29nc29udFR6Wl82UXpVNU1qbUNtZ19WSEFDRVBEQ003dVRFN2dGZTMtVVc2bDB4TlRzYWtOWHFET3R6WlFzZDJUUTFPc1HSAWBBVV95cUxOMUx4OE5odFJ6RllqMFI4R2FFN1llRG1kTC03aDRtWnFSM05NOTJ5TnVmQnhLeDVrZzY1aFRrTFdHLUF4cGphVFZVVEZ6cWpWZkZtb01GS0R1aUZkUmZ4TFI?oc=5",
-          "source": "Google News (연합뉴스)"
-        },
-        {
-          "title": "1년 반 뒤 총선인데…기초연금 개편안, 국회 문턱 넘을까[기초연금 개편...",
-          "link": "https://www.newsis.com/view/NISX20260901_0003771370",
+          "title": "국회 간 부산시장, 이재정·권칠승 만났다…사업지원 요청",
+          "link": "https://www.newsis.com/view/NISX20260902_0003773558",
           "source": "Naver News (뉴시스)"
         },
         {
-          "title": "821조 ‘예산 전쟁’ 시작…李정부 두 번째 정기국회 막 올랐다",
-          "link": "https://www.mk.co.kr/article/12141442",
-          "source": "Naver News (매일경제)"
+          "title": "익산시, 정부 예산안 1조24억원 확보…2년 연속 '1조 시대'",
+          "link": "https://www.yna.co.kr/view/AKR20260902139400055?input=1195m",
+          "source": "Naver News (연합뉴스)"
         },
         {
-          "title": "이 대통령 “정부 혼자 ‘완벽할 수 없다’ 인정하고 정치권과 협력”",
-          "link": "https://www.khan.co.kr/article/202609011653001",
-          "source": "Naver News (경향신문)"
+          "title": "[생생뉴스] 정치와 세상을 잇는 시간, 정치잇수",
+          "link": "https://news.kbs.co.kr/news/pc/view/view.do?ncd=8652779&ref=A",
+          "source": "Naver News (KBS)"
         }
       ],
       "경제": [
         {
-          "title": "[뉴스AS] “학자금대출 안 받아도 된다”…우리아이자립펀드, 부모 관심·상품성이 관건 - 한겨레",
-          "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBxclpHRnRNMHA5YVEzNUprU2daNGtUOGR3OW5XODBpTDl6SWhFZk5TZkd1djdWWU1mMHphb09CSENRX2g3Y0dkZ2xBVVZGb0RrM21rQmdHZk9La3hQTmNyT3JPSGUzdGs?oc=5",
-          "source": "Google News (한겨레)"
+          "title": "[직설] 글로벌 국채금리 동시다발 급등에 시장 위축…반도체가 '구원투...",
+          "link": "https://biz.sbs.co.kr/article_hub/20000332221?division=NAVER",
+          "source": "Naver News (SBS)"
         },
         {
-          "title": "한국증권금융, 연 2.96% 모바일 파킹통장 출시 - 서울경제",
-          "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFAzQTFjYXJlOGFJWmE4eDV1S01aX1E2VzlTcG5sVkZQbHlTR0JkdFdpZUlvcTZhMjFtY0RuZ3NlUm5PRm42dGRObnJUWVNQRHVHc1HSAVNBVV95cUxNU18xbGlmOTBqRE9RbGlOcWNnbVF1VHNaOV85ZnVwZkhrY1RiYWtyU2M0MERQblBHX2xIX1E5Rzl3dEZmT0plcXM2Z3MzTGZuQzJscw?oc=5",
-          "source": "Google News (서울경제)"
-        },
-        {
-          "title": "김영익 \"내년 상반기 그간 못봤던 거대 금융위기 벌어질 가능성 있어\" - 조선일보",
-          "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOUmMwcHpHcnhUWUtnRDZwc1RnNklsOWg3QlpISjNLQWw2T0VYb3Z4akt3UHV3NV9YWE5qQjE2eEdhTVFtekxqWWthTEEweU5PZE1VaS1uSzByaTZrTGVSM2RZZEZ5UVNDSVFnLWFDOHdFc25DcDNQUWJiYU9YZDBHRA?oc=5",
-          "source": "Google News (조선일보)"
+          "title": "금융시장 '발작'...트럼프, '즉각 응징' 선택한 까닭 [자막뉴스]",
+          "link": "https://www.ytn.co.kr/_ln/0134_202609021306313423",
+          "source": "Naver News (YTN)"
         },
         {
           "title": "되살아난 중동 리스크…유가·국채금리 급등에 세계증시 '덜컹'",
           "link": "https://www.yna.co.kr/view/AKR20260902082500008?input=1195m",
           "source": "Naver News (연합뉴스)"
-        },
-        {
-          "title": "인플레이션 우려에 글로벌 국채 금리 급등...뉴욕 증시 하락",
-          "link": "https://www.ytn.co.kr/_ln/0104_202609020730094787",
-          "source": "Naver News (YTN)"
-        },
-        {
-          "title": "정기국회 막 올랐다…지배구조·디지털자산 등 금융입법 주목",
-          "link": "https://www.newsis.com/view/NISX20260901_0003771155",
-          "source": "Naver News (뉴시스)"
         }
       ],
       "사회": [
         {
-          "title": "'통영 60대 살인 사건' 용의자를 찾습니다… 경찰, CCTV 공개 - 한국일보",
-          "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBwakNGcUZOU09oM3loRDhGWTl4NWhmSl9LU0VKZGs4dnpURm4xM1NPbXl6SHBXRGxNMUVBLWgybEhaaXJxQmlvQzJ6XzVYVjJpRzRpTEllcEhXOVR6Rl9LUzI5czdIUFZGY040aUpR0gFzQVVfeXFMUFZOWTYtdDUwYVNHTWZqbFVVWndzWmdnSWdDUVVKN0VBMHN6NmFWWEdCWF9PODRwVTVWVEVPbEFBNFBmTTgzLXNaQlhTTXdwZGNGbHB0NUxzVmhLZUlMV1FwY2t2Umxtc2ZOSkU2bjdjTU5tZw?oc=5",
-          "source": "Google News (한국일보)"
-        },
-        {
-          "title": "경기 광주 쿠팡 물류센터에서 40대 끼임 사고...심정지 이송",
-          "link": "https://www.ytn.co.kr/_ln/0103_202608231456242917",
+          "title": "'자식 보는 앞에서...' 이혼 소송 아내 찾아가 '살해' [뉴스퀘어 2PM]",
+          "link": "https://www.ytn.co.kr/_ln/0103_202609021456023758",
           "source": "Naver News (YTN)"
-        },
-        {
-          "title": "사건 기록으로 만나는 19세기 서울…내달 4일 서울역사학술대회",
-          "link": "https://www.yna.co.kr/view/AKR20260827178800004?input=1195m",
-          "source": "Naver News (연합뉴스)"
-        },
-        {
-          "title": "‘추적 60분’ 초고령사회의 민낯 3부작 - 3부 ‘돌봄 장사’ 요양원과...",
-          "link": "https://sports.khan.co.kr/article/202608281832003?pt=nv",
-          "source": "Naver News (경향신문)"
         }
       ],
       "생활/문화": [
         {
-          "title": "쉼표가 필요할 때 팔공산-금호강 품은 동구서 ‘힐링 여행’",
-          "link": "https://www.donga.com/news/Society/article/all/20260819/134498598/2",
-          "source": "Naver News (동아일보)"
-        },
-        {
-          "title": "산림청, 정원 즐기고 건강 챙기는 '건강도시 도장찍기여행'",
-          "link": "https://www.newsis.com/view/NISX20260622_0003678265",
-          "source": "Naver News (뉴시스)"
+          "title": "생활/문화 분야 최근 24시간 내 지정 언론사 기사가 없습니다.",
+          "link": "#",
+          "source": "System"
         }
       ],
       "IT/과학": [
         {
-          "title": "구글 출신 이해민 AI수석이 짊어진 '두 과제'",
-          "link": "https://it.chosun.com/news/articleView.html?idxno=2023092169165",
-          "source": "Naver News (조선일보)"
-        },
-        {
-          "title": "[주간보안동향] 보안 전용 AI 모델 나온다…SKT·네이버 격돌 外",
-          "link": "https://it.donga.com/109424/",
-          "source": "Naver News (동아일보)"
-        },
-        {
-          "title": "“기술력 있지만 키워줄 투자자 없다”…2조 운용사가 본 한국 딥테크 ...",
-          "link": "https://www.mk.co.kr/article/12118181",
-          "source": "Naver News (매일경제)"
+          "title": "IT/과학 분야 최근 24시간 내 지정 언론사 기사가 없습니다.",
+          "link": "#",
+          "source": "System"
         }
       ],
       "세계": [
         {
-          "title": "제11회 울산울주세계산악영화제 방문 해외 게스트 라인업 공개 - 연합뉴스",
-          "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1xQjhNUXR3NkZFNl9CbFVhak9VTExnUVJTVGl5N2dCcFd2c0FKOFVTWTNWU084RWFVX2ZQNzRpV0xQVHhDWFk1U3FpUjU0akVmVXU3c1p0d25Db0nSAWBBVV95cUxQaEJua0hHa3BvZDRYejIzdW5zODhjZHlZbnBzalA0NmJNSzVHcl9DZDVfYTNqeDZKNmpTbi1YcHZmU1p6bWx1UVEwckc2TDBGRldubk1lUDVEYS01aDUwc2c?oc=5",
-          "source": "Google News (연합뉴스)"
+          "title": "“한국, ‘공급망 안보’ 차원 메모리 생산 다변화 고민해야” “미, 동...",
+          "link": "https://www.khan.co.kr/article/202609021553001",
+          "source": "Naver News (경향신문)"
         },
         {
-          "title": "'2026여수세계섬박람회' 순항… 25개국·국제기구 등 참가 확정 - 한국일보",
-          "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9iSF85QWJKaTFPWmxCSTBleGh6VWxOSlprZTlTUmRlUjlKWHdqUEl3Q09IdzZXeU5WVGp0ZzAzTTdUc3RLSnI4Nm4xNjdBNXRsZFRVLS1lSGZEanFXWXdzSGtvX0lqZUZEZXVTUjVn0gFzQVVfeXFMTS1TTkJGeHJjMmJpTE5TOWZTZ09aQzhOQ2tualhrTmN2eHpOVWd2UE1NN01jb0lrZ0NJTjJrMVp5YjF4VnVtTFNCNHFhRno3S0RfckpMOTFaM1FReng1QW1OSWFfUHRuTldOSkxnOVZPU2VDZw?oc=5",
-          "source": "Google News (한국일보)"
-        },
-        {
-          "title": "\"WHO 첫 지정\"…식약처에 '규제역량 훈련' 맡긴다",
-          "link": "https://www.newsis.com/view/NISX20260902_0003772839",
+          "title": "중국, '수출 의존 성장' 비판 문구 거부…G20 경제수장 공동성명 불발(종...",
+          "link": "https://www.newsis.com/view/NISX20260902_0003773489",
           "source": "Naver News (뉴시스)"
         },
         {
-          "title": "미리 본 여수 세계섬박람회…뻥뚫린 조망 '합격'·콘텐츠 '글쎄'",
-          "link": "https://www.yna.co.kr/view/AKR20260901130100054?input=1195m",
+          "title": "[신간] 정보라 작가의 15개국 32개 도시 출장기…'저 지금 탑승합니다'",
+          "link": "https://www.yna.co.kr/view/AKR20260902118300005?input=1195m",
           "source": "Naver News (연합뉴스)"
-        },
-        {
-          "title": "한국 해외 긴급구호대 카트만두 도착...\"시간과 싸움\" [뉴스퀘어 2PM]",
-          "link": "https://www.ytn.co.kr/_ln/0104_202609021421432640",
-          "source": "Naver News (YTN)"
         }
       ],
-      "오피니언": [
+      "사설": [
         {
-          "title": "[시론] 오바마는 ‘좌빨’ 아닌가? / 조국 - 한겨레",
-          "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9TMFlCdVFzQjYzcVktVndvZDlTQ2lpb2c1bU5WOUlBSVg5bGJsUGtibjJyUncyXy1XTWFsVFdoU25jamhHLURvZm5ENndkTWd0UDhONV9oQjhfbE96N25jeGdRbEo?oc=5",
-          "source": "Google News (한겨레)"
+          "title": "[사설] 반도체 특수 기댄 821조 예산…여유 있을 때 나랏빚 갚아야 - 중앙일보",
+          "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBLWnZmdjI1NWFqS0N4VWlDSDY1ODVXUXZGLVFqM3FvMm5kTXFrTllWaGNLdEhNcnpfdWRvb1VHNHg1UGFhMi1vRkFGRDlBM0ZlQjlOMDN3?oc=5",
+          "source": "Google News (중앙일보)"
         },
         {
-          "title": "[동아시론/홍후조]교육 개혁, ‘공정’과 ‘상식’으로 돌아가야 한다 - 동아일보",
-          "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5iU0RMcHpRZ0djTUZETXZRNzZCRl9lWlgtR3ZsWEJFUm9sWlg0ZUtDNV8tZUl4MlRyVGhsRXVYcDZYS1dYRFp2YlRPM1ZRSENIX01ETW1WWUxsck9YVVBBclNoV2VDMUVFYVpiNE5ieDhvdWYySVHSAWZBVV95cUxNaXU1WDhiZHFGejZzZ0paTXRtUnJZR3RoZGluNFRfU1Z4eGw2Vms5NTI5cFR4Z05YQjlRUlpsMHlvRXhFdDNjZ1hFRWlNTEpqakVJeXJ4RUlrMi16Vmwwc0JCUHpRU1E?oc=5",
+          "title": "[사설]김용범 사퇴… 내각이 청와대만 쳐다보도록 해선 안 돼 - 동아일보",
+          "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9UVzUtYzhxZFZ0dXVQSVo5N21YcUdrQ2V0TW8ta0dNNzdJQ21hUjNCX2k4aEhyTnZ5NVA4ZVgzZkRSekt6SmU4Q0RzQkNIMFZ2a3VmMWdBVnZGd1EtVl9WTFhKdmlyTkUtZllsYmNlMXZsZVNEQXfSAWZBVV95cUxQOUdiRDJUQ3ZxWWtVZXZER2dWSTlIdS1QNUN4aFhoc3Q3QTVkZnc0OHFnYWNOMXI4ZF9pNVNQZXFHQmExSTJaNzNuSVBkNWxDZFlTYlhEVS1zY0JrVmZIWmRuam9xM1E?oc=5",
           "source": "Google News (동아일보)"
         },
         {
-          "title": "[율곡로] 칼럼니스트는 무엇으로 사는가",
-          "link": "https://www.yna.co.kr/view/AKR20251107074400546?input=1195m",
-          "source": "Naver News (연합뉴스)"
+          "title": "[전국 주요 신문 사설](2일 조간) - 연합뉴스",
+          "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5mdjB6RndlOEo3NVJFQ29CVmlPdzYyOUNKbFpCeVZTendCODJZNmxQbTBfd0xpNmdMZjVOZDVFOUh0cHRrVXpEa19rMGNuTDJRNjdyUGI4TEp5ZGPSAWBBVV95cUxPRWNsakR5dEhmNGZUeTdacWsyeUV0S0o3YU5TOC1Ucmp6aHE2ZFV0OHdNX0dZckd0MlZzTjlrM2s2NWxCbjFhZXVqY3pHTEpnMFVqNnp0NlBPeEVxUFdzWFE?oc=5",
+          "source": "Google News (연합뉴스)"
         },
         {
-          "title": "[시론/안경환]사설-칼럼에도 반론청구하는 발상",
-          "link": "http://www.donga.com/fbin/output?n=200602130134",
+          "title": "장동혁 \"李, 개각해도 지지율 폭락하자 '전 정권' 카드까지 꺼내 들어\"",
+          "link": "https://www.newsis.com/view/NISX20260902_0003773426",
+          "source": "Naver News (뉴시스)"
+        },
+        {
+          "title": "[단독]경찰 한명이 개인정보 다량 조회땐 상급자에 자동 통보",
+          "link": "https://www.donga.com/news/Society/article/all/20260902/134590463/1",
           "source": "Naver News (동아일보)"
         },
         {
-          "title": "중앙일보 시론 “리스트 사실이라면, 장자연은 대스타 됐을 것” 논란",
-          "link": "http://star.mk.co.kr/star_today_view.php?sc=41100001&cm=스타투데이-방송&year=2009&no=175222&selFlag=sc&relatedcode=&wonNo=&sID=507",
-          "source": "Naver News (매일경제)"
+          "title": "[뉴스브리핑] 오늘의 주요뉴스…'감독 선임 개입 논란' 정몽규, 피의자...",
+          "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008734150&plink=ORI&cooper=NAVER",
+          "source": "Naver News (SBS)"
         }
       ]
     }
