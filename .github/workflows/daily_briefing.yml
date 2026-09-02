@@ -1,41 +1,43 @@
-name: Daily News Briefing
+name: Run News Collector
 
 on:
+  workflow_dispatch:
   schedule:
-    # 한국시간(KST) 오전 7:20 실행 (UTC 22:20)
-    - cron: '20 22 * * *'
-  workflow_dispatch: # 수동 실행 허용
+    - cron: '0 22 * * *' # 매일 아침 정기 실행 (KST 07:00)
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 파이썬 환경 설정 및 캐싱
+        uses: actions/setup-python@v5
         with:
           python-version: '3.10'
+          cache: 'pip'
 
-      - name: Install Dependencies
+      - name: 패키지 설치
         run: |
-          pip install requests feedparser google-genai
+          python -m pip install --upgrade pip
+          pip install requests google-genai
 
-      - name: Run Collector
+      - name: 수집기 실행
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
           NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           EMAIL_USER: ${{ secrets.EMAIL_USER }}
           EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
-          RUN_TYPE: "morning"
         run: python collector.py
 
-      - name: Commit and Push Changes
+      - name: 변경사항 저장 및 Push
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add data.json history/
-          git commit -m "Auto update news briefing and archive history [skip ci]" || exit 0
-          git push
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto update news data" && git push)
