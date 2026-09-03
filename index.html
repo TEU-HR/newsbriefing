@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI 3분 뉴스 브리핑</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
     <style>
         :root {
             --paper: #f7f6f2;
@@ -32,7 +30,7 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Pretendard", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             background-color: var(--paper);
             color: var(--ink);
             line-height: 1.6;
@@ -58,7 +56,7 @@
         }
 
         .header h1 {
-            font-family: 'Noto Serif KR', serif;
+            font-family: 'Pretendard', sans-serif;
             font-size: 1.85rem;
             font-weight: 900;
             letter-spacing: -0.01em;
@@ -91,7 +89,7 @@
         }
 
         .card-title {
-            font-family: 'Noto Serif KR', serif;
+            font-family: 'Pretendard', sans-serif;
             font-size: 1.3rem;
             font-weight: 700;
             margin-bottom: 18px;
@@ -221,7 +219,7 @@
         .category-group { margin-bottom: 30px; }
 
         .category-header {
-            font-family: 'Noto Serif KR', serif;
+            font-family: 'Pretendard', sans-serif;
             font-size: 1.05rem;
             font-weight: 700;
             margin-bottom: 14px;
@@ -388,7 +386,7 @@
         .top3-rank {
             flex-shrink: 0;
             min-width: 18px;
-            font-family: 'Noto Serif KR', serif;
+            font-family: 'Pretendard', sans-serif;
             color: var(--accent);
             font-weight: 800;
             font-size: 1.05rem;
@@ -749,7 +747,7 @@
             } else {
                 // 예전 포맷(마커 없음) 데이터를 위한 하위 호환 렌더링
                 let formattedSummary = payload.summary
-                    .replace(/^# (.*$)/gim, '<h2 style="font-family:\'Noto Serif KR\',serif; font-size:1.15rem; font-weight:800; margin-top:18px; margin-bottom:8px; color:var(--ink);">$1</h2>')
+                    .replace(/^# (.*$)/gim, '<h2 style="font-family:\'Pretendard\',sans-serif; font-size:1.15rem; font-weight:800; margin-top:18px; margin-bottom:8px; color:var(--ink);">$1</h2>')
                     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
                     .replace(/\n/g, '<br>');
                 summaryElem.innerHTML = formattedSummary;
