@@ -189,6 +189,18 @@
             border-color: var(--primary-color);
         }
 
+        .filter-btn-priority {
+            background: #fef3c7;
+            border-color: #f59e0b;
+            color: #92400e;
+        }
+
+        .filter-btn-priority.active {
+            background: #f59e0b;
+            border-color: #f59e0b;
+            color: white;
+        }
+
         .category-group { margin-bottom: 28px; }
 
         .category-header {
@@ -220,6 +232,17 @@
             flex-direction: column;
             gap: 6px;
             transition: all 0.2s ease;
+        }
+
+        .article-card-priority {
+            background: #fffbeb;
+            border-color: #fcd34d;
+            border-left: 3px solid #b45309;
+        }
+
+        .article-card-priority .press-tag {
+            background: #b45309;
+            color: white;
         }
 
         .article-card:hover {
@@ -273,6 +296,11 @@
             font-size: 0.8rem;
         }
 
+        .press-tag-priority {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
         .pub-time { color: #64748b; }
 
         .loading-container {
@@ -285,6 +313,173 @@
         @media (max-width: 600px) {
             .article-header-row { flex-direction: column; align-items: flex-start; }
             .article-meta { align-self: flex-end; }
+        }
+
+        /* ===== AI 리포트 카드형 UI ===== */
+        .summary-section { margin-bottom: 26px; }
+        .summary-section:last-child { margin-bottom: 0; }
+
+        .summary-section-title {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* TOP3 카드 */
+        .top3-grid { display: flex; flex-direction: column; gap: 10px; }
+
+        .top3-card {
+            display: flex;
+            gap: 14px;
+            background: linear-gradient(135deg, #eff6ff 0%, #f8fafc 100%);
+            border: 1px solid #dbeafe;
+            border-radius: 12px;
+            padding: 14px 16px;
+            align-items: flex-start;
+        }
+
+        .top3-card-priority {
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+            border: 1px solid #fcd34d;
+        }
+
+        .top3-card-priority .top3-rank {
+            background: #b45309;
+        }
+
+        .top3-rank {
+            flex-shrink: 0;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: white;
+            font-weight: 800;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .top3-body { flex: 1; min-width: 0; }
+
+        .top3-title {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--text-primary);
+            margin: 6px 0 4px;
+            line-height: 1.4;
+        }
+
+        .top3-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* 언론사 시각 비교 */
+        .perspective-box {
+            background: #fefce8;
+            border-left: 4px solid #eab308;
+            border-radius: 8px;
+            padding: 14px 16px;
+            font-size: 0.92rem;
+            color: #422006;
+            line-height: 1.6;
+        }
+
+        /* 분야별 브리핑 */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 8px;
+        }
+
+        .category-chip {
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 10px 12px;
+        }
+
+        .category-chip-label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 3px;
+        }
+
+        .category-chip-text {
+            font-size: 0.88rem;
+            color: var(--text-primary);
+            line-height: 1.4;
+        }
+
+        /* 언론사별 한눈에 보기 */
+        .press-summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+        }
+
+        .press-summary-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 12px 14px;
+        }
+
+        .press-summary-name {
+            font-size: 0.82rem;
+            font-weight: 800;
+            color: white;
+            background: #1e293b;
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-bottom: 6px;
+        }
+
+        .press-summary-card-priority {
+            background: #fffbeb;
+            border-color: #fcd34d;
+        }
+
+        .press-summary-card-priority .press-summary-name {
+            background: #b45309;
+        }
+
+        .press-summary-card-priority .press-summary-name::before {
+            content: "★ ";
+        }
+
+        .press-summary-text {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* 출근길 인사이트 */
+        .insight-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .insight-list li {
+            background: #f0fdf4;
+            border-left: 4px solid var(--accent-green);
+            border-radius: 8px;
+            padding: 10px 14px;
+            font-size: 0.92rem;
+            color: #064e3b;
+            line-height: 1.5;
         }
     </style>
 </head>
@@ -309,7 +504,7 @@
 
     <div class="card">
         <div class="card-title">
-            <span>🤖 AI 핵심 정세 리포트</span>
+            <span>🧭 AI 출근 나침반</span>
             <button class="btn-tts" onclick="speakSummary()">🔊 브라우저 음성 읽기</button>
         </div>
 
@@ -329,9 +524,9 @@
         <!-- 언론사 필터 -->
         <div class="press-filter-box" id="press-filter">
             <button class="filter-btn active" onclick="filterPress('ALL', this)">전체</button>
+            <button class="filter-btn filter-btn-priority" onclick="filterPress('동아일보', this)">★ 동아일보</button>
             <button class="filter-btn" onclick="filterPress('조선일보', this)">조선일보</button>
             <button class="filter-btn" onclick="filterPress('중앙일보', this)">중앙일보</button>
-            <button class="filter-btn" onclick="filterPress('동아일보', this)">동아일보</button>
             <button class="filter-btn" onclick="filterPress('한겨레', this)">한겨레</button>
             <button class="filter-btn" onclick="filterPress('경향신문', this)">경향신문</button>
             <button class="filter-btn" onclick="filterPress('한국경제', this)">한국경제</button>
@@ -424,16 +619,136 @@
         // 요약 처리
         const summaryElem = document.getElementById('ai-summary');
         if (payload.summary) {
-            let formattedSummary = payload.summary
-                .replace(/^# (.*$)/gim, '<h2 style="font-size:1.15rem; font-weight:800; margin-top:18px; margin-bottom:8px; color:#1e293b;">$1</h2>')
-                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                .replace(/\n/g, '<br>');
-            summaryElem.innerHTML = formattedSummary;
+            const sections = parseSummarySections(payload.summary);
+            if (sections) {
+                summaryElem.innerHTML = renderStructuredSummary(sections);
+            } else {
+                // 예전 포맷(마커 없음) 데이터를 위한 하위 호환 렌더링
+                let formattedSummary = payload.summary
+                    .replace(/^# (.*$)/gim, '<h2 style="font-size:1.15rem; font-weight:800; margin-top:18px; margin-bottom:8px; color:#1e293b;">$1</h2>')
+                    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                    .replace(/\n/g, '<br>');
+                summaryElem.innerHTML = formattedSummary;
+            }
         } else {
             summaryElem.innerHTML = '생성된 요약 리포트가 없습니다.';
         }
 
         renderArticles();
+    }
+
+    // ===== AI 리포트 파싱 & 카드형 렌더링 =====
+    const SUMMARY_MARKERS = ["TOP3", "PERSPECTIVES", "CATEGORY_REPORT", "PRESS_SUMMARY", "INSIGHTS"];
+
+    function parseSummarySections(raw) {
+        const markerLine = /^#\s*(TOP3|PERSPECTIVES|CATEGORY_REPORT|PRESS_SUMMARY|INSIGHTS)\s*$/;
+        if (!raw.split('\n').some(l => markerLine.test(l.trim()))) return null;
+
+        const sections = {};
+        let current = null;
+        let buffer = [];
+
+        raw.split('\n').forEach(line => {
+            const m = line.trim().match(markerLine);
+            if (m) {
+                if (current) sections[current] = buffer.join('\n').trim();
+                current = m[1];
+                buffer = [];
+            } else if (current) {
+                buffer.push(line);
+            }
+        });
+        if (current) sections[current] = buffer.join('\n').trim();
+        return sections;
+    }
+
+    function escapeHtml(str) {
+        const div = document.createElement('div');
+        div.innerText = str;
+        return div.innerHTML;
+    }
+
+    function renderTop3(text) {
+        const items = [];
+        const re = /###\s*(\d+)\.\s*\[([^\]]+)\]\s*(.+)/g;
+        const lines = text.split('\n');
+        for (let i = 0; i < lines.length; i++) {
+            const m = lines[i].match(/^###\s*(\d+)\.\s*\[([^\]]+)\]\s*(.+)$/);
+            if (m) {
+                let desc = '';
+                const next = lines[i + 1] || '';
+                const dm = next.match(/^-\s*요약:\s*(.+)$/);
+                if (dm) desc = dm[1].trim();
+                items.push({ rank: m[1], press: m[2].trim(), title: m[3].trim(), desc });
+            }
+        }
+        if (items.length === 0) return `<div class="notice-text">표시할 TOP3 데이터가 없습니다.</div>`;
+        return `<div class="top3-grid">` + items.map(it => `
+            <div class="top3-card${it.press === '동아일보' ? ' top3-card-priority' : ''}">
+                <div class="top3-rank">${escapeHtml(it.rank)}</div>
+                <div class="top3-body">
+                    <span class="press-tag">${it.press === '동아일보' ? '★ ' : ''}${escapeHtml(it.press)}</span>
+                    <div class="top3-title">${escapeHtml(it.title)}</div>
+                    ${it.desc ? `<div class="top3-desc">${escapeHtml(it.desc)}</div>` : ''}
+                </div>
+            </div>
+        `).join('') + `</div>`;
+    }
+
+    function renderPerspectives(text) {
+        if (!text) return '';
+        return `<div class="perspective-box">${escapeHtml(text).replace(/\n/g, '<br>')}</div>`;
+    }
+
+    function renderCategoryReport(text) {
+        const rows = text.split('\n').map(l => l.trim()).filter(l => l.startsWith('-'));
+        if (rows.length === 0) return '';
+        return `<div class="category-grid">` + rows.map(row => {
+            const m = row.match(/^-\s*([^:]+):\s*(.+)$/);
+            if (!m) return '';
+            return `<div class="category-chip"><span class="category-chip-label">${escapeHtml(m[1].trim())}</span><span class="category-chip-text">${escapeHtml(m[2].trim())}</span></div>`;
+        }).join('') + `</div>`;
+    }
+
+    function renderPressSummary(text) {
+        const rows = text.split('\n').map(l => l.trim()).filter(l => l.startsWith('-'));
+        if (rows.length === 0) return '';
+        return `<div class="press-summary-grid">` + rows.map(row => {
+            const m = row.match(/^-\s*([^:]+):\s*(.+)$/);
+            if (!m) return '';
+            const press = m[1].trim();
+            const cardClass = press === '동아일보' ? ' press-summary-card-priority' : '';
+            return `<div class="press-summary-card${cardClass}"><div class="press-summary-name">${escapeHtml(press)}</div><div class="press-summary-text">${escapeHtml(m[2].trim())}</div></div>`;
+        }).join('') + `</div>`;
+    }
+
+    function renderInsights(text) {
+        const rows = text.split('\n').map(l => l.trim()).filter(l => /^\d+\./.test(l));
+        if (rows.length === 0) return '';
+        return `<ul class="insight-list">` + rows.map(row => {
+            const m = row.match(/^\d+\.\s*(.+)$/);
+            return `<li>${escapeHtml(m ? m[1].trim() : row)}</li>`;
+        }).join('') + `</ul>`;
+    }
+
+    function renderStructuredSummary(sections) {
+        let html = '';
+        if (sections.TOP3) {
+            html += `<div class="summary-section"><div class="summary-section-title">🔥 오늘의 TOP 3</div>${renderTop3(sections.TOP3)}</div>`;
+        }
+        if (sections.PERSPECTIVES) {
+            html += `<div class="summary-section"><div class="summary-section-title">⚖️ 언론사 시각 비교</div>${renderPerspectives(sections.PERSPECTIVES)}</div>`;
+        }
+        if (sections.CATEGORY_REPORT) {
+            html += `<div class="summary-section"><div class="summary-section-title">📊 분야별 브리핑</div>${renderCategoryReport(sections.CATEGORY_REPORT)}</div>`;
+        }
+        if (sections.PRESS_SUMMARY) {
+            html += `<div class="summary-section"><div class="summary-section-title">📰 언론사별 한눈에 보기</div>${renderPressSummary(sections.PRESS_SUMMARY)}</div>`;
+        }
+        if (sections.INSIGHTS) {
+            html += `<div class="summary-section"><div class="summary-section-title">💡 출근길 인사이트</div>${renderInsights(sections.INSIGHTS)}</div>`;
+        }
+        return html || '<div class="notice-text">표시할 리포트 내용이 없습니다.</div>';
     }
 
     function filterPress(press, btn) {
@@ -483,12 +798,12 @@
                     if (art.link === '#' || art.press_name === '안내') return;
 
                     const item = document.createElement('div');
-                    item.className = 'article-card';
+                    item.className = art.press_name === '동아일보' ? 'article-card article-card-priority' : 'article-card';
                     item.innerHTML = `
                         <div class="article-header-row">
                             <a href="${art.link}" target="_blank" class="article-link">${art.title}</a>
                             <div class="article-meta">
-                                <span class="press-tag">${art.press_name || '언론사'}</span>
+                                <span class="press-tag">${art.press_name === '동아일보' ? '★ ' : ''}${art.press_name || '언론사'}</span>
                                 <span class="pub-time">${art.pub_time || ''}</span>
                             </div>
                         </div>
@@ -517,7 +832,14 @@
         if (!payload.summary) return;
 
         window.speechSynthesis.cancel();
-        const cleanText = payload.summary.replace(/[#\*`_~]/g, '');
+        // 섹션 마커(# TOP3 등)와 마크다운 기호를 제거하고 자연스럽게 이어 읽기
+        const cleanText = payload.summary
+            .split('\n')
+            .filter(l => !l.trim().startsWith('#'))
+            .join(' ')
+            .replace(/###\s*\d+\.\s*/g, '')
+            .replace(/-\s*요약:\s*/g, '')
+            .replace(/[\*`_~\[\]]/g, '');
         const utterance = new SpeechSynthesisUtterance(cleanText);
         utterance.lang = 'ko-KR';
         utterance.rate = 1.0;
