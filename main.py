@@ -339,6 +339,101 @@ def generate_gemini_content(prompt, news_list):
     return generate_fallback_summary(news_list)
 
 # --- 4. 뉴스 수집 (10대 언론사 필터링) ---
+# [신규] 4개 언론사(조선일보/동아일보/한겨레/경향신문)의 "공식 분야별 RSS"를 1차 수집원으로 사용.
+#        실제 URL을 하나하나 검색으로 확인한 값입니다(2026-09 기준). 키워드 검색으로 걸러내는
+#        방식과 달리, 그 언론사가 직접 배포하는 피드라서 "이 언론사가 어떤 기사를 실제로 냈는지"를
+#        가장 정확하게 반영합니다 — 자매지 오분류나 검색 누락 문제에서 자유롭습니다.
+#        나머지 6개 언론사(중앙일보/한국경제/매일경제/KBS/MBC/SBS)는 공식 RSS 주소를 신뢰성 있게
+#        확인하지 못해 이번에는 포함하지 않았습니다. 확인되는 대로 이 딕셔너리에 추가하면 자동으로
+#        적용됩니다. 그 전까지는 기존 네이버·구글 키워드 검색 + site: 보충 수집으로 커버합니다.
+RSS_FEEDS = {
+    "조선일보": {
+        "정치": "https://www.chosun.com/arc/outboundfeeds/rss/category/politics/?outputType=xml",
+        "경제": "https://www.chosun.com/arc/outboundfeeds/rss/category/economy/?outputType=xml",
+        "사회": "https://www.chosun.com/arc/outboundfeeds/rss/category/national/?outputType=xml",
+        "세계": "https://www.chosun.com/arc/outboundfeeds/rss/category/international/?outputType=xml",
+        "생활/문화": "https://www.chosun.com/arc/outboundfeeds/rss/category/culture-life/?outputType=xml",
+        "사설": "https://www.chosun.com/arc/outboundfeeds/rss/category/opinion/?outputType=xml",
+    },
+    "동아일보": {
+        "정치": "https://rss.donga.com/politics.xml",
+        "경제": "https://rss.donga.com/economy.xml",
+        "사회": "https://rss.donga.com/national.xml",
+        "세계": "https://rss.donga.com/international.xml",
+        "사설": "https://rss.donga.com/editorials.xml",
+        "IT/과학": "https://rss.donga.com/science.xml",
+        "생활/문화": "https://rss.donga.com/culture.xml",
+    },
+    "한겨레": {
+        "정치": "https://www.hani.co.kr/rss/politics/",
+        "경제": "https://www.hani.co.kr/rss/economy/",
+        "사회": "https://www.hani.co.kr/rss/society/",
+        "세계": "https://www.hani.co.kr/rss/international/",
+        "생활/문화": "https://www.hani.co.kr/rss/culture/",
+        "IT/과학": "https://www.hani.co.kr/rss/science/",
+        "사설": "https://www.hani.co.kr/rss/opinion/",
+    },
+    "경향신문": {
+        "정치": "https://www.khan.co.kr/rss/rssdata/politic_news.xml",
+        "경제": "https://www.khan.co.kr/rss/rssdata/economy_news.xml",
+        "사회": "https://www.khan.co.kr/rss/rssdata/society_news.xml",
+        "세계": "https://www.khan.co.kr/rss/rssdata/kh_world.xml",
+        "생활/문화": "https://www.khan.co.kr/rss/rssdata/culture_news.xml",
+        "IT/과학": "http://www.khan.co.kr/rss/rssdata/it_news.xml",
+        "사설": "https://www.khan.co.kr/rss/rssdata/opinion_news.xml",
+    },
+}
+
+def fetch_press_rss(press_name, app_category, url, window_start, window_end):
+    items = []
+    headers = {'User-Agent': 'Mozilla/5.0'}
+    try:
+        req = urllib.request.Request(url, headers=headers)
+        with urllib.request.urlopen(req, timeout=10) as response:
+            root = ET.fromstring(response.read())
+            channel = root.find('channel')
+            if channel is None:
+                return items
+
+            for item in channel.findall('item'):
+                title_elem = item.find('title')
+                link_elem = item.find('link')
+                desc_elem = item.find('description')
+                pub_elem = item.find('pubDate')
+
+                title = strip_press_suffix(clean_html(title_elem.text if title_elem is not None else ''))
+                link = link_elem.text if link_elem is not None else '#'
+                desc = clean_html(desc_elem.text if desc_elem is not None else '')
+                pub_date_str = pub_elem.text if pub_elem is not None else ''
+
+                if not title or link == '#':
+                    continue
+
+                dt_obj = parse_date_to_dt(pub_date_str)
+                items.append({
+                    'title': title,
+                    'description': desc or title,
+                    'link': link,
+                    'press_name': press_name,
+                    'source': 'RSS',
+                    'pub_time': format_korean_date(dt_obj),
+                    'dt_timestamp': dt_obj.timestamp(),
+                    'category': app_category
+                })
+    except Exception as e:
+        print(f"RSS 수집 오류 ({press_name}/{app_category}): {e}")
+
+    return filter_by_window(items, window_start, window_end)
+
+def fetch_rss_items_for_category(cat_name, window_start, window_end):
+    items = []
+    for press_name, feeds in RSS_FEEDS.items():
+        url = feeds.get(cat_name)
+        if not url:
+            continue
+        items.extend(fetch_press_rss(press_name, cat_name, url, window_start, window_end))
+    return items
+
 def fetch_naver_news(keywords, category_name, display=15):
     client_id = os.environ.get("NAVER_CLIENT_ID", "").strip()
     client_secret = os.environ.get("NAVER_CLIENT_SECRET", "").strip()
@@ -491,12 +586,14 @@ def fetch_all_categories_news(category_map, window_start, window_end):
 
     for cat_name, keywords in category_map.items():
         print(f"📰 카테고리 [{cat_name}] 10대 언론사 뉴스 수집 중...")
+        rss_items = fetch_rss_items_for_category(cat_name, window_start, window_end)
         naver_items = fetch_naver_news(keywords, cat_name)
         google_items = fetch_google_news(keywords, cat_name)
 
-        combined = naver_items + google_items
+        combined = rss_items + naver_items + google_items
         combined = filter_by_window(combined, window_start, window_end)
-        combined.sort(key=lambda x: x['dt_timestamp'], reverse=True)
+        # [수정] 같은 기사가 RSS/네이버/구글에 중복 수집됐을 때, 언론사 공식 RSS 쪽을 우선 채택
+        combined.sort(key=lambda x: (0 if x['source'] == 'RSS' else 1, -x['dt_timestamp']))
 
         unique_cat_items = []
         for item in combined:
