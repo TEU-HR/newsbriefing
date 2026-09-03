@@ -481,7 +481,7 @@ def fetch_rss_items_for_category(cat_name, window_start, window_end):
         items.extend(fetch_press_rss(press_name, cat_name, url, window_start, window_end))
     return items
 
-def fetch_naver_news(keywords, category_name, display=15):
+def fetch_naver_news(keywords, category_name, display=20):
     client_id = os.environ.get("NAVER_CLIENT_ID", "").strip()
     client_secret = os.environ.get("NAVER_CLIENT_SECRET", "").strip()
     if not client_id or not client_secret:
@@ -522,7 +522,7 @@ def fetch_naver_news(keywords, category_name, display=15):
             print(f"네이버 수집 오류 ({kw}): {e}")
     return items
 
-def fetch_google_news(keywords, category_name, display=10):
+def fetch_google_news(keywords, category_name, display=15):
     items = []
     for kw in keywords:
         try:
@@ -566,7 +566,7 @@ def fetch_google_news(keywords, category_name, display=10):
     return items
 
 # 특정 언론사 도메인으로 한정한 보충 수집 (site: 연산자 활용)
-def fetch_google_news_site(keyword, domain, category_name, display=5):
+def fetch_google_news_site(keyword, domain, category_name, display=8):
     query = f"{keyword} site:{domain}"
     return fetch_google_news([query], category_name, display=display)
 
@@ -907,12 +907,15 @@ def send_email(subject, body):
 
 # --- 6. 메인 실행 함수 ---
 # 조간/석간 공통 카테고리 구성 (검색 보조 키워드는 동일하게 사용)
+# [수정] RSS가 없는 언론사·분야 조합(매일경제 사설, 석간 전체)은 이 키워드 검색이
+#        유일한 수집 경로라서, 키워드 3개로는 특정 언론사가 그 시간대에 아무것도
+#        안 걸리는 경우가 잦았음. 카테고리당 키워드를 5개로 늘려 검색 커버리지를 넓힘.
 CATEGORY_MAP = {
-    "정치": ["정치", "국회", "대통령"],
-    "경제": ["경제", "금융", "부동산"],
-    "사회": ["사회", "사건", "검찰"],
-    "국제": ["국제", "미국", "중국"],
-    "사설": ["오피니언", "칼럼", "사설"]
+    "정치": ["정치", "국회", "대통령", "정부", "여야"],
+    "경제": ["경제", "금융", "부동산", "증시", "물가"],
+    "사회": ["사회", "사건", "검찰", "교육", "재판"],
+    "국제": ["국제", "미국", "중국", "일본", "러시아"],
+    "사설": ["오피니언", "칼럼", "사설", "시론", "논평"]
 }
 
 def main():

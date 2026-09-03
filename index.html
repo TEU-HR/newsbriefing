@@ -211,6 +211,25 @@
 
         .article-list { display: flex; flex-direction: column; gap: 12px; margin-top: 8px; }
 
+        /* 카테고리당 기사가 너무 많으면 한눈에 안 들어와서, 기본은 상위 몇 건만 보여주고 접어둠 */
+        .article-card.article-collapsed { display: none; }
+        .article-list.expanded .article-card.article-collapsed { display: flex; }
+
+        .more-btn {
+            align-self: flex-start;
+            margin-top: 4px;
+            background: none;
+            border: 1px solid #cbd5e1;
+            color: var(--primary-color);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .more-btn:hover { background: #eff6ff; }
+
         .article-card {
             background: #f8fafc;
             border: 1px solid var(--border-color);
@@ -493,6 +512,7 @@
     let globalData = null;
     let selectedPress = "ALL";
     let currentEdition = "morning"; // "morning"(조간) | "evening"(석간)
+    const ARTICLES_COLLAPSE_COUNT = 5; // 카테고리별 원문 목록 기본 노출 개수 (나머지는 "더보기")
 
     async function initDashboard() {
         await loadIndexDates(currentEdition);
@@ -792,11 +812,14 @@
                 const list = document.createElement('div');
                 list.className = 'article-list';
 
+                let visibleIdx = 0;
                 articles.forEach(art => {
                     if (art.link === '#' || art.press_name === '안내') return;
 
                     const item = document.createElement('div');
                     item.className = 'article-card';
+                    if (visibleIdx >= ARTICLES_COLLAPSE_COUNT) item.classList.add('article-collapsed');
+                    visibleIdx++;
                     item.innerHTML = `
                         <div class="article-header-row">
                             <a href="${art.link}" target="_blank" class="article-link">${art.title}</a>
@@ -817,6 +840,18 @@
                     group.appendChild(noticeBox);
                 } else {
                     group.appendChild(list);
+
+                    const hiddenCount = list.querySelectorAll('.article-collapsed').length;
+                    if (hiddenCount > 0) {
+                        const moreBtn = document.createElement('button');
+                        moreBtn.className = 'more-btn';
+                        moreBtn.innerText = `더보기 (${hiddenCount}건 더)`;
+                        moreBtn.onclick = () => {
+                            const expanded = list.classList.toggle('expanded');
+                            moreBtn.innerText = expanded ? '접기' : `더보기 (${hiddenCount}건 더)`;
+                        };
+                        group.appendChild(moreBtn);
+                    }
                 }
             }
 
