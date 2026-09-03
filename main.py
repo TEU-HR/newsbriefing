@@ -478,7 +478,7 @@ def fetch_press_rss(press_name, app_category, url, window_start, window_end):
                 dt_obj = parse_date_to_dt(pub_date_str) if pub_date_str else window_end
                 items.append({
                     'title': title,
-                    'description': desc or title,
+                    'description': desc if desc != title else '',
                     'link': link,
                     'press_name': press_name,
                     'source': 'RSS',
@@ -572,7 +572,7 @@ def fetch_google_news(keywords, category_name, display=15):
                     dt_obj = parse_date_to_dt(pub_date_str)
                     items.append({
                         'title': clean_t,
-                        'description': clean_t,
+                        'description': '',
                         'link': link,
                         'press_name': press_name,
                         'source': 'Google',

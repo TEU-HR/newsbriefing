@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI 3분 뉴스 브리핑</title>
+    <meta name="description" content="동아일보·조선일보·중앙일보 등 주요 언론사 뉴스를 AI가 조간·석간·사설 비교로 매일 요약하는 뉴스 브리핑">
+    <meta property="og:title" content="AI 뉴스 브리핑">
+    <meta property="og:description" content="주요 언론사 뉴스를 AI가 조간·석간·사설 비교로 매일 요약합니다.">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%B0%3C/text%3E%3C/svg%3E">
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
     <style>
         :root {
@@ -341,6 +346,12 @@
 
         .press-logo:hover { filter: grayscale(0%); opacity: 1; }
 
+        .press-fallback {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--ink-soft);
+        }
+
         .pub-time { color: var(--ink-soft); }
 
         .loading-container {
@@ -515,7 +526,7 @@
     <div class="header">
         <h1>AI 뉴스 브리핑</h1>
         <a href="https://github.com/teu-hr/newsbriefing/actions" target="_blank" class="btn-run">
-            즉시 수집 실행
+            GitHub Actions에서 실행
         </a>
     </div>
 
@@ -649,7 +660,9 @@
     async function loadData(targetDate = null) {
         const timestamp = Date.now();
         const suffix = EDITION_META[currentEdition].suffix;
-        let fetchUrl = `https://raw.githubusercontent.com/teu-hr/newsbriefing/main/data.json?t=${timestamp}`;
+        // 같은 오리진의 상대경로를 먼저 시도(GitHub Pages CDN 캐시라 더 빠르고 안정적),
+        // 실패할 때만 raw.githubusercontent.com으로 폴백한다.
+        let fetchUrl = `data.json?t=${timestamp}`;
 
         if (targetDate) {
             fetchUrl = `history/${targetDate}${suffix}.json?t=${timestamp}`;
@@ -657,7 +670,7 @@
 
         try {
             let res = await fetch(fetchUrl);
-            if (!res.ok) res = await fetch(`data.json?t=${timestamp}`);
+            if (!res.ok) res = await fetch(`https://raw.githubusercontent.com/teu-hr/newsbriefing/main/data.json?t=${timestamp}`);
 
             if (res.ok) {
                 globalData = await res.json();
@@ -693,7 +706,12 @@
         const domain = PRESS_LOGO_DOMAINS[name];
         if (!domain) return `<span class="press-tag">${escapeHtml(name)}</span>`;
         const logoUrl = `https://www.google.com/s2/favicons?domain=${domain}&sz=64`;
-        return `<span class="press-tag" title="${escapeHtml(name)}"><img class="press-logo" src="${logoUrl}" alt="${escapeHtml(name)}" loading="lazy"></span>`;
+        // 구글 파비콘 서비스가 실제 로고 대신 제네릭 아이콘을 주거나 실패하는 경우가 있어,
+        // 로드 실패 시 로고 대신 언론사명 텍스트로 대체한다.
+        return `<span class="press-tag" title="${escapeHtml(name)}">
+            <img class="press-logo" src="${logoUrl}" alt="${escapeHtml(name)}" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+            <span class="press-fallback" style="display:none;">${escapeHtml(name)}</span>
+        </span>`;
     }
 
     function renderPressFilter() {
