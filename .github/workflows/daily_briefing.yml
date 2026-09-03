@@ -4,8 +4,9 @@ on:
   schedule:
     # 조간: KST 오전 6시 50분 (UTC 전날 21시 50분) — 06:50 수집 마감, 07시 출근 전 준비
     - cron: '50 21 * * *'
-    # 석간: KST 오후 6시 00분 (UTC 09시 00분) — 06:50~18:00 수집, 18시 퇴근 전 준비
-    - cron: '0 9 * * *'
+    # 석간: KST 오후 5시 50분 (UTC 08시 50분) — 06:50~18:00 수집, 18시 퇴근 전 준비
+    # 정시(0분)는 GitHub Actions 스케줄 큐가 가장 혼잡해 지연이 커서 :50분으로 조정
+    - cron: '50 8 * * *'
 
   # GitHub UI에서 수동 실행 버튼 활성화. 어떤 판을 돌릴지 직접 고를 수 있음.
   workflow_dispatch:
@@ -42,7 +43,7 @@ jobs:
       - name: 실행할 판(조간/석간) 결정
         id: edition
         run: |
-          if [ "${{ github.event.schedule }}" = "0 9 * * *" ]; then
+          if [ "${{ github.event.schedule }}" = "50 8 * * *" ]; then
             echo "value=evening" >> "$GITHUB_OUTPUT"
           elif [ "${{ github.event.schedule }}" = "50 21 * * *" ]; then
             echo "value=morning" >> "$GITHUB_OUTPUT"
