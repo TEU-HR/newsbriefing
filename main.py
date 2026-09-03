@@ -177,7 +177,8 @@ def generate_fallback_summary(news_list):
 def generate_gemini_content(prompt, news_list):
     client, sdk_type = get_gemini_client()
     if client:
-        candidate_models = ["gemini-2.5-flash", "gemini-2.0-flash", "gemini-flash-latest", "gemini-1.5-flash"]
+        # [수정] 2026-07-21부로 2.x/1.5 계열 모델이 단종되어 3.x 계열로 교체
+        candidate_models = ["gemini-3.6-flash", "gemini-3.7-flash", "gemini-3.5-flash-lite"]
         for model_name in candidate_models:
             for attempt in range(1, 3):
                 try:
