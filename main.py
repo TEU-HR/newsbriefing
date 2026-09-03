@@ -25,7 +25,29 @@ except ImportError:
 
 KST = timezone(timedelta(hours=9))
 
-# --- 1. 10대 지정 언론사 식별 규칙 ---
+# [수정] 언론사마다 WAF가 정반대로 반응함: 매일경제는 단순 User-Agent만 있으면 403을 내리고
+#        브라우저에 가까운 전체 헤더를 요구하는 반면, 한국경제는 그 반대로 전체 헤더 조합을
+#        자동화 트래픽으로 간주해 403을 내림. 그래서 헤더 하나를 고정하지 않고, 기본(단순)
+#        헤더로 먼저 시도한 뒤 403일 때만 전체(브라우저형) 헤더로 재시도한다.
+HTTP_HEADERS = {'User-Agent': 'Mozilla/5.0'}
+HTTP_HEADERS_FALLBACK = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    'Accept-Language': 'ko-KR,ko;q=0.9',
+}
+
+def urlopen_with_fallback(url, timeout=10):
+    """403 응답을 받으면 대체 헤더로 한 번 더 시도한다 (언론사별 WAF 정책 차이 대응)."""
+    for headers in (HTTP_HEADERS, HTTP_HEADERS_FALLBACK):
+        try:
+            req = urllib.request.Request(url, headers=headers)
+            return urllib.request.urlopen(req, timeout=timeout)
+        except urllib.error.HTTPError as e:
+            if e.code != 403:
+                raise
+    raise urllib.error.HTTPError(url, 403, "Forbidden (all header variants failed)", None, None)
+
+# --- 1. 6대 지정 언론사 식별 규칙 ---
 # [수정] "도메인 문자열이 포함되어 있으면 매칭"하던 방식(예: donga.com이 들어간 woman.donga.com도
 #        동아일보로 오분류)을 버리고, 실제 호스트명을 파싱해서
 #        1) allow_domains 와 정확히 일치하거나 그 하위 도메인일 때만 인정
@@ -46,11 +68,6 @@ TARGET_PRESS_RULES = {
         "exclude_subdomains": ["biz.chosun.com", "health.chosun.com", "job.chosun.com", "shop.chosun.com", "podcast.chosun.com"],
         "naver_code": "023",
     },
-    "중앙일보": {
-        "allow_domains": ["joongang.co.kr", "joongang.com"],
-        "exclude_subdomains": ["koreajoongangdaily.joins.com"],
-        "naver_code": "025",
-    },
     "한겨레": {
         "allow_domains": ["hani.co.kr"],
         "exclude_subdomains": ["h21.hani.co.kr"],
@@ -70,21 +87,6 @@ TARGET_PRESS_RULES = {
         "allow_domains": ["mk.co.kr"],
         "exclude_subdomains": ["star.mk.co.kr"],
         "naver_code": "009",
-    },
-    "KBS": {
-        "allow_domains": ["kbs.co.kr"],
-        "exclude_subdomains": ["kbsworld.kbs.co.kr", "shop.kbs.co.kr"],
-        "naver_code": "056",
-    },
-    "MBC": {
-        "allow_domains": ["imbc.com", "mbc.co.kr"],
-        "exclude_subdomains": ["kids.imbc.com"],
-        "naver_code": "214",
-    },
-    "SBS": {
-        "allow_domains": ["sbs.co.kr"],
-        "exclude_subdomains": ["biz.sbs.co.kr", "programs.sbs.co.kr"],
-        "naver_code": "055",
     },
 }
 
@@ -164,9 +166,11 @@ def parse_date_to_dt(date_str):
 def format_korean_date(dt):
     return dt.strftime("%m월 %d일 %H:%M")
 
-# "전일 22:00 ~ 당일 07:40 (KST)" 수집 윈도우 계산
+# "전일 22:00 ~ 당일 06:50 (KST)" 수집 윈도우 계산
+# [수정] 출근 시간(오전 7시)에 맞춰 브리핑이 준비되어 있도록, 수집 마감과 실행 스케줄을
+#        06:50 KST로 앞당김 (.github/workflows/daily_briefing.yml 의 cron과 함께 맞춰서 조정할 것)
 def get_collection_window(now_dt):
-    end_dt = now_dt.replace(hour=7, minute=40, second=0, microsecond=0)
+    end_dt = now_dt.replace(hour=6, minute=50, second=0, microsecond=0)
     start_dt = (now_dt - timedelta(days=1)).replace(hour=22, minute=0, second=0, microsecond=0)
     return start_dt, end_dt
 
@@ -290,7 +294,7 @@ def generate_fallback_summary(news_list):
     report += "AI 요약 생성에 실패해 이번 회차에서는 언론사 논조 비교를 제공하지 못했습니다. 아래 원문 기사 목록에서 직접 비교해보세요.\n\n"
 
     report += "# CATEGORY_REPORT\n"
-    for cat in ["정치", "경제", "사회", "생활/문화", "IT/과학", "세계", "사설"]:
+    for cat in ["정치", "경제", "사회", "국제", "사설"]:
         cat_news = [n for n in news_list if n.get('category') == cat]
         if cat_news:
             report += f"- {cat}: [{cat_news[0]['press_name']}] {cat_news[0]['title']} — 주요 보도\n"
@@ -309,7 +313,7 @@ def generate_fallback_summary(news_list):
             report += f"- {press_name}: 수집된 기사 없음\n"
 
     report += "\n# INSIGHTS\n"
-    report += "1. 10대 주요 언론사의 속보를 바탕으로 오늘의 정세 변화에 대비하세요.\n"
+    report += "1. 6대 주요 언론사의 속보를 바탕으로 오늘의 정세 변화에 대비하세요.\n"
     report += "2. 세부 기사 원문은 아래 목록에서 확인하실 수 있습니다.\n"
     return report
 
@@ -338,58 +342,61 @@ def generate_gemini_content(prompt, news_list):
 
     return generate_fallback_summary(news_list)
 
-# --- 4. 뉴스 수집 (10대 언론사 필터링) ---
-# [신규] 4개 언론사(조선일보/동아일보/한겨레/경향신문)의 "공식 분야별 RSS"를 1차 수집원으로 사용.
-#        실제 URL을 하나하나 검색으로 확인한 값입니다(2026-09 기준). 키워드 검색으로 걸러내는
-#        방식과 달리, 그 언론사가 직접 배포하는 피드라서 "이 언론사가 어떤 기사를 실제로 냈는지"를
-#        가장 정확하게 반영합니다 — 자매지 오분류나 검색 누락 문제에서 자유롭습니다.
-#        나머지 6개 언론사(중앙일보/한국경제/매일경제/KBS/MBC/SBS)는 공식 RSS 주소를 신뢰성 있게
-#        확인하지 못해 이번에는 포함하지 않았습니다. 확인되는 대로 이 딕셔너리에 추가하면 자동으로
-#        적용됩니다. 그 전까지는 기존 네이버·구글 키워드 검색 + site: 보충 수집으로 커버합니다.
+# --- 4. 뉴스 수집 (6대 언론사 필터링) ---
+# [신규] 6개 언론사(조선일보/동아일보/한겨레/경향신문/한국경제/매일경제) 모두 "공식 분야별 RSS"를
+#        1차 수집원으로 사용. 실제 URL을 하나하나 검색으로 확인한 값입니다(2026-09 기준).
+#        키워드 검색으로 걸러내는 방식과 달리, 그 언론사가 직접 배포하는 피드라서
+#        "이 언론사가 어떤 기사를 실제로 냈는지"를 가장 정확하게 반영합니다 — 자매지 오분류나
+#        검색 누락 문제에서 자유롭습니다. 매일경제는 사설 전용 공식 RSS를 찾지 못해 해당 칸만
+#        비워두었고, 기존 네이버·구글 키워드 검색 + site: 보충 수집으로 커버합니다.
 RSS_FEEDS = {
     "조선일보": {
         "정치": "https://www.chosun.com/arc/outboundfeeds/rss/category/politics/?outputType=xml",
         "경제": "https://www.chosun.com/arc/outboundfeeds/rss/category/economy/?outputType=xml",
         "사회": "https://www.chosun.com/arc/outboundfeeds/rss/category/national/?outputType=xml",
-        "세계": "https://www.chosun.com/arc/outboundfeeds/rss/category/international/?outputType=xml",
-        "생활/문화": "https://www.chosun.com/arc/outboundfeeds/rss/category/culture-life/?outputType=xml",
+        "국제": "https://www.chosun.com/arc/outboundfeeds/rss/category/international/?outputType=xml",
         "사설": "https://www.chosun.com/arc/outboundfeeds/rss/category/opinion/?outputType=xml",
     },
     "동아일보": {
         "정치": "https://rss.donga.com/politics.xml",
         "경제": "https://rss.donga.com/economy.xml",
         "사회": "https://rss.donga.com/national.xml",
-        "세계": "https://rss.donga.com/international.xml",
+        "국제": "https://rss.donga.com/international.xml",
         "사설": "https://rss.donga.com/editorials.xml",
-        "IT/과학": "https://rss.donga.com/science.xml",
-        "생활/문화": "https://rss.donga.com/culture.xml",
     },
     "한겨레": {
-        "정치": "https://www.hani.co.kr/rss/politics/",
-        "경제": "https://www.hani.co.kr/rss/economy/",
-        "사회": "https://www.hani.co.kr/rss/society/",
-        "세계": "https://www.hani.co.kr/rss/international/",
-        "생활/문화": "https://www.hani.co.kr/rss/culture/",
-        "IT/과학": "https://www.hani.co.kr/rss/science/",
-        "사설": "https://www.hani.co.kr/rss/opinion/",
+        "정치": "https://www.hani.co.kr/rss/politics",
+        "경제": "https://www.hani.co.kr/rss/economy",
+        "사회": "https://www.hani.co.kr/rss/society",
+        "국제": "https://www.hani.co.kr/rss/international",
+        "사설": "https://www.hani.co.kr/rss/opinion",
     },
     "경향신문": {
         "정치": "https://www.khan.co.kr/rss/rssdata/politic_news.xml",
         "경제": "https://www.khan.co.kr/rss/rssdata/economy_news.xml",
         "사회": "https://www.khan.co.kr/rss/rssdata/society_news.xml",
-        "세계": "https://www.khan.co.kr/rss/rssdata/kh_world.xml",
-        "생활/문화": "https://www.khan.co.kr/rss/rssdata/culture_news.xml",
-        "IT/과학": "http://www.khan.co.kr/rss/rssdata/it_news.xml",
+        "국제": "https://www.khan.co.kr/rss/rssdata/kh_world.xml",
         "사설": "https://www.khan.co.kr/rss/rssdata/opinion_news.xml",
+    },
+    "한국경제": {
+        "정치": "https://www.hankyung.com/feed/politics",
+        "경제": "https://www.hankyung.com/feed/economy",
+        "사회": "https://www.hankyung.com/feed/society",
+        "국제": "https://www.hankyung.com/feed/international",
+        "사설": "https://www.hankyung.com/feed/opinion",
+    },
+    "매일경제": {
+        "정치": "https://www.mk.co.kr/rss/30200030/",
+        "경제": "https://www.mk.co.kr/rss/30100041/",
+        "사회": "https://www.mk.co.kr/rss/50400012/",
+        "국제": "https://www.mk.co.kr/rss/30300018/",
     },
 }
 
 def fetch_press_rss(press_name, app_category, url, window_start, window_end):
     items = []
-    headers = {'User-Agent': 'Mozilla/5.0'}
     try:
-        req = urllib.request.Request(url, headers=headers)
-        with urllib.request.urlopen(req, timeout=10) as response:
+        with urlopen_with_fallback(url) as response:
             root = ET.fromstring(response.read())
             channel = root.find('channel')
             if channel is None:
@@ -399,7 +406,10 @@ def fetch_press_rss(press_name, app_category, url, window_start, window_end):
                 title_elem = item.find('title')
                 link_elem = item.find('link')
                 desc_elem = item.find('description')
+                # 경향신문 RSS는 pubDate 대신 dc:date 태그로 발행 시각을 제공함
                 pub_elem = item.find('pubDate')
+                if pub_elem is None:
+                    pub_elem = item.find('{http://purl.org/dc/elements/1.1/}date')
 
                 title = strip_press_suffix(clean_html(title_elem.text if title_elem is not None else ''))
                 link = link_elem.text if link_elem is not None else '#'
@@ -409,7 +419,11 @@ def fetch_press_rss(press_name, app_category, url, window_start, window_end):
                 if not title or link == '#':
                     continue
 
-                dt_obj = parse_date_to_dt(pub_date_str)
+                # [수정] 한겨레 RSS는 항목별 발행 시각을 아예 제공하지 않음. 이 경우
+                #        datetime.now()를 쓰면 실행 시각이 수집 마감(window_end)을 지난 뒤라
+                #        전부 윈도우 밖으로 걸러지므로, "지금 이 피드에 실려 있는 최신 기사"라는
+                #        의미로 window_end 시각을 부여해 항상 포함되게 한다.
+                dt_obj = parse_date_to_dt(pub_date_str) if pub_date_str else window_end
                 items.append({
                     'title': title,
                     'description': desc or title,
@@ -477,14 +491,12 @@ def fetch_naver_news(keywords, category_name, display=15):
 
 def fetch_google_news(keywords, category_name, display=10):
     items = []
-    headers = {'User-Agent': 'Mozilla/5.0'}
     for kw in keywords:
         try:
             enc_text = urllib.parse.quote(kw)
             url = f"https://news.google.com/rss/search?q={enc_text}&hl=ko&gl=KR&ceid=KR:ko"
-            req = urllib.request.Request(url, headers=headers)
 
-            with urllib.request.urlopen(req, timeout=10) as response:
+            with urlopen_with_fallback(url) as response:
                 root = ET.fromstring(response.read())
                 channel = root.find('channel')
                 if channel is None:
@@ -585,7 +597,7 @@ def fetch_all_categories_news(category_map, window_start, window_end):
     all_flat_items = []
 
     for cat_name, keywords in category_map.items():
-        print(f"📰 카테고리 [{cat_name}] 10대 언론사 뉴스 수집 중...")
+        print(f"📰 카테고리 [{cat_name}] 6대 언론사 뉴스 수집 중...")
         rss_items = fetch_rss_items_for_category(cat_name, window_start, window_end)
         naver_items = fetch_naver_news(keywords, cat_name)
         google_items = fetch_google_news(keywords, cat_name)
@@ -636,7 +648,7 @@ def generate_summary(news_list):
     # [수정] 언론사별 그룹 데이터를 제공하고, 5개 섹션 마커를 반드시 지키도록 강하게 지시.
     #        마커는 프론트엔드 파싱 전용이라 실제 화면에는 노출되지 않음.
     prompt = f"""
-다음은 오늘 수집된 10대 주요 언론사({press_list_str})의 최신 기사 목록입니다. 언론사별로 묶어서 제공합니다:
+다음은 오늘 수집된 6대 주요 언론사({press_list_str})의 최신 기사 목록입니다. 언론사별로 묶어서 제공합니다:
 
 {news_text}
 
@@ -664,23 +676,17 @@ def generate_summary(news_list):
 - 정치: [언론사] 제목 — 한줄평
 - 경제: [언론사] 제목 — 한줄평
 - 사회: [언론사] 제목 — 한줄평
-- 생활/문화: [언론사] 제목 — 한줄평
-- IT/과학: [언론사] 제목 — 한줄평
-- 세계: [언론사] 제목 — 한줄평
+- 국제: [언론사] 제목 — 한줄평
 - 사설: [언론사] 제목 — 한줄평
 
 # PRESS_SUMMARY
-(제공된 10개 언론사 각각에 대해 정확히 한 줄씩, 오늘 그 언론사가 가장 비중 있게 다룬 내용을 요약. 반드시 10개 모두 작성하고, 동아일보를 맨 위에 쓰세요.)
+(제공된 6개 언론사 각각에 대해 정확히 한 줄씩, 오늘 그 언론사가 가장 비중 있게 다룬 내용을 요약. 반드시 6개 모두 작성하고, 동아일보를 맨 위에 쓰세요.)
 - 동아일보: (한 줄 요약)
 - 조선일보: (한 줄 요약)
-- 중앙일보: (한 줄 요약)
 - 한겨레: (한 줄 요약)
 - 경향신문: (한 줄 요약)
 - 한국경제: (한 줄 요약)
 - 매일경제: (한 줄 요약)
-- KBS: (한 줄 요약)
-- MBC: (한 줄 요약)
-- SBS: (한 줄 요약)
 
 # INSIGHTS
 1. (출근길에 챙길 핵심 시사점)
@@ -789,16 +795,14 @@ def main():
 
     window_start, window_end = get_collection_window(now_dt)
 
-    print(f"[{now_str}] 10대 언론사 전용 뉴스 브리핑 시스템 시작...")
+    print(f"[{now_str}] 6대 언론사 전용 뉴스 브리핑 시스템 시작...")
     print(f"📅 수집 대상 시간 윈도우: {window_start.strftime('%m/%d %H:%M')} ~ {window_end.strftime('%m/%d %H:%M')} (KST)")
     
     category_map = {
         "정치": ["정치", "국회", "대통령"],
         "경제": ["경제", "금융", "부동산"],
         "사회": ["사회", "사건", "검찰"],
-        "생활/문화": ["문화", "건강", "여행"],
-        "IT/과학": ["IT", "AI", "테크"],
-        "세계": ["국제", "미국", "중국"],
+        "국제": ["국제", "미국", "중국"],
         "사설": ["오피니언", "칼럼", "사설"]
     }
     
@@ -854,7 +858,7 @@ def main():
     with open("data.json", "w", encoding="utf-8") as f:
         json.dump({"morning": daily_payload, "realtime": daily_payload}, f, ensure_ascii=False, indent=2)
 
-    print("\n✅ 프로세스 완료! 10대 언론사 기사만 수집 및 정렬되었습니다.")
+    print("\n✅ 프로세스 완료! 6대 언론사 기사만 수집 및 정렬되었습니다.")
     send_email(f"[뉴스 브리핑] {now_str}", f"수집 시각: {now_str}\n\n{briefing_summary}")
 
 if __name__ == "__main__":

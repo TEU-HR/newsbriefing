@@ -472,21 +472,17 @@
     </div>
 
     <div class="card">
-        <div class="card-title">📑 10대 언론사 원문 기사 목록</div>
-        
+        <div class="card-title">📑 6대 언론사 원문 기사 목록</div>
+
         <!-- 언론사 필터 -->
         <div class="press-filter-box" id="press-filter">
             <button class="filter-btn active" onclick="filterPress('ALL', this)">전체</button>
             <button class="filter-btn" onclick="filterPress('동아일보', this)">동아일보</button>
             <button class="filter-btn" onclick="filterPress('조선일보', this)">조선일보</button>
-            <button class="filter-btn" onclick="filterPress('중앙일보', this)">중앙일보</button>
             <button class="filter-btn" onclick="filterPress('한겨레', this)">한겨레</button>
             <button class="filter-btn" onclick="filterPress('경향신문', this)">경향신문</button>
             <button class="filter-btn" onclick="filterPress('한국경제', this)">한국경제</button>
             <button class="filter-btn" onclick="filterPress('매일경제', this)">매일경제</button>
-            <button class="filter-btn" onclick="filterPress('KBS', this)">KBS</button>
-            <button class="filter-btn" onclick="filterPress('MBC', this)">MBC</button>
-            <button class="filter-btn" onclick="filterPress('SBS', this)">SBS</button>
         </div>
 
         <div id="articles-container">
@@ -716,7 +712,7 @@
         container.innerHTML = '';
 
         const categories = payload.categories || {};
-        const categoryKeys = ["정치", "경제", "사회", "생활/문화", "IT/과학", "세계", "사설"];
+        const categoryKeys = ["정치", "경제", "사회", "국제", "사설"];
 
         categoryKeys.forEach(cat => {
             let articles = categories[cat] || [];
