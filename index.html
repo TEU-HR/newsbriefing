@@ -189,18 +189,6 @@
             border-color: var(--primary-color);
         }
 
-        .filter-btn-priority {
-            background: #fef3c7;
-            border-color: #f59e0b;
-            color: #92400e;
-        }
-
-        .filter-btn-priority.active {
-            background: #f59e0b;
-            border-color: #f59e0b;
-            color: white;
-        }
-
         .category-group { margin-bottom: 28px; }
 
         .category-header {
@@ -232,17 +220,6 @@
             flex-direction: column;
             gap: 6px;
             transition: all 0.2s ease;
-        }
-
-        .article-card-priority {
-            background: #fffbeb;
-            border-color: #fcd34d;
-            border-left: 3px solid #b45309;
-        }
-
-        .article-card-priority .press-tag {
-            background: #b45309;
-            color: white;
         }
 
         .article-card:hover {
@@ -296,11 +273,6 @@
             font-size: 0.8rem;
         }
 
-        .press-tag-priority {
-            background: #fef3c7;
-            color: #92400e;
-        }
-
         .pub-time { color: #64748b; }
 
         .loading-container {
@@ -316,152 +288,133 @@
         }
 
         /* ===== AI 리포트 카드형 UI ===== */
-        .summary-section { margin-bottom: 26px; }
+        .summary-section { margin-bottom: 20px; }
         .summary-section:last-child { margin-bottom: 0; }
 
         .summary-section-title {
-            font-size: 1rem;
+            font-size: 0.85rem;
             font-weight: 800;
-            color: var(--text-primary);
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
         }
 
         /* TOP3 카드 */
-        .top3-grid { display: flex; flex-direction: column; gap: 10px; }
+        .top3-grid { display: flex; flex-direction: column; gap: 6px; }
 
         .top3-card {
             display: flex;
-            gap: 14px;
-            background: linear-gradient(135deg, #eff6ff 0%, #f8fafc 100%);
-            border: 1px solid #dbeafe;
-            border-radius: 12px;
-            padding: 14px 16px;
-            align-items: flex-start;
-        }
-
-        .top3-card-priority {
-            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
-            border: 1px solid #fcd34d;
-        }
-
-        .top3-card-priority .top3-rank {
-            background: #b45309;
+            gap: 10px;
+            align-items: baseline;
+            flex-wrap: wrap;
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-left: 3px solid var(--primary-color);
+            border-radius: 6px;
+            padding: 9px 12px;
         }
 
         .top3-rank {
             flex-shrink: 0;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            background: var(--primary-color);
-            color: white;
+            color: var(--primary-color);
             font-weight: 800;
-            font-size: 0.95rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            font-size: 0.85rem;
         }
 
-        .top3-body { flex: 1; min-width: 0; }
+        .top3-body {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            column-gap: 8px;
+            row-gap: 2px;
+        }
 
         .top3-title {
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: var(--text-primary);
-            margin: 6px 0 4px;
             line-height: 1.4;
         }
 
         .top3-desc {
-            font-size: 0.9rem;
+            flex-basis: 100%;
+            font-size: 0.84rem;
             color: var(--text-secondary);
-            line-height: 1.5;
+            line-height: 1.4;
         }
 
         /* 언론사 시각 비교 */
         .perspective-box {
             background: #fefce8;
-            border-left: 4px solid #eab308;
-            border-radius: 8px;
-            padding: 14px 16px;
-            font-size: 0.92rem;
+            border-left: 3px solid #eab308;
+            border-radius: 6px;
+            padding: 10px 14px;
+            font-size: 0.88rem;
             color: #422006;
-            line-height: 1.6;
+            line-height: 1.55;
         }
 
         /* 분야별 브리핑 */
         .category-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-            gap: 8px;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 6px;
         }
 
         .category-chip {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
             background: #f8fafc;
             border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 10px 12px;
+            border-radius: 6px;
+            padding: 7px 10px;
         }
 
         .category-chip-label {
-            display: block;
-            font-size: 0.75rem;
+            flex-shrink: 0;
+            font-size: 0.72rem;
             font-weight: 800;
             color: var(--primary-color);
-            margin-bottom: 3px;
         }
 
         .category-chip-text {
-            font-size: 0.88rem;
+            font-size: 0.82rem;
             color: var(--text-primary);
-            line-height: 1.4;
+            line-height: 1.35;
         }
 
         /* 언론사별 한눈에 보기 */
         .press-summary-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 10px;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 6px;
         }
 
         .press-summary-card {
-            background: white;
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            background: #f8fafc;
             border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 12px 14px;
+            border-radius: 6px;
+            padding: 7px 10px;
         }
 
         .press-summary-name {
-            font-size: 0.82rem;
+            flex-shrink: 0;
+            font-size: 0.72rem;
             font-weight: 800;
-            color: white;
-            background: #1e293b;
-            display: inline-block;
-            padding: 2px 8px;
-            border-radius: 4px;
-            margin-bottom: 6px;
-        }
-
-        .press-summary-card-priority {
-            background: #fffbeb;
-            border-color: #fcd34d;
-        }
-
-        .press-summary-card-priority .press-summary-name {
-            background: #b45309;
-        }
-
-        .press-summary-card-priority .press-summary-name::before {
-            content: "★ ";
+            color: #1e293b;
         }
 
         .press-summary-text {
-            font-size: 0.88rem;
+            font-size: 0.82rem;
             color: var(--text-secondary);
-            line-height: 1.5;
+            line-height: 1.35;
         }
 
         /* 출근길 인사이트 */
@@ -469,17 +422,17 @@
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 5px;
         }
 
         .insight-list li {
             background: #f0fdf4;
-            border-left: 4px solid var(--accent-green);
-            border-radius: 8px;
-            padding: 10px 14px;
-            font-size: 0.92rem;
+            border-left: 3px solid var(--accent-green);
+            border-radius: 6px;
+            padding: 7px 12px;
+            font-size: 0.86rem;
             color: #064e3b;
-            line-height: 1.5;
+            line-height: 1.4;
         }
     </style>
 </head>
@@ -524,7 +477,7 @@
         <!-- 언론사 필터 -->
         <div class="press-filter-box" id="press-filter">
             <button class="filter-btn active" onclick="filterPress('ALL', this)">전체</button>
-            <button class="filter-btn filter-btn-priority" onclick="filterPress('동아일보', this)">★ 동아일보</button>
+            <button class="filter-btn" onclick="filterPress('동아일보', this)">동아일보</button>
             <button class="filter-btn" onclick="filterPress('조선일보', this)">조선일보</button>
             <button class="filter-btn" onclick="filterPress('중앙일보', this)">중앙일보</button>
             <button class="filter-btn" onclick="filterPress('한겨레', this)">한겨레</button>
@@ -684,12 +637,12 @@
         }
         if (items.length === 0) return `<div class="notice-text">표시할 TOP3 데이터가 없습니다.</div>`;
         return `<div class="top3-grid">` + items.map(it => `
-            <div class="top3-card${it.press === '동아일보' ? ' top3-card-priority' : ''}">
-                <div class="top3-rank">${escapeHtml(it.rank)}</div>
+            <div class="top3-card">
+                <div class="top3-rank">${escapeHtml(it.rank)}.</div>
                 <div class="top3-body">
-                    <span class="press-tag">${it.press === '동아일보' ? '★ ' : ''}${escapeHtml(it.press)}</span>
-                    <div class="top3-title">${escapeHtml(it.title)}</div>
-                    ${it.desc ? `<div class="top3-desc">${escapeHtml(it.desc)}</div>` : ''}
+                    <span class="press-tag">${escapeHtml(it.press)}</span>
+                    <span class="top3-title">${escapeHtml(it.title)}</span>
+                    ${it.desc ? `<span class="top3-desc">${escapeHtml(it.desc)}</span>` : ''}
                 </div>
             </div>
         `).join('') + `</div>`;
@@ -716,9 +669,7 @@
         return `<div class="press-summary-grid">` + rows.map(row => {
             const m = row.match(/^-\s*([^:]+):\s*(.+)$/);
             if (!m) return '';
-            const press = m[1].trim();
-            const cardClass = press === '동아일보' ? ' press-summary-card-priority' : '';
-            return `<div class="press-summary-card${cardClass}"><div class="press-summary-name">${escapeHtml(press)}</div><div class="press-summary-text">${escapeHtml(m[2].trim())}</div></div>`;
+            return `<div class="press-summary-card"><span class="press-summary-name">${escapeHtml(m[1].trim())}</span><span class="press-summary-text">${escapeHtml(m[2].trim())}</span></div>`;
         }).join('') + `</div>`;
     }
 
@@ -798,12 +749,12 @@
                     if (art.link === '#' || art.press_name === '안내') return;
 
                     const item = document.createElement('div');
-                    item.className = art.press_name === '동아일보' ? 'article-card article-card-priority' : 'article-card';
+                    item.className = 'article-card';
                     item.innerHTML = `
                         <div class="article-header-row">
                             <a href="${art.link}" target="_blank" class="article-link">${art.title}</a>
                             <div class="article-meta">
-                                <span class="press-tag">${art.press_name === '동아일보' ? '★ ' : ''}${art.press_name || '언론사'}</span>
+                                <span class="press-tag">${art.press_name || '언론사'}</span>
                                 <span class="pub-time">${art.pub_time || ''}</span>
                             </div>
                         </div>
