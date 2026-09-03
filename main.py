@@ -47,7 +47,7 @@ def urlopen_with_fallback(url, timeout=10):
                 raise
     raise urllib.error.HTTPError(url, 403, "Forbidden (all header variants failed)", None, None)
 
-# --- 1. 6대 지정 언론사 식별 규칙 ---
+# --- 1. 지정 언론사 식별 규칙 (조간 6개 + 석간 2개, 완전히 별도 판) ---
 # [수정] "도메인 문자열이 포함되어 있으면 매칭"하던 방식(예: donga.com이 들어간 woman.donga.com도
 #        동아일보로 오분류)을 버리고, 실제 호스트명을 파싱해서
 #        1) allow_domains 와 정확히 일치하거나 그 하위 도메인일 때만 인정
@@ -57,7 +57,7 @@ def urlopen_with_fallback(url, timeout=10):
 #        이렇게 "지면(본지) 기사" 위주로 좁힙니다.
 #        exclude_subdomains 는 제가 확인 가능한 범위 내 best-effort 목록입니다.
 #        나중에 다른 자매지가 섞여 들어오는 게 보이면 이 목록에 도메인만 추가하시면 됩니다.
-TARGET_PRESS_RULES = {
+MORNING_PRESS_RULES = {
     "동아일보": {
         "allow_domains": ["donga.com"],
         "exclude_subdomains": ["woman.donga.com", "sports.donga.com", "kids.donga.com", "it.donga.com", "shindonga.donga.com"],
@@ -90,7 +90,30 @@ TARGET_PRESS_RULES = {
     },
 }
 
+# [신규] 석간판(문화일보/헤럴드경제). 두 곳 모두 분야별 공식 RSS를 확인하지 못해
+#        RSS_FEEDS는 비워두고, 네이버·구글 키워드 검색만으로 수집한다.
+EVENING_PRESS_RULES = {
+    "문화일보": {
+        "allow_domains": ["munhwa.com"],
+        "exclude_subdomains": [],
+        "naver_code": "021",
+    },
+    "헤럴드경제": {
+        "allow_domains": ["heraldcorp.com"],
+        "exclude_subdomains": ["koreaherald.com"],
+        "naver_code": "016",
+    },
+}
+
+EVENING_RSS_FEEDS = {}  # 문화일보/헤럴드경제는 공식 RSS 미확인 — 검색 수집으로만 커버
+
+# [신규] 현재 실행 중인 판(조간/석간)에 맞춰 main()에서 갈아끼우는 "활성" 설정.
+#        나머지 함수들은 전부 이 모듈 전역 변수들을 그대로 참조하므로, main()에서
+#        EDITION에 맞는 값으로 재할당하기만 하면 기존 수집·요약 로직을 그대로 재사용할 수 있다.
+TARGET_PRESS_RULES = MORNING_PRESS_RULES
+
 # [신규] 최우선 언론사. 동률/유사 비중일 때 최우선 노출되고, 카테고리별 최소 수집 개수도 더 여유있게 보장됨.
+#        석간판은 특정 언론사를 우선하지 않으므로 main()에서 None으로 재설정됨.
 PRIORITY_PRESS = "동아일보"
 PRIORITY_MIN_PER_CATEGORY = 3   # 일반 언론사는 2건, 동아일보는 3건을 최소 기준으로 시도
 
@@ -166,12 +189,16 @@ def parse_date_to_dt(date_str):
 def format_korean_date(dt):
     return dt.strftime("%m월 %d일 %H:%M")
 
-# "전일 22:00 ~ 당일 06:50 (KST)" 수집 윈도우 계산
-# [수정] 출근 시간(오전 7시)에 맞춰 브리핑이 준비되어 있도록, 수집 마감과 실행 스케줄을
-#        06:50 KST로 앞당김 (.github/workflows/daily_briefing.yml 의 cron과 함께 맞춰서 조정할 것)
-def get_collection_window(now_dt):
-    end_dt = now_dt.replace(hour=6, minute=50, second=0, microsecond=0)
-    start_dt = (now_dt - timedelta(days=1)).replace(hour=22, minute=0, second=0, microsecond=0)
+# 조간: "전일 22:00 ~ 당일 06:50 (KST)", 석간: "당일 06:50 ~ 당일 18:00 (KST)" 수집 윈도우 계산
+# [수정] 조간은 출근 시간(오전 7시)에, 석간은 퇴근 시간(오후 6시)에 맞춰 브리핑이 준비되도록
+#        수집 마감 시각을 설정 (.github/workflows/daily_briefing.yml 의 cron과 함께 맞춰서 조정할 것)
+def get_collection_window(now_dt, edition="morning"):
+    if edition == "evening":
+        end_dt = now_dt.replace(hour=18, minute=0, second=0, microsecond=0)
+        start_dt = now_dt.replace(hour=6, minute=50, second=0, microsecond=0)
+    else:
+        end_dt = now_dt.replace(hour=6, minute=50, second=0, microsecond=0)
+        start_dt = (now_dt - timedelta(days=1)).replace(hour=22, minute=0, second=0, microsecond=0)
     return start_dt, end_dt
 
 # 수집 윈도우 밖의 기사를 걸러내는 필터
@@ -272,9 +299,12 @@ def build_top3_with_priority(news_list):
 
     return top3[:3]
 
-def generate_fallback_summary(news_list):
+def generate_fallback_summary(news_list, category_keys=None):
     """AI 호출이 실패했을 때 사용하는 비상 리포트. 항상 REQUIRED_MARKERS와 동일한 구조로 생성해
     프론트엔드가 항상 동일한 카드 UI로 렌더링할 수 있게 한다."""
+    if category_keys is None:
+        category_keys = ["정치", "경제", "사회", "국제", "사설"]
+
     if not news_list:
         return (
             "# TOP3\n\n"
@@ -294,7 +324,7 @@ def generate_fallback_summary(news_list):
     report += "AI 요약 생성에 실패해 이번 회차에서는 언론사 논조 비교를 제공하지 못했습니다. 아래 원문 기사 목록에서 직접 비교해보세요.\n\n"
 
     report += "# CATEGORY_REPORT\n"
-    for cat in ["정치", "경제", "사회", "국제", "사설"]:
+    for cat in category_keys:
         cat_news = [n for n in news_list if n.get('category') == cat]
         if cat_news:
             report += f"- {cat}: [{cat_news[0]['press_name']}] {cat_news[0]['title']} — 주요 보도\n"
@@ -313,7 +343,7 @@ def generate_fallback_summary(news_list):
             report += f"- {press_name}: 수집된 기사 없음\n"
 
     report += "\n# INSIGHTS\n"
-    report += "1. 6대 주요 언론사의 속보를 바탕으로 오늘의 정세 변화에 대비하세요.\n"
+    report += f"1. {len(TARGET_PRESS_RULES)}개 주요 언론사의 속보를 바탕으로 오늘의 정세 변화에 대비하세요.\n"
     report += "2. 세부 기사 원문은 아래 목록에서 확인하실 수 있습니다.\n"
     return report
 
@@ -349,7 +379,7 @@ def generate_gemini_content(prompt, news_list):
 #        "이 언론사가 어떤 기사를 실제로 냈는지"를 가장 정확하게 반영합니다 — 자매지 오분류나
 #        검색 누락 문제에서 자유롭습니다. 매일경제는 사설 전용 공식 RSS를 찾지 못해 해당 칸만
 #        비워두었고, 기존 네이버·구글 키워드 검색 + site: 보충 수집으로 커버합니다.
-RSS_FEEDS = {
+MORNING_RSS_FEEDS = {
     "조선일보": {
         "정치": "https://www.chosun.com/arc/outboundfeeds/rss/category/politics/?outputType=xml",
         "경제": "https://www.chosun.com/arc/outboundfeeds/rss/category/economy/?outputType=xml",
@@ -392,6 +422,9 @@ RSS_FEEDS = {
         "국제": "https://www.mk.co.kr/rss/30300018/",
     },
 }
+
+# [신규] main()에서 EDITION에 맞춰 재할당하는 "활성" RSS 설정 (조간 기본값).
+RSS_FEEDS = MORNING_RSS_FEEDS
 
 def fetch_press_rss(press_name, app_category, url, window_start, window_end):
     items = []
@@ -597,7 +630,7 @@ def fetch_all_categories_news(category_map, window_start, window_end):
     all_flat_items = []
 
     for cat_name, keywords in category_map.items():
-        print(f"📰 카테고리 [{cat_name}] 6대 언론사 뉴스 수집 중...")
+        print(f"📰 카테고리 [{cat_name}] {len(TARGET_PRESS_RULES)}개 언론사 뉴스 수집 중...")
         rss_items = fetch_rss_items_for_category(cat_name, window_start, window_end)
         naver_items = fetch_naver_news(keywords, cat_name)
         google_items = fetch_google_news(keywords, cat_name)
@@ -638,66 +671,72 @@ def fetch_all_categories_news(category_map, window_start, window_end):
     return categories_result, all_flat_items
 
 # --- 5. 요약 및 음성 생성 ---
-def generate_summary(news_list):
+def generate_summary(news_list, category_keys=None, commute_label="출근길"):
+    if category_keys is None:
+        category_keys = ["정치", "경제", "사회", "국제", "사설"]
+
     if not news_list:
-        return generate_fallback_summary([])
+        return generate_fallback_summary([], category_keys)
 
     news_text = build_press_grouped_text(news_list)
-    press_list_str = ", ".join(TARGET_PRESS_RULES.keys())
+    press_names = list(TARGET_PRESS_RULES.keys())
+    press_list_str = ", ".join(press_names)
 
     # [수정] 언론사별 그룹 데이터를 제공하고, 5개 섹션 마커를 반드시 지키도록 강하게 지시.
     #        마커는 프론트엔드 파싱 전용이라 실제 화면에는 노출되지 않음.
+    #        언론사 목록/카테고리 목록/최우선 언론사 규칙을 모두 실행 시점의 판(조간/석간)에
+    #        맞춰 동적으로 구성해, 조간(6개사)과 석간(2개사)이 같은 함수를 공유할 수 있게 한다.
+    priority_rule = ""
+    press_summary_order = list(press_names)
+    if PRIORITY_PRESS:
+        priority_rule = f"""
+※ 최우선 순위 언론사는 '{PRIORITY_PRESS}'입니다. 아래 규칙을 반드시 지키세요.
+  - TOP3: {PRIORITY_PRESS}가 오늘 다룬 기사 중 조금이라도 비중 있는 이슈가 있다면 반드시 1건 이상(가능하면 1번 자리)에 포함하세요. 단, {PRIORITY_PRESS}가 해당 이슈를 아예 다루지 않았다면 억지로 끼워넣지 마세요.
+  - CATEGORY_REPORT: 각 분야에 {PRIORITY_PRESS} 기사가 있다면 최우선으로 소개하세요.
+  - PRESS_SUMMARY: {PRIORITY_PRESS}를 목록 맨 위에 작성하세요.
+  이 우선순위 규칙이 전체적인 리포트 품질(중요도 기반 선정)보다 우선합니다.
+"""
+        press_summary_order = [PRIORITY_PRESS] + [p for p in press_names if p != PRIORITY_PRESS]
+
+    category_report_lines = "\n".join(f"- {cat}: [언론사] 제목 — 한줄평" for cat in category_keys)
+    press_summary_lines = "\n".join(f"- {p}: (요약)" for p in press_summary_order)
+
     prompt = f"""
-다음은 오늘 수집된 6대 주요 언론사({press_list_str})의 최신 기사 목록입니다. 언론사별로 묶어서 제공합니다:
+다음은 오늘 수집된 {len(press_names)}개 주요 언론사({press_list_str})의 최신 기사 목록입니다. 언론사별로 묶어서 제공합니다:
 
 {news_text}
 
 당신은 대한민국 수석 에디터입니다. 아래 형식을 절대 그대로(마커, 줄바꿈, 하이픈 포함) 지켜서 작성하세요.
 각 "# 마커"는 반드시 줄 맨 앞에 그대로 출력하세요.
-
-※ 최우선 순위 언론사는 '동아일보'입니다. 아래 규칙을 반드시 지키세요.
-  - TOP3: 동아일보가 오늘 다룬 기사 중 조금이라도 비중 있는 이슈가 있다면 반드시 1건 이상(가능하면 1번 자리)에 포함하세요. 단, 동아일보가 해당 이슈를 아예 다루지 않았다면 억지로 끼워넣지 마세요.
-  - CATEGORY_REPORT: 각 분야에 동아일보 기사가 있다면 최우선으로 소개하세요.
-  - PRESS_SUMMARY: 동아일보를 목록 맨 위에 작성하세요.
-  이 우선순위 규칙이 전체적인 리포트 품질(중요도 기반 선정)보다 우선합니다.
-
+{priority_rule}
 # TOP3
 ### 1. [언론사] 기사 제목
-- 요약: (정치·경제·국제 등 실질적 파급력이 큰 이슈를 우선하여 40자 내외 한 문장 요약. 연예/가십은 다른 비중있는 이슈가 부족할 때만 포함)
+- 요약: (정치·경제·국제 등 실질적 파급력이 큰 이슈를 우선. 기본은 40자 내외 한 문장이면 충분하지만, 여러 언론사가 같은 주제를 비중 있게 함께 다뤘다면 논조 차이까지 담아 2~3문장으로 풀어써도 됩니다. 연예/가십은 다른 비중있는 이슈가 부족할 때만 포함)
 ### 2. [언론사] 기사 제목
-- 요약: (한 문장 요약)
+- 요약: (위와 동일한 기준. 필요하면 여러 문장 사용 가능)
 ### 3. [언론사] 기사 제목
-- 요약: (한 문장 요약)
+- 요약: (위와 동일한 기준. 필요하면 여러 문장 사용 가능)
 
 # PERSPECTIVES
-(오늘 이슈에 대한 보수/진보/경제지 논조 차이를 2~3문장으로 설명)
+(오늘 이슈에 대한 언론사별 논조 차이를 2~3문장으로 설명)
 
 # CATEGORY_REPORT
-- 정치: [언론사] 제목 — 한줄평
-- 경제: [언론사] 제목 — 한줄평
-- 사회: [언론사] 제목 — 한줄평
-- 국제: [언론사] 제목 — 한줄평
-- 사설: [언론사] 제목 — 한줄평
+{category_report_lines}
 
 # PRESS_SUMMARY
-(제공된 6개 언론사 각각에 대해 정확히 한 줄씩, 오늘 그 언론사가 가장 비중 있게 다룬 내용을 요약. 반드시 6개 모두 작성하고, 동아일보를 맨 위에 쓰세요.)
-- 동아일보: (한 줄 요약)
-- 조선일보: (한 줄 요약)
-- 한겨레: (한 줄 요약)
-- 경향신문: (한 줄 요약)
-- 한국경제: (한 줄 요약)
-- 매일경제: (한 줄 요약)
+(제공된 {len(press_names)}개 언론사 각각에 대해, 오늘 그 언론사가 가장 비중 있게 다룬 내용을 요약하세요. 기본은 한 줄이면 충분하지만, 그 언론사가 특히 비중 있게 다룬 주제라면 2~3문장으로 자세히 써도 됩니다. 반드시 {len(press_names)}개 모두 작성하세요.)
+{press_summary_lines}
 
 # INSIGHTS
-1. (출근길에 챙길 핵심 시사점)
-2. (출근길에 챙길 핵심 시사점)
+1. ({commute_label}에 챙길 핵심 시사점)
+2. ({commute_label}에 챙길 핵심 시사점)
 """
     text = generate_gemini_content(prompt, news_list)
 
     # [신규] AI가 형식을 어겼을 경우 화면이 깨지지 않도록 즉시 비상 리포트로 대체
     if not all(marker in text for marker in REQUIRED_MARKERS):
         print("⚠️ [진단] AI 응답이 지정된 형식(# TOP3 등)을 따르지 않아 비상 리포트로 대체합니다.")
-        return generate_fallback_summary(news_list)
+        return generate_fallback_summary(news_list, category_keys)
 
     return text
 
@@ -766,6 +805,73 @@ def generate_audio(text, filepath):
         print(f"⚠️ TTS 음성 생성 실패: {e}")
         return False
 
+# [신규] "카카오톡 나에게 보내기" 발송. 최초 1회 카카오 개발자센터에서 발급받은
+#        refresh_token(KAKAO_REFRESH_TOKEN)으로 access_token을 갱신해 사용한다.
+#        기본 텍스트 템플릿은 글자 수 제한이 있어, 브리핑 전체가 아니라 TOP1 헤드라인 +
+#        핵심 링크만 담은 짧은 알림으로 보내고, 자세한 내용은 웹페이지에서 보게 유도한다.
+PAGE_URL = "https://teu-hr.github.io/newsbriefing/"
+KAKAO_TEXT_LIMIT = 180
+
+def build_kakao_text(edition, briefing_summary, article_count, now_str):
+    label = "🌆 석간 브리핑" if edition == "evening" else "☀️ 조간 브리핑"
+    lines = [f"{label} ({now_str})"]
+
+    m = re.search(r"^###\s*1\.\s*\[([^\]]+)\]\s*(.+)$", briefing_summary or "", re.MULTILINE)
+    if m:
+        lines.append(f"[{m.group(1)}] {m.group(2)}")
+
+    lines.append(f"오늘 수집 기사 {article_count}건 — 자세한 내용은 아래에서 확인하세요.")
+    text = "\n".join(lines)
+
+    if len(text) > KAKAO_TEXT_LIMIT:
+        text = text[:KAKAO_TEXT_LIMIT - 1] + "…"
+    return text
+
+def send_kakao_message(text):
+    rest_api_key = os.environ.get("KAKAO_REST_API_KEY", "").strip()
+    refresh_token = os.environ.get("KAKAO_REFRESH_TOKEN", "").strip()
+    if not rest_api_key or not refresh_token:
+        return
+
+    try:
+        token_body = urllib.parse.urlencode({
+            "grant_type": "refresh_token",
+            "client_id": rest_api_key,
+            "refresh_token": refresh_token,
+        }).encode("utf-8")
+        token_req = urllib.request.Request("https://kauth.kakao.com/oauth/token", data=token_body, method="POST")
+        with urllib.request.urlopen(token_req, timeout=10) as res:
+            token_res = json.loads(res.read().decode("utf-8"))
+
+        access_token = token_res.get("access_token")
+        if not access_token:
+            print("⚠️ [진단] 카카오 액세스 토큰 발급 실패 — 응답에 access_token이 없습니다.")
+            return
+
+        template_object = json.dumps({
+            "object_type": "text",
+            "text": text,
+            "link": {"web_url": PAGE_URL, "mobile_web_url": PAGE_URL},
+            "button_title": "자세히 보기",
+        }, ensure_ascii=False)
+
+        send_body = urllib.parse.urlencode({"template_object": template_object}).encode("utf-8")
+        send_req = urllib.request.Request("https://kapi.kakao.com/v2/api/talk/memo/default/send", data=send_body, method="POST")
+        send_req.add_header("Authorization", f"Bearer {access_token}")
+        with urllib.request.urlopen(send_req, timeout=10) as res:
+            res.read()
+        print("💬 카카오톡 '나에게 보내기' 발송 성공!")
+    except urllib.error.HTTPError as e:
+        try:
+            body = e.read().decode("utf-8")[:300]
+        except Exception:
+            body = ""
+        print(f"⚠️ [진단] 카카오톡 발송 실패 (HTTP {e.code}): {body}")
+        if e.code == 400:
+            print("   → KAKAO_REFRESH_TOKEN이 만료됐을 수 있습니다. 카카오 개발자센터에서 1회 재인증 후 GitHub Secrets를 갱신하세요.")
+    except Exception as e:
+        print(f"⚠️ [진단] 카카오톡 발송 실패: {e}")
+
 def send_email(subject, body):
     sender = os.environ.get("EMAIL_USER") or os.environ.get("SMTP_USER")
     password = os.environ.get("EMAIL_PASSWORD") or os.environ.get("SMTP_PASSWORD")
@@ -788,35 +894,60 @@ def send_email(subject, body):
         print(f"이메일 발송 실패: {e}")
 
 # --- 6. 메인 실행 함수 ---
+# 조간/석간 공통 카테고리 구성 (검색 보조 키워드는 동일하게 사용)
+CATEGORY_MAP = {
+    "정치": ["정치", "국회", "대통령"],
+    "경제": ["경제", "금융", "부동산"],
+    "사회": ["사회", "사건", "검찰"],
+    "국제": ["국제", "미국", "중국"],
+    "사설": ["오피니언", "칼럼", "사설"]
+}
+
 def main():
+    # [신규] EDITION 환경변수로 조간/석간을 선택. GitHub Actions에서 두 개의 cron
+    #        스케줄(아침 06:50 / 저녁 18:00)에 맞춰 이 값을 넘겨준다. 로컬 실행이나
+    #        인식 못하는 값이 들어오면 항상 조간(morning)으로 동작한다.
+    edition = os.environ.get("EDITION", "morning").strip().lower()
+    if edition not in ("morning", "evening"):
+        edition = "morning"
+
+    global TARGET_PRESS_RULES, RSS_FEEDS, PRESS_DOMAINS, PRIORITY_PRESS
+    if edition == "evening":
+        TARGET_PRESS_RULES = EVENING_PRESS_RULES
+        RSS_FEEDS = EVENING_RSS_FEEDS
+        PRIORITY_PRESS = None
+        commute_label = "퇴근길"
+    else:
+        TARGET_PRESS_RULES = MORNING_PRESS_RULES
+        RSS_FEEDS = MORNING_RSS_FEEDS
+        PRIORITY_PRESS = "동아일보"
+        commute_label = "출근길"
+    PRESS_DOMAINS = {name: rule["allow_domains"][0] for name, rule in TARGET_PRESS_RULES.items()}
+
     now_dt = datetime.now(KST)
     now_str = now_dt.strftime("%Y년 %m월 %d일 %H:%M")
     today_date_key = now_dt.strftime("%Y-%m-%d")
 
-    window_start, window_end = get_collection_window(now_dt)
+    window_start, window_end = get_collection_window(now_dt, edition)
 
-    print(f"[{now_str}] 6대 언론사 전용 뉴스 브리핑 시스템 시작...")
+    press_count = len(TARGET_PRESS_RULES)
+    edition_label = "석간" if edition == "evening" else "조간"
+    print(f"[{now_str}] {edition_label}({press_count}개 언론사) 뉴스 브리핑 시스템 시작...")
     print(f"📅 수집 대상 시간 윈도우: {window_start.strftime('%m/%d %H:%M')} ~ {window_end.strftime('%m/%d %H:%M')} (KST)")
-    
-    category_map = {
-        "정치": ["정치", "국회", "대통령"],
-        "경제": ["경제", "금융", "부동산"],
-        "사회": ["사회", "사건", "검찰"],
-        "국제": ["국제", "미국", "중국"],
-        "사설": ["오피니언", "칼럼", "사설"]
-    }
-    
-    categories_data, all_news_list = fetch_all_categories_news(category_map, window_start, window_end)
+
+    category_keys = list(CATEGORY_MAP.keys())
+    categories_data, all_news_list = fetch_all_categories_news(CATEGORY_MAP, window_start, window_end)
     categories_data["전체"] = all_news_list
-    
-    briefing_summary = generate_summary(all_news_list)
-    
+
+    briefing_summary = generate_summary(all_news_list, category_keys, commute_label)
+
     history_dir = "history"
     os.makedirs(history_dir, exist_ok=True)
 
-    audio_filename = f"{today_date_key}.mp3"
+    suffix = "_evening" if edition == "evening" else ""
+    audio_filename = f"{today_date_key}{suffix}.mp3"
     audio_path = os.path.join(history_dir, audio_filename)
-    latest_audio_path = "latest.mp3"
+    latest_audio_path = f"latest{suffix}.mp3"
 
     # [수정] 화면용 마크다운이 아니라, 듣기 좋게 다듬은 스크립트로 TTS 생성
     speech_text = build_speech_script(briefing_summary)
@@ -830,16 +961,17 @@ def main():
     daily_payload = {
         "date": today_date_key,
         "updated_at": now_str,
+        "edition": edition,
         "summary": briefing_summary,
         "has_audio": has_audio,
         "audio_url": f"history/{audio_filename}",
         "categories": categories_data
     }
 
-    with open(os.path.join(history_dir, f"{today_date_key}.json"), "w", encoding="utf-8") as f:
+    with open(os.path.join(history_dir, f"{today_date_key}{suffix}.json"), "w", encoding="utf-8") as f:
         json.dump(daily_payload, f, ensure_ascii=False, indent=2)
 
-    idx_file = os.path.join(history_dir, "index.json")
+    idx_file = os.path.join(history_dir, f"index{suffix}.json")
     date_list = []
     if os.path.exists(idx_file):
         try:
@@ -855,11 +987,28 @@ def main():
     with open(idx_file, "w", encoding="utf-8") as f:
         json.dump(date_list, f, ensure_ascii=False, indent=2)
 
-    with open("data.json", "w", encoding="utf-8") as f:
-        json.dump({"morning": daily_payload, "realtime": daily_payload}, f, ensure_ascii=False, indent=2)
+    # [수정] data.json은 조간/석간이 함께 쓰는 파일이라, 무조건 덮어쓰지 않고 기존 내용을
+    #        읽어서 지금 실행한 판(edition)의 키만 갱신한다 (다른 판 데이터를 지우지 않기 위함).
+    root_data = {}
+    if os.path.exists("data.json"):
+        try:
+            with open("data.json", "r", encoding="utf-8") as f:
+                root_data = json.load(f)
+        except Exception:
+            root_data = {}
 
-    print("\n✅ 프로세스 완료! 6대 언론사 기사만 수집 및 정렬되었습니다.")
-    send_email(f"[뉴스 브리핑] {now_str}", f"수집 시각: {now_str}\n\n{briefing_summary}")
+    root_data[edition] = daily_payload
+    if edition == "morning":
+        root_data["realtime"] = daily_payload  # 기존 프론트엔드 하위 호환 키
+
+    with open("data.json", "w", encoding="utf-8") as f:
+        json.dump(root_data, f, ensure_ascii=False, indent=2)
+
+    print(f"\n✅ 프로세스 완료! {edition_label} {press_count}개 언론사 기사만 수집 및 정렬되었습니다.")
+
+    kakao_text = build_kakao_text(edition, briefing_summary, len(all_news_list), now_str)
+    send_kakao_message(kakao_text)
+    send_email(f"[뉴스 브리핑-{edition_label}] {now_str}", f"수집 시각: {now_str}\n\n{briefing_summary}")
 
 if __name__ == "__main__":
     main()

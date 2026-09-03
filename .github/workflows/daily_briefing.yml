@@ -2,12 +2,22 @@ name: Daily AI & Tech News Bot
 
 on:
   schedule:
-    # KST 기준 오전 8시 05분 실행 (UTC 기준 전날 23시 05분)
-    # 8시 정각으로 변경하고 싶으시면 '0 23 * * *' 로 수정하시면 됩니다.
-    - cron: '5 23 * * *'
-  
-  # GitHub UI에서 수동 실행 버튼 활성화
+    # 조간: KST 오전 6시 50분 (UTC 전날 21시 50분) — 06:50 수집 마감, 07시 출근 전 준비
+    - cron: '50 21 * * *'
+    # 석간: KST 오후 6시 00분 (UTC 09시 00분) — 06:50~18:00 수집, 18시 퇴근 전 준비
+    - cron: '0 9 * * *'
+
+  # GitHub UI에서 수동 실행 버튼 활성화. 어떤 판을 돌릴지 직접 고를 수 있음.
   workflow_dispatch:
+    inputs:
+      edition:
+        description: '실행할 브리핑 판'
+        required: false
+        default: 'morning'
+        type: choice
+        options:
+          - morning
+          - evening
 
 jobs:
   build-and-run:
@@ -27,8 +37,22 @@ jobs:
           python -m pip install --upgrade pip
           pip install google-genai gtts
 
+      # [신규] 스케줄이 두 개(조간/석간)라, 어느 cron이 이 실행을 트리거했는지로 판을 정한다.
+      #        수동 실행(workflow_dispatch)일 때는 사용자가 고른 edition 입력값을 그대로 쓴다.
+      - name: 실행할 판(조간/석간) 결정
+        id: edition
+        run: |
+          if [ "${{ github.event.schedule }}" = "0 9 * * *" ]; then
+            echo "value=evening" >> "$GITHUB_OUTPUT"
+          elif [ "${{ github.event.schedule }}" = "50 21 * * *" ]; then
+            echo "value=morning" >> "$GITHUB_OUTPUT"
+          else
+            echo "value=${{ github.event.inputs.edition || 'morning' }}" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: 수집 및 AI 요약 실행
         env:
+          EDITION: ${{ steps.edition.outputs.value }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
           NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
@@ -37,6 +61,8 @@ jobs:
           EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
           SMTP_USER: ${{ secrets.SMTP_USER }}
           SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          KAKAO_REST_API_KEY: ${{ secrets.KAKAO_REST_API_KEY }}
+          KAKAO_REFRESH_TOKEN: ${{ secrets.KAKAO_REFRESH_TOKEN }}
         run: python main.py
 
       - name: 변경사항 저장 및 Push

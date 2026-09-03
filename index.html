@@ -441,12 +441,18 @@
 <div class="container">
     <div class="header">
         <h1>📰 AI 뉴스 브리핑</h1>
-        <a href="https://github.com/teu-hr/teu-hr.github.io/actions" target="_blank" class="btn-run">
+        <a href="https://github.com/teu-hr/newsbriefing/actions" target="_blank" class="btn-run">
             ⚡ 즉시 수집 실행
         </a>
     </div>
 
     <div class="status-bar">
+        <div class="status-item">
+            <span class="press-filter-box" id="edition-toggle" style="margin-bottom:0;">
+                <button class="filter-btn active" onclick="switchEdition('morning', this)">☀️ 조간</button>
+                <button class="filter-btn" onclick="switchEdition('evening', this)">🌆 석간</button>
+            </span>
+        </div>
         <div class="status-item">
             📅 날짜 선택: <select id="date-select" class="date-select" onchange="onDateChange()"><option>로딩 중...</option></select>
         </div>
@@ -472,18 +478,10 @@
     </div>
 
     <div class="card">
-        <div class="card-title">📑 6대 언론사 원문 기사 목록</div>
+        <div class="card-title" id="articles-card-title">📑 언론사 원문 기사 목록</div>
 
-        <!-- 언론사 필터 -->
-        <div class="press-filter-box" id="press-filter">
-            <button class="filter-btn active" onclick="filterPress('ALL', this)">전체</button>
-            <button class="filter-btn" onclick="filterPress('동아일보', this)">동아일보</button>
-            <button class="filter-btn" onclick="filterPress('조선일보', this)">조선일보</button>
-            <button class="filter-btn" onclick="filterPress('한겨레', this)">한겨레</button>
-            <button class="filter-btn" onclick="filterPress('경향신문', this)">경향신문</button>
-            <button class="filter-btn" onclick="filterPress('한국경제', this)">한국경제</button>
-            <button class="filter-btn" onclick="filterPress('매일경제', this)">매일경제</button>
-        </div>
+        <!-- 언론사 필터 (조간/석간에 따라 JS에서 동적으로 채움) -->
+        <div class="press-filter-box" id="press-filter"></div>
 
         <div id="articles-container">
             <div class="loading-container">기사 목록을 불러오는 중입니다...</div>
@@ -494,15 +492,38 @@
 <script>
     let globalData = null;
     let selectedPress = "ALL";
+    let currentEdition = "morning"; // "morning"(조간) | "evening"(석간)
 
     async function initDashboard() {
-        await loadIndexDates();
+        await loadIndexDates(currentEdition);
         await loadData();
     }
 
-    async function loadIndexDates() {
+    // [신규] 조간/석간 판을 바꾸면 해당 판의 날짜 목록과 최신 데이터를 다시 불러온다.
+    function switchEdition(edition, btn) {
+        if (currentEdition === edition) return;
+        currentEdition = edition;
+        document.querySelectorAll('#edition-toggle .filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        loadIndexDates(edition);
+        loadData();
+    }
+
+    // 현재 선택된 판(조간/석간)에 맞는 리포트 데이터를 globalData에서 꺼낸다.
+    // data.json 루트는 {morning, realtime, evening} 형태이고, history/*.json 개별 파일은
+    // 이미 해당 판의 리포트만 담은 평면 구조라 evening 키가 없으면 globalData 자체를 그대로 쓴다.
+    function getPayload() {
+        if (!globalData) return null;
+        if (currentEdition === 'evening') {
+            return globalData.evening || globalData;
+        }
+        return globalData.realtime || globalData.morning || globalData;
+    }
+
+    async function loadIndexDates(edition) {
         const timestamp = Date.now();
-        const indexUrl = `history/index.json?t=${timestamp}`;
+        const idxName = edition === 'evening' ? 'index_evening.json' : 'index.json';
+        const indexUrl = `history/${idxName}?t=${timestamp}`;
         try {
             const res = await fetch(indexUrl);
             if (res.ok) {
@@ -521,16 +542,17 @@
 
     async function loadData(targetDate = null) {
         const timestamp = Date.now();
-        let fetchUrl = `https://raw.githubusercontent.com/teu-hr/teu-hr.github.io/main/data.json?t=${timestamp}`;
-        
+        const suffix = currentEdition === 'evening' ? '_evening' : '';
+        let fetchUrl = `https://raw.githubusercontent.com/teu-hr/newsbriefing/main/data.json?t=${timestamp}`;
+
         if (targetDate) {
-            fetchUrl = `history/${targetDate}.json?t=${timestamp}`;
+            fetchUrl = `history/${targetDate}${suffix}.json?t=${timestamp}`;
         }
 
         try {
             let res = await fetch(fetchUrl);
             if (!res.ok) res = await fetch(`data.json?t=${timestamp}`);
-            
+
             if (res.ok) {
                 globalData = await res.json();
                 renderDashboard();
@@ -547,9 +569,38 @@
         loadData(date);
     }
 
+    // 조간/석간마다 수집하는 언론사가 달라서, 필터 버튼도 판에 맞춰 새로 그린다.
+    const EDITION_PRESS = {
+        morning: ["동아일보", "조선일보", "한겨레", "경향신문", "한국경제", "매일경제"],
+        evening: ["문화일보", "헤럴드경제"]
+    };
+
+    function renderPressFilter() {
+        const box = document.getElementById('press-filter');
+        box.innerHTML = '';
+        const allBtn = document.createElement('button');
+        allBtn.className = 'filter-btn active';
+        allBtn.innerText = '전체';
+        allBtn.onclick = () => filterPress('ALL', allBtn);
+        box.appendChild(allBtn);
+        (EDITION_PRESS[currentEdition] || []).forEach(name => {
+            const btn = document.createElement('button');
+            btn.className = 'filter-btn';
+            btn.innerText = name;
+            btn.onclick = () => filterPress(name, btn);
+            box.appendChild(btn);
+        });
+        selectedPress = 'ALL';
+
+        const titleEl = document.getElementById('articles-card-title');
+        const label = currentEdition === 'evening' ? '석간(문화일보·헤럴드경제)' : '조간 6대 언론사';
+        titleEl.innerText = `📑 ${label} 원문 기사 목록`;
+    }
+
     function renderDashboard() {
         if (!globalData) return;
-        const payload = globalData.realtime || globalData.morning || globalData;
+        const payload = getPayload();
+        renderPressFilter();
 
         document.getElementById('update-time').innerText = payload.updated_at || '-';
 
@@ -700,14 +751,14 @@
 
     function filterPress(press, btn) {
         selectedPress = press;
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('#press-filter .filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         renderArticles();
     }
 
     function renderArticles() {
         if (!globalData) return;
-        const payload = globalData.realtime || globalData.morning || globalData;
+        const payload = getPayload();
         const container = document.getElementById('articles-container');
         container.innerHTML = '';
 
@@ -775,7 +826,7 @@
 
     function speakSummary() {
         if (!globalData) return;
-        const payload = globalData.realtime || globalData.morning || globalData;
+        const payload = getPayload();
         if (!payload.summary) return;
 
         window.speechSynthesis.cancel();
