@@ -26,28 +26,109 @@ except ImportError:
 KST = timezone(timedelta(hours=9))
 
 # --- 1. 10대 지정 언론사 식별 규칙 ---
+# [수정] "도메인 문자열이 포함되어 있으면 매칭"하던 방식(예: donga.com이 들어간 woman.donga.com도
+#        동아일보로 오분류)을 버리고, 실제 호스트명을 파싱해서
+#        1) allow_domains 와 정확히 일치하거나 그 하위 도메인일 때만 인정
+#        2) exclude_subdomains 에 있는 자매지/특화 섹션 도메인은 원천 배제
+#        3) 구글 <source> 태그의 언론사명 완전일치, 네이버 언론사 코드도 보조 확인
+#        4) 기사 "제목"에 언론사명이 언급된 것만으로는 더 이상 매칭하지 않음 (오탐 방지)
+#        이렇게 "지면(본지) 기사" 위주로 좁힙니다.
+#        exclude_subdomains 는 제가 확인 가능한 범위 내 best-effort 목록입니다.
+#        나중에 다른 자매지가 섞여 들어오는 게 보이면 이 목록에 도메인만 추가하시면 됩니다.
 TARGET_PRESS_RULES = {
-    "조선일보": ["chosun.com", "조선일보", "/article/023/"],
-    "중앙일보": ["joongang.co.kr", "joongang.com", "중앙일보", "/article/025/"],
-    "동아일보": ["donga.com", "동아일보", "/article/020/"],
-    "한겨레": ["hani.co.kr", "한겨레", "/article/028/"],
-    "경향신문": ["khan.co.kr", "경향신문", "/article/032/"],
-    "한국경제": ["hankyung.com", "한국경제", "/article/015/"],
-    "매일경제": ["mk.co.kr", "매일경제", "/article/009/"],
-    "KBS": ["kbs.co.kr", "kbs", "/article/056/"],
-    "MBC": ["imbc.com", "mbc.co.kr", "mbc", "/article/214/"],
-    "SBS": ["sbs.co.kr", "sbs", "/article/055/"]
+    "동아일보": {
+        "allow_domains": ["donga.com"],
+        "exclude_subdomains": ["woman.donga.com", "sports.donga.com", "kids.donga.com", "it.donga.com", "shindonga.donga.com"],
+        "naver_code": "020",
+    },
+    "조선일보": {
+        "allow_domains": ["chosun.com"],
+        "exclude_subdomains": ["biz.chosun.com", "health.chosun.com", "job.chosun.com", "shop.chosun.com", "podcast.chosun.com"],
+        "naver_code": "023",
+    },
+    "중앙일보": {
+        "allow_domains": ["joongang.co.kr", "joongang.com"],
+        "exclude_subdomains": ["koreajoongangdaily.joins.com"],
+        "naver_code": "025",
+    },
+    "한겨레": {
+        "allow_domains": ["hani.co.kr"],
+        "exclude_subdomains": ["h21.hani.co.kr"],
+        "naver_code": "028",
+    },
+    "경향신문": {
+        "allow_domains": ["khan.co.kr"],
+        "exclude_subdomains": ["weekly.khan.co.kr"],
+        "naver_code": "032",
+    },
+    "한국경제": {
+        "allow_domains": ["hankyung.com"],
+        "exclude_subdomains": ["kedglobal.com"],
+        "naver_code": "015",
+    },
+    "매일경제": {
+        "allow_domains": ["mk.co.kr"],
+        "exclude_subdomains": ["star.mk.co.kr"],
+        "naver_code": "009",
+    },
+    "KBS": {
+        "allow_domains": ["kbs.co.kr"],
+        "exclude_subdomains": ["kbsworld.kbs.co.kr", "shop.kbs.co.kr"],
+        "naver_code": "056",
+    },
+    "MBC": {
+        "allow_domains": ["imbc.com", "mbc.co.kr"],
+        "exclude_subdomains": ["kids.imbc.com"],
+        "naver_code": "214",
+    },
+    "SBS": {
+        "allow_domains": ["sbs.co.kr"],
+        "exclude_subdomains": ["biz.sbs.co.kr", "programs.sbs.co.kr"],
+        "naver_code": "055",
+    },
 }
 
-# [신규] site: 보충 검색에 사용할 언론사별 대표 도메인 (규칙의 첫 항목을 그대로 사용)
-PRESS_DOMAINS = {name: rules[0] for name, rules in TARGET_PRESS_RULES.items()}
+# [신규] 최우선 언론사. 동률/유사 비중일 때 최우선 노출되고, 카테고리별 최소 수집 개수도 더 여유있게 보장됨.
+PRIORITY_PRESS = "동아일보"
+PRIORITY_MIN_PER_CATEGORY = 3   # 일반 언론사는 2건, 동아일보는 3건을 최소 기준으로 시도
+
+def press_sort_key(item):
+    """동아일보를 항상 앞에 놓고, 그 다음은 최신순으로 정렬하기 위한 정렬 키."""
+    return (item['press_name'] != PRIORITY_PRESS, -item['dt_timestamp'])
+
+
+
+# [신규] site: 보충 검색에 사용할 언론사별 대표 도메인
+PRESS_DOMAINS = {name: rule["allow_domains"][0] for name, rule in TARGET_PRESS_RULES.items()}
+
+def _hostname(url):
+    try:
+        return (urllib.parse.urlparse(url).netloc or "").lower()
+    except Exception:
+        return ""
 
 def identify_target_press(url="", raw_source="", title=""):
-    combined_text = f"{url} {raw_source} {title}".lower()
-    for press_name, rules in TARGET_PRESS_RULES.items():
-        for rule in rules:
-            if rule.lower() in combined_text:
-                return press_name
+    host = _hostname(url)
+    src = (raw_source or "").strip()
+
+    for press_name, rule in TARGET_PRESS_RULES.items():
+        # 1) 자매지/특화 섹션 도메인은 무조건 제외
+        if any(host == ex or host.endswith("." + ex) for ex in rule.get("exclude_subdomains", [])):
+            continue
+
+        # 2) 본지 도메인과 정확히 일치하거나 그 하위 도메인일 때만 인정
+        if any(host == d or host.endswith("." + d) for d in rule.get("allow_domains", [])):
+            return press_name
+
+        # 3) 구글 뉴스 <source> 태그(언론사명 완전 표기)로 보조 확인
+        if src and src == press_name:
+            return press_name
+
+        # 4) 네이버 뉴스 언론사 고유 코드로 보조 확인 (originallink가 없을 때 대비)
+        code = rule.get("naver_code")
+        if code and f"/article/{code}/" in url:
+            return press_name
+
     return None
 
 # --- 2. 날짜 파싱 / 시간 윈도우 / 한국어 포맷팅 ---
@@ -83,13 +164,13 @@ def parse_date_to_dt(date_str):
 def format_korean_date(dt):
     return dt.strftime("%m월 %d일 %H:%M")
 
-# [신규] "전일 22:00 ~ 당일 07:40 (KST)" 수집 윈도우 계산
+# "전일 22:00 ~ 당일 07:40 (KST)" 수집 윈도우 계산
 def get_collection_window(now_dt):
     end_dt = now_dt.replace(hour=7, minute=40, second=0, microsecond=0)
     start_dt = (now_dt - timedelta(days=1)).replace(hour=22, minute=0, second=0, microsecond=0)
     return start_dt, end_dt
 
-# [신규] 수집 윈도우 밖의 기사를 걸러내는 필터
+# 수집 윈도우 밖의 기사를 걸러내는 필터
 def filter_by_window(items, window_start, window_end):
     start_ts, end_ts = window_start.timestamp(), window_end.timestamp()
     return [it for it in items if start_ts <= it['dt_timestamp'] <= end_ts]
@@ -100,7 +181,7 @@ def clean_html(text):
     text = re.sub(r"<[^>]+>", "", text)
     return text.replace('&quot;', '"').replace('&amp;', '&').replace('&lt;', '<').replace('&gt;', '>').replace('&apos;', "'").strip()
 
-# [신규] "제목 - 언론사서브브랜드" 형태의 접미사 제거 (네이버/구글 공통 사용)
+# "제목 - 언론사서브브랜드" 형태의 접미사 제거 (네이버/구글 공통 사용)
 def strip_press_suffix(title):
     if not title:
         return title
@@ -121,7 +202,7 @@ def is_duplicate_title(title1, title2, ratio_threshold=0.55):
         return False
     return difflib.SequenceMatcher(None, t1, t2).ratio() >= ratio_threshold
 
-# [신규] 사설/오피니언 판별 (제목에 명시적으로 태그된 경우를 우선 신뢰)
+# 사설/오피니언 판별 (제목에 명시적으로 태그된 경우를 우선 신뢰)
 OPINION_TITLE_PATTERNS = [r"^\[사설\]", r"^\[오피니언\]", r"^\[사설·오피니언\]", r"^\[칼럼\]", r"^\[시론\]"]
 
 def is_opinion_title(title):
@@ -130,10 +211,13 @@ def is_opinion_title(title):
     return any(re.search(p, title) for p in OPINION_TITLE_PATTERNS)
 
 # --- 3. Gemini API 및 비상 리포트 생성기 ---
+# [신규] AI 응답이 반드시 포함해야 하는 섹션 마커.
+#        화면에는 노출되지 않고(프론트에서 파싱용으로만 사용) 각 섹션을 카드형 UI로 렌더링하는 데 씁니다.
+REQUIRED_MARKERS = ["# TOP3", "# PERSPECTIVES", "# CATEGORY_REPORT", "# PRESS_SUMMARY", "# INSIGHTS"]
+
 def get_gemini_client():
     api_key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
     if not api_key:
-        # [수정] 원인을 로그에 명확히 남김 (Actions 로그에서 바로 확인 가능)
         print("⚠️ [진단] GEMINI_API_KEY / GOOGLE_API_KEY 시크릿이 비어 있습니다. 저장소 Settings → Secrets and variables → Actions에 등록되어 있는지 확인하세요.")
         return None, "NO_KEY"
     try:
@@ -148,36 +232,90 @@ def get_gemini_client():
             print("⚠️ [진단] google-genai / google-generativeai 패키지가 설치되어 있지 않습니다. requirements.txt를 확인하세요.")
             return None, "NO_SDK"
 
+def build_press_grouped_text(news_list, per_press=5):
+    """언론사별로 골고루 묶어서 프롬프트에 제공 (특정 언론사가 최신순 상위를 독식하는 것 방지)"""
+    grouped = {}
+    for item in news_list:
+        grouped.setdefault(item['press_name'], []).append(item)
+
+    lines = []
+    idx = 1
+    for press_name in TARGET_PRESS_RULES.keys():
+        items = grouped.get(press_name, [])[:per_press]
+        if not items:
+            lines.append(f"[{press_name}] (오늘 수집된 기사 없음)")
+            continue
+        lines.append(f"[{press_name}]")
+        for item in items:
+            desc = (item.get('description') or '')[:80]
+            lines.append(f"{idx}. {item['title']} (시간: {item['pub_time']} / 분야: {item['category']} / 설명: {desc})")
+            idx += 1
+    return "\n".join(lines)
+
+def build_top3_with_priority(news_list):
+    """TOP3 중 최소 1건은 동아일보 기사로 채우고(있을 경우), 나머지는 최신/비중 순으로 채운다."""
+    donga_items = [n for n in news_list if n['press_name'] == PRIORITY_PRESS]
+    rest_items = [n for n in news_list if n['press_name'] != PRIORITY_PRESS]
+
+    top3 = []
+    if donga_items:
+        top3.append(donga_items[0])
+
+    for n in rest_items:
+        if len(top3) >= 3:
+            break
+        top3.append(n)
+
+    return top3[:3]
+
 def generate_fallback_summary(news_list):
+    """AI 호출이 실패했을 때 사용하는 비상 리포트. 항상 REQUIRED_MARKERS와 동일한 구조로 생성해
+    프론트엔드가 항상 동일한 카드 UI로 렌더링할 수 있게 한다."""
     if not news_list:
-        return "# 🚀 오늘의 3대 핵심 이슈\n\n수집된 주요 뉴스가 없습니다."
+        return (
+            "# TOP3\n\n"
+            "# PERSPECTIVES\n수집된 주요 뉴스가 없습니다.\n\n"
+            "# CATEGORY_REPORT\n\n"
+            "# PRESS_SUMMARY\n\n"
+            "# INSIGHTS\n1. 수집된 뉴스가 없습니다.\n"
+        )
 
-    report = "# 🚀 오늘의 3대 핵심 이슈\n\n"
-    for i, item in enumerate(news_list[:3], 1):
+    report = "# TOP3\n\n"
+    for i, item in enumerate(build_top3_with_priority(news_list), 1):
+        desc = (item.get('description') or '')[:80]
         report += f"### {i}. [{item['press_name']}] {item['title']}\n"
-        report += f"- **주요 내용**: {item.get('description', '')[:120]}...\n\n"
+        report += f"- 요약: {desc}\n\n"
 
-    report += "# ⚖️ 주요 이슈별 언론사 시각 비교\n"
-    report += "주요 10대 언론사(조선, 중앙, KBS 등)가 주요 시사 및 경제 동향에 대해 속보를 전달하고 있습니다.\n\n"
+    report += "# PERSPECTIVES\n"
+    report += "AI 요약 생성에 실패해 이번 회차에서는 언론사 논조 비교를 제공하지 못했습니다. 아래 원문 기사 목록에서 직접 비교해보세요.\n\n"
 
-    report += "# 📊 분야별 리포트\n"
-    # [수정] 생활/문화, 사설 카테고리 누락 보완
+    report += "# CATEGORY_REPORT\n"
     for cat in ["정치", "경제", "사회", "생활/문화", "IT/과학", "세계", "사설"]:
         cat_news = [n for n in news_list if n.get('category') == cat]
         if cat_news:
-            report += f"- **{cat}**: [{cat_news[0]['press_name']}] {cat_news[0]['title']}\n"
+            report += f"- {cat}: [{cat_news[0]['press_name']}] {cat_news[0]['title']} — 주요 보도\n"
         else:
-            report += f"- **{cat}**: 주요 보도 수집 중\n"
+            report += f"- {cat}: 수집된 기사 없음\n"
 
-    report += "\n# 💡 출근길 핵심 인사이트\n"
+    report += "\n# PRESS_SUMMARY\n"
+    grouped = {}
+    for n in news_list:
+        grouped.setdefault(n['press_name'], []).append(n)
+    for press_name in TARGET_PRESS_RULES.keys():
+        items = grouped.get(press_name, [])
+        if items:
+            report += f"- {press_name}: {items[0]['title']}\n"
+        else:
+            report += f"- {press_name}: 수집된 기사 없음\n"
+
+    report += "\n# INSIGHTS\n"
     report += "1. 10대 주요 언론사의 속보를 바탕으로 오늘의 정세 변화에 대비하세요.\n"
-    report += "2. 세부 기사 원문은 아래 목록에서 확인하실 수 있습니다."
+    report += "2. 세부 기사 원문은 아래 목록에서 확인하실 수 있습니다.\n"
     return report
 
 def generate_gemini_content(prompt, news_list):
     client, sdk_type = get_gemini_client()
     if client:
-        # [수정] 2026-07-21부로 2.x/1.5 계열 모델이 단종되어 3.x 계열로 교체
         candidate_models = ["gemini-3.6-flash", "gemini-3.7-flash", "gemini-3.5-flash-lite"]
         for model_name in candidate_models:
             for attempt in range(1, 3):
@@ -192,7 +330,6 @@ def generate_gemini_content(prompt, news_list):
                         print(f"✅ AI 생성 성공: {model_name}")
                         return res.text
                 except Exception as e:
-                    # [수정] 예외를 repr()로 남겨서 원인(권한/할당량/모델명 등)을 로그에서 바로 구분
                     print(f"⚠️ [진단] {model_name} 실패 (원인: {repr(e)})")
                     time.sleep(2)
         print("⚠️ [진단] 모든 모델 시도가 실패했습니다. API 키 권한/할당량 또는 모델명을 확인하세요.")
@@ -222,9 +359,8 @@ def fetch_naver_news(keywords, category_name, display=15):
                     data = json.loads(response.read().decode('utf-8'))
                     for item in data.get('items', []):
                         link = item.get('originallink') or item.get('link', '#')
-                        # [수정] 네이버 기사에도 접미사 제거 적용
                         title = strip_press_suffix(clean_html(item.get('title', '')))
-                        
+
                         press_name = identify_target_press(url=link, title=title)
                         if not press_name:
                             continue
@@ -272,7 +408,6 @@ def fetch_google_news(keywords, category_name, display=10):
                     if not press_name:
                         continue
 
-                    # [수정] 공용 헬퍼로 통일
                     clean_t = strip_press_suffix(clean_html(raw_title))
 
                     dt_obj = parse_date_to_dt(pub_date_str)
@@ -290,18 +425,19 @@ def fetch_google_news(keywords, category_name, display=10):
             print(f"구글 수집 오류 ({kw}): {e}")
     return items
 
-# [신규] 특정 언론사 도메인으로 한정한 보충 수집 (site: 연산자 활용)
+# 특정 언론사 도메인으로 한정한 보충 수집 (site: 연산자 활용)
 def fetch_google_news_site(keyword, domain, category_name, display=5):
     query = f"{keyword} site:{domain}"
     return fetch_google_news([query], category_name, display=display)
 
-# [신규] 카테고리 내 언론사별 최소 개수(기본 2개)를 최대한 보장
-def ensure_minimum_per_press(cat_items, category_name, keywords, window_start, window_end, minimum=2):
+# 카테고리 내 언론사별 최소 개수를 최대한 보장 (동아일보는 PRIORITY_MIN_PER_CATEGORY로 더 여유있게)
+def ensure_minimum_per_press(cat_items, category_name, keywords, window_start, window_end):
     counts = {}
     for it in cat_items:
         counts[it['press_name']] = counts.get(it['press_name'], 0) + 1
 
     for press_name, domain in PRESS_DOMAINS.items():
+        minimum = PRIORITY_MIN_PER_CATEGORY if press_name == PRIORITY_PRESS else 2
         have = counts.get(press_name, 0)
         need = minimum - have
         if need <= 0:
@@ -329,7 +465,7 @@ def ensure_minimum_per_press(cat_items, category_name, keywords, window_start, w
                     break
     return cat_items
 
-# [신규] 다른 카테고리에 잘못 들어간 [사설]/[오피니언] 태그 기사를 사설로 재분류
+# 다른 카테고리에 잘못 들어간 [사설]/[오피니언] 태그 기사를 사설로 재분류
 def reclassify_opinion_articles(categories_result):
     opinion_list = categories_result.setdefault("사설", [])
     for cat_name, items in list(categories_result.items()):
@@ -359,7 +495,6 @@ def fetch_all_categories_news(category_map, window_start, window_end):
         google_items = fetch_google_news(keywords, cat_name)
 
         combined = naver_items + google_items
-        # [수정] 수집 윈도우(전일 22:00 ~ 당일 07:40) 밖의 기사는 여기서 제외
         combined = filter_by_window(combined, window_start, window_end)
         combined.sort(key=lambda x: x['dt_timestamp'], reverse=True)
 
@@ -368,29 +503,29 @@ def fetch_all_categories_news(category_map, window_start, window_end):
             if not any(is_duplicate_title(item['title'], u['title']) for u in unique_cat_items):
                 unique_cat_items.append(item)
 
-        # [신규] 언론사별 최소 2개 보장 시도
         unique_cat_items = ensure_minimum_per_press(
             unique_cat_items, cat_name, keywords, window_start, window_end
         )
-        unique_cat_items.sort(key=lambda x: x['dt_timestamp'], reverse=True)
+        # [수정] 동아일보를 항상 앞쪽에 배치, 그 다음은 최신순
+        unique_cat_items.sort(key=press_sort_key)
 
         categories_result[cat_name] = unique_cat_items
         print(f"   → {len(unique_cat_items)}건 수집 완료")
 
-    # [신규] 사설 재분류 + 최종 보충
     categories_result = reclassify_opinion_articles(categories_result)
     categories_result["사설"] = ensure_minimum_per_press(
         categories_result.get("사설", []), "사설", ["오피니언", "칼럼", "사설"],
         window_start, window_end
     )
-    categories_result["사설"].sort(key=lambda x: x['dt_timestamp'], reverse=True)
+    categories_result["사설"].sort(key=press_sort_key)
 
     for cat_name, items in categories_result.items():
         for item in items:
             if not any(is_duplicate_title(item['title'], u['title']) for u in all_flat_items):
                 all_flat_items.append(item)
 
-    all_flat_items.sort(key=lambda x: x['dt_timestamp'], reverse=True)
+    # [수정] "전체" 목록도 동아일보 우선 정렬
+    all_flat_items.sort(key=press_sort_key)
     return categories_result, all_flat_items
 
 # --- 5. 요약 및 음성 생성 ---
@@ -398,34 +533,119 @@ def generate_summary(news_list):
     if not news_list:
         return generate_fallback_summary([])
 
-    news_text = ""
-    for idx, item in enumerate(news_list[:35], 1):
-        news_text += f"{idx}. [{item['press_name']}] {item['title']}\n   시간: {item['pub_time']}\n   요약: {item['description']}\n\n"
+    news_text = build_press_grouped_text(news_list)
+    press_list_str = ", ".join(TARGET_PRESS_RULES.keys())
 
+    # [수정] 언론사별 그룹 데이터를 제공하고, 5개 섹션 마커를 반드시 지키도록 강하게 지시.
+    #        마커는 프론트엔드 파싱 전용이라 실제 화면에는 노출되지 않음.
     prompt = f"""
-다음은 수집된 10대 주요 언론사의 최신 기사입니다:
+다음은 오늘 수집된 10대 주요 언론사({press_list_str})의 최신 기사 목록입니다. 언론사별로 묶어서 제공합니다:
 
 {news_text}
 
-당신은 대한민국 수석 에디터입니다. 기사들을 분석하여 아래 양식에 맞게 고품질 인사이트 리포트를 작성해 주세요.
+당신은 대한민국 수석 에디터입니다. 아래 형식을 절대 그대로(마커, 줄바꿈, 하이픈 포함) 지켜서 작성하세요.
+각 "# 마커"는 반드시 줄 맨 앞에 그대로 출력하세요.
 
-# 🚀 오늘의 3대 핵심 이슈
-(정치·경제·국제 등 실질적 파급력이 큰 사건을 우선 선정하고, 단순 연예/가십성 기사는 다른 더 비중있는 이슈가 없을 때만 포함할 것)
+※ 최우선 순위 언론사는 '동아일보'입니다. 아래 규칙을 반드시 지키세요.
+  - TOP3: 동아일보가 오늘 다룬 기사 중 조금이라도 비중 있는 이슈가 있다면 반드시 1건 이상(가능하면 1번 자리)에 포함하세요. 단, 동아일보가 해당 이슈를 아예 다루지 않았다면 억지로 끼워넣지 마세요.
+  - CATEGORY_REPORT: 각 분야에 동아일보 기사가 있다면 최우선으로 소개하세요.
+  - PRESS_SUMMARY: 동아일보를 목록 맨 위에 작성하세요.
+  이 우선순위 규칙이 전체적인 리포트 품질(중요도 기반 선정)보다 우선합니다.
 
-# ⚖️ 주요 이슈별 언론사 시각 비교
-(보수/진보/경제지 논조 차이 설명)
+# TOP3
+### 1. [언론사] 기사 제목
+- 요약: (정치·경제·국제 등 실질적 파급력이 큰 이슈를 우선하여 40자 내외 한 문장 요약. 연예/가십은 다른 비중있는 이슈가 부족할 때만 포함)
+### 2. [언론사] 기사 제목
+- 요약: (한 문장 요약)
+### 3. [언론사] 기사 제목
+- 요약: (한 문장 요약)
 
-# 📊 분야별 리포트
-- **정치**: (정치 핵심 정리)
-- **경제**: (경제 핵심 정리)
-- **사회**: (사회 핵심 정리)
-- **IT/과학**: (IT/과학 핵심 정리)
-- **세계**: (국제 핵심 정리)
+# PERSPECTIVES
+(오늘 이슈에 대한 보수/진보/경제지 논조 차이를 2~3문장으로 설명)
 
-# 💡 출근길 핵심 인사이트
-(핵심 시사점 2가지)
+# CATEGORY_REPORT
+- 정치: [언론사] 제목 — 한줄평
+- 경제: [언론사] 제목 — 한줄평
+- 사회: [언론사] 제목 — 한줄평
+- 생활/문화: [언론사] 제목 — 한줄평
+- IT/과학: [언론사] 제목 — 한줄평
+- 세계: [언론사] 제목 — 한줄평
+- 사설: [언론사] 제목 — 한줄평
+
+# PRESS_SUMMARY
+(제공된 10개 언론사 각각에 대해 정확히 한 줄씩, 오늘 그 언론사가 가장 비중 있게 다룬 내용을 요약. 반드시 10개 모두 작성하고, 동아일보를 맨 위에 쓰세요.)
+- 동아일보: (한 줄 요약)
+- 조선일보: (한 줄 요약)
+- 중앙일보: (한 줄 요약)
+- 한겨레: (한 줄 요약)
+- 경향신문: (한 줄 요약)
+- 한국경제: (한 줄 요약)
+- 매일경제: (한 줄 요약)
+- KBS: (한 줄 요약)
+- MBC: (한 줄 요약)
+- SBS: (한 줄 요약)
+
+# INSIGHTS
+1. (출근길에 챙길 핵심 시사점)
+2. (출근길에 챙길 핵심 시사점)
 """
-    return generate_gemini_content(prompt, news_list)
+    text = generate_gemini_content(prompt, news_list)
+
+    # [신규] AI가 형식을 어겼을 경우 화면이 깨지지 않도록 즉시 비상 리포트로 대체
+    if not all(marker in text for marker in REQUIRED_MARKERS):
+        print("⚠️ [진단] AI 응답이 지정된 형식(# TOP3 등)을 따르지 않아 비상 리포트로 대체합니다.")
+        return generate_fallback_summary(news_list)
+
+    return text
+
+# [신규] 화면 표시용 마크다운(summary)과는 별도로, TTS로 읽기 좋은 자연스러운 스크립트를 생성.
+#        섹션 마커/기호를 읽지 않고, 언론사·제목·요약을 문장으로 이어붙인다.
+#        CATEGORY_REPORT는 분량상 음성에서는 생략(화면에서만 확인).
+def build_speech_script(raw_summary):
+    if not raw_summary:
+        return ""
+
+    section = None
+    spoken = []
+
+    for raw_line in raw_summary.split("\n"):
+        line = raw_line.strip()
+        if not line:
+            continue
+
+        marker_match = re.match(r"^#\s*(TOP3|PERSPECTIVES|CATEGORY_REPORT|PRESS_SUMMARY|INSIGHTS)\s*$", line)
+        if marker_match:
+            section = marker_match.group(1)
+            continue
+
+        if section == "TOP3":
+            m = re.match(r"^###\s*\d+\.\s*\[([^\]]+)\]\s*(.+)$", line)
+            if m:
+                spoken.append(f"{m.group(1)} 소식입니다. {m.group(2)}.")
+                continue
+            m2 = re.match(r"^-\s*요약:\s*(.+)$", line)
+            if m2:
+                spoken.append(m2.group(1))
+                continue
+
+        elif section == "PERSPECTIVES":
+            spoken.append(line)
+
+        elif section == "PRESS_SUMMARY":
+            m = re.match(r"^-\s*([^:]+):\s*(.+)$", line)
+            if m:
+                spoken.append(f"{m.group(1).strip()}, {m.group(2).strip()}")
+
+        elif section == "INSIGHTS":
+            m = re.match(r"^\d+\.\s*(.+)$", line)
+            if m:
+                spoken.append(m.group(1))
+
+        # CATEGORY_REPORT 섹션은 음성 브리핑에서는 건너뜀
+
+    script = " ".join(spoken)
+    script = re.sub(r"[#*_~<>`\[\]]", "", script)
+    return script.strip()
 
 def generate_audio(text, filepath):
     if not HAS_GTTS:
@@ -470,13 +690,11 @@ def main():
     now_str = now_dt.strftime("%Y년 %m월 %d일 %H:%M")
     today_date_key = now_dt.strftime("%Y-%m-%d")
 
-    # [신규] 수집 시간 윈도우 계산 (전일 22:00 ~ 당일 07:40, KST)
     window_start, window_end = get_collection_window(now_dt)
 
     print(f"[{now_str}] 10대 언론사 전용 뉴스 브리핑 시스템 시작...")
     print(f"📅 수집 대상 시간 윈도우: {window_start.strftime('%m/%d %H:%M')} ~ {window_end.strftime('%m/%d %H:%M')} (KST)")
     
-    # [수정] 사설 카테고리 추가
     category_map = {
         "정치": ["정치", "국회", "대통령"],
         "경제": ["경제", "금융", "부동산"],
@@ -499,7 +717,9 @@ def main():
     audio_path = os.path.join(history_dir, audio_filename)
     latest_audio_path = "latest.mp3"
 
-    has_audio = generate_audio(briefing_summary, audio_path)
+    # [수정] 화면용 마크다운이 아니라, 듣기 좋게 다듬은 스크립트로 TTS 생성
+    speech_text = build_speech_script(briefing_summary)
+    has_audio = generate_audio(speech_text, audio_path)
     if has_audio:
         try:
             shutil.copyfile(audio_path, latest_audio_path)
