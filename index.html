@@ -286,11 +286,16 @@
         .press-tag {
             background: #e0e7ff;
             color: #3730a3;
-            padding: 2px 8px;
-            border-radius: 4px;
+            padding: 3px 6px;
+            border-radius: 6px;
             font-weight: 700;
             font-size: 0.8rem;
+            display: inline-flex;
+            align-items: center;
+            line-height: 0;
         }
+
+        .press-logo { width: 18px; height: 18px; border-radius: 3px; display: block; }
 
         .pub-time { color: #64748b; }
 
@@ -482,12 +487,12 @@
 
     <div class="card">
         <div class="card-title">
-            <span>🧭 AI 출근 나침반</span>
+            <span id="summary-card-title">🧭 AI 출근 나침반</span>
             <button class="btn-tts" onclick="speakSummary()">🔊 브라우저 음성 읽기</button>
         </div>
 
         <div id="audio-container" class="audio-box" style="display: none;">
-            <div class="audio-title">🎧 출근길 오디오 팟캐스트 (AI 생성)</div>
+            <div class="audio-title" id="audio-card-title">🎧 출근길 오디오 팟캐스트 (AI 생성)</div>
             <audio id="audio-player" controls preload="metadata"></audio>
         </div>
 
@@ -595,6 +600,26 @@
         evening: ["문화일보", "헤럴드경제"]
     };
 
+    // 언론사명 → 대표 도메인. 기사 카드의 언론사 표기를 텍스트 대신 CI(파비콘)로 보여줄 때 사용.
+    const PRESS_LOGO_DOMAINS = {
+        "동아일보": "donga.com",
+        "조선일보": "chosun.com",
+        "한겨레": "hani.co.kr",
+        "경향신문": "khan.co.kr",
+        "한국경제": "hankyung.com",
+        "매일경제": "mk.co.kr",
+        "문화일보": "munhwa.com",
+        "헤럴드경제": "biz.heraldcorp.com"
+    };
+
+    function pressTagHtml(pressName) {
+        const name = pressName || '언론사';
+        const domain = PRESS_LOGO_DOMAINS[name];
+        if (!domain) return `<span class="press-tag">${escapeHtml(name)}</span>`;
+        const logoUrl = `https://www.google.com/s2/favicons?domain=${domain}&sz=64`;
+        return `<span class="press-tag" title="${escapeHtml(name)}"><img class="press-logo" src="${logoUrl}" alt="${escapeHtml(name)}" loading="lazy"></span>`;
+    }
+
     function renderPressFilter() {
         const box = document.getElementById('press-filter');
         box.innerHTML = '';
@@ -615,6 +640,11 @@
         const titleEl = document.getElementById('articles-card-title');
         const label = currentEdition === 'evening' ? '석간(문화일보·헤럴드경제)' : '조간 6대 언론사';
         titleEl.innerText = `📑 ${label} 원문 기사 목록`;
+
+        // 조간=출근길, 석간=퇴근길 — 요약 카드/오디오 카드 문구도 판에 맞춰 바꿔준다.
+        const commuteWord = currentEdition === 'evening' ? '퇴근' : '출근';
+        document.getElementById('summary-card-title').innerText = `🧭 AI ${commuteWord} 나침반`;
+        document.getElementById('audio-card-title').innerText = `🎧 ${commuteWord}길 오디오 팟캐스트 (AI 생성)`;
     }
 
     function renderDashboard() {
@@ -707,7 +737,7 @@
             <div class="top3-card">
                 <div class="top3-rank">${escapeHtml(it.rank)}.</div>
                 <div class="top3-body">
-                    <span class="press-tag">${escapeHtml(it.press)}</span>
+                    ${pressTagHtml(it.press)}
                     <span class="top3-title">${escapeHtml(it.title)}</span>
                     ${it.desc ? `<span class="top3-desc">${escapeHtml(it.desc)}</span>` : ''}
                 </div>
@@ -764,7 +794,8 @@
             html += `<div class="summary-section"><div class="summary-section-title">📰 언론사별 한눈에 보기</div>${renderPressSummary(sections.PRESS_SUMMARY)}</div>`;
         }
         if (sections.INSIGHTS) {
-            html += `<div class="summary-section"><div class="summary-section-title">💡 출근길 인사이트</div>${renderInsights(sections.INSIGHTS)}</div>`;
+            const commuteWord = currentEdition === 'evening' ? '퇴근' : '출근';
+            html += `<div class="summary-section"><div class="summary-section-title">💡 ${commuteWord}길 인사이트</div>${renderInsights(sections.INSIGHTS)}</div>`;
         }
         return html || '<div class="notice-text">표시할 리포트 내용이 없습니다.</div>';
     }
@@ -824,7 +855,7 @@
                         <div class="article-header-row">
                             <a href="${art.link}" target="_blank" class="article-link">${art.title}</a>
                             <div class="article-meta">
-                                <span class="press-tag">${art.press_name || '언론사'}</span>
+                                ${pressTagHtml(art.press_name)}
                                 <span class="pub-time">${art.pub_time || ''}</span>
                             </div>
                         </div>
