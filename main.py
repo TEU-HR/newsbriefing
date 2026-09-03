@@ -830,15 +830,20 @@ def build_kakao_text(edition, briefing_summary, article_count, now_str):
 def send_kakao_message(text):
     rest_api_key = os.environ.get("KAKAO_REST_API_KEY", "").strip()
     refresh_token = os.environ.get("KAKAO_REFRESH_TOKEN", "").strip()
+    client_secret = os.environ.get("KAKAO_CLIENT_SECRET", "").strip()
     if not rest_api_key or not refresh_token:
         return
 
     try:
-        token_body = urllib.parse.urlencode({
+        token_params = {
             "grant_type": "refresh_token",
             "client_id": rest_api_key,
             "refresh_token": refresh_token,
-        }).encode("utf-8")
+        }
+        # 카카오 앱에서 "Client Secret 사용"이 켜져 있으면 토큰 갱신 시에도 필수임
+        if client_secret:
+            token_params["client_secret"] = client_secret
+        token_body = urllib.parse.urlencode(token_params).encode("utf-8")
         token_req = urllib.request.Request("https://kauth.kakao.com/oauth/token", data=token_body, method="POST")
         with urllib.request.urlopen(token_req, timeout=10) as res:
             token_res = json.loads(res.read().decode("utf-8"))
@@ -847,6 +852,13 @@ def send_kakao_message(text):
         if not access_token:
             print("⚠️ [진단] 카카오 액세스 토큰 발급 실패 — 응답에 access_token이 없습니다.")
             return
+
+        # [참고] 카카오는 만료가 임박하면 갱신 응답에 새 refresh_token을 함께 내려줄 수 있음.
+        #        이 스크립트는 GitHub Secrets를 자동 갱신하지 않으므로(별도 PAT 필요),
+        #        값 자체는 로그에 남기지 않고 알림만 남긴다 — 계속 실패하면 재인증 필요.
+        if token_res.get("refresh_token") and token_res["refresh_token"] != refresh_token:
+            print("ℹ️ [안내] 카카오 refresh_token이 갱신되었습니다. 조만간 기존 값이 만료될 수 있으니, "
+                  "카카오톡 발송이 실패하기 시작하면 OAuth 재인증 후 KAKAO_REFRESH_TOKEN 시크릿을 갱신하세요.")
 
         template_object = json.dumps({
             "object_type": "text",
