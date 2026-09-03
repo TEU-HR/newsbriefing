@@ -283,19 +283,25 @@
             white-space: nowrap;
         }
 
+        /* [수정] 로고를 색색이 다른 파비콘 그대로 쓰면 목록이 길어질수록 알록달록해서
+           산만해 보임 — 배경 칩을 없애고 흑백톤 원형으로 통일해 차분하게 정리 */
         .press-tag {
-            background: #e0e7ff;
-            color: #3730a3;
-            padding: 3px 6px;
-            border-radius: 6px;
-            font-weight: 700;
-            font-size: 0.8rem;
             display: inline-flex;
             align-items: center;
             line-height: 0;
         }
 
-        .press-logo { width: 18px; height: 18px; border-radius: 3px; display: block; }
+        .press-logo {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            display: block;
+            filter: grayscale(70%);
+            opacity: 0.8;
+            transition: filter 0.15s ease, opacity 0.15s ease;
+        }
+
+        .press-logo:hover { filter: grayscale(0%); opacity: 1; }
 
         .pub-time { color: #64748b; }
 
@@ -475,6 +481,7 @@
             <span class="press-filter-box" id="edition-toggle" style="margin-bottom:0;">
                 <button class="filter-btn active" onclick="switchEdition('morning', this)">☀️ 조간</button>
                 <button class="filter-btn" onclick="switchEdition('evening', this)">🌆 석간</button>
+                <button class="filter-btn" onclick="switchEdition('editorial', this)">📝 사설</button>
             </span>
         </div>
         <div class="status-item">
@@ -516,15 +523,47 @@
 <script>
     let globalData = null;
     let selectedPress = "ALL";
-    let currentEdition = "morning"; // "morning"(조간) | "evening"(석간)
+    let currentEdition = "morning"; // "morning"(조간) | "evening"(석간) | "editorial"(사설)
     const ARTICLES_COLLAPSE_COUNT = 5; // 카테고리별 원문 목록 기본 노출 개수 (나머지는 "더보기")
+
+    // 판(조간/석간/사설)마다 다른 언론사·카테고리·문구를 한곳에 모아둔 설정.
+    // suffix는 history/index 파일명과 data.json 하위 키 이름에 그대로 쓰인다.
+    const EDITION_META = {
+        morning: {
+            suffix: '', dataKey: null,
+            press: ["동아일보", "조선일보", "중앙일보", "한겨레", "경향신문", "한국경제", "매일경제"],
+            categories: ["정치", "경제", "사회", "국제", "사설"],
+            articlesTitle: '조간 7대 언론사',
+            compassTitle: '🧭 AI 출근 나침반',
+            audioTitle: '🎧 출근길 오디오 팟캐스트 (AI 생성)',
+            insightsTitle: '💡 출근길 인사이트'
+        },
+        evening: {
+            suffix: '_evening', dataKey: 'evening',
+            press: ["문화일보", "헤럴드경제"],
+            categories: ["정치", "경제", "사회", "국제", "사설"],
+            articlesTitle: '석간(문화일보·헤럴드경제)',
+            compassTitle: '🧭 AI 퇴근 나침반',
+            audioTitle: '🎧 퇴근길 오디오 팟캐스트 (AI 생성)',
+            insightsTitle: '💡 퇴근길 인사이트'
+        },
+        editorial: {
+            suffix: '_editorial', dataKey: 'editorial',
+            press: ["동아일보", "조선일보", "중앙일보", "한겨레", "경향신문"],
+            categories: ["사설"],
+            articlesTitle: '사설 비교 (5대 언론사)',
+            compassTitle: '📝 AI 사설 비교',
+            audioTitle: '🎧 오늘의 사설 브리핑 (AI 생성)',
+            insightsTitle: '💡 오늘의 논조 인사이트'
+        }
+    };
 
     async function initDashboard() {
         await loadIndexDates(currentEdition);
         await loadData();
     }
 
-    // [신규] 조간/석간 판을 바꾸면 해당 판의 날짜 목록과 최신 데이터를 다시 불러온다.
+    // [신규] 조간/석간/사설 판을 바꾸면 해당 판의 날짜 목록과 최신 데이터를 다시 불러온다.
     function switchEdition(edition, btn) {
         if (currentEdition === edition) return;
         currentEdition = edition;
@@ -534,20 +573,19 @@
         loadData();
     }
 
-    // 현재 선택된 판(조간/석간)에 맞는 리포트 데이터를 globalData에서 꺼낸다.
-    // data.json 루트는 {morning, realtime, evening} 형태이고, history/*.json 개별 파일은
-    // 이미 해당 판의 리포트만 담은 평면 구조라 evening 키가 없으면 globalData 자체를 그대로 쓴다.
+    // 현재 선택된 판에 맞는 리포트 데이터를 globalData에서 꺼낸다.
+    // data.json 루트는 {morning, realtime, evening, editorial} 형태이고, history/*.json
+    // 개별 파일은 이미 해당 판의 리포트만 담은 평면 구조라 dataKey가 없으면 그대로 쓴다.
     function getPayload() {
         if (!globalData) return null;
-        if (currentEdition === 'evening') {
-            return globalData.evening || globalData;
-        }
+        const meta = EDITION_META[currentEdition];
+        if (meta.dataKey) return globalData[meta.dataKey] || globalData;
         return globalData.realtime || globalData.morning || globalData;
     }
 
     async function loadIndexDates(edition) {
         const timestamp = Date.now();
-        const idxName = edition === 'evening' ? 'index_evening.json' : 'index.json';
+        const idxName = `index${EDITION_META[edition].suffix}.json`;
         const indexUrl = `history/${idxName}?t=${timestamp}`;
         try {
             const res = await fetch(indexUrl);
@@ -567,7 +605,7 @@
 
     async function loadData(targetDate = null) {
         const timestamp = Date.now();
-        const suffix = currentEdition === 'evening' ? '_evening' : '';
+        const suffix = EDITION_META[currentEdition].suffix;
         let fetchUrl = `https://raw.githubusercontent.com/teu-hr/newsbriefing/main/data.json?t=${timestamp}`;
 
         if (targetDate) {
@@ -594,16 +632,11 @@
         loadData(date);
     }
 
-    // 조간/석간마다 수집하는 언론사가 달라서, 필터 버튼도 판에 맞춰 새로 그린다.
-    const EDITION_PRESS = {
-        morning: ["동아일보", "조선일보", "한겨레", "경향신문", "한국경제", "매일경제"],
-        evening: ["문화일보", "헤럴드경제"]
-    };
-
     // 언론사명 → 대표 도메인. 기사 카드의 언론사 표기를 텍스트 대신 CI(파비콘)로 보여줄 때 사용.
     const PRESS_LOGO_DOMAINS = {
         "동아일보": "donga.com",
         "조선일보": "chosun.com",
+        "중앙일보": "joongang.co.kr",
         "한겨레": "hani.co.kr",
         "경향신문": "khan.co.kr",
         "한국경제": "hankyung.com",
@@ -621,6 +654,7 @@
     }
 
     function renderPressFilter() {
+        const meta = EDITION_META[currentEdition];
         const box = document.getElementById('press-filter');
         box.innerHTML = '';
         const allBtn = document.createElement('button');
@@ -628,7 +662,7 @@
         allBtn.innerText = '전체';
         allBtn.onclick = () => filterPress('ALL', allBtn);
         box.appendChild(allBtn);
-        (EDITION_PRESS[currentEdition] || []).forEach(name => {
+        meta.press.forEach(name => {
             const btn = document.createElement('button');
             btn.className = 'filter-btn';
             btn.innerText = name;
@@ -637,14 +671,9 @@
         });
         selectedPress = 'ALL';
 
-        const titleEl = document.getElementById('articles-card-title');
-        const label = currentEdition === 'evening' ? '석간(문화일보·헤럴드경제)' : '조간 6대 언론사';
-        titleEl.innerText = `📑 ${label} 원문 기사 목록`;
-
-        // 조간=출근길, 석간=퇴근길 — 요약 카드/오디오 카드 문구도 판에 맞춰 바꿔준다.
-        const commuteWord = currentEdition === 'evening' ? '퇴근' : '출근';
-        document.getElementById('summary-card-title').innerText = `🧭 AI ${commuteWord} 나침반`;
-        document.getElementById('audio-card-title').innerText = `🎧 ${commuteWord}길 오디오 팟캐스트 (AI 생성)`;
+        document.getElementById('articles-card-title').innerText = `📑 ${meta.articlesTitle} 원문 기사 목록`;
+        document.getElementById('summary-card-title').innerText = meta.compassTitle;
+        document.getElementById('audio-card-title').innerText = meta.audioTitle;
     }
 
     function renderDashboard() {
@@ -794,8 +823,7 @@
             html += `<div class="summary-section"><div class="summary-section-title">📰 언론사별 한눈에 보기</div>${renderPressSummary(sections.PRESS_SUMMARY)}</div>`;
         }
         if (sections.INSIGHTS) {
-            const commuteWord = currentEdition === 'evening' ? '퇴근' : '출근';
-            html += `<div class="summary-section"><div class="summary-section-title">💡 ${commuteWord}길 인사이트</div>${renderInsights(sections.INSIGHTS)}</div>`;
+            html += `<div class="summary-section"><div class="summary-section-title">${EDITION_META[currentEdition].insightsTitle}</div>${renderInsights(sections.INSIGHTS)}</div>`;
         }
         return html || '<div class="notice-text">표시할 리포트 내용이 없습니다.</div>';
     }
@@ -814,7 +842,7 @@
         container.innerHTML = '';
 
         const categories = payload.categories || {};
-        const categoryKeys = ["정치", "경제", "사회", "국제", "사설"];
+        const categoryKeys = EDITION_META[currentEdition].categories;
 
         categoryKeys.forEach(cat => {
             let articles = categories[cat] || [];

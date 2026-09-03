@@ -68,6 +68,11 @@ MORNING_PRESS_RULES = {
         "exclude_subdomains": ["biz.chosun.com", "health.chosun.com", "job.chosun.com", "shop.chosun.com", "podcast.chosun.com"],
         "naver_code": "023",
     },
+    "중앙일보": {
+        "allow_domains": ["joongang.co.kr", "joongang.com"],
+        "exclude_subdomains": ["koreajoongangdaily.joins.com"],
+        "naver_code": "025",
+    },
     "한겨레": {
         "allow_domains": ["hani.co.kr"],
         "exclude_subdomains": ["h21.hani.co.kr"],
@@ -106,6 +111,12 @@ EVENING_PRESS_RULES = {
 }
 
 EVENING_RSS_FEEDS = {}  # 문화일보/헤럴드경제는 공식 RSS 미확인 — 검색 수집으로만 커버
+
+# [신규] "사설" 탭에서 논조를 비교할 5개 언론사 (모두 조간 언론사의 부분집합이라
+#        별도 수집 없이, 조간 실행 시 이미 모은 "사설" 카테고리 기사에서 이 5곳만
+#        추려서 별도의 AI 비교 분석을 한 번 더 돌린다). 경제지(한국경제/매일경제)는
+#        논조 비교의 성격상 제외하고, 보수/중도/진보 스펙트럼이 드러나는 5개사로 한정.
+EDITORIAL_PRESS = ["동아일보", "조선일보", "중앙일보", "한겨레", "경향신문"]
 
 # [신규] 현재 실행 중인 판(조간/석간)에 맞춰 main()에서 갈아끼우는 "활성" 설정.
 #        나머지 함수들은 전부 이 모듈 전역 변수들을 그대로 참조하므로, main()에서
@@ -263,15 +274,18 @@ def get_gemini_client():
             print("⚠️ [진단] google-genai / google-generativeai 패키지가 설치되어 있지 않습니다. requirements.txt를 확인하세요.")
             return None, "NO_SDK"
 
-def build_press_grouped_text(news_list, per_press=5):
+def build_press_grouped_text(news_list, per_press=5, press_names=None):
     """언론사별로 골고루 묶어서 프롬프트에 제공 (특정 언론사가 최신순 상위를 독식하는 것 방지)"""
+    if press_names is None:
+        press_names = TARGET_PRESS_RULES.keys()
+
     grouped = {}
     for item in news_list:
         grouped.setdefault(item['press_name'], []).append(item)
 
     lines = []
     idx = 1
-    for press_name in TARGET_PRESS_RULES.keys():
+    for press_name in press_names:
         items = grouped.get(press_name, [])[:per_press]
         if not items:
             lines.append(f"[{press_name}] (오늘 수집된 기사 없음)")
@@ -299,11 +313,13 @@ def build_top3_with_priority(news_list):
 
     return top3[:3]
 
-def generate_fallback_summary(news_list, category_keys=None):
+def generate_fallback_summary(news_list, category_keys=None, press_names=None):
     """AI 호출이 실패했을 때 사용하는 비상 리포트. 항상 REQUIRED_MARKERS와 동일한 구조로 생성해
     프론트엔드가 항상 동일한 카드 UI로 렌더링할 수 있게 한다."""
     if category_keys is None:
         category_keys = ["정치", "경제", "사회", "국제", "사설"]
+    if press_names is None:
+        press_names = list(TARGET_PRESS_RULES.keys())
 
     if not news_list:
         return (
@@ -335,7 +351,7 @@ def generate_fallback_summary(news_list, category_keys=None):
     grouped = {}
     for n in news_list:
         grouped.setdefault(n['press_name'], []).append(n)
-    for press_name in TARGET_PRESS_RULES.keys():
+    for press_name in press_names:
         items = grouped.get(press_name, [])
         if items:
             report += f"- {press_name}: {items[0]['title']}\n"
@@ -343,7 +359,7 @@ def generate_fallback_summary(news_list, category_keys=None):
             report += f"- {press_name}: 수집된 기사 없음\n"
 
     report += "\n# INSIGHTS\n"
-    report += f"1. {len(TARGET_PRESS_RULES)}개 주요 언론사의 속보를 바탕으로 오늘의 정세 변화에 대비하세요.\n"
+    report += f"1. {len(press_names)}개 주요 언론사의 속보를 바탕으로 오늘의 정세 변화에 대비하세요.\n"
     report += "2. 세부 기사 원문은 아래 목록에서 확인하실 수 있습니다.\n"
     return report
 
@@ -368,9 +384,12 @@ def generate_gemini_content(prompt, news_list):
                     time.sleep(2)
         print("⚠️ [진단] 모든 모델 시도가 실패했습니다. API 키 권한/할당량 또는 모델명을 확인하세요.")
     else:
-        print(f"⚠️ [진단] Gemini 클라이언트 생성 실패 (사유: {sdk_type}) — 비상 리포트로 대체합니다.")
+        print(f"⚠️ [진단] Gemini 클라이언트 생성 실패 (사유: {sdk_type})")
 
-    return generate_fallback_summary(news_list)
+    # [수정] 여기서 바로 비상 리포트를 만들면 호출자(generate_summary/generate_editorial_summary)가
+    #        쓰던 카테고리·언론사 목록 정보를 잃어버려서 엉뚱한 목록으로 채워짐. 실패 신호만
+    #        돌려주고, 올바른 컨텍스트를 아는 호출자 쪽에서 비상 리포트를 만들게 한다.
+    return None
 
 # --- 4. 뉴스 수집 (6대 언론사 필터링) ---
 # [신규] 6개 언론사(조선일보/동아일보/한겨레/경향신문/한국경제/매일경제) 모두 "공식 분야별 RSS"를
@@ -733,10 +752,69 @@ def generate_summary(news_list, category_keys=None, commute_label="출근길"):
 """
     text = generate_gemini_content(prompt, news_list)
 
-    # [신규] AI가 형식을 어겼을 경우 화면이 깨지지 않도록 즉시 비상 리포트로 대체
-    if not all(marker in text for marker in REQUIRED_MARKERS):
-        print("⚠️ [진단] AI 응답이 지정된 형식(# TOP3 등)을 따르지 않아 비상 리포트로 대체합니다.")
+    # [신규] AI 호출 실패, 또는 AI가 형식을 어겼을 경우 화면이 깨지지 않도록 비상 리포트로 대체
+    if not text or not all(marker in text for marker in REQUIRED_MARKERS):
+        if text:
+            print("⚠️ [진단] AI 응답이 지정된 형식(# TOP3 등)을 따르지 않아 비상 리포트로 대체합니다.")
         return generate_fallback_summary(news_list, category_keys)
+
+    return text
+
+# [신규] "사설" 탭 전용 비교 분석. 일반 조간/석간 브리핑과 달리 뉴스 속보가 아니라,
+#        EDITORIAL_PRESS 5개사가 오늘 낸 사설을 놓고 신문사별 논조·성향 차이를 깊이
+#        비교하는 게 목적이라 별도 프롬프트를 쓴다. 단, REQUIRED_MARKERS 구조는 동일하게
+#        맞춰서 화면 렌더링 코드는 그대로 재사용한다.
+def generate_editorial_summary(news_list):
+    if not news_list:
+        return generate_fallback_summary([], ["사설"], EDITORIAL_PRESS)
+
+    news_text = build_press_grouped_text(news_list, per_press=5, press_names=EDITORIAL_PRESS)
+    press_list_str = ", ".join(EDITORIAL_PRESS)
+
+    prompt = f"""
+다음은 오늘 {press_list_str} 5개 신문사가 낸 사설(오피니언) 목록입니다. 언론사별로 묶어서 제공합니다:
+
+{news_text}
+
+당신은 한국 언론을 오래 관찰해온 미디어 비평가입니다. 아래 형식을 절대 그대로(마커, 줄바꿈, 하이픈 포함) 지켜서 작성하세요.
+각 "# 마커"는 반드시 줄 맨 앞에 그대로 출력하세요. 이 리포트의 목적은 속보 전달이 아니라,
+같은 이슈를 두고 신문사마다 논조가 어떻게 갈리는지 비교하는 것입니다.
+
+# TOP3
+### 1. [언론사] 사설 제목
+- 요약: (오늘 사설 중 사회적 파급력이나 논쟁성이 큰 것 우선. 40자 내외 한 문장)
+### 2. [언론사] 사설 제목
+- 요약: (한 문장 요약)
+### 3. [언론사] 사설 제목
+- 요약: (한 문장 요약)
+
+# PERSPECTIVES
+(오늘 사설들이 공통으로 다룬 핵심 이슈 1~2개를 놓고, 보수/중도/진보 신문사가 각각 어떤 논리와
+표현으로 접근했는지 구체적으로 비교하세요. 단순히 "다르다"가 아니라 어떤 지점에서 왜 갈리는지
+설명하고, 4~6문장 분량으로 충분히 자세하게 쓰세요.)
+
+# CATEGORY_REPORT
+- 사설: [언론사] 제목 — 오늘 사설의 핵심 쟁점 한줄평
+
+# PRESS_SUMMARY
+(제공된 5개 신문사 각각에 대해, 그 신문사 특유의 논조·문체 성향과 오늘 사설이 그 성향을
+어떻게 보여줬는지 2~3문장으로 설명하세요. 반드시 5개 모두 작성하세요.)
+- 동아일보: (성향과 오늘 사설 특징)
+- 조선일보: (성향과 오늘 사설 특징)
+- 중앙일보: (성향과 오늘 사설 특징)
+- 한겨레: (성향과 오늘 사설 특징)
+- 경향신문: (성향과 오늘 사설 특징)
+
+# INSIGHTS
+1. (오늘 사설 비교에서 얻을 수 있는 핵심 통찰)
+2. (오늘 사설 비교에서 얻을 수 있는 핵심 통찰)
+"""
+    text = generate_gemini_content(prompt, news_list)
+
+    if not text or not all(marker in text for marker in REQUIRED_MARKERS):
+        if text:
+            print("⚠️ [진단] 사설 비교 AI 응답이 지정된 형식을 따르지 않아 비상 리포트로 대체합니다.")
+        return generate_fallback_summary(news_list, ["사설"], EDITORIAL_PRESS)
 
     return text
 
@@ -918,6 +996,46 @@ CATEGORY_MAP = {
     "사설": ["오피니언", "칼럼", "사설", "시론", "논평"]
 }
 
+# [신규] 판(morning/evening/editorial)별로 결과를 저장하는 공통 로직. history 폴더의
+#        날짜별 JSON + 인덱스 파일을 쓰고, data.json에는 해당 판의 키만 갱신한다
+#        (data.json은 여러 판이 공유하는 파일이라 매번 새로 읽어서 병합해야 함).
+def save_edition_payload(edition_key, daily_payload, history_dir, today_date_key, also_set=None):
+    suffix = "" if edition_key == "morning" else f"_{edition_key}"
+
+    with open(os.path.join(history_dir, f"{today_date_key}{suffix}.json"), "w", encoding="utf-8") as f:
+        json.dump(daily_payload, f, ensure_ascii=False, indent=2)
+
+    idx_file = os.path.join(history_dir, f"index{suffix}.json")
+    date_list = []
+    if os.path.exists(idx_file):
+        try:
+            with open(idx_file, "r", encoding="utf-8") as f:
+                date_list = json.load(f)
+        except Exception:
+            pass
+
+    if today_date_key not in date_list:
+        date_list.append(today_date_key)
+        date_list.sort(reverse=True)
+
+    with open(idx_file, "w", encoding="utf-8") as f:
+        json.dump(date_list, f, ensure_ascii=False, indent=2)
+
+    root_data = {}
+    if os.path.exists("data.json"):
+        try:
+            with open("data.json", "r", encoding="utf-8") as f:
+                root_data = json.load(f)
+        except Exception:
+            root_data = {}
+
+    root_data[edition_key] = daily_payload
+    for key in (also_set or []):
+        root_data[key] = daily_payload
+
+    with open("data.json", "w", encoding="utf-8") as f:
+        json.dump(root_data, f, ensure_ascii=False, indent=2)
+
 def main():
     # [신규] EDITION 환경변수로 조간/석간을 선택. GitHub Actions에서 두 개의 cron
     #        스케줄(아침 06:50 / 저녁 18:00)에 맞춰 이 값을 넘겨준다. 로컬 실행이나
@@ -983,47 +1101,47 @@ def main():
         "categories": categories_data
     }
 
-    with open(os.path.join(history_dir, f"{today_date_key}{suffix}.json"), "w", encoding="utf-8") as f:
-        json.dump(daily_payload, f, ensure_ascii=False, indent=2)
-
-    idx_file = os.path.join(history_dir, f"index{suffix}.json")
-    date_list = []
-    if os.path.exists(idx_file):
-        try:
-            with open(idx_file, "r", encoding="utf-8") as f:
-                date_list = json.load(f)
-        except Exception:
-            pass
-
-    if today_date_key not in date_list:
-        date_list.append(today_date_key)
-        date_list.sort(reverse=True)
-
-    with open(idx_file, "w", encoding="utf-8") as f:
-        json.dump(date_list, f, ensure_ascii=False, indent=2)
-
-    # [수정] data.json은 조간/석간이 함께 쓰는 파일이라, 무조건 덮어쓰지 않고 기존 내용을
-    #        읽어서 지금 실행한 판(edition)의 키만 갱신한다 (다른 판 데이터를 지우지 않기 위함).
-    root_data = {}
-    if os.path.exists("data.json"):
-        try:
-            with open("data.json", "r", encoding="utf-8") as f:
-                root_data = json.load(f)
-        except Exception:
-            root_data = {}
-
-    root_data[edition] = daily_payload
-    if edition == "morning":
-        root_data["realtime"] = daily_payload  # 기존 프론트엔드 하위 호환 키
-
-    with open("data.json", "w", encoding="utf-8") as f:
-        json.dump(root_data, f, ensure_ascii=False, indent=2)
+    save_edition_payload(edition, daily_payload, history_dir, today_date_key,
+                          also_set=["realtime"] if edition == "morning" else None)
 
     print(f"\n✅ 프로세스 완료! {edition_label} {press_count}개 언론사 기사만 수집 및 정렬되었습니다.")
 
     kakao_text = build_kakao_text(edition, briefing_summary, len(all_news_list), now_str)
     send_kakao_message(kakao_text)
     send_email(f"[뉴스 브리핑-{edition_label}] {now_str}", f"수집 시각: {now_str}\n\n{briefing_summary}")
+
+    # [신규] "사설" 탭: 별도 수집 없이, 방금 조간 실행에서 모은 "사설" 카테고리 기사 중
+    #        EDITORIAL_PRESS 5개사 것만 추려서 논조 비교용 요약을 한 번 더 생성한다.
+    #        조간(morning) 실행에서만 돌며, 별도의 cron 스케줄이 필요 없다.
+    if edition == "morning":
+        editorial_news_list = [n for n in categories_data.get("사설", []) if n['press_name'] in EDITORIAL_PRESS]
+        editorial_news_list.sort(key=lambda x: -x['dt_timestamp'])
+
+        saved_priority_press = PRIORITY_PRESS
+        PRIORITY_PRESS = None  # 사설 비교는 특정 언론사를 우선하지 않음
+        editorial_summary = generate_editorial_summary(editorial_news_list)
+        PRIORITY_PRESS = saved_priority_press
+
+        editorial_speech = build_speech_script(editorial_summary)
+        editorial_audio_filename = f"{today_date_key}_editorial.mp3"
+        editorial_has_audio = generate_audio(editorial_speech, os.path.join(history_dir, editorial_audio_filename))
+        if editorial_has_audio:
+            try:
+                shutil.copyfile(os.path.join(history_dir, editorial_audio_filename), "latest_editorial.mp3")
+            except Exception:
+                pass
+
+        editorial_payload = {
+            "date": today_date_key,
+            "updated_at": now_str,
+            "edition": "editorial",
+            "summary": editorial_summary,
+            "has_audio": editorial_has_audio,
+            "audio_url": f"history/{editorial_audio_filename}",
+            "categories": {"사설": editorial_news_list, "전체": editorial_news_list}
+        }
+        save_edition_payload("editorial", editorial_payload, history_dir, today_date_key)
+        print(f"✅ 사설 비교 리포트 완료! {len(EDITORIAL_PRESS)}개 언론사, {len(editorial_news_list)}건 비교.")
 
 if __name__ == "__main__":
     main()
