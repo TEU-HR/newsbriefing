@@ -123,14 +123,9 @@ EDITORIAL_PRESS = ["동아일보", "조선일보", "중앙일보", "한겨레", 
 #        EDITION에 맞는 값으로 재할당하기만 하면 기존 수집·요약 로직을 그대로 재사용할 수 있다.
 TARGET_PRESS_RULES = MORNING_PRESS_RULES
 
-# [신규] 최우선 언론사. 동률/유사 비중일 때 최우선 노출되고, 카테고리별 최소 수집 개수도 더 여유있게 보장됨.
-#        석간판은 특정 언론사를 우선하지 않으므로 main()에서 None으로 재설정됨.
-PRIORITY_PRESS = "동아일보"
-PRIORITY_MIN_PER_CATEGORY = 3   # 일반 언론사는 2건, 동아일보는 3건을 최소 기준으로 시도
-
 def press_sort_key(item):
-    """동아일보를 항상 앞에 놓고, 그 다음은 최신순으로 정렬하기 위한 정렬 키."""
-    return (item['press_name'] != PRIORITY_PRESS, -item['dt_timestamp'])
+    """최신순으로 정렬하기 위한 정렬 키."""
+    return -item['dt_timestamp']
 
 
 
@@ -297,21 +292,8 @@ def build_press_grouped_text(news_list, per_press=5, press_names=None):
             idx += 1
     return "\n".join(lines)
 
-def build_top3_with_priority(news_list):
-    """TOP3 중 최소 1건은 동아일보 기사로 채우고(있을 경우), 나머지는 최신/비중 순으로 채운다."""
-    donga_items = [n for n in news_list if n['press_name'] == PRIORITY_PRESS]
-    rest_items = [n for n in news_list if n['press_name'] != PRIORITY_PRESS]
-
-    top3 = []
-    if donga_items:
-        top3.append(donga_items[0])
-
-    for n in rest_items:
-        if len(top3) >= 3:
-            break
-        top3.append(n)
-
-    return top3[:3]
+def build_top3(news_list):
+    return news_list[:3]
 
 def generate_fallback_summary(news_list, category_keys=None, press_names=None):
     """AI 호출이 실패했을 때 사용하는 비상 리포트. 항상 REQUIRED_MARKERS와 동일한 구조로 생성해
@@ -331,7 +313,7 @@ def generate_fallback_summary(news_list, category_keys=None, press_names=None):
         )
 
     report = "# TOP3\n\n"
-    for i, item in enumerate(build_top3_with_priority(news_list), 1):
+    for i, item in enumerate(build_top3(news_list), 1):
         desc = (item.get('description') or '')[:80]
         report += f"### {i}. [{item['press_name']}] {item['title']}\n"
         report += f"- 요약: {desc}\n\n"
@@ -599,7 +581,7 @@ def fetch_google_news_site(keyword, domain, category_name, display=8):
     query = f"{keyword} site:{domain}"
     return fetch_google_news([query], category_name, display=display)
 
-# 카테고리 내 언론사별 최소 개수를 최대한 보장 (동아일보는 PRIORITY_MIN_PER_CATEGORY로 더 여유있게)
+# 카테고리 내 언론사별 최소 개수를 최대한 보장
 def ensure_minimum_per_press(cat_items, category_name, keywords, window_start, window_end):
     counts = {}
     for it in cat_items:
@@ -608,9 +590,8 @@ def ensure_minimum_per_press(cat_items, category_name, keywords, window_start, w
     # [수정] 사설은 중앙일보처럼 공식 RSS가 없어 검색에만 의존하는 언론사가 있어,
     #        RSS로 자동으로 채워지는 다른 언론사와 격차가 크게 벌어짐. 이 카테고리만
     #        최소 기준을 높여 검색 보충이 더 적극적으로 채우게 한다.
-    default_minimum = 5 if category_name == "사설" else 2
+    minimum = 5 if category_name == "사설" else 2
     for press_name, domain in PRESS_DOMAINS.items():
-        minimum = PRIORITY_MIN_PER_CATEGORY if press_name == PRIORITY_PRESS else default_minimum
         have = counts.get(press_name, 0)
         need = minimum - have
         if need <= 0:
@@ -689,7 +670,6 @@ def fetch_all_categories_news(category_map, window_start, window_end):
         unique_cat_items = ensure_minimum_per_press(
             unique_cat_items, cat_name, keywords, cat_window_start, window_end
         )
-        # [수정] 동아일보를 항상 앞쪽에 배치, 그 다음은 최신순
         unique_cat_items.sort(key=press_sort_key)
 
         categories_result[cat_name] = unique_cat_items
@@ -707,7 +687,6 @@ def fetch_all_categories_news(category_map, window_start, window_end):
             if not any(is_duplicate_title(item['title'], u['title']) for u in all_flat_items):
                 all_flat_items.append(item)
 
-    # [수정] "전체" 목록도 동아일보 우선 정렬
     all_flat_items.sort(key=press_sort_key)
     return categories_result, all_flat_items
 
@@ -725,22 +704,8 @@ def generate_summary(news_list, category_keys=None, commute_label="출근길"):
 
     # [수정] 언론사별 그룹 데이터를 제공하고, 5개 섹션 마커를 반드시 지키도록 강하게 지시.
     #        마커는 프론트엔드 파싱 전용이라 실제 화면에는 노출되지 않음.
-    #        언론사 목록/카테고리 목록/최우선 언론사 규칙을 모두 실행 시점의 판(조간/석간)에
-    #        맞춰 동적으로 구성해, 조간(6개사)과 석간(2개사)이 같은 함수를 공유할 수 있게 한다.
-    priority_rule = ""
-    press_summary_order = list(press_names)
-    if PRIORITY_PRESS:
-        priority_rule = f"""
-※ 최우선 순위 언론사는 '{PRIORITY_PRESS}'입니다. 아래 규칙을 반드시 지키세요.
-  - TOP3: {PRIORITY_PRESS}가 오늘 다룬 기사 중 조금이라도 비중 있는 이슈가 있다면 반드시 1건 이상(가능하면 1번 자리)에 포함하세요. 단, {PRIORITY_PRESS}가 해당 이슈를 아예 다루지 않았다면 억지로 끼워넣지 마세요.
-  - CATEGORY_REPORT: 각 분야에 {PRIORITY_PRESS} 기사가 있다면 최우선으로 소개하세요.
-  - PRESS_SUMMARY: {PRIORITY_PRESS}를 목록 맨 위에 작성하세요.
-  이 우선순위 규칙이 전체적인 리포트 품질(중요도 기반 선정)보다 우선합니다.
-"""
-        press_summary_order = [PRIORITY_PRESS] + [p for p in press_names if p != PRIORITY_PRESS]
-
     category_report_lines = "\n".join(f"- {cat}: [언론사] 제목 — 한줄평" for cat in category_keys)
-    press_summary_lines = "\n".join(f"- {p}: (요약)" for p in press_summary_order)
+    press_summary_lines = "\n".join(f"- {p}: (요약)" for p in press_names)
 
     prompt = f"""
 다음은 오늘 수집된 {len(press_names)}개 주요 언론사({press_list_str})의 최신 기사 목록입니다. 언론사별로 묶어서 제공합니다:
@@ -749,7 +714,6 @@ def generate_summary(news_list, category_keys=None, commute_label="출근길"):
 
 당신은 대한민국 수석 에디터입니다. 아래 형식을 절대 그대로(마커, 줄바꿈, 하이픈 포함) 지켜서 작성하세요.
 각 "# 마커"는 반드시 줄 맨 앞에 그대로 출력하세요.
-{priority_rule}
 # TOP3
 ### 1. [언론사] 기사 제목
 - 요약: (정치·경제·국제 등 실질적 파급력이 큰 이슈를 우선. 기본은 40자 내외 한 문장이면 충분하지만, 여러 언론사가 같은 주제를 비중 있게 함께 다뤘다면 논조 차이까지 담아 2~3문장으로 풀어써도 됩니다. 연예/가십은 다른 비중있는 이슈가 부족할 때만 포함)
@@ -1066,16 +1030,14 @@ def main():
     if edition not in ("morning", "evening"):
         edition = "morning"
 
-    global TARGET_PRESS_RULES, RSS_FEEDS, PRESS_DOMAINS, PRIORITY_PRESS
+    global TARGET_PRESS_RULES, RSS_FEEDS, PRESS_DOMAINS
     if edition == "evening":
         TARGET_PRESS_RULES = EVENING_PRESS_RULES
         RSS_FEEDS = EVENING_RSS_FEEDS
-        PRIORITY_PRESS = None
         commute_label = "퇴근길"
     else:
         TARGET_PRESS_RULES = MORNING_PRESS_RULES
         RSS_FEEDS = MORNING_RSS_FEEDS
-        PRIORITY_PRESS = "동아일보"
         commute_label = "출근길"
     PRESS_DOMAINS = {name: rule["allow_domains"][0] for name, rule in TARGET_PRESS_RULES.items()}
 
@@ -1139,10 +1101,7 @@ def main():
         editorial_news_list = [n for n in categories_data.get("사설", []) if n['press_name'] in EDITORIAL_PRESS]
         editorial_news_list.sort(key=lambda x: -x['dt_timestamp'])
 
-        saved_priority_press = PRIORITY_PRESS
-        PRIORITY_PRESS = None  # 사설 비교는 특정 언론사를 우선하지 않음
         editorial_summary = generate_editorial_summary(editorial_news_list)
-        PRIORITY_PRESS = saved_priority_press
 
         editorial_speech = build_speech_script(editorial_summary)
         editorial_audio_filename = f"{today_date_key}_editorial.mp3"
