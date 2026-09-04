@@ -80,15 +80,12 @@
         .nb-masthead-inner {
             max-width: 860px;
             margin: 0 auto;
-            padding: 16px 14px 13px;
-            display: flex;
-            align-items: center;
-            gap: 24px;
-            flex-wrap: wrap;
+            padding: 20px 14px 16px;
+            text-align: center;
         }
 
         .nb-wordmark {
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 8px;
             line-height: 1;
@@ -96,10 +93,14 @@
             font-weight: 700;
             font-size: 1.12rem;
             letter-spacing: 0.01em;
-            flex-shrink: 0;
         }
 
-        .nb-tabs { display: flex; align-items: center; gap: 18px; }
+        .nb-tabs { display: flex; align-items: center; justify-content: center; gap: 20px; margin-top: 13px; }
+
+        @media (min-width: 760px) {
+            .nb-masthead-inner { display: flex; align-items: center; gap: 30px; text-align: left; padding: 16px 14px; }
+            .nb-tabs { justify-content: flex-start; margin-top: 0; }
+        }
 
         .nb-tab {
             background: none;
@@ -116,17 +117,21 @@
 
         .nb-tab.active { color: var(--masthead-ink); border-bottom-color: var(--accent); }
 
-        .nb-gh-link {
-            margin-left: auto;
-            flex-shrink: 0;
-            color: #8290a0;
-            font-size: 0.74rem;
-            font-weight: 600;
-            text-decoration: none;
-            border-bottom: 1px solid transparent;
+        .nb-footer {
+            margin-top: 50px;
+            padding-top: 16px;
+            border-top: 1px solid var(--line);
+            text-align: center;
         }
 
-        .nb-gh-link:hover { color: var(--masthead-ink); border-color: var(--accent); }
+        .nb-footer a {
+            font-size: 0.76rem;
+            color: var(--ink-soft);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--ink-soft);
+        }
+
+        .nb-footer a:hover { color: var(--accent); border-color: var(--accent); }
 
         /* ===== 본문 ===== */
         .nb-wrap { max-width: 860px; margin: 0 auto; padding: 0 14px 60px; }
@@ -150,42 +155,20 @@
             font-weight: 700;
         }
 
-        .nb-hero-utility {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            flex-wrap: wrap;
+        .nb-date-line {
             font-size: 0.76rem;
             color: var(--ink-soft);
         }
 
         select.date-select {
-            padding: 1px 2px;
-            border-radius: 0;
+            padding: 0;
             border: none;
-            border-bottom: 1px solid var(--line);
-            font-weight: 700;
             font-size: 0.76rem;
-            color: var(--ink);
+            color: var(--ink-soft);
             background-color: transparent;
             cursor: pointer;
             font-family: inherit;
         }
-
-        .btn-tts {
-            background: none;
-            border: none;
-            padding: 0;
-            font-size: 0.76rem;
-            font-weight: 700;
-            color: var(--ink-soft);
-            text-decoration: underline;
-            text-underline-offset: 3px;
-            cursor: pointer;
-            font-family: inherit;
-        }
-
-        .btn-tts:hover { color: var(--accent); }
 
         .nb-headline {
             font-family: 'Gowun Batang', 'Noto Serif KR', serif;
@@ -213,6 +196,8 @@
             gap: 12px;
         }
 
+        .audio-title-group { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+
         .audio-title {
             font-weight: 700;
             font-size: 0.8rem;
@@ -220,6 +205,21 @@
             text-transform: uppercase;
             letter-spacing: 0.03em;
         }
+
+        .btn-tts {
+            background: none;
+            border: none;
+            padding: 0;
+            font-size: 0.76rem;
+            font-weight: 700;
+            color: var(--ink-soft);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .btn-tts:hover { color: var(--accent); }
 
         audio { height: 34px; }
 
@@ -258,29 +258,33 @@
         .article-search-input {
             -webkit-appearance: none;
             appearance: none;
-            border: none;
-            border-bottom: 1px solid var(--line);
+            display: block;
+            width: 100%;
+            min-height: 42px;
+            border: 1px solid var(--line);
             border-radius: 0;
-            padding: 5px 2px;
+            padding: 0 14px;
             font-family: inherit;
-            font-size: 0.82rem;
+            font-size: 0.88rem;
             color: var(--ink);
             background: transparent;
             outline: none;
-            width: 140px;
-            min-width: 0;
-            flex-shrink: 1;
+            margin: 14px 0 4px;
         }
 
         .article-search-input:focus { border-color: var(--accent); }
         .article-search-input::placeholder { color: var(--ink-soft); }
 
+        .nb-list-count {
+            font-size: 0.76rem;
+            color: var(--ink-soft);
+            border-top: 1px solid var(--ink);
+            padding-top: 8px;
+            margin-top: 10px;
+        }
+
         /* 섹션 라벨 */
         .nb-section-label {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
             font-size: 0.72rem;
             font-weight: 800;
             letter-spacing: 0.08em;
@@ -410,8 +414,9 @@
             margin-bottom: 22px;
         }
 
-        .top3-card { padding: 16px 0; border-top: 1px solid var(--line); cursor: default; }
+        .top3-card { padding: 16px 0; border-top: 1px solid var(--line); cursor: pointer; }
         .top3-card:first-child { border-top: none; }
+        .top3-card:hover .top3-title { color: var(--accent); }
 
         .top3-head { display: flex; align-items: baseline; gap: 7px; flex-wrap: wrap; margin-bottom: 7px; }
 
@@ -494,15 +499,14 @@
 
         .insight-list li::before { content: "\2014"; position: absolute; left: 0; color: var(--accent); }
 
-        /* ===== 상세 다이얼로그 ===== */
+        /* ===== 상세 다이얼로그: 모바일은 바텀시트, 데스크톱은 중앙 다이얼로그 ===== */
         .article-modal-overlay {
             display: none;
             position: fixed;
             inset: 0;
             background: rgba(16, 20, 25, 0.55);
             z-index: 100;
-            padding: 20px;
-            align-items: center;
+            align-items: flex-end;
             justify-content: center;
         }
 
@@ -510,13 +514,21 @@
 
         .article-modal {
             background: var(--paper);
-            border: 1px solid var(--ink);
-            max-width: 520px;
+            border-top: 1px solid var(--ink);
+            max-width: none;
             width: 100%;
             max-height: 80vh;
             overflow-y: auto;
-            padding: 26px 24px;
+            padding: 18px 20px 30px;
             position: relative;
+        }
+
+        .article-modal-handle { width: 32px; height: 3px; background: var(--line); margin: 0 auto 16px; }
+
+        @media (min-width: 760px) {
+            .article-modal-overlay { align-items: center; padding: 20px; }
+            .article-modal { border: 1px solid var(--ink); max-width: 520px; padding: 26px 24px; }
+            .article-modal-handle { display: none; }
         }
 
         .article-modal-close {
@@ -586,46 +598,57 @@
             <button class="nb-tab" onclick="switchEdition('evening', this)">석간</button>
             <button class="nb-tab" onclick="switchEdition('editorial', this)">사설</button>
         </div>
-        <a href="https://github.com/teu-hr/newsbriefing/actions" target="_blank" class="nb-gh-link">GitHub Actions</a>
     </div>
 </div>
 
 <div class="nb-wrap">
     <div class="nb-hero">
         <div class="nb-hero-meta">
-            <span class="nb-eyebrow" id="summary-card-title">AI 출근 나침반</span>
-            <div class="nb-hero-utility">
-                <span>날짜 <select id="date-select" class="date-select" onchange="onDateChange()"><option>로딩 중...</option></select></span>
-                <span>수집 시각 <span id="update-time">로딩 중...</span></span>
-                <button class="btn-tts" onclick="speakSummary()">음성으로 듣기</button>
-            </div>
+            <span class="nb-eyebrow">AI 톺아보기</span>
+            <span class="nb-date-line">
+                날짜 <select id="date-select" class="date-select" onchange="onDateChange()"><option>로딩 중...</option></select>
+                · 수집 시각 <span id="update-time">로딩 중...</span>
+            </span>
         </div>
         <h1 class="nb-headline" id="hero-headline">오늘 아침, 놓치면 안 되는 이야기</h1>
     </div>
 
-    <div id="ai-summary" class="summary-content">
+    <div id="top3-container">
         <div class="loading-container">최신 AI 리포트를 불러오고 있습니다...</div>
     </div>
 
     <div id="audio-container" class="audio-box" style="display: none;">
-        <div class="audio-title" id="audio-card-title">출근길 오디오 팟캐스트 (AI 생성)</div>
+        <div class="audio-title-group">
+            <div class="audio-title" id="audio-card-title">출근길 오디오 팟캐스트 (AI 생성)</div>
+            <button class="btn-tts" onclick="speakSummary()">음성으로 듣기</button>
+        </div>
         <audio id="audio-player" controls preload="metadata"></audio>
     </div>
 
+    <div id="ai-summary" class="summary-content"></div>
+
     <div class="nb-section-label">
         <span id="articles-card-title">언론사 원문 기사 목록</span>
-        <input type="search" id="article-search-input" class="article-search-input" placeholder="제목 검색" oninput="onArticleSearchInput()">
     </div>
 
     <div class="press-filter-box nb-hscroll" id="press-filter"></div>
 
+    <input type="search" id="article-search-input" class="article-search-input" placeholder="제목 검색" oninput="onArticleSearchInput()">
+
+    <div class="nb-list-count" id="list-count"></div>
+
     <div id="articles-container">
         <div class="loading-container">기사 목록을 불러오는 중입니다...</div>
+    </div>
+
+    <div class="nb-footer">
+        <a href="https://github.com/teu-hr/newsbriefing/actions" target="_blank">GitHub Actions에서 실행 기록 보기</a>
     </div>
 </div>
 
 <div class="article-modal-overlay" id="article-modal-overlay">
     <div class="article-modal">
+        <div class="article-modal-handle"></div>
         <button class="article-modal-close" id="article-modal-close" aria-label="닫기">&times;</button>
         <div class="article-modal-meta">
             <span id="article-modal-press"></span>
@@ -660,7 +683,6 @@
             press: ["동아일보", "조선일보", "중앙일보", "한겨레", "경향신문", "한국경제", "매일경제"],
             categories: ["정치", "경제", "사회", "국제", "사설"],
             articlesTitle: '조간 7대 언론사',
-            compassTitle: 'AI 출근 나침반',
             heroHeadline: '오늘 아침, 놓치면 안 되는 이야기',
             audioTitle: '출근길 오디오 팟캐스트 (AI 생성)',
             insightsTitle: '출근길 인사이트'
@@ -670,7 +692,6 @@
             press: ["문화일보", "헤럴드경제"],
             categories: ["정치", "경제", "사회", "국제", "사설"],
             articlesTitle: '석간(문화일보·헤럴드경제)',
-            compassTitle: 'AI 퇴근 나침반',
             heroHeadline: '퇴근길에 챙기는 오늘의 마무리',
             audioTitle: '퇴근길 오디오 팟캐스트 (AI 생성)',
             insightsTitle: '퇴근길 인사이트'
@@ -680,7 +701,6 @@
             press: ["동아일보", "조선일보", "중앙일보", "한겨레", "경향신문"],
             categories: ["사설"],
             articlesTitle: '사설 비교 (5대 언론사)',
-            compassTitle: 'AI 사설 비교',
             heroHeadline: '오늘 사설, 신문사마다 다르게 읽었습니다',
             audioTitle: '오늘의 사설 브리핑 (AI 생성)',
             insightsTitle: '오늘의 논조 인사이트'
@@ -796,7 +816,6 @@
         selectedPress = 'ALL';
 
         document.getElementById('articles-card-title').innerText = `${meta.articlesTitle} 원문 기사 목록`;
-        document.getElementById('summary-card-title').innerText = meta.compassTitle;
         document.getElementById('hero-headline').innerText = meta.heroHeadline;
         document.getElementById('audio-card-title').innerText = meta.audioTitle;
     }
@@ -820,14 +839,17 @@
             audioContainer.style.display = 'none';
         }
 
-        // 요약 처리
+        // 요약 처리: TOP3는 헤드라인 바로 아래 별도 영역에, 나머지 분석 섹션은 그 아래에 표시
+        const top3Elem = document.getElementById('top3-container');
         const summaryElem = document.getElementById('ai-summary');
         if (payload.summary) {
             const sections = parseSummarySections(payload.summary);
             if (sections) {
-                summaryElem.innerHTML = renderStructuredSummary(sections);
+                top3Elem.innerHTML = sections.TOP3 ? renderTop3(sections.TOP3, payload) : '';
+                summaryElem.innerHTML = renderRestSummary(sections);
             } else {
                 // 예전 포맷(마커 없음) 데이터를 위한 하위 호환 렌더링
+                top3Elem.innerHTML = '';
                 let formattedSummary = payload.summary
                     .replace(/^# (.*$)/gim, '<h2 style="font-size:1.15rem; font-weight:800; margin-top:18px; margin-bottom:8px; color:var(--ink);">$1</h2>')
                     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
@@ -835,6 +857,7 @@
                 summaryElem.innerHTML = formattedSummary;
             }
         } else {
+            top3Elem.innerHTML = '';
             summaryElem.innerHTML = '생성된 요약 리포트가 없습니다.';
         }
 
@@ -872,7 +895,34 @@
         return div.innerHTML;
     }
 
-    function renderTop3(text) {
+    // TOP3 카드를 클릭했을 때 열 원문 기사(같은 언론사+제목이 일치하는 기사)를 찾는다.
+    // AI 요약이 원문 제목을 살짝 다듬는 경우가 있어 완전일치 대신 포함관계도 허용한다.
+    function findMatchingArticle(payload, press, title) {
+        const categories = (payload && payload.categories) || {};
+        for (const key in categories) {
+            for (const a of categories[key]) {
+                if (a.press_name !== press || !a.title) continue;
+                if (a.title === title || a.title.includes(title) || title.includes(a.title)) return a;
+            }
+        }
+        return null;
+    }
+
+    let lastTop3Items = [];
+
+    function openTop3Article(idx) {
+        const it = lastTop3Items[idx];
+        if (!it) return;
+        const match = findMatchingArticle(getPayload(), it.press, it.title);
+        if (match) {
+            markLinkAsRead(match.link);
+            openArticleModal(match);
+        } else {
+            openArticleModal({ press_name: it.press, pub_time: '', title: it.title, description: it.desc, link: null });
+        }
+    }
+
+    function renderTop3(text, payload) {
         const items = [];
         const lines = text.split('\n');
         for (let i = 0; i < lines.length; i++) {
@@ -885,9 +935,10 @@
                 items.push({ rank: m[1], press: m[2].trim(), title: m[3].trim(), desc });
             }
         }
+        lastTop3Items = items;
         if (items.length === 0) return `<div class="notice-text">표시할 TOP3 데이터가 없습니다.</div>`;
-        return `<div class="top3-grid">` + items.map(it => `
-            <div class="top3-card">
+        return `<div class="top3-grid">` + items.map((it, idx) => `
+            <div class="top3-card" onclick="openTop3Article(${idx})">
                 <div class="top3-head">
                     <span class="top3-rank">${escapeHtml(it.rank)}</span>
                     <span class="top3-dot">·</span>
@@ -933,11 +984,8 @@
         }).join('') + `</ul>`;
     }
 
-    function renderStructuredSummary(sections) {
+    function renderRestSummary(sections) {
         let html = '';
-        if (sections.TOP3) {
-            html += `<div class="summary-section">${renderTop3(sections.TOP3)}</div>`;
-        }
         if (sections.PERSPECTIVES) {
             html += `<div class="summary-section"><div class="summary-section-title">언론사 시각 비교</div>${renderPerspectives(sections.PERSPECTIVES)}</div>`;
         }
@@ -950,7 +998,7 @@
         if (sections.INSIGHTS) {
             html += `<div class="summary-section"><div class="summary-section-title">${EDITION_META[currentEdition].insightsTitle}</div>${renderInsights(sections.INSIGHTS)}</div>`;
         }
-        return html || '<div class="notice-text">표시할 리포트 내용이 없습니다.</div>';
+        return html;
     }
 
     function filterPress(press, btn) {
@@ -999,6 +1047,7 @@
         const categories = payload.categories || {};
         const categoryKeys = EDITION_META[currentEdition].categories;
         const readLinks = getReadLinks();
+        let totalCount = 0;
 
         categoryKeys.forEach(cat => {
             let articles = categories[cat] || [];
@@ -1038,6 +1087,7 @@
                     item.className = 'article-card';
                     if (visibleIdx >= ARTICLES_COLLAPSE_COUNT) item.classList.add('article-collapsed');
                     visibleIdx++;
+                    totalCount++;
                     const isRead = readLinks.has(art.link);
                     item.innerHTML = `
                         <div class="article-meta">
@@ -1083,6 +1133,8 @@
 
             container.appendChild(group);
         });
+
+        document.getElementById('list-count').innerText = `${totalCount}건`;
     }
 
     function openArticleModal(art) {
@@ -1090,7 +1142,13 @@
         document.getElementById('article-modal-time').innerText = art.pub_time || '';
         document.getElementById('article-modal-title').innerText = art.title;
         document.getElementById('article-modal-desc').innerText = art.description || '요약이 제공되지 않은 기사입니다.';
-        document.getElementById('article-modal-link').href = art.link;
+        const linkEl = document.getElementById('article-modal-link');
+        if (art.link && art.link !== '#') {
+            linkEl.href = art.link;
+            linkEl.style.display = '';
+        } else {
+            linkEl.style.display = 'none';
+        }
         document.getElementById('article-modal-overlay').classList.add('open');
     }
 
@@ -1127,7 +1185,8 @@
     }
 
     function showError() {
-        document.getElementById('ai-summary').innerText = '데이터를 불러오지 못했습니다.';
+        document.getElementById('top3-container').innerText = '데이터를 불러오지 못했습니다.';
+        document.getElementById('ai-summary').innerText = '';
         document.getElementById('articles-container').innerText = '데이터를 불러오지 못했습니다.';
     }
 
