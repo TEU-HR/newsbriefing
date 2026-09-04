@@ -1,14 +1,11 @@
 name: Daily AI & Tech News Bot
 
 on:
-  schedule:
-    # 조간: KST 오전 6시 50분 (UTC 전날 21시 50분) — 06:50 수집 마감, 07시 출근 전 준비
-    - cron: '50 21 * * *'
-    # 석간: KST 오후 5시 50분 (UTC 08시 50분) — 06:50~18:00 수집, 18시 퇴근 전 준비
-    # 정시(0분)는 GitHub Actions 스케줄 큐가 가장 혼잡해 지연이 커서 :50분으로 조정
-    - cron: '50 8 * * *'
-
-  # GitHub UI에서 수동 실행 버튼 활성화. 어떤 판을 돌릴지 직접 고를 수 있음.
+  # [수정] GitHub Actions의 schedule 트리거는 공식적으로 "best-effort"라 전 세계 큐가
+  #        밀리면 1~4시간씩 늦게 시작된다(:50분으로 옮겨도 마찬가지로 확인됨). 반면
+  #        workflow_dispatch는 큐를 안 타고 즉시 실행되므로, 외부 스케줄러(cron-job.org 등)가
+  #        정확한 시각(조간 07:00 / 석간 17:50 KST)에 이 API를 호출해 대신 트리거한다.
+  #        schedule을 같이 켜두면 외부 호출과 겹칠 때 카톡/이메일이 중복 발송되므로 비워둔다.
   workflow_dispatch:
     inputs:
       edition:
@@ -38,18 +35,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install google-genai gtts
 
-      # [신규] 스케줄이 두 개(조간/석간)라, 어느 cron이 이 실행을 트리거했는지로 판을 정한다.
-      #        수동 실행(workflow_dispatch)일 때는 사용자가 고른 edition 입력값을 그대로 쓴다.
+      # [수정] schedule 트리거를 없애서 workflow_dispatch만 남았으므로, 입력값을 그대로 쓴다.
+      #        외부 스케줄러가 조간/석간마다 edition 입력을 지정해서 호출한다.
       - name: 실행할 판(조간/석간) 결정
         id: edition
-        run: |
-          if [ "${{ github.event.schedule }}" = "50 8 * * *" ]; then
-            echo "value=evening" >> "$GITHUB_OUTPUT"
-          elif [ "${{ github.event.schedule }}" = "50 21 * * *" ]; then
-            echo "value=morning" >> "$GITHUB_OUTPUT"
-          else
-            echo "value=${{ github.event.inputs.edition || 'morning' }}" >> "$GITHUB_OUTPUT"
-          fi
+        run: echo "value=${{ github.event.inputs.edition || 'morning' }}" >> "$GITHUB_OUTPUT"
 
       - name: 수집 및 AI 요약 실행
         env:

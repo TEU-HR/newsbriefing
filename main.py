@@ -447,6 +447,7 @@ RSS_FEEDS = MORNING_RSS_FEEDS
 
 def fetch_press_rss(press_name, app_category, url, window_start, window_end):
     items = []
+    any_dated = False
     try:
         with urlopen_with_fallback(url) as response:
             root = ET.fromstring(response.read())
@@ -475,6 +476,8 @@ def fetch_press_rss(press_name, app_category, url, window_start, window_end):
                 #        datetime.now()를 쓰면 실행 시각이 수집 마감(window_end)을 지난 뒤라
                 #        전부 윈도우 밖으로 걸러지므로, "지금 이 피드에 실려 있는 최신 기사"라는
                 #        의미로 window_end 시각을 부여해 항상 포함되게 한다.
+                if pub_date_str:
+                    any_dated = True
                 dt_obj = parse_date_to_dt(pub_date_str) if pub_date_str else window_end
                 items.append({
                     'title': title,
@@ -488,6 +491,13 @@ def fetch_press_rss(press_name, app_category, url, window_start, window_end):
                 })
     except Exception as e:
         print(f"RSS 수집 오류 ({press_name}/{app_category}): {e}")
+
+    # ponytail: 피드 전체에 발행시각이 하나도 없으면(한겨레 사설.칼럼) 위의 window_end
+    # 폴백이 모든 항목을 항상 "윈도우 안"으로 만들어버려 필터가 무력화된다. 이 경우
+    # 피드가 이미 최신순으로 온다는 전제로 상위 N개로 잘라 과다 수집을 막는다.
+    # 언론사가 실제 발행시각을 노출하기 시작하면 이 분기는 자연히 안 타게 된다.
+    if items and not any_dated:
+        items = items[:15]
 
     return filter_by_window(items, window_start, window_end)
 
@@ -595,8 +605,12 @@ def ensure_minimum_per_press(cat_items, category_name, keywords, window_start, w
     for it in cat_items:
         counts[it['press_name']] = counts.get(it['press_name'], 0) + 1
 
+    # [수정] 사설은 중앙일보처럼 공식 RSS가 없어 검색에만 의존하는 언론사가 있어,
+    #        RSS로 자동으로 채워지는 다른 언론사와 격차가 크게 벌어짐. 이 카테고리만
+    #        최소 기준을 높여 검색 보충이 더 적극적으로 채우게 한다.
+    default_minimum = 5 if category_name == "사설" else 2
     for press_name, domain in PRESS_DOMAINS.items():
-        minimum = PRIORITY_MIN_PER_CATEGORY if press_name == PRIORITY_PRESS else 2
+        minimum = PRIORITY_MIN_PER_CATEGORY if press_name == PRIORITY_PRESS else default_minimum
         have = counts.get(press_name, 0)
         need = minimum - have
         if need <= 0:
@@ -606,7 +620,11 @@ def ensure_minimum_per_press(cat_items, category_name, keywords, window_start, w
             if need <= 0:
                 break
             try:
-                supplement = fetch_google_news_site(kw, domain, category_name, display=5)
+                # [수정] 사설은 RSS 없이 이 검색에만 의존하는 언론사가 있어, 상위 5건 중
+                #        대부분이 며칠 지난 결과로 채워져 오늘자가 밀려나는 경우가 잦았음.
+                #        더 넉넉히 받아서 window 필터로 골라내게 한다.
+                display = 10 if category_name == "사설" else 5
+                supplement = fetch_google_news_site(kw, domain, category_name, display=display)
             except Exception as e:
                 print(f"보충 수집 오류 ({press_name}/{category_name}): {e}")
                 continue
@@ -650,12 +668,16 @@ def fetch_all_categories_news(category_map, window_start, window_end):
 
     for cat_name, keywords in category_map.items():
         print(f"📰 카테고리 [{cat_name}] {len(TARGET_PRESS_RULES)}개 언론사 뉴스 수집 중...")
-        rss_items = fetch_rss_items_for_category(cat_name, window_start, window_end)
+        # [수정] 사설은 신문사별로 다음날치를 전날 저녁에 미리 내보내는 경우가 흔함
+        #        (예: 경향신문은 20~21시대에 이미 발행). 일반 카테고리의 윈도우 시작(전날
+        #        22시)보다 4시간 앞당겨서, 이런 조기 발행 사설이 걸러지지 않게 한다.
+        cat_window_start = window_start - timedelta(hours=4) if cat_name == "사설" else window_start
+        rss_items = fetch_rss_items_for_category(cat_name, cat_window_start, window_end)
         naver_items = fetch_naver_news(keywords, cat_name)
         google_items = fetch_google_news(keywords, cat_name)
 
         combined = rss_items + naver_items + google_items
-        combined = filter_by_window(combined, window_start, window_end)
+        combined = filter_by_window(combined, cat_window_start, window_end)
         # [수정] 같은 기사가 RSS/네이버/구글에 중복 수집됐을 때, 언론사 공식 RSS 쪽을 우선 채택
         combined.sort(key=lambda x: (0 if x['source'] == 'RSS' else 1, -x['dt_timestamp']))
 
@@ -665,7 +687,7 @@ def fetch_all_categories_news(category_map, window_start, window_end):
                 unique_cat_items.append(item)
 
         unique_cat_items = ensure_minimum_per_press(
-            unique_cat_items, cat_name, keywords, window_start, window_end
+            unique_cat_items, cat_name, keywords, cat_window_start, window_end
         )
         # [수정] 동아일보를 항상 앞쪽에 배치, 그 다음은 최신순
         unique_cat_items.sort(key=press_sort_key)
@@ -676,7 +698,7 @@ def fetch_all_categories_news(category_map, window_start, window_end):
     categories_result = reclassify_opinion_articles(categories_result)
     categories_result["사설"] = ensure_minimum_per_press(
         categories_result.get("사설", []), "사설", ["오피니언", "칼럼", "사설"],
-        window_start, window_end
+        window_start - timedelta(hours=4), window_end
     )
     categories_result["사설"].sort(key=press_sort_key)
 
