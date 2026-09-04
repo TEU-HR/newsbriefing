@@ -58,7 +58,58 @@ def test_dated_feed_respects_window():
     assert len(items) == 1 and items[0]["title"] == "최신 기사"
 
 
+def test_dateless_items_anchor_to_real_range_not_full_window():
+    """한겨레처럼 날짜 없는 언론사가, 다른 언론사 실제 기사가 전혀 없는 새벽 시간대에
+    가짜로 배정돼 정렬 1위를 독점하던 버그의 재발 방지 테스트."""
+    window_end = datetime.now(main.KST)
+    window_start = window_end - timedelta(hours=12)
+    # 실제 기사들은 창의 앞쪽(가장 이른 3시간 구간)에만 몰려 있고, window_end 근처엔 없다.
+    real_start = window_start + timedelta(hours=1)
+    real_end = window_start + timedelta(hours=3)
+    items = [
+        {"press_name": "동아일보", "dt_timestamp": real_end.timestamp(), "link": "a"},
+        {"press_name": "동아일보", "dt_timestamp": real_start.timestamp(), "link": "b"},
+    ]
+    for i in range(3):
+        items.append({"press_name": "한겨레", "dt_timestamp": None, "link": f"h{i}"})
+
+    result = main.assign_dateless_timestamps(items, window_start, window_end)
+    hani_ts = [it["dt_timestamp"] for it in result if it["press_name"] == "한겨레"]
+
+    assert len(hani_ts) == 3
+    # 한겨레의 가짜 시각이 실제 기사 범위(real_start~real_end) 안에 머물러야 하고,
+    # window_end 쪽으로 튀어나가 항상 "가장 최신"을 차지해서는 안 된다.
+    assert all(real_start.timestamp() <= ts <= real_end.timestamp() for ts in hani_ts), hani_ts
+    assert max(hani_ts) < window_end.timestamp()
+
+
+def test_interleave_by_press_avoids_domination():
+    """조선일보처럼 실제로 기사가 많은 언론사가 목록 상단 여러 자리를 독점하지
+    않아야 한다: 기여 언론사가 4곳이면 상위 4건 안에 4곳이 전부 한 번씩 나와야 하고,
+    각 라운드(언론사별 n번째 기사들) 안에서는 같은 언론사가 두 번 나오면 안 된다."""
+    now = datetime.now(main.KST).timestamp()
+    items = []
+    for i in range(20):
+        items.append({"press_name": "조선일보", "dt_timestamp": now - i, "link": f"c{i}"})
+    for press in ["동아일보", "한겨레", "중앙일보"]:
+        for i in range(3):
+            items.append({"press_name": press, "dt_timestamp": now - 5 - i, "link": f"{press}{i}"})
+
+    result = main.interleave_by_press(items)
+    assert len(result) == len(items)
+
+    top4_press = {it["press_name"] for it in result[:4]}
+    assert top4_press == {"조선일보", "동아일보", "한겨레", "중앙일보"}, top4_press
+
+    # 첫 3라운드(모든 언론사가 아직 살아있는 구간)는 언론사당 정확히 1건씩이어야 함
+    for r in range(3):
+        round_presses = [it["press_name"] for it in result[r * 4:(r + 1) * 4]]
+        assert len(set(round_presses)) == 4, f"{r}라운드 중복: {round_presses}"
+
+
 if __name__ == "__main__":
     test_dateless_feed_is_capped()
     test_dated_feed_respects_window()
+    test_dateless_items_anchor_to_real_range_not_full_window()
+    test_interleave_by_press_avoids_domination()
     print("OK")

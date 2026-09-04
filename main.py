@@ -127,6 +127,30 @@ def press_sort_key(item):
     """최신순으로 정렬하기 위한 정렬 키."""
     return -item['dt_timestamp']
 
+# [수정] 단순 최신순 정렬만 쓰면, 발행 빈도가 높거나(예: 조선일보) 우연히 시각이
+#        몰린 한 언론사가 목록 상단 여러 자리를 독점해 "다양한 언론사를 보고 싶다"는
+#        목적이 흐려짐. 언론사별로 최신순은 유지한 채 라운드로빈으로 섞어서, 기여하는
+#        언론사 수만큼의 구간 안에는 같은 언론사가 두 번 나오지 않게 한다. 라운드
+#        내부는 그 라운드에 해당하는 기사들끼리 다시 최신순으로 둬서 전체적으로도
+#        최신순에 가깝게 유지된다.
+def interleave_by_press(items):
+    by_press = {}
+    for it in items:
+        by_press.setdefault(it['press_name'], []).append(it)
+    for lst in by_press.values():
+        lst.sort(key=press_sort_key)
+
+    result = []
+    round_idx = 0
+    while True:
+        round_items = [lst[round_idx] for lst in by_press.values() if round_idx < len(lst)]
+        if not round_items:
+            break
+        round_items.sort(key=press_sort_key)
+        result.extend(round_items)
+        round_idx += 1
+    return result
+
 
 
 # [신규] site: 보충 검색에 사용할 언론사별 대표 도메인
@@ -454,44 +478,74 @@ def fetch_press_rss(press_name, app_category, url, window_start, window_end):
                 if not title or link == '#':
                     continue
 
-                # [수정] 한겨레 RSS는 항목별 발행 시각을 아예 제공하지 않음. 이 경우
-                #        datetime.now()를 쓰면 실행 시각이 수집 마감(window_end)을 지난 뒤라
-                #        전부 윈도우 밖으로 걸러지므로, "지금 이 피드에 실려 있는 최신 기사"라는
-                #        의미로 window_end 시각을 부여해 항상 포함되게 한다.
+                # [수정] 한겨레 RSS는 항목별 발행 시각을 아예 제공하지 않음. 이 시점에는
+                #        아직 실제 시각을 가진 다른 언론사 기사들의 시간대를 모르므로 확정
+                #        시각을 매기지 않고 dt_timestamp=None으로 표시만 해둔다. 실제 배정은
+                #        assign_dateless_timestamps()가 카테고리 단위로 모아서 처리한다.
                 if pub_date_str:
                     any_dated = True
-                dt_obj = parse_date_to_dt(pub_date_str) if pub_date_str else window_end
+                    dt_obj = parse_date_to_dt(pub_date_str)
+                    pub_time, dt_timestamp = format_korean_date(dt_obj), dt_obj.timestamp()
+                else:
+                    pub_time, dt_timestamp = '', None
                 items.append({
                     'title': title,
                     'description': desc if desc != title else '',
                     'link': link,
                     'press_name': press_name,
                     'source': 'RSS',
-                    'pub_time': format_korean_date(dt_obj),
-                    'dt_timestamp': dt_obj.timestamp(),
+                    'pub_time': pub_time,
+                    'dt_timestamp': dt_timestamp,
                     'category': app_category
                 })
     except Exception as e:
         print(f"RSS 수집 오류 ({press_name}/{app_category}): {e}")
 
-    # ponytail: 피드 전체에 발행시각이 하나도 없으면(한겨레) 위의 window_end 폴백이
-    # 모든 항목을 항상 "윈도우 안"으로 만들어버려 필터가 무력화된다. 이 경우 피드가
-    # 이미 최신순으로 온다는 전제로 상위 N개로 잘라 과다 수집을 막는다.
-    # 언론사가 실제 발행시각을 노출하기 시작하면 이 분기는 자연히 안 타게 된다.
-    if items and not any_dated:
-        items = items[:15]
-        # 전부 window_end로 동일한 dt_timestamp를 받으면 실제 시각을 가진 다른 언론사
-        # 기사보다 인위적으로 "가장 최신"이 되어, 최신순 정렬 시 이 언론사가 모든
-        # 카테고리 맨 위를 독점하는 부작용이 있었다. 피드 순서(최신순 가정)를 유지한 채
-        # window 구간에 걸쳐 시간을 나눠 배정해 다른 언론사 기사와 자연스럽게 섞이게 한다.
-        span = (window_end - window_start).total_seconds()
-        n = len(items)
-        for i, it in enumerate(items):
-            dt_obj = window_end - timedelta(seconds=span * i / n)
-            it['dt_timestamp'] = dt_obj.timestamp()
-            it['pub_time'] = format_korean_date(dt_obj)
+    if not items:
+        return items
 
-    return filter_by_window(items, window_start, window_end)
+    if any_dated:
+        # 날짜 없는 항목이 섞여 있으면(드문 경우) 비교 불가능하니 걸러내고 필터링한다.
+        return filter_by_window([it for it in items if it['dt_timestamp'] is not None], window_start, window_end)
+
+    # ponytail: 피드 전체에 발행시각이 하나도 없으면(한겨레) 창 필터를 적용할 기준이
+    # 아예 없다. 피드가 이미 최신순으로 온다는 전제로 상위 N개만 남겨 과다 수집을 막고,
+    # 시각 배정은 assign_dateless_timestamps()로 미룬다.
+    return items[:15]
+
+# fetch_rss_items_for_category에서 한 카테고리의 모든 언론사 RSS를 모은 뒤 호출된다.
+# 발행시각이 없는 언론사(한겨레) 기사에, 같은 배치에서 실제 시각을 가진 다른 언론사
+# 기사들의 시간 범위를 참고해 시각을 배정한다. 수집 윈도우 전체에 균등하게 뿌리면
+# 실제 기사가 드문 시간대(예: 새벽)에 가짜 시각만 존재하게 되어 그 언론사가 정렬
+# 상단을 독점하는 부작용이 있었음 — 그래서 "실제로 기사가 있었던 시간대" 안으로만
+# 좁혀서 배정한다. 참고할 실제 기사가 하나도 없으면 수집 윈도우 전체로 대신한다.
+def assign_dateless_timestamps(items, window_start, window_end):
+    dated = [it for it in items if it['dt_timestamp'] is not None]
+    dateless_by_press = {}
+    for it in items:
+        if it['dt_timestamp'] is None:
+            dateless_by_press.setdefault(it['press_name'], []).append(it)
+
+    if not dateless_by_press:
+        return dated
+
+    if dated:
+        range_end = max(it['dt_timestamp'] for it in dated)
+        range_start = min(it['dt_timestamp'] for it in dated)
+    else:
+        range_start, range_end = window_start.timestamp(), window_end.timestamp()
+    span = range_end - range_start
+
+    result = list(dated)
+    for press_items in dateless_by_press.values():
+        n = len(press_items)
+        for i, it in enumerate(press_items):
+            dt_ts = range_end - (span * i / n if n > 1 else 0)
+            it['dt_timestamp'] = dt_ts
+            it['pub_time'] = format_korean_date(datetime.fromtimestamp(dt_ts, KST))
+            result.append(it)
+
+    return filter_by_window(result, window_start, window_end)
 
 def fetch_rss_items_for_category(cat_name, window_start, window_end):
     items = []
@@ -500,7 +554,7 @@ def fetch_rss_items_for_category(cat_name, window_start, window_end):
         if not url:
             continue
         items.extend(fetch_press_rss(press_name, cat_name, url, window_start, window_end))
-    return items
+    return assign_dateless_timestamps(items, window_start, window_end)
 
 def fetch_naver_news(keywords, category_name, display=20):
     client_id = os.environ.get("NAVER_CLIENT_ID", "").strip()
@@ -680,7 +734,7 @@ def fetch_all_categories_news(category_map, window_start, window_end):
         unique_cat_items = ensure_minimum_per_press(
             unique_cat_items, cat_name, keywords, cat_window_start, window_end
         )
-        unique_cat_items.sort(key=press_sort_key)
+        unique_cat_items = interleave_by_press(unique_cat_items)
 
         categories_result[cat_name] = unique_cat_items
         print(f"   → {len(unique_cat_items)}건 수집 완료")
@@ -690,14 +744,14 @@ def fetch_all_categories_news(category_map, window_start, window_end):
         categories_result.get("사설", []), "사설", ["오피니언", "칼럼", "사설"],
         window_start - timedelta(hours=4), window_end
     )
-    categories_result["사설"].sort(key=press_sort_key)
+    categories_result["사설"] = interleave_by_press(categories_result["사설"])
 
     for cat_name, items in categories_result.items():
         for item in items:
             if not any(is_duplicate_title(item['title'], u['title']) for u in all_flat_items):
                 all_flat_items.append(item)
 
-    all_flat_items.sort(key=press_sort_key)
+    all_flat_items = interleave_by_press(all_flat_items)
     return categories_result, all_flat_items
 
 # --- 5. 요약 및 음성 생성 ---
@@ -1109,7 +1163,7 @@ def main():
     #        조간(morning) 실행에서만 돌며, 별도의 cron 스케줄이 필요 없다.
     if edition == "morning":
         editorial_news_list = [n for n in categories_data.get("사설", []) if n['press_name'] in EDITORIAL_PRESS]
-        editorial_news_list.sort(key=lambda x: -x['dt_timestamp'])
+        editorial_news_list = interleave_by_press(editorial_news_list)
 
         editorial_summary = generate_editorial_summary(editorial_news_list)
 
