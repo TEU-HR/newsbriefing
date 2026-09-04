@@ -83,6 +83,41 @@ def test_dateless_items_anchor_to_real_range_not_full_window():
     assert max(hani_ts) < window_end.timestamp()
 
 
+def test_backfill_missing_descriptions_fills_from_og_tag():
+    """조선일보/한겨레/구글 뉴스처럼 RSS에 요약이 없는 기사를, 원문 페이지의
+    og:description 메타태그로 채우는지 확인. 이미 요약이 있는 기사는 손대지 않고,
+    같은 링크는 한 번만 요청해야 한다(중복 요청 방지)."""
+    html = b'<html><head><meta property="og:description" content="\xec\x9b\x90\xeb\xac\xb8 \xec\x9a\x94\xec\x95\xbd"></head></html>'
+    fetch_count = {"n": 0}
+
+    class FakeResp:
+        def __enter__(self): return self
+        def __exit__(self, *a): return False
+        def read(self, n=None): fetch_count["n"] += 1; return html
+
+    orig = main.urllib.request.urlopen
+    main.urllib.request.urlopen = lambda req, timeout=4: FakeResp()
+    try:
+        categories = {
+            "정치": [
+                {"title": "a", "description": "", "link": "https://x.com/1"},
+                {"title": "b", "description": "이미 있음", "link": "https://x.com/2"},
+            ],
+            "경제": [
+                # 다른 카테고리에 같은 링크가 또 나와도 og:description 요청은 한 번만
+                {"title": "a2", "description": "", "link": "https://x.com/1"},
+            ],
+        }
+        main.backfill_missing_descriptions(categories)
+    finally:
+        main.urllib.request.urlopen = orig
+
+    assert categories["정치"][0]["description"] == "원문 요약"
+    assert categories["경제"][0]["description"] == "원문 요약"
+    assert categories["정치"][1]["description"] == "이미 있음", "이미 요약 있는 기사는 건드리면 안 됨"
+    assert fetch_count["n"] == 1, f"같은 링크는 한 번만 요청해야 하는데 {fetch_count['n']}번 요청됨"
+
+
 def test_interleave_by_press_avoids_domination():
     """조선일보처럼 실제로 기사가 많은 언론사가 목록 상단 여러 자리를 독점하지
     않아야 한다: 기여 언론사가 4곳이면 상위 4건 안에 4곳이 전부 한 번씩 나와야 하고,
@@ -111,5 +146,6 @@ if __name__ == "__main__":
     test_dateless_feed_is_capped()
     test_dated_feed_respects_window()
     test_dateless_items_anchor_to_real_range_not_full_window()
+    test_backfill_missing_descriptions_fills_from_og_tag()
     test_interleave_by_press_avoids_domination()
     print("OK")

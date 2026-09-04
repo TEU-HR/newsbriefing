@@ -9,6 +9,7 @@ import email.utils
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone, timedelta
 
 # 이메일 관련 필수 모듈 import (오류 해결)
@@ -707,6 +708,49 @@ def reclassify_opinion_articles(categories_result):
     categories_result["사설"] = opinion_list
     return categories_result
 
+# [신규] 조선일보(description 태그 자체가 없음), 한겨레(썸네일 <table>만 들어있고 텍스트
+#        없음), 구글 뉴스 검색(요약이 제목 재탕이라 title과 동일해 걸러짐) 기사는 RSS만으로는
+#        원문 요약을 얻을 수 없어 목록·팝업에 "요약이 제공되지 않은 기사입니다"만 뜨는 문제가
+#        있었다. 원문 페이지의 og:description 메타태그를 가져와 채운다 — 언론사들이 실제
+#        기사 요약을 그 태그에 넣어두는 경우가 많아 RSS description보다 오히려 안정적이다.
+#        요약이 있는 기사는 건드리지 않고, 링크 기준으로 중복 요청 없이 병렬로 가져온다.
+def backfill_missing_descriptions(categories_result, max_workers=16, timeout=4):
+    links_to_items = {}
+    for items in categories_result.values():
+        for it in items:
+            if not it.get('description') and it.get('link', '#') != '#':
+                links_to_items.setdefault(it['link'], []).append(it)
+
+    if not links_to_items:
+        return
+
+    print(f"📄 요약 없는 기사 {len(links_to_items)}건, 원문 og:description 보충 수집 중...")
+
+    def fetch_og_description(link):
+        try:
+            headers = dict(HTTP_HEADERS_FALLBACK, **{'Accept-Encoding': 'identity'})
+            req = urllib.request.Request(link, headers=headers)
+            with urllib.request.urlopen(req, timeout=timeout) as resp:
+                html = resp.read(200000).decode('utf-8', errors='ignore')
+            m = (re.search(r'<meta[^>]+property=["\']og:description["\'][^>]*content=["\']([^"\']+)["\']', html, re.I)
+                 or re.search(r'<meta[^>]+content=["\']([^"\']+)["\'][^>]*property=["\']og:description["\']', html, re.I)
+                 or re.search(r'<meta[^>]+name=["\']description["\'][^>]*content=["\']([^"\']+)["\']', html, re.I))
+            return clean_html(m.group(1)) if m else ''
+        except Exception:
+            return ''
+
+    links = list(links_to_items.keys())
+    with ThreadPoolExecutor(max_workers=max_workers) as pool:
+        descriptions = list(pool.map(fetch_og_description, links))
+
+    filled = 0
+    for link, desc in zip(links, descriptions):
+        if desc:
+            filled += 1
+            for it in links_to_items[link]:
+                it['description'] = desc
+    print(f"   → {filled}/{len(links_to_items)}건 보충 완료")
+
 def fetch_all_categories_news(category_map, window_start, window_end):
     categories_result = {}
     all_flat_items = []
@@ -745,6 +789,8 @@ def fetch_all_categories_news(category_map, window_start, window_end):
         window_start - timedelta(hours=4), window_end
     )
     categories_result["사설"] = interleave_by_press(categories_result["사설"])
+
+    backfill_missing_descriptions(categories_result)
 
     for cat_name, items in categories_result.items():
         for item in items:
