@@ -474,12 +474,22 @@ def fetch_press_rss(press_name, app_category, url, window_start, window_end):
     except Exception as e:
         print(f"RSS 수집 오류 ({press_name}/{app_category}): {e}")
 
-    # ponytail: 피드 전체에 발행시각이 하나도 없으면(한겨레 사설.칼럼) 위의 window_end
-    # 폴백이 모든 항목을 항상 "윈도우 안"으로 만들어버려 필터가 무력화된다. 이 경우
-    # 피드가 이미 최신순으로 온다는 전제로 상위 N개로 잘라 과다 수집을 막는다.
+    # ponytail: 피드 전체에 발행시각이 하나도 없으면(한겨레) 위의 window_end 폴백이
+    # 모든 항목을 항상 "윈도우 안"으로 만들어버려 필터가 무력화된다. 이 경우 피드가
+    # 이미 최신순으로 온다는 전제로 상위 N개로 잘라 과다 수집을 막는다.
     # 언론사가 실제 발행시각을 노출하기 시작하면 이 분기는 자연히 안 타게 된다.
     if items and not any_dated:
         items = items[:15]
+        # 전부 window_end로 동일한 dt_timestamp를 받으면 실제 시각을 가진 다른 언론사
+        # 기사보다 인위적으로 "가장 최신"이 되어, 최신순 정렬 시 이 언론사가 모든
+        # 카테고리 맨 위를 독점하는 부작용이 있었다. 피드 순서(최신순 가정)를 유지한 채
+        # window 구간에 걸쳐 시간을 나눠 배정해 다른 언론사 기사와 자연스럽게 섞이게 한다.
+        span = (window_end - window_start).total_seconds()
+        n = len(items)
+        for i, it in enumerate(items):
+            dt_obj = window_end - timedelta(seconds=span * i / n)
+            it['dt_timestamp'] = dt_obj.timestamp()
+            it['pub_time'] = format_korean_date(dt_obj)
 
     return filter_by_window(items, window_start, window_end)
 
