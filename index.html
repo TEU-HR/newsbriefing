@@ -395,25 +395,15 @@
             line-height: 0;
         }
 
-        .press-logo-full {
-            height: 15px;
-            width: auto;
-            display: block;
-            opacity: 0.9;
-            transition: opacity 0.15s ease;
-        }
-
-        .press-logo-full:hover { opacity: 1; }
-
         .press-name-badge {
             display: inline-block;
-            font-size: 0.78rem;
+            font-size: 0.68rem;
             font-weight: 700;
             letter-spacing: 0.01em;
             color: var(--ink-soft);
             border: 1px solid var(--line);
             border-radius: 2px;
-            padding: 1px 6px;
+            padding: 0px 4px;
         }
 
         .press-fallback {
@@ -771,27 +761,10 @@
         loadData(date);
     }
 
-    // 언론사명 → 로고 이미지 파일. 파비콘은 너무 작고 제네릭해서 언론사 구분이 안 돼,
-    // 로고+글자가 함께 있는 실제 CI 이미지로 대체한다(assets/press-logos). 아직 파일이
-    // 없는 언론사는 언론사명 텍스트 배지로 대신 표시한다.
-    const PRESS_LOGO_FILES = {
-        "동아일보": "assets/press-logos/donga.png"
-    };
-
-    function pressLogoError(imgEl) {
-        const badge = document.createElement('span');
-        badge.className = 'press-name-badge';
-        badge.textContent = imgEl.dataset.pressName;
-        imgEl.replaceWith(badge);
-    }
-
+    // 파비콘은 너무 작고 제네릭해서 언론사 구분이 안 돼, 언론사명 텍스트 배지로 표시한다.
     function pressTagHtml(pressName) {
         const name = pressName || '언론사';
-        const logoFile = PRESS_LOGO_FILES[name];
-        if (!logoFile) return `<span class="press-tag press-name-badge" title="${escapeHtml(name)}">${escapeHtml(name)}</span>`;
-        return `<span class="press-tag" title="${escapeHtml(name)}">
-            <img class="press-logo-full" src="${logoFile}" data-press-name="${escapeHtml(name)}" alt="${escapeHtml(name)}" loading="lazy" onerror="pressLogoError(this)">
-        </span>`;
+        return `<span class="press-tag press-name-badge">${escapeHtml(name)}</span>`;
     }
 
     function renderPressFilter() {
