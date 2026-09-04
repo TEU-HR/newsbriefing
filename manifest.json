@@ -1,0 +1,23 @@
+{
+  "name": "AI 3분 뉴스 브리핑",
+  "short_name": "뉴스브리핑",
+  "description": "동아일보·조선일보·중앙일보 등 주요 언론사 뉴스를 AI가 조간·석간·사설 비교로 매일 요약하는 뉴스 브리핑",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "background_color": "#f7f6f2",
+  "theme_color": "#1c1b19",
+  "lang": "ko",
+  "icons": [
+    {
+      "src": "assets/logo/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/logo/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

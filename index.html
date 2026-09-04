@@ -13,6 +13,8 @@
     <meta name="twitter:image" content="https://teu-hr.github.io/newsbriefing/assets/logo/og-image.png">
     <link rel="icon" type="image/png" href="assets/logo/favicon-32.png">
     <link rel="apple-touch-icon" href="assets/logo/apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1c1b19">
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
     <style>
         :root {
@@ -219,6 +221,26 @@
 
         .filter-btn:hover { border-color: var(--ink); color: var(--ink); }
 
+        .article-search-input {
+            -webkit-appearance: none;
+            appearance: none;
+            border: 1px solid var(--line);
+            border-radius: 2px;
+            padding: 5px 10px;
+            font-family: inherit;
+            font-size: 0.82rem;
+            color: var(--ink);
+            background: var(--paper);
+            outline: none;
+            width: 140px;
+            min-width: 0;
+            flex-shrink: 1;
+            transition: border-color 0.15s ease;
+        }
+
+        .article-search-input:focus { border-color: var(--ink); }
+        .article-search-input::placeholder { color: var(--ink-soft); }
+
         .filter-btn.active {
             background: var(--ink);
             color: var(--paper);
@@ -313,6 +335,8 @@
 
         .article-link:hover { color: var(--accent); text-decoration: underline; }
         .article-link { cursor: pointer; }
+
+        .article-link.is-read { color: var(--ink-soft); font-weight: 600; }
 
         .article-modal-overlay {
             display: none;
@@ -627,7 +651,10 @@
     </div>
 
     <div class="card">
-        <div class="card-title" id="articles-card-title">언론사 원문 기사 목록</div>
+        <div class="card-title">
+            <span id="articles-card-title">언론사 원문 기사 목록</span>
+            <input type="search" id="article-search-input" class="article-search-input" placeholder="제목 검색" oninput="onArticleSearchInput()">
+        </div>
 
         <!-- 언론사 필터 (조간/석간에 따라 JS에서 동적으로 채움) -->
         <div class="press-filter-box" id="press-filter"></div>
@@ -654,6 +681,7 @@
 <script>
     let globalData = null;
     let selectedPress = "ALL";
+    let searchQuery = "";
     let currentEdition = "morning"; // "morning"(조간) | "evening"(석간) | "editorial"(사설)
     const ARTICLES_COLLAPSE_COUNT = 5; // 카테고리별 원문 목록 기본 노출 개수 (나머지는 "더보기")
 
@@ -953,6 +981,36 @@
         renderArticles();
     }
 
+    function onArticleSearchInput() {
+        searchQuery = document.getElementById('article-search-input').value.trim().toLowerCase();
+        renderArticles();
+    }
+
+    // 읽은 기사 표시: 브라우저에만 저장(서버 전송 없음). 무한정 쌓이지 않게 최근
+    // READ_LINKS_LIMIT개만 유지한다.
+    const READ_LINKS_KEY = 'nb_read_links';
+    const READ_LINKS_LIMIT = 500;
+
+    function getReadLinks() {
+        try {
+            return new Set(JSON.parse(localStorage.getItem(READ_LINKS_KEY) || '[]'));
+        } catch (e) {
+            return new Set();
+        }
+    }
+
+    function markLinkAsRead(link) {
+        try {
+            const arr = JSON.parse(localStorage.getItem(READ_LINKS_KEY) || '[]');
+            if (arr.includes(link)) return;
+            arr.push(link);
+            while (arr.length > READ_LINKS_LIMIT) arr.shift();
+            localStorage.setItem(READ_LINKS_KEY, JSON.stringify(arr));
+        } catch (e) {
+            // 프라이빗 브라우징 등으로 localStorage를 못 쓰면 읽음 표시만 조용히 건너뜀
+        }
+    }
+
     function renderArticles() {
         if (!globalData) return;
         const payload = getPayload();
@@ -961,12 +1019,16 @@
 
         const categories = payload.categories || {};
         const categoryKeys = EDITION_META[currentEdition].categories;
+        const readLinks = getReadLinks();
 
         categoryKeys.forEach(cat => {
             let articles = categories[cat] || [];
 
             if (selectedPress !== "ALL") {
                 articles = articles.filter(a => a.press_name === selectedPress);
+            }
+            if (searchQuery) {
+                articles = articles.filter(a => (a.title || '').toLowerCase().includes(searchQuery));
             }
 
             const group = document.createElement('div');
@@ -997,9 +1059,10 @@
                     item.className = 'article-card';
                     if (visibleIdx >= ARTICLES_COLLAPSE_COUNT) item.classList.add('article-collapsed');
                     visibleIdx++;
+                    const isRead = readLinks.has(art.link);
                     item.innerHTML = `
                         <div class="article-header-row">
-                            <span class="article-link" role="button" tabindex="0">${art.title}</span>
+                            <span class="article-link${isRead ? ' is-read' : ''}" role="button" tabindex="0">${art.title}</span>
                             <div class="article-meta">
                                 ${pressTagHtml(art.press_name)}
                                 <span class="pub-time">${art.pub_time || ''}</span>
@@ -1007,9 +1070,14 @@
                         </div>
                     `;
                     const titleEl = item.querySelector('.article-link');
-                    titleEl.addEventListener('click', () => openArticleModal(art));
+                    const onOpen = () => {
+                        markLinkAsRead(art.link);
+                        titleEl.classList.add('is-read');
+                        openArticleModal(art);
+                    };
+                    titleEl.addEventListener('click', onOpen);
                     titleEl.addEventListener('keydown', (e) => {
-                        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openArticleModal(art); }
+                        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onOpen(); }
                     });
                     list.appendChild(item);
                 });
