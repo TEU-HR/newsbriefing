@@ -33,7 +33,7 @@ jobs:
       - name: 패키지 설치
         run: |
           python -m pip install --upgrade pip
-          pip install google-genai gtts
+          pip install google-genai edge-tts
 
       # [수정] schedule 트리거를 없애서 workflow_dispatch만 남았으므로, 입력값을 그대로 쓴다.
       #        외부 스케줄러가 조간/석간마다 edition 입력을 지정해서 호출한다.

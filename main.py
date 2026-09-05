@@ -16,13 +16,18 @@ from datetime import datetime, timezone, timedelta
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-# gTTS 라이브러리 안전 Import
+# edge-tts 라이브러리 안전 Import
+# gTTS(구글 번역기 음성) 대신 마이크로소프트 엣지의 무료 Neural TTS 엔드포인트를 사용.
+# API 키/과금 없이 훨씬 자연스러운 한국어 음성을 얻을 수 있다.
+import asyncio
 try:
-    from gtts import gTTS
-    HAS_GTTS = True
+    import edge_tts
+    HAS_EDGE_TTS = True
 except ImportError:
-    HAS_GTTS = False
-    print("[경고] gTTS 라이브러리가 설치되지 않았습니다. 음성 생성을 건너끕니다.")
+    HAS_EDGE_TTS = False
+    print("[경고] edge-tts 라이브러리가 설치되지 않았습니다. 음성 생성을 건너뜁니다.")
+
+TTS_VOICE = "ko-KR-SunHiNeural"
 
 KST = timezone(timedelta(hours=9))
 
@@ -714,7 +719,12 @@ def reclassify_opinion_articles(categories_result):
 #        있었다. 원문 페이지의 og:description 메타태그를 가져와 채운다 — 언론사들이 실제
 #        기사 요약을 그 태그에 넣어두는 경우가 많아 RSS description보다 오히려 안정적이다.
 #        요약이 있는 기사는 건드리지 않고, 링크 기준으로 중복 요청 없이 병렬로 가져온다.
-def backfill_missing_descriptions(categories_result, max_workers=16, timeout=4):
+# [수정] 조선일보/한겨레 사설처럼 og:description을 단건으로 요청하면 성공하는데도,
+#        기존 max_workers=16/timeout=4초 조합으로는 같은 언론사 도메인에 수십 건이
+#        한꺼번에 몰려 타임아웃으로 실패하는 경우가 많았다(전량 실패로 확인됨).
+#        동시 요청 수를 줄이고 타임아웃을 늘려 도메인당 순간 부하를 낮추고, 실패 시
+#        한 번 더 시도한다.
+def backfill_missing_descriptions(categories_result, max_workers=8, timeout=8):
     links_to_items = {}
     for items in categories_result.values():
         for it in items:
@@ -726,18 +736,21 @@ def backfill_missing_descriptions(categories_result, max_workers=16, timeout=4):
 
     print(f"📄 요약 없는 기사 {len(links_to_items)}건, 원문 og:description 보충 수집 중...")
 
-    def fetch_og_description(link):
-        try:
-            headers = dict(HTTP_HEADERS_FALLBACK, **{'Accept-Encoding': 'identity'})
-            req = urllib.request.Request(link, headers=headers)
-            with urllib.request.urlopen(req, timeout=timeout) as resp:
-                html = resp.read(200000).decode('utf-8', errors='ignore')
-            m = (re.search(r'<meta[^>]+property=["\']og:description["\'][^>]*content=["\']([^"\']+)["\']', html, re.I)
-                 or re.search(r'<meta[^>]+content=["\']([^"\']+)["\'][^>]*property=["\']og:description["\']', html, re.I)
-                 or re.search(r'<meta[^>]+name=["\']description["\'][^>]*content=["\']([^"\']+)["\']', html, re.I))
-            return clean_html(m.group(1)) if m else ''
-        except Exception:
-            return ''
+    def fetch_og_description(link, retries=2):
+        for attempt in range(retries):
+            try:
+                headers = dict(HTTP_HEADERS_FALLBACK, **{'Accept-Encoding': 'identity'})
+                req = urllib.request.Request(link, headers=headers)
+                with urllib.request.urlopen(req, timeout=timeout) as resp:
+                    html = resp.read(200000).decode('utf-8', errors='ignore')
+                m = (re.search(r'<meta[^>]+property=["\']og:description["\'][^>]*content=["\']([^"\']+)["\']', html, re.I)
+                     or re.search(r'<meta[^>]+content=["\']([^"\']+)["\'][^>]*property=["\']og:description["\']', html, re.I)
+                     or re.search(r'<meta[^>]+name=["\']description["\'][^>]*content=["\']([^"\']+)["\']', html, re.I))
+                if m:
+                    return clean_html(m.group(1))
+            except Exception:
+                pass
+        return ''
 
     links = list(links_to_items.keys())
     with ThreadPoolExecutor(max_workers=max_workers) as pool:
@@ -750,6 +763,54 @@ def backfill_missing_descriptions(categories_result, max_workers=16, timeout=4):
             for it in links_to_items[link]:
                 it['description'] = desc
     print(f"   → {filled}/{len(links_to_items)}건 보충 완료")
+
+# [신규] og:description/RSS description은 언론사 CMS가 글자 수 제한으로 그냥 잘라둔
+#        발췌문이라 "...논란이 일" 처럼 문장 중간에서 끊긴다. 팝업에서 사설만큼은 완결된
+#        요약을 보여달라는 요청에 따라, 이미 확보한 발췌문 안의 내용만 근거로 AI가
+#        자연스럽게 마무리된 3~5문장 요약으로 다시 쓰게 한다(새 사실 추가 금지).
+#        기사 단위로 호출하면 사설 개수만큼 API를 호출해야 하니, 여러 건을 한 프롬프트에
+#        묶어 호출 횟수를 줄인다.
+def polish_editorial_summaries(categories_result, batch_size=15):
+    items = [it for it in categories_result.get("사설", []) if it.get('description')]
+    if not items:
+        return
+
+    print(f"✍️ 사설 요약 {len(items)}건, 완결된 문장으로 다듬는 중...")
+    polished = 0
+
+    for i in range(0, len(items), batch_size):
+        batch = items[i:i + batch_size]
+        listing = "\n\n".join(
+            f"{idx}. 제목: {it['title']}\n발췌: {it['description']}"
+            for idx, it in enumerate(batch, 1)
+        )
+        prompt = (
+            f"아래는 신문 사설 {len(batch)}건의 제목과, 원문에서 그대로 잘라온 발췌문입니다.\n"
+            "발췌문은 언론사 CMS가 글자 수 제한으로 잘라둔 것이라 문장이 중간에 끊깁니다.\n\n"
+            "각 항목마다, 주어진 발췌문에 있는 내용만 근거로 자연스럽고 완결된 3~5문장 요약을 "
+            "작성하세요.\n"
+            "- 발췌문에 없는 사실을 새로 지어내지 마세요.\n"
+            "- 문장이 중간에 끊기지 않게 마무리하세요.\n"
+            "- 설명이나 코드블록 없이 아래 형식의 JSON 배열만 응답하세요.\n\n"
+            '[{"idx": 1, "summary": "..."}, {"idx": 2, "summary": "..."}]\n\n'
+            f"{listing}"
+        )
+        text = generate_gemini_content(prompt, [])
+        if not text:
+            continue
+        try:
+            match = re.search(r"\[.*\]", text, re.S)
+            parsed = json.loads(match.group(0) if match else text)
+            for entry in parsed:
+                idx = entry.get("idx")
+                summary = (entry.get("summary") or "").strip()
+                if summary and isinstance(idx, int) and 1 <= idx <= len(batch):
+                    batch[idx - 1]['description'] = summary
+                    polished += 1
+        except Exception as e:
+            print(f"⚠️ 사설 요약 정리 실패 (배치 {i // batch_size + 1}): {e}")
+
+    print(f"   → {polished}/{len(items)}건 요약 정리 완료")
 
 def fetch_all_categories_news(category_map, window_start, window_end):
     categories_result = {}
@@ -791,6 +852,7 @@ def fetch_all_categories_news(category_map, window_start, window_end):
     categories_result["사설"] = interleave_by_press(categories_result["사설"])
 
     backfill_missing_descriptions(categories_result)
+    polish_editorial_summaries(categories_result)
 
     for cat_name, items in categories_result.items():
         for item in items:
@@ -964,15 +1026,17 @@ def build_speech_script(raw_summary):
     return script.strip()
 
 def generate_audio(text, filepath):
-    if not HAS_GTTS:
+    if not HAS_EDGE_TTS:
         return False
     try:
         clean_text = re.sub(r"[#*_~<>`]", "", text)
         if len(clean_text) > 1500:
             clean_text = clean_text[:1500] + "... 이하 내용 생략"
-        
-        tts = gTTS(text=clean_text, lang='ko', slow=False)
-        tts.save(filepath)
+
+        async def _synthesize():
+            await edge_tts.Communicate(clean_text, TTS_VOICE).save(filepath)
+
+        asyncio.run(_synthesize())
         print(f"🔊 음성 파일 생성 완료: {filepath}")
         return True
     except Exception as e:
