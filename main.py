@@ -765,17 +765,18 @@ def backfill_missing_descriptions(categories_result, max_workers=8, timeout=8):
     print(f"   → {filled}/{len(links_to_items)}건 보충 완료")
 
 # [신규] og:description/RSS description은 언론사 CMS가 글자 수 제한으로 그냥 잘라둔
-#        발췌문이라 "...논란이 일" 처럼 문장 중간에서 끊긴다. 팝업에서 사설만큼은 완결된
-#        요약을 보여달라는 요청에 따라, 이미 확보한 발췌문 안의 내용만 근거로 AI가
-#        자연스럽게 마무리된 3~5문장 요약으로 다시 쓰게 한다(새 사실 추가 금지).
-#        기사 단위로 호출하면 사설 개수만큼 API를 호출해야 하니, 여러 건을 한 프롬프트에
+#        발췌문이라 "...논란이 일" 처럼 문장 중간에서 끊긴다. (처음엔 사설만 대상이었으나
+#        모든 카테고리 기사에서 동일하게 요청받아 확장함.) 이미 확보한 발췌문 안의 내용만
+#        근거로 AI가 자연스럽게 마무리된 요약으로 다시 쓰게 한다(새 사실 추가 금지, 문장
+#        수는 한 문장이든 여러 문장이든 상관없이 반드시 완결).
+#        기사 단위로 호출하면 건수만큼 API를 호출해야 하니, 여러 건을 한 프롬프트에
 #        묶어 호출 횟수를 줄인다.
-def polish_editorial_summaries(categories_result, batch_size=15):
-    items = [it for it in categories_result.get("사설", []) if it.get('description')]
+def polish_article_summaries(categories_result, batch_size=15):
+    items = [it for items in categories_result.values() for it in items if it.get('description')]
     if not items:
         return
 
-    print(f"✍️ 사설 요약 {len(items)}건, 완결된 문장으로 다듬는 중...")
+    print(f"✍️ 기사 요약 {len(items)}건, 완결된 문장으로 다듬는 중...")
     polished = 0
 
     for i in range(0, len(items), batch_size):
@@ -785,12 +786,12 @@ def polish_editorial_summaries(categories_result, batch_size=15):
             for idx, it in enumerate(batch, 1)
         )
         prompt = (
-            f"아래는 신문 사설 {len(batch)}건의 제목과, 원문에서 그대로 잘라온 발췌문입니다.\n"
+            f"아래는 뉴스 기사 {len(batch)}건의 제목과, 원문에서 그대로 잘라온 발췌문입니다.\n"
             "발췌문은 언론사 CMS가 글자 수 제한으로 잘라둔 것이라 문장이 중간에 끊깁니다.\n\n"
-            "각 항목마다, 주어진 발췌문에 있는 내용만 근거로 자연스럽고 완결된 3~5문장 요약을 "
-            "작성하세요.\n"
+            "각 항목마다, 주어진 발췌문에 있는 내용만 근거로 자연스럽고 완결된 요약을 "
+            "작성하세요. 한 문장으로 끝내도 되고 여러 문장이어도 되지만, 어느 쪽이든 "
+            "반드시 문장이 끊기지 않고 마무리되어야 합니다.\n"
             "- 발췌문에 없는 사실을 새로 지어내지 마세요.\n"
-            "- 문장이 중간에 끊기지 않게 마무리하세요.\n"
             "- 설명이나 코드블록 없이 아래 형식의 JSON 배열만 응답하세요.\n\n"
             '[{"idx": 1, "summary": "..."}, {"idx": 2, "summary": "..."}]\n\n'
             f"{listing}"
@@ -808,7 +809,7 @@ def polish_editorial_summaries(categories_result, batch_size=15):
                     batch[idx - 1]['description'] = summary
                     polished += 1
         except Exception as e:
-            print(f"⚠️ 사설 요약 정리 실패 (배치 {i // batch_size + 1}): {e}")
+            print(f"⚠️ 요약 정리 실패 (배치 {i // batch_size + 1}): {e}")
 
     print(f"   → {polished}/{len(items)}건 요약 정리 완료")
 
@@ -852,7 +853,7 @@ def fetch_all_categories_news(category_map, window_start, window_end):
     categories_result["사설"] = interleave_by_press(categories_result["사설"])
 
     backfill_missing_descriptions(categories_result)
-    polish_editorial_summaries(categories_result)
+    polish_article_summaries(categories_result)
 
     for cat_name, items in categories_result.items():
         for item in items:
