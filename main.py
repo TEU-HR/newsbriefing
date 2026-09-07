@@ -1083,33 +1083,44 @@ def generate_audio(text, filepath):
 
 # [신규] "카카오톡 나에게 보내기" 발송. 최초 1회 카카오 개발자센터에서 발급받은
 #        refresh_token(KAKAO_REFRESH_TOKEN)으로 access_token을 갱신해 사용한다.
-#        기본 텍스트 템플릿은 글자 수 제한이 있어, 브리핑 전체가 아니라 TOP1 헤드라인 +
+#        기본 텍스트 템플릿은 최대 200자라, 브리핑 전체가 아니라 TOP3 헤드라인 +
 #        핵심 링크만 담은 짧은 알림으로 보내고, 자세한 내용은 웹페이지에서 보게 유도한다.
 PAGE_URL = "https://teu-hr.github.io/newsbriefing/"
 KAKAO_TEXT_LIMIT = 180
+KAKAO_BUTTON_TITLE = "톺아보기"
 
 # [수정] template_object의 link(web_url/mobile_web_url) 버튼은 카카오 개발자 콘솔의
 #        [앱] > [제품 링크 관리] > [웹 도메인]에 해당 도메인을 등록해둬야만 렌더링된다.
 #        등록 안 된 상태에선 API 호출은 성공하지만 버튼이 조용히 빠져서, "자세히 보기"
 #        문구만 있고 실제로는 아무 링크도 없는 메시지가 됐다(실사용자 스크린샷으로 확인).
-#        콘솔 설정 여부와 무관하게 항상 열리도록, 본문 텍스트 끝에 URL을 그대로 붙인다
-#        — 카카오톡은 텍스트 속 URL을 자동으로 탭 가능한 링크로 인식한다.
+#        도메인 등록 여부를 코드에서 알 수 없으므로, 콘솔 설정과 무관하게 항상 열리도록
+#        본문 텍스트 끝에도 URL을 그대로 남겨둔다 — 카카오톡은 텍스트 속 URL을 자동으로
+#        탭 가능한 링크로 인식한다. 도메인 등록이 확인되면 이 줄은 지워도 된다.
 def build_kakao_text(edition, briefing_summary, article_count, now_str):
     label = "🌆 석간 브리핑" if edition == "evening" else "☀️ 조간 브리핑"
-    lines = [f"{label} ({now_str})"]
+    header = f"{label} ({now_str})"
+    count_line = f"오늘 수집 기사 {article_count}건"
 
-    m = re.search(r"^###\s*1\.\s*\[([^\]]+)\]\s*(.+)$", briefing_summary or "", re.MULTILINE)
-    if m:
-        lines.append(f"[{m.group(1)}] {m.group(2)}")
+    matches = re.findall(
+        r"^###\s*(\d+)\.\s*\[([^\]]+)\]\s*(.+)$", briefing_summary or "", re.MULTILINE
+    )[:3]
 
-    lines.append(f"오늘 수집 기사 {article_count}건")
-    body = "\n".join(lines)
+    # 헤더/건수/URL을 뺀 나머지를 헤드라인 개수만큼 나눠 배정하고, 넘치는 헤드라인만
+    # 줄임표로 자른다 — 문장이 어중간하게 끊기지 않도록 줄 단위로 자른다.
+    reserved = len(header) + len(count_line) + len(PAGE_URL) + len(matches) + 3
+    budget_per_line = max(20, (KAKAO_TEXT_LIMIT - reserved) // max(1, len(matches)))
 
-    suffix = f"\n{PAGE_URL}"
-    max_body_len = KAKAO_TEXT_LIMIT - len(suffix)
-    if len(body) > max_body_len:
-        body = body[:max_body_len - 1] + "…"
-    return body + suffix
+    headlines = []
+    for rank, press, title in matches:
+        line = f"{rank}. [{press}] {title}"
+        if len(line) > budget_per_line:
+            line = line[:budget_per_line - 1] + "…"
+        headlines.append(line)
+
+    text = "\n".join([header] + headlines + [count_line, PAGE_URL])
+    if len(text) > KAKAO_TEXT_LIMIT:
+        text = text[:KAKAO_TEXT_LIMIT - 1] + "…"
+    return text
 
 def send_kakao_message(text):
     rest_api_key = os.environ.get("KAKAO_REST_API_KEY", "").strip()
@@ -1148,7 +1159,7 @@ def send_kakao_message(text):
             "object_type": "text",
             "text": text,
             "link": {"web_url": PAGE_URL, "mobile_web_url": PAGE_URL},
-            "button_title": "자세히 보기",
+            "button_title": KAKAO_BUTTON_TITLE,
         }, ensure_ascii=False)
 
         send_body = urllib.parse.urlencode({"template_object": template_object}).encode("utf-8")
