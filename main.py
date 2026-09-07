@@ -1090,12 +1090,10 @@ KAKAO_TEXT_LIMIT = 180
 KAKAO_BUTTON_TITLE = "톺아보기"
 
 # [수정] template_object의 link(web_url/mobile_web_url) 버튼은 카카오 개발자 콘솔의
-#        [앱] > [제품 링크 관리] > [웹 도메인]에 해당 도메인을 등록해둬야만 렌더링된다.
-#        등록 안 된 상태에선 API 호출은 성공하지만 버튼이 조용히 빠져서, "자세히 보기"
-#        문구만 있고 실제로는 아무 링크도 없는 메시지가 됐다(실사용자 스크린샷으로 확인).
-#        도메인 등록 여부를 코드에서 알 수 없으므로, 콘솔 설정과 무관하게 항상 열리도록
-#        본문 텍스트 끝에도 URL을 그대로 남겨둔다 — 카카오톡은 텍스트 속 URL을 자동으로
-#        탭 가능한 링크로 인식한다. 도메인 등록이 확인되면 이 줄은 지워도 된다.
+#        [앱] > [제품 링크 관리] > [웹 도메인]에 도메인을 등록해둬야만 렌더링된다.
+#        한동안 미등록 상태라 버튼이 조용히 빠지는 문제가 있었는데(실사용자 스크린샷으로
+#        확인), 도메인 등록 후 "톺아보기" 버튼이 정상 노출되는 것까지 확인해서
+#        본문 텍스트에 URL을 따로 남겨두던 안전장치는 제거했다.
 def build_kakao_text(edition, briefing_summary, article_count, now_str):
     label = "🌆 석간 브리핑" if edition == "evening" else "☀️ 조간 브리핑"
     header = f"{label} ({now_str})"
@@ -1105,9 +1103,9 @@ def build_kakao_text(edition, briefing_summary, article_count, now_str):
         r"^###\s*(\d+)\.\s*\[([^\]]+)\]\s*(.+)$", briefing_summary or "", re.MULTILINE
     )[:3]
 
-    # 헤더/건수/URL을 뺀 나머지를 헤드라인 개수만큼 나눠 배정하고, 넘치는 헤드라인만
+    # 헤더/건수를 뺀 나머지를 헤드라인 개수만큼 나눠 배정하고, 넘치는 헤드라인만
     # 줄임표로 자른다 — 문장이 어중간하게 끊기지 않도록 줄 단위로 자른다.
-    reserved = len(header) + len(count_line) + len(PAGE_URL) + len(matches) + 3
+    reserved = len(header) + len(count_line) + len(matches) + 2
     budget_per_line = max(20, (KAKAO_TEXT_LIMIT - reserved) // max(1, len(matches)))
 
     headlines = []
@@ -1117,7 +1115,7 @@ def build_kakao_text(edition, briefing_summary, article_count, now_str):
             line = line[:budget_per_line - 1] + "…"
         headlines.append(line)
 
-    text = "\n".join([header] + headlines + [count_line, PAGE_URL])
+    text = "\n".join([header] + headlines + [count_line])
     if len(text) > KAKAO_TEXT_LIMIT:
         text = text[:KAKAO_TEXT_LIMIT - 1] + "…"
     return text
