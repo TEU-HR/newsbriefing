@@ -1088,6 +1088,12 @@ def generate_audio(text, filepath):
 PAGE_URL = "https://teu-hr.github.io/newsbriefing/"
 KAKAO_TEXT_LIMIT = 180
 
+# [수정] template_object의 link(web_url/mobile_web_url) 버튼은 카카오 개발자 콘솔의
+#        [앱] > [제품 링크 관리] > [웹 도메인]에 해당 도메인을 등록해둬야만 렌더링된다.
+#        등록 안 된 상태에선 API 호출은 성공하지만 버튼이 조용히 빠져서, "자세히 보기"
+#        문구만 있고 실제로는 아무 링크도 없는 메시지가 됐다(실사용자 스크린샷으로 확인).
+#        콘솔 설정 여부와 무관하게 항상 열리도록, 본문 텍스트 끝에 URL을 그대로 붙인다
+#        — 카카오톡은 텍스트 속 URL을 자동으로 탭 가능한 링크로 인식한다.
 def build_kakao_text(edition, briefing_summary, article_count, now_str):
     label = "🌆 석간 브리핑" if edition == "evening" else "☀️ 조간 브리핑"
     lines = [f"{label} ({now_str})"]
@@ -1096,12 +1102,14 @@ def build_kakao_text(edition, briefing_summary, article_count, now_str):
     if m:
         lines.append(f"[{m.group(1)}] {m.group(2)}")
 
-    lines.append(f"오늘 수집 기사 {article_count}건 — 자세한 내용은 아래에서 확인하세요.")
-    text = "\n".join(lines)
+    lines.append(f"오늘 수집 기사 {article_count}건")
+    body = "\n".join(lines)
 
-    if len(text) > KAKAO_TEXT_LIMIT:
-        text = text[:KAKAO_TEXT_LIMIT - 1] + "…"
-    return text
+    suffix = f"\n{PAGE_URL}"
+    max_body_len = KAKAO_TEXT_LIMIT - len(suffix)
+    if len(body) > max_body_len:
+        body = body[:max_body_len - 1] + "…"
+    return body + suffix
 
 def send_kakao_message(text):
     rest_api_key = os.environ.get("KAKAO_REST_API_KEY", "").strip()
