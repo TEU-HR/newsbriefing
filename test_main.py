@@ -142,10 +142,35 @@ def test_interleave_by_press_avoids_domination():
         assert len(set(round_presses)) == 4, f"{r}라운드 중복: {round_presses}"
 
 
+def test_duplicate_detection_keeps_other_press_coverage():
+    """비슷한 제목이라도 다른 매체의 보도는 논조 비교를 위해 남겨야 한다."""
+    base = {"title": "정부, 부동산 대책 발표", "press_name": "동아일보", "link": "https://a.example/1"}
+    same_press = {"title": "정부 부동산 대책 발표", "press_name": "동아일보", "link": "https://news.google.com/1"}
+    other_press = {"title": "정부 부동산 대책 발표", "press_name": "한겨레", "link": "https://b.example/1"}
+    assert main.is_duplicate_article(same_press, base)
+    assert not main.is_duplicate_article(other_press, base)
+
+
+def test_collection_diagnostics_uses_deduplicated_article_list():
+    items = [
+        {"press_name": "동아일보", "source": "RSS"},
+        {"press_name": "한겨레", "source": "Google"},
+    ]
+    result = main.build_collection_diagnostics({"정치": items, "전체": items}, items)
+    assert result == {
+        "article_count": 2,
+        "category_counts": {"정치": 2},
+        "press_counts": {"동아일보": 1, "한겨레": 1},
+        "source_counts": {"Google": 1, "RSS": 1},
+    }
+
+
 if __name__ == "__main__":
     test_dateless_feed_is_capped()
     test_dated_feed_respects_window()
     test_dateless_items_anchor_to_real_range_not_full_window()
     test_backfill_missing_descriptions_fills_from_og_tag()
     test_interleave_by_press_avoids_domination()
+    test_duplicate_detection_keeps_other_press_coverage()
+    test_collection_diagnostics_uses_deduplicated_article_list()
     print("OK")

@@ -631,6 +631,7 @@
             <span class="nb-date-line">
                 날짜 <select id="date-select" class="date-select" onchange="onDateChange()"><option>로딩 중...</option></select>
                 · 수집 시각 <span id="update-time">로딩 중...</span>
+                <span id="briefing-status"></span>
             </span>
         </div>
         <h1 class="nb-headline" id="hero-headline">오늘 아침, 놓치면 안 되는 이야기</h1>
@@ -851,6 +852,14 @@
         renderPressFilter();
 
         document.getElementById('update-time').innerText = payload.updated_at || '-';
+        const diagnostics = payload.diagnostics;
+        const status = document.getElementById('briefing-status');
+        if (diagnostics && typeof diagnostics.article_count === 'number') {
+            const pressCount = Object.keys(diagnostics.press_counts || {}).length;
+            status.innerText = ` · ${pressCount}개 언론사 · ${diagnostics.article_count}건`;
+        } else {
+            status.innerText = '';
+        }
 
         // 오디오 처리
         const audioContainer = document.getElementById('audio-container');
@@ -875,7 +884,7 @@
             } else {
                 // 예전 포맷(마커 없음) 데이터를 위한 하위 호환 렌더링
                 top3Elem.innerHTML = '';
-                let formattedSummary = payload.summary
+                let formattedSummary = escapeHtml(payload.summary)
                     .replace(/^# (.*$)/gim, '<h2 style="font-size:1.15rem; font-weight:800; margin-top:18px; margin-bottom:8px; color:var(--ink);">$1</h2>')
                     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
                     .replace(/\n/g, '<br>');
@@ -1124,9 +1133,9 @@
                     item.innerHTML = `
                         <div class="article-meta">
                             ${pressTagHtml(art.press_name)}
-                            <span class="pub-time">${art.pub_time || ''}</span>
+                            <span class="pub-time">${escapeHtml(art.pub_time || '')}</span>
                         </div>
-                        <span class="article-link${isRead ? ' is-read' : ''}" role="button" tabindex="0">${art.title}</span>
+                        <span class="article-link${isRead ? ' is-read' : ''}" role="button" tabindex="0">${escapeHtml(art.title || '')}</span>
                     `;
                     const titleEl = item.querySelector('.article-link');
                     const onOpen = () => {

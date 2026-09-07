@@ -263,11 +263,48 @@ def normalize_title(title):
     title = re.sub(r"[^\w\s]", "", title)
     return title.strip().lower()
 
-def is_duplicate_title(title1, title2, ratio_threshold=0.55):
+def is_duplicate_title(title1, title2, ratio_threshold=0.82):
+    """같은 매체 안에서 RSS/검색 결과를 합칠 때 쓸 보수적인 제목 비교."""
     t1, t2 = normalize_title(title1), normalize_title(title2)
     if not t1 or not t2:
         return False
     return difflib.SequenceMatcher(None, t1, t2).ratio() >= ratio_threshold
+
+def is_duplicate_article(candidate, existing):
+    """동일 기사의 여러 수집 경로만 합치고, 매체 간 보도는 보존한다.
+
+    이 서비스는 같은 사건을 각 언론사가 어떻게 다뤘는지 비교하는 것이 목적이다.
+    따라서 제목이 비슷하다는 이유만으로 다른 언론사 기사를 제거하면 안 된다.
+    """
+    candidate_link = candidate.get('link')
+    existing_link = existing.get('link')
+    if candidate_link and candidate_link != '#' and candidate_link == existing_link:
+        return True
+    return (
+        candidate.get('press_name') == existing.get('press_name')
+        and is_duplicate_title(candidate.get('title', ''), existing.get('title', ''))
+    )
+
+def build_collection_diagnostics(categories, all_news_list):
+    """회차 품질을 빠르게 점검할 수 있는, 개인정보 없는 수집 현황."""
+    def count_by(items, key):
+        counts = {}
+        for item in items:
+            value = item.get(key) or '알 수 없음'
+            counts[value] = counts.get(value, 0) + 1
+        return dict(sorted(counts.items()))
+
+    category_counts = {
+        category: len(items)
+        for category, items in categories.items()
+        if category != '전체'
+    }
+    return {
+        'article_count': len(all_news_list),
+        'category_counts': category_counts,
+        'press_counts': count_by(all_news_list, 'press_name'),
+        'source_counts': count_by(all_news_list, 'source'),
+    }
 
 # 사설/오피니언 판별 (제목에 명시적으로 태그된 경우를 우선 신뢰)
 OPINION_TITLE_PATTERNS = [r"^\[사설\]", r"^\[오피니언\]", r"^\[사설·오피니언\]", r"^\[칼럼\]", r"^\[시론\]"]
@@ -684,7 +721,7 @@ def ensure_minimum_per_press(cat_items, category_name, keywords, window_start, w
             for s in supplement:
                 if s['press_name'] != press_name:
                     continue
-                if any(is_duplicate_title(s['title'], u['title']) for u in cat_items):
+                if any(is_duplicate_article(s, u) for u in cat_items):
                     continue
                 cat_items.append(s)
                 counts[press_name] = counts.get(press_name, 0) + 1
@@ -702,7 +739,7 @@ def reclassify_opinion_articles(categories_result):
         remain = []
         for it in items:
             if is_opinion_title(it['title']):
-                if not any(is_duplicate_title(it['title'], u['title']) for u in opinion_list):
+                if not any(is_duplicate_article(it, u) for u in opinion_list):
                     moved = dict(it)
                     moved['category'] = "사설"
                     opinion_list.append(moved)
@@ -834,7 +871,7 @@ def fetch_all_categories_news(category_map, window_start, window_end):
 
         unique_cat_items = []
         for item in combined:
-            if not any(is_duplicate_title(item['title'], u['title']) for u in unique_cat_items):
+            if not any(is_duplicate_article(item, u) for u in unique_cat_items):
                 unique_cat_items.append(item)
 
         unique_cat_items = ensure_minimum_per_press(
@@ -857,7 +894,7 @@ def fetch_all_categories_news(category_map, window_start, window_end):
 
     for cat_name, items in categories_result.items():
         for item in items:
-            if not any(is_duplicate_title(item['title'], u['title']) for u in all_flat_items):
+            if not any(is_duplicate_article(item, u) for u in all_flat_items):
                 all_flat_items.append(item)
 
     all_flat_items = interleave_by_press(all_flat_items)
@@ -1230,6 +1267,7 @@ def main():
     category_keys = list(CATEGORY_MAP.keys())
     categories_data, all_news_list = fetch_all_categories_news(CATEGORY_MAP, window_start, window_end)
     categories_data["전체"] = all_news_list
+    collection_diagnostics = build_collection_diagnostics(categories_data, all_news_list)
 
     briefing_summary = generate_summary(all_news_list, category_keys, commute_label)
 
@@ -1257,7 +1295,8 @@ def main():
         "summary": briefing_summary,
         "has_audio": has_audio,
         "audio_url": f"history/{audio_filename}",
-        "categories": categories_data
+        "categories": categories_data,
+        "diagnostics": collection_diagnostics,
     }
 
     save_edition_payload(edition, daily_payload, history_dir, today_date_key,
