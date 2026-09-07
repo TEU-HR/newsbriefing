@@ -426,7 +426,6 @@
         .top3-logo.herald { height: 9px; }
 
         .top3-title { font-weight: 700; font-size: 0.98rem; color: var(--ink); line-height: 1.5; margin-bottom: 4px; }
-        .top3-desc { font-size: 0.85rem; color: var(--ink-soft); line-height: 1.55; }
 
         @media (min-width: 760px) {
             .top3-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -573,6 +572,30 @@
             margin-bottom: 18px;
         }
 
+        .article-modal-nav {
+            display: none;
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 101;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid var(--line);
+            background: var(--paper);
+            color: var(--ink);
+            font-size: 1.4rem;
+            line-height: 1;
+            cursor: pointer;
+        }
+        .article-modal-nav.show { display: block; }
+        .article-modal-nav.prev { left: 12px; }
+        .article-modal-nav.next { right: 12px; }
+        @media (min-width: 760px) {
+            .article-modal-nav.prev { left: max(12px, calc(50% - 300px)); }
+            .article-modal-nav.next { right: max(12px, calc(50% - 300px)); }
+        }
+
         .article-modal-link {
             display: inline-block;
             font-size: 0.88rem;
@@ -647,6 +670,8 @@
 </div>
 
 <div class="article-modal-overlay" id="article-modal-overlay">
+    <button class="article-modal-nav prev" id="article-modal-prev" aria-label="이전 기사">‹</button>
+    <button class="article-modal-nav next" id="article-modal-next" aria-label="다음 기사">›</button>
     <div class="article-modal">
         <div class="article-modal-handle"></div>
         <button class="article-modal-close" id="article-modal-close" aria-label="닫기">&times;</button>
@@ -909,10 +934,12 @@
     }
 
     let lastTop3Items = [];
+    let top3ModalIndex = -1; // TOP3 팝업이 아니면 -1 (좌우 이동 비활성)
 
     function openTop3Article(idx) {
         const it = lastTop3Items[idx];
         if (!it) return;
+        top3ModalIndex = idx;
         const match = findMatchingArticle(getPayload(), it.press, it.title);
         if (match) {
             markLinkAsRead(match.link);
@@ -920,6 +947,12 @@
         } else {
             openArticleModal({ press_name: it.press, pub_time: '', title: it.title, description: it.desc, link: null });
         }
+    }
+
+    function stepTop3Modal(delta) {
+        if (top3ModalIndex < 0 || lastTop3Items.length === 0) return;
+        const next = (top3ModalIndex + delta + lastTop3Items.length) % lastTop3Items.length;
+        openTop3Article(next);
     }
 
     function renderTop3(text, payload) {
@@ -945,7 +978,6 @@
                     ${top3PressHtml(it.press)}
                 </div>
                 <div class="top3-title">${escapeHtml(it.title)}</div>
-                ${it.desc ? `<div class="top3-desc">${escapeHtml(it.desc)}</div>` : ''}
             </div>
         `).join('') + `</div>`;
     }
@@ -1100,6 +1132,7 @@
                     const onOpen = () => {
                         markLinkAsRead(art.link);
                         titleEl.classList.add('is-read');
+                        top3ModalIndex = -1;
                         openArticleModal(art);
                     };
                     titleEl.addEventListener('click', onOpen);
@@ -1150,6 +1183,9 @@
             linkEl.style.display = 'none';
         }
         document.getElementById('article-modal-overlay').classList.add('open');
+        const showNav = top3ModalIndex >= 0 && lastTop3Items.length > 1;
+        document.getElementById('article-modal-prev').classList.toggle('show', showNav);
+        document.getElementById('article-modal-next').classList.toggle('show', showNav);
     }
 
     function closeArticleModal() {
@@ -1157,11 +1193,33 @@
     }
 
     document.getElementById('article-modal-close').addEventListener('click', closeArticleModal);
+    document.getElementById('article-modal-prev').addEventListener('click', () => stepTop3Modal(-1));
+    document.getElementById('article-modal-next').addEventListener('click', () => stepTop3Modal(1));
     document.getElementById('article-modal-overlay').addEventListener('click', (e) => {
         if (e.target.id === 'article-modal-overlay') closeArticleModal();
     });
+
+    // 모달이 열려 있을 때 좌우 스와이프로 TOP3 이전/다음 기사 이동
+    (() => {
+        let touchStartX = null;
+        const modal = document.querySelector('.article-modal');
+        modal.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+        }, { passive: true });
+        modal.addEventListener('touchend', (e) => {
+            if (touchStartX === null || top3ModalIndex < 0) return;
+            const delta = e.changedTouches[0].clientX - touchStartX;
+            touchStartX = null;
+            if (Math.abs(delta) < 50) return;
+            stepTop3Modal(delta > 0 ? -1 : 1);
+        }, { passive: true });
+    })();
+
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') closeArticleModal();
+        if (!document.getElementById('article-modal-overlay').classList.contains('open')) return;
+        if (e.key === 'ArrowLeft') stepTop3Modal(-1);
+        if (e.key === 'ArrowRight') stepTop3Modal(1);
     });
 
     function speakSummary() {
