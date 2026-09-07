@@ -405,6 +405,62 @@
             letter-spacing: 0.08em;
         }
 
+        /* 오늘의 뉴스 퀴즈 */
+        .quiz-box {
+            border-top: 1px solid var(--ink);
+            border-bottom: 1px solid var(--line);
+            padding: 18px 0 22px;
+            margin-bottom: 28px;
+        }
+
+        .quiz-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 14px; }
+        .quiz-progress { font-size: 0.78rem; color: var(--ink-soft); font-weight: 700; }
+
+        .quiz-question { margin-bottom: 20px; }
+        .quiz-question:last-child { margin-bottom: 0; }
+
+        .quiz-question-text {
+            font-family: 'HangyeolBody', -apple-system, BlinkMacSystemFont, "Malgun Gothic", sans-serif;
+            font-size: 0.98rem;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .quiz-options { display: flex; flex-direction: column; gap: 8px; }
+
+        .quiz-option {
+            text-align: left;
+            padding: 10px 14px;
+            border: 1px solid var(--line);
+            background: transparent;
+            color: var(--ink);
+            font-size: 0.88rem;
+            font-family: inherit;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .quiz-option:hover:not(:disabled) { border-color: var(--accent); }
+        .quiz-option:disabled { cursor: default; }
+        .quiz-option.correct { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, transparent); font-weight: 700; }
+        .quiz-option.wrong { border-color: #b6473f; background: color-mix(in srgb, #b6473f 12%, transparent); }
+
+        .quiz-explanation {
+            margin-top: 8px;
+            font-size: 0.82rem;
+            color: var(--ink-soft);
+            line-height: 1.5;
+            padding-left: 2px;
+        }
+
+        .quiz-result {
+            margin-top: 18px;
+            padding-top: 14px;
+            border-top: 1px solid var(--line);
+            font-size: 0.92rem;
+            font-weight: 700;
+        }
+
         /* TOP3 */
         .top3-grid {
             display: flex;
@@ -651,6 +707,8 @@
 
     <div id="ai-summary" class="summary-content"></div>
 
+    <div id="quiz-container"></div>
+
     <div class="nb-section-label">
         <span id="articles-card-title">언론사 원문 기사 목록</span>
     </div>
@@ -683,6 +741,7 @@
         <div class="article-modal-title" id="article-modal-title"></div>
         <div class="article-modal-desc" id="article-modal-desc"></div>
         <a class="article-modal-link" id="article-modal-link" href="#" target="_blank" rel="noopener">원문 기사 보기 →</a>
+        <a class="article-modal-link" id="article-modal-pilsa" href="#" style="display:none; margin-left:16px;">필사하기 →</a>
     </div>
 </div>
 
@@ -895,7 +954,84 @@
             summaryElem.innerHTML = '생성된 요약 리포트가 없습니다.';
         }
 
+        renderQuiz(payload.quiz, payload.date, currentEdition);
         renderArticles();
+    }
+
+    // ===== 오늘의 뉴스 퀴즈 =====
+    // localStorage에 (날짜+판) 단위로 고른 답을 저장해서, 다시 들어와도 이미 푼 문제는
+    // 그대로 채점된 상태로 보이고 다시 안 물어본다.
+    function quizStorageKey(date, edition) {
+        return `nb-quiz-${date || 'unknown'}-${edition || 'default'}`;
+    }
+
+    function loadQuizAnswers(key) {
+        try {
+            return JSON.parse(localStorage.getItem(key) || '{}');
+        } catch (e) {
+            return {};
+        }
+    }
+
+    function saveQuizAnswer(key, qIdx, optionIdx) {
+        try {
+            const answers = loadQuizAnswers(key);
+            answers[qIdx] = optionIdx;
+            localStorage.setItem(key, JSON.stringify(answers));
+        } catch (e) { /* 저장 실패해도 화면 동작에는 지장 없음 */ }
+    }
+
+    function renderQuiz(quiz, date, edition) {
+        const container = document.getElementById('quiz-container');
+        if (!quiz || quiz.length === 0) {
+            container.innerHTML = '';
+            return;
+        }
+
+        const key = quizStorageKey(date, edition);
+        const saved = loadQuizAnswers(key);
+
+        const questionsHtml = quiz.map((q, qIdx) => {
+            const pickedIdx = saved[qIdx];
+            const answered = pickedIdx !== undefined;
+            const optionsHtml = q.options.map((opt, optIdx) => {
+                let cls = 'quiz-option';
+                if (answered && optIdx === q.answer) cls += ' correct';
+                else if (answered && optIdx === pickedIdx) cls += ' wrong';
+                return `<button class="${cls}" ${answered ? 'disabled' : ''}
+                    onclick="answerQuiz(${qIdx}, ${optIdx})">${escapeHtml(opt)}</button>`;
+            }).join('');
+            const explanationHtml = answered && q.explanation
+                ? `<div class="quiz-explanation">${escapeHtml(q.explanation)}</div>` : '';
+            return `<div class="quiz-question" id="quiz-q-${qIdx}">
+                <div class="quiz-question-text">${qIdx + 1}. ${escapeHtml(q.question)}</div>
+                <div class="quiz-options">${optionsHtml}</div>
+                ${explanationHtml}
+            </div>`;
+        }).join('');
+
+        const answeredCount = Object.keys(saved).length;
+        const correctCount = Object.entries(saved).filter(([qIdx, optIdx]) => quiz[qIdx].answer === optIdx).length;
+        const resultHtml = answeredCount === quiz.length
+            ? `<div class="quiz-result">${quiz.length}문제 중 ${correctCount}개 정답!</div>` : '';
+
+        container.innerHTML = `<div class="quiz-box">
+            <div class="quiz-header">
+                <div class="summary-section-title" style="margin-bottom:0;">오늘의 뉴스 퀴즈</div>
+                <div class="quiz-progress">${answeredCount}/${quiz.length}</div>
+            </div>
+            ${questionsHtml}
+            ${resultHtml}
+        </div>`;
+
+        window._quizData = { quiz, date, edition };
+    }
+
+    function answerQuiz(qIdx, optIdx) {
+        const { quiz, date, edition } = window._quizData || {};
+        if (!quiz) return;
+        saveQuizAnswer(quizStorageKey(date, edition), qIdx, optIdx);
+        renderQuiz(quiz, date, edition);
     }
 
     // ===== AI 리포트 파싱 & 카드형 렌더링 =====
@@ -1190,6 +1326,13 @@
             linkEl.style.display = '';
         } else {
             linkEl.style.display = 'none';
+        }
+        const pilsaEl = document.getElementById('article-modal-pilsa');
+        if (art.category === '사설' && art.link && art.link !== '#') {
+            pilsaEl.href = `pilsa.html?link=${encodeURIComponent(art.link)}`;
+            pilsaEl.style.display = '';
+        } else {
+            pilsaEl.style.display = 'none';
         }
         document.getElementById('article-modal-overlay').classList.add('open');
         const showNav = top3ModalIndex >= 0 && lastTop3Items.length > 1;

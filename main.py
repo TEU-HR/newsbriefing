@@ -801,6 +801,59 @@ def backfill_missing_descriptions(categories_result, max_workers=8, timeout=8):
                 it['description'] = desc
     print(f"   → {filled}/{len(links_to_items)}건 보충 완료")
 
+# [신규] "필사(따라 쓰기)" 기능용으로 사설 원문 본문을 통째로 가져온다. 언론사마다
+#        본문 마크업이 달라 전용 셀렉터를 다 만들기보다 두 가지 범용 방식을 순서대로
+#        시도한다: (1) <p> 태그 모으기(한겨레·경향신문 등), (2) 실패하면 <br><br>로
+#        문단을 나누는 옛날식 마크업(동아일보 등). 광고/저작권 문구/뉴스레터 안내처럼
+#        본문이 아닌 게 뻔한 문단은 필터로 거른다. 조선일보처럼 본문을 JS로 그려주는
+#        곳, 중앙일보처럼 링크가 구글 리다이렉트라 원문에 접근 못 하는 곳은 이 두 방식
+#        다 실패하므로 그냥 빈 값을 반환한다 — 필사 화면에서 "미지원"으로 안내한다.
+def _looks_like_body_paragraph(text):
+    if len(text) < 40:
+        return False
+    korean_chars = len(re.findall(r'[가-힣]', text))
+    if korean_chars < len(text) * 0.3:
+        return False
+    low = text.lower()
+    junk_markers = ('function(', 'else {', '";', "');", 'javascript:', '무단 전재', '재배포 금지',
+                     '뉴스레터', '구독', '개인정보', 'all rights reserved', '회원가입', 'copyright')
+    return not any(m in low for m in junk_markers)
+
+def fetch_article_body(link, timeout=8, max_chars=4000):
+    try:
+        headers = dict(HTTP_HEADERS_FALLBACK, **{'Accept-Encoding': 'identity'})
+        req = urllib.request.Request(link, headers=headers)
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            html = resp.read(400000).decode('utf-8', errors='ignore')
+        html = re.sub(r'<script[^>]*>.*?</script>', ' ', html, flags=re.S | re.I)
+        html = re.sub(r'<style[^>]*>.*?</style>', ' ', html, flags=re.S | re.I)
+
+        paragraphs = [clean_html(p) for p in re.findall(r'<p[^>]*>(.*?)</p>', html, re.S | re.I)]
+        paragraphs = [p for p in paragraphs if _looks_like_body_paragraph(p)]
+
+        if sum(len(p) for p in paragraphs) < 200:
+            segments = re.split(r'(?:<br\s*/?>\s*){2,}', html, flags=re.I)
+            paragraphs = [clean_html(s) for s in segments]
+            paragraphs = [p for p in paragraphs if _looks_like_body_paragraph(p)]
+
+        return '\n\n'.join(paragraphs)[:max_chars]
+    except Exception:
+        return ''
+
+def fetch_article_full_texts(items, max_workers=5):
+    items = [it for it in items if it.get('link') and it['link'] != '#']
+    if not items:
+        return
+    print(f"📝 필사용 사설 원문 {len(items)}건 수집 중...")
+    with ThreadPoolExecutor(max_workers=max_workers) as pool:
+        bodies = list(pool.map(fetch_article_body, [it['link'] for it in items]))
+    filled = 0
+    for it, body in zip(items, bodies):
+        if body:
+            it['full_text'] = body
+            filled += 1
+    print(f"   → {filled}/{len(items)}건 원문 수집 완료")
+
 # [신규] og:description/RSS description은 언론사 CMS가 글자 수 제한으로 그냥 잘라둔
 #        발췌문이라 "...논란이 일" 처럼 문장 중간에서 끊긴다. (처음엔 사설만 대상이었으나
 #        모든 카테고리 기사에서 동일하게 요청받아 확장함.) 이미 확보한 발췌문 안의 내용만
@@ -1013,6 +1066,42 @@ def generate_editorial_summary(news_list):
         return generate_fallback_summary(news_list, ["사설"], EDITORIAL_PRESS)
 
     return text
+
+# [신규] 그날 브리핑 내용을 바탕으로 한 이해도 퀴즈. 뉴스만 읽으면 심심하다는 요청으로
+#        추가 — 브리핑 요약(마크다운 원문)을 그대로 근거 자료로 주고, 그 안에 있는
+#        내용만으로 문제를 내게 해서 오늘 실제로 다룬 뉴스와 어긋나지 않게 한다.
+def generate_daily_quiz(briefing_summary, count=5):
+    if not briefing_summary:
+        return []
+
+    prompt = f"""아래는 오늘의 뉴스 브리핑 전문이다. 이 내용만 근거로 4지선다 퀴즈 {count}개를 만들어라.
+
+- 브리핑에 나온 사실만 물어라. 브리핑에 없는 내용을 새로 지어내지 마라.
+- 단순 헤드라인 암기보다, 배경·이유·맥락을 이해했는지 확인하는 문제를 섞어라.
+- 보기 4개 중 정답은 하나만, 나머지는 그럴듯하지만 명백히 틀린 오답으로 만들어라.
+- 설명이나 코드블록 없이 아래 형식의 JSON 배열만 응답하라.
+
+[{{"question": "...", "options": ["...", "...", "...", "..."], "answer": 0, "explanation": "..."}}]
+
+(answer는 정답 보기의 0부터 시작하는 인덱스, explanation은 한 문장 해설)
+
+브리핑 전문:
+{briefing_summary}
+"""
+    text = generate_gemini_content(prompt, [])
+    if not text:
+        return []
+    try:
+        match = re.search(r"\[.*\]", text, re.S)
+        quiz = json.loads(match.group(0) if match else text)
+        return [
+            q for q in quiz
+            if isinstance(q, dict) and q.get('question') and isinstance(q.get('options'), list)
+            and len(q['options']) == 4 and isinstance(q.get('answer'), int) and 0 <= q['answer'] < 4
+        ]
+    except Exception as e:
+        print(f"⚠️ 퀴즈 생성 실패: {e}")
+        return []
 
 # [신규] 화면 표시용 마크다운(summary)과는 별도로, TTS로 읽기 좋은 자연스러운 스크립트를 생성.
 #        섹션 마커/기호를 읽지 않고, 언론사·제목·요약을 문장으로 이어붙인다.
@@ -1287,6 +1376,7 @@ def main():
     collection_diagnostics = build_collection_diagnostics(categories_data, all_news_list)
 
     briefing_summary = generate_summary(all_news_list, category_keys, commute_label)
+    daily_quiz = generate_daily_quiz(briefing_summary)
 
     history_dir = "history"
     os.makedirs(history_dir, exist_ok=True)
@@ -1314,6 +1404,7 @@ def main():
         "audio_url": f"history/{audio_filename}",
         "categories": categories_data,
         "diagnostics": collection_diagnostics,
+        "quiz": daily_quiz,
     }
 
     save_edition_payload(edition, daily_payload, history_dir, today_date_key,
@@ -1331,6 +1422,7 @@ def main():
     if edition == "morning":
         editorial_news_list = [n for n in categories_data.get("사설", []) if n['press_name'] in EDITORIAL_PRESS]
         editorial_news_list = interleave_by_press(editorial_news_list)
+        fetch_article_full_texts(editorial_news_list)
 
         editorial_summary = generate_editorial_summary(editorial_news_list)
 

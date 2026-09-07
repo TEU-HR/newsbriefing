@@ -165,6 +165,57 @@ def test_collection_diagnostics_uses_deduplicated_article_list():
     }
 
 
+def test_looks_like_body_paragraph_filters_junk():
+    """필사용 본문 추출 필터: 짧은 조각/비한국어 위주/뉴스레터·저작권 문구는 걸러야 한다."""
+    assert main._looks_like_body_paragraph("이것은 충분히 긴 한국어 사설 본문 문단의 예시입니다. 필사 대상으로 남아야 합니다.")
+    assert not main._looks_like_body_paragraph("짧다")
+    assert not main._looks_like_body_paragraph("a" * 50)  # 한국어 비중 낮음
+    assert not main._looks_like_body_paragraph("뉴스레터를 구독하시면 매일 아침 소식을 받아보실 수 있습니다.")
+
+
+def test_fetch_article_body_falls_back_to_br_split():
+    """<p> 태그로 본문을 못 찾으면(동아일보 등) <br><br> 문단 나누기로 재시도해야 한다."""
+    body_text = "역대 최대 수출의 견인차는 초호황을 맞은 반도체다. 관세 압박에도 성장세가 꺾이지 않고 있다."
+    html = ("<html><body><script>var x = 'else { \";\" }';</script>"
+            f"<section>{body_text}<br><br>내수 부진은 여전히 풀어야 할 숙제로 남아 있다는 지적이 계속해서 나오고 있다.</section>"
+            "</body></html>").encode("utf-8")
+
+    class FakeResp:
+        def __enter__(self): return self
+        def __exit__(self, *a): return False
+        def read(self, n=None): return html
+
+    orig = main.urllib.request.urlopen
+    main.urllib.request.urlopen = lambda req, timeout=8: FakeResp()
+    try:
+        result = main.fetch_article_body("https://example.com/a")
+    finally:
+        main.urllib.request.urlopen = orig
+
+    assert body_text in result
+    assert "내수 부진" in result
+    assert "else {" not in result, "<script> 안 내용이 새어 들어가면 안 됨"
+
+
+def test_generate_daily_quiz_validates_shape():
+    """Gemini가 형식을 어기고 응답해도(보기 3개, answer 범위 밖 등) 죽지 않고
+    유효한 문제만 걸러서 반환해야 한다."""
+    fake_response = """[
+        {"question": "정상 문제", "options": ["A", "B", "C", "D"], "answer": 1, "explanation": "설명"},
+        {"question": "보기 부족", "options": ["A", "B"], "answer": 0, "explanation": "설명"},
+        {"question": "인덱스 범위 밖", "options": ["A", "B", "C", "D"], "answer": 9, "explanation": "설명"}
+    ]"""
+    orig = main.generate_gemini_content
+    main.generate_gemini_content = lambda prompt, news_list: fake_response
+    try:
+        quiz = main.generate_daily_quiz("아무 브리핑 텍스트")
+    finally:
+        main.generate_gemini_content = orig
+
+    assert len(quiz) == 1, f"유효하지 않은 문제까지 통과됨: {quiz}"
+    assert quiz[0]["question"] == "정상 문제"
+
+
 if __name__ == "__main__":
     test_dateless_feed_is_capped()
     test_dated_feed_respects_window()
@@ -173,4 +224,7 @@ if __name__ == "__main__":
     test_interleave_by_press_avoids_domination()
     test_duplicate_detection_keeps_other_press_coverage()
     test_collection_diagnostics_uses_deduplicated_article_list()
+    test_looks_like_body_paragraph_filters_junk()
+    test_fetch_article_body_falls_back_to_br_split()
+    test_generate_daily_quiz_validates_shape()
     print("OK")
