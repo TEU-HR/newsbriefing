@@ -173,6 +173,32 @@ def test_looks_like_body_paragraph_filters_junk():
     assert not main._looks_like_body_paragraph("뉴스레터를 구독하시면 매일 아침 소식을 받아보실 수 있습니다.")
 
 
+def test_looks_like_body_paragraph_keeps_real_privacy_related_news():
+    """'개인정보'를 저작권 안내문 필터로 오인해 걸러버리면 안 된다 — 실제 개인정보
+    유출 사건을 다루는 기사 문단은 통과해야 한다(회귀 방지)."""
+    assert main._looks_like_body_paragraph(
+        "이번 개인정보 유출 사건은 3월경 노조가 성과급을 요구하며 갈등이 고조되는 기간에 벌어졌다."
+    )
+
+
+def test_looks_like_body_paragraph_rejects_caption_and_byline():
+    """사진 캡션+통신사 크레딧+바이라인이 <br> 없이 본문 앞에 붙는 경우, 사설이
+    아닌 이 문단은 필사 본문에서 빠져야 한다."""
+    assert not main._looks_like_body_paragraph(
+        "이재명 대통령이 부처 업무보고에서 발언을 듣고 있다. 연합뉴스광고신영전 | 한양대 의대 교수"
+    )
+    assert not main._looks_like_body_paragraph(
+        "관련 사진은 김혜윤 기자 unique@hani.co.kr 로 문의 바랍니다 감사합니다"
+    )
+
+
+def test_clean_html_collapses_whitespace_runs():
+    """마크업 제거 후 남는 들여쓰기용 개행/공백 덩어리를 한 칸으로 정리해야, 필사
+    본문 추출 시 공백 때문에 한국어 비중 판정이 왜곡되지 않는다."""
+    raw = "<p>제목\n\n\n        \r\n            본문 시작</p>"
+    assert main.clean_html(raw) == "제목 본문 시작"
+
+
 def test_fetch_article_body_falls_back_to_br_split():
     """<p> 태그로 본문을 못 찾으면(동아일보 등) <br><br> 문단 나누기로 재시도해야 한다."""
     body_text = "역대 최대 수출의 견인차는 초호황을 맞은 반도체다. 관세 압박에도 성장세가 꺾이지 않고 있다."
@@ -225,6 +251,9 @@ if __name__ == "__main__":
     test_duplicate_detection_keeps_other_press_coverage()
     test_collection_diagnostics_uses_deduplicated_article_list()
     test_looks_like_body_paragraph_filters_junk()
+    test_looks_like_body_paragraph_keeps_real_privacy_related_news()
+    test_looks_like_body_paragraph_rejects_caption_and_byline()
+    test_clean_html_collapses_whitespace_runs()
     test_fetch_article_body_falls_back_to_br_split()
     test_generate_daily_quiz_validates_shape()
     print("OK")

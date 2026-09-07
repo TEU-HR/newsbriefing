@@ -246,7 +246,11 @@ def clean_html(text):
     if not text:
         return ""
     text = re.sub(r"<[^>]+>", "", text)
-    return text.replace('&quot;', '"').replace('&amp;', '&').replace('&lt;', '<').replace('&gt;', '>').replace('&apos;', "'").strip()
+    text = text.replace('&quot;', '"').replace('&amp;', '&').replace('&lt;', '<').replace('&gt;', '>').replace('&apos;', "'")
+    # 마크업을 걷어내고 나면 들여쓰기용 개행/공백이 잔뜩 남는 경우가 있다(특히 필사용
+    # 원문 추출). 그대로 두면 실제 글자 수 대비 공백 비율이 커져서 "한국어 비중" 같은
+    # 휴리스틱 판정이 왜곡된다.
+    return re.sub(r"\s+", " ", text).strip()
 
 # "제목 - 언론사서브브랜드" 형태의 접미사 제거 (네이버/구글 공통 사용)
 def strip_press_suffix(title):
@@ -808,6 +812,12 @@ def backfill_missing_descriptions(categories_result, max_workers=8, timeout=8):
 #        본문이 아닌 게 뻔한 문단은 필터로 거른다. 조선일보처럼 본문을 JS로 그려주는
 #        곳, 중앙일보처럼 링크가 구글 리다이렉트라 원문에 접근 못 하는 곳은 이 두 방식
 #        다 실패하므로 그냥 빈 값을 반환한다 — 필사 화면에서 "미지원"으로 안내한다.
+# [수정] 실사용 중 두 가지 문제가 확인됨:
+#   1) 사설이 아닌 내용이 섞임 — 사진 캡션/기자 바이라인("이름 | 소속", 통신사
+#      크레딧, 이메일)이 본문 바로 앞에 <br> 없이 붙어 있어 걸러지지 않았음.
+#   2) 본문인데도 필터에 걸려 통째로 빠짐 — '개인정보'를 저작권 문구용 필터로
+#      넣어뒀는데, "개인정보 유출" 같은 실제 기사 내용까지 걸러버렸다. 그 결과
+#      남은 문단이 듬성듬성해서 필사창에 "요약본처럼" 보이는 문제로 이어졌다.
 def _looks_like_body_paragraph(text):
     if len(text) < 40:
         return False
@@ -816,8 +826,18 @@ def _looks_like_body_paragraph(text):
         return False
     low = text.lower()
     junk_markers = ('function(', 'else {', '";', "');", 'javascript:', '무단 전재', '재배포 금지',
-                     '뉴스레터', '구독', '개인정보', 'all rights reserved', '회원가입', 'copyright')
-    return not any(m in low for m in junk_markers)
+                     '뉴스레터', '구독', '개인정보 처리방침', '개인정보수정', '개인정보 이용',
+                     '개인정보 수집', 'all rights reserved', '회원가입', 'copyright')
+    if any(m in low for m in junk_markers):
+        return False
+    # 사진 캡션/바이라인 패턴: "이름 | 소속" 형태, 통신사 크레딧, 기자 이메일
+    if re.search(r'[가-힣]{2,4}\s*\|\s*[가-힣]', text):
+        return False
+    if any(agency in text for agency in ('연합뉴스', '뉴시스', '뉴스1', 'AP=', '로이터=')):
+        return False
+    if re.search(r'[\w.+-]+@[\w-]+\.[\w.-]+', text):
+        return False
+    return True
 
 def fetch_article_body(link, timeout=8, max_chars=4000):
     try:
@@ -827,6 +847,11 @@ def fetch_article_body(link, timeout=8, max_chars=4000):
             html = resp.read(400000).decode('utf-8', errors='ignore')
         html = re.sub(r'<script[^>]*>.*?</script>', ' ', html, flags=re.S | re.I)
         html = re.sub(r'<style[^>]*>.*?</style>', ' ', html, flags=re.S | re.I)
+        # <head>/캡션/내비게이션 태그는 본문 바로 앞뒤에 <br><br> 없이 붙어 있는 경우가
+        # 많아서, 실제 본문 문단과 한 덩어리로 묶여 통째로 걸러지곤 했다(예: 동아일보
+        # 첫 문단이 <head> 잔여물과 뭉쳐서 통째로 탈락). 분리 전에 먼저 들어낸다.
+        for tag in ('head', 'nav', 'header', 'footer', 'aside', 'figcaption', 'figure'):
+            html = re.sub(rf'<{tag}[^>]*>.*?</{tag}>', ' ', html, flags=re.S | re.I)
 
         paragraphs = [clean_html(p) for p in re.findall(r'<p[^>]*>(.*?)</p>', html, re.S | re.I)]
         paragraphs = [p for p in paragraphs if _looks_like_body_paragraph(p)]
