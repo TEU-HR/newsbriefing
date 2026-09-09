@@ -68,6 +68,17 @@
             margin: 6px 0 0;
         }
 
+        .pilsa-done-badge {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 4px 10px;
+            border: 1px solid var(--accent);
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
         .pilsa-stats {
             display: flex;
             gap: 20px;
@@ -169,6 +180,7 @@
         <div class="pilsa-meta">
             <div class="pilsa-press" id="pilsa-press">불러오는 중...</div>
             <h1 class="pilsa-title" id="pilsa-title"></h1>
+            <div class="pilsa-done-badge" id="pilsa-done-badge" style="display:none;"></div>
         </div>
 
         <div class="mobile-block">필사 기능은 데스크톱 화면(가로 860px 이상)에서만 사용할 수 있습니다.</div>
@@ -204,11 +216,29 @@
             return normalizeChar(a) === normalizeChar(b);
         }
 
+        // 문단 사이 "\n\n"은 원문에 보여주기 위한 줄바꿈일 뿐이라, 엔터를 1번만
+        // 쳐도(줄바꿈 1개) 다음 문단으로 인정해야 한다. 원문의 개행 두 칸과
+        // 타이핑한 개행 한 칸을 1:1로 비교하면, 엔터를 정확히 2번 쳐야만 맞아
+        // 들어가서 한 번만 치면 그 뒤가 전부 오답으로 밀리는 문제가 있었다(리포트됨).
+        function computeMatch(target, typed) {
+            let ti = 0, pi = 0;
+            while (ti < target.length && pi < typed.length) {
+                if (target[ti] === '\n') {
+                    if (typed[pi] !== '\n') break;
+                    while (ti < target.length && target[ti] === '\n') ti++;
+                    while (pi < typed.length && typed[pi] === '\n') pi++;
+                    continue;
+                }
+                if (!charsMatch(typed[pi], target[ti])) break;
+                ti++; pi++;
+            }
+            return { targetIndex: ti, typedIndex: pi };
+        }
+
         function renderDiff(target, typed) {
-            let i = 0;
-            while (i < typed.length && i < target.length && charsMatch(typed[i], target[i])) i++;
+            const { targetIndex: i, typedIndex: pi } = computeMatch(target, typed);
             const correct = target.slice(0, i);
-            const hasError = i < typed.length;
+            const hasError = pi < typed.length;
             const errorChar = hasError ? target[i] : '';
             const rest = target.slice(i + (hasError ? 1 : 0));
             return `<span class="ch-correct">${escapeHtml(correct)}</span>`
@@ -224,9 +254,28 @@
             return `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`;
         }
 
+        // 필사 완료 기록은 기사 링크 기준으로 이 브라우저에만 저장한다(서버 없음).
+        function pilsaCompletionKey(link) {
+            return `nb-pilsa-done-${link}`;
+        }
+        function formatCompletionDate(iso) {
+            const d = new Date(iso);
+            return `${d.getFullYear()}년 ${String(d.getMonth() + 1).padStart(2, '0')}월 ${String(d.getDate()).padStart(2, '0')}일`;
+        }
+        function showCompletionBadge(iso) {
+            const badge = document.getElementById('pilsa-done-badge');
+            badge.innerText = `✓ ${formatCompletionDate(iso)} 필사 완료`;
+            badge.style.display = 'inline-block';
+        }
+
         function setupPilsa(article) {
             document.getElementById('pilsa-press').innerText = article.press_name || '';
             document.getElementById('pilsa-title').innerText = article.title || '';
+
+            try {
+                const saved = localStorage.getItem(pilsaCompletionKey(article.link));
+                if (saved) showCompletionBadge(saved);
+            } catch (e) { /* localStorage 접근 불가해도 화면 동작에는 지장 없음 */ }
 
             const target = article.full_text;
             const body = document.getElementById('pilsa-body');
@@ -273,12 +322,11 @@
 
                 sourceEl.innerHTML = renderDiff(target, typed);
 
-                let matched = 0;
-                while (matched < typed.length && matched < target.length && charsMatch(typed[matched], target[matched])) matched++;
+                const { targetIndex: matched, typedIndex: matchedTyped } = computeMatch(target, typed);
 
                 document.getElementById('stat-progress').innerText = `${Math.round((matched / target.length) * 100)}%`;
                 document.getElementById('stat-accuracy').innerText = typed.length
-                    ? `${Math.round((matched / typed.length) * 100)}%` : '100%';
+                    ? `${Math.round((matchedTyped / typed.length) * 100)}%` : '100%';
 
                 if (matched >= target.length) {
                     clearInterval(timerInterval);
@@ -286,6 +334,10 @@
                     const doneEl = document.getElementById('pilsa-done');
                     doneEl.style.display = 'block';
                     doneEl.innerText = `필사 완료! 소요 시간 ${formatElapsed(Date.now() - startTime)}`;
+
+                    const nowIso = new Date().toISOString();
+                    try { localStorage.setItem(pilsaCompletionKey(article.link), nowIso); } catch (e) {}
+                    showCompletionBadge(nowIso);
                 }
             });
         }

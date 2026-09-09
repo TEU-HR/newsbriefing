@@ -1330,6 +1330,15 @@
         const pilsaEl = document.getElementById('article-modal-pilsa');
         if (art.category === '사설' && art.link && art.link !== '#') {
             pilsaEl.href = `pilsa.html?link=${encodeURIComponent(art.link)}`;
+            let doneText = '';
+            try {
+                const saved = localStorage.getItem(`nb-pilsa-done-${art.link}`);
+                if (saved) {
+                    const d = new Date(saved);
+                    doneText = ` (✓ ${String(d.getMonth() + 1).padStart(2, '0')}/${String(d.getDate()).padStart(2, '0')} 완료)`;
+                }
+            } catch (e) { /* localStorage 접근 불가해도 화면 동작에는 지장 없음 */ }
+            pilsaEl.innerText = `필사하기${doneText} →`;
             pilsaEl.style.display = '';
         } else {
             pilsaEl.style.display = 'none';
