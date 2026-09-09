@@ -216,34 +216,50 @@
             return normalizeChar(a) === normalizeChar(b);
         }
 
-        // 문단 사이 "\n\n"은 원문에 보여주기 위한 줄바꿈일 뿐이라, 엔터를 1번만
-        // 쳐도(줄바꿈 1개) 다음 문단으로 인정해야 한다. 원문의 개행 두 칸과
-        // 타이핑한 개행 한 칸을 1:1로 비교하면, 엔터를 정확히 2번 쳐야만 맞아
-        // 들어가서 한 번만 치면 그 뒤가 전부 오답으로 밀리는 문제가 있었다(리포트됨).
+        // [수정] 예전엔 첫 오타가 나는 순간 비교를 멈추고, 그 뒤로 아무리 정확하게
+        // 타이핑해도 다시는 화면이 따라가지 않았다(리포트됨) — 오타 하나가 그 뒤
+        // 전체를 "안 따라가는" 것처럼 보이게 만든 진짜 원인이었다. 오타가 나도
+        // 한 글자로 취급하고 계속 진행하도록, 목표 글자마다 맞았는지(correct)
+        // 틀렸는지(wrong)를 끝까지 기록한다. 문단 사이 연속 개행("\n\n")은
+        // 타이핑 쪽 개행 1개 이상이면 통과시킨다(엔터 1번으로 다음 문단 인정).
         function computeMatch(target, typed) {
             let ti = 0, pi = 0;
+            let correctCount = 0;
+            const marks = [];
             while (ti < target.length && pi < typed.length) {
                 if (target[ti] === '\n') {
-                    if (typed[pi] !== '\n') break;
-                    while (ti < target.length && target[ti] === '\n') ti++;
+                    if (typed[pi] !== '\n') {
+                        marks.push('wrong');
+                        ti++; pi++;
+                        continue;
+                    }
+                    while (ti < target.length && target[ti] === '\n') { marks.push('correct'); correctCount++; ti++; }
                     while (pi < typed.length && typed[pi] === '\n') pi++;
                     continue;
                 }
-                if (!charsMatch(typed[pi], target[ti])) break;
+                if (charsMatch(typed[pi], target[ti])) {
+                    marks.push('correct'); correctCount++;
+                } else {
+                    marks.push('wrong');
+                }
                 ti++; pi++;
             }
-            return { targetIndex: ti, typedIndex: pi };
+            return { marks, typedIndex: pi, correctCount };
         }
 
         function renderDiff(target, typed) {
-            const { targetIndex: i, typedIndex: pi } = computeMatch(target, typed);
-            const correct = target.slice(0, i);
-            const hasError = pi < typed.length;
-            const errorChar = hasError ? target[i] : '';
-            const rest = target.slice(i + (hasError ? 1 : 0));
-            return `<span class="ch-correct">${escapeHtml(correct)}</span>`
-                + (hasError ? `<span class="ch-error">${escapeHtml(errorChar)}</span>` : '')
-                + `<span class="ch-pending">${escapeHtml(rest)}</span>`;
+            const { marks } = computeMatch(target, typed);
+            let html = '';
+            let i = 0;
+            while (i < marks.length) {
+                let j = i;
+                while (j < marks.length && marks[j] === marks[i]) j++;
+                const cls = marks[i] === 'correct' ? 'ch-correct' : 'ch-error';
+                html += `<span class="${cls}">${escapeHtml(target.slice(i, j))}</span>`;
+                i = j;
+            }
+            html += `<span class="ch-pending">${escapeHtml(target.slice(marks.length))}</span>`;
+            return html;
         }
 
         let startTime = null;
@@ -322,13 +338,14 @@
 
                 sourceEl.innerHTML = renderDiff(target, typed);
 
-                const { targetIndex: matched, typedIndex: matchedTyped } = computeMatch(target, typed);
+                const { marks, correctCount } = computeMatch(target, typed);
+                const attempted = marks.length;
 
-                document.getElementById('stat-progress').innerText = `${Math.round((matched / target.length) * 100)}%`;
-                document.getElementById('stat-accuracy').innerText = typed.length
-                    ? `${Math.round((matchedTyped / typed.length) * 100)}%` : '100%';
+                document.getElementById('stat-progress').innerText = `${Math.round((attempted / target.length) * 100)}%`;
+                document.getElementById('stat-accuracy').innerText = attempted
+                    ? `${Math.round((correctCount / attempted) * 100)}%` : '100%';
 
-                if (matched >= target.length) {
+                if (attempted >= target.length) {
                     clearInterval(timerInterval);
                     inputEl.disabled = true;
                     const doneEl = document.getElementById('pilsa-done');
