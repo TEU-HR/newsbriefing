@@ -1,0 +1,561 @@
+{
+  "date": "2026-09-10",
+  "updated_at": "2026년 09월 10일 17:50",
+  "edition": "evening",
+  "summary": "# TOP3\n\n### 1. [헤럴드경제] “AI 딥페이크·악플 추방”…19년 맞은 선플운동, ‘K-리스펙트’ 확산...\n- 요약: 경기도교육감 등이 참석했다. 송석준·송기헌 의원은 영상으로 참여했다. 중국과 유럽연합(EU), 이탈리아... 김희정 국회 교육위원장은 “AI 딥\n\n### 2. [문화일보] 추경호 시장, “민생경제 활력 위해 전방위 대책 가동한다”\n- 요약: \n\n### 3. [헤럴드경제] “반도체 다음은 ‘방산·원전’”…글로벌 전문가가 꼽았다, K-증시 주...\n- 요약: 글로벌 금융 전문가들이 반도체 ‘슈퍼사이클’(초호황)이 주도한 한국 증시 랠리의 다음 주자로 방산과... 프랭크 벤지므라 소시에테제네랄 아시아주\n\n# PERSPECTIVES\nAI 요약 생성에 실패해 이번 회차에서는 언론사 논조 비교를 제공하지 못했습니다. 아래 원문 기사 목록에서 직접 비교해보세요.\n\n# CATEGORY_REPORT\n- 정치: [문화일보] “자살은 이 시대 아픔이자 사회적 재난...정부·국회·지자체가 대책 마련해야” — 주요 보도\n- 경제: [문화일보] 추경호 시장, “민생경제 활력 위해 전방위 대책 가동한다” — 주요 보도\n- 사회: [헤럴드경제] “AI 딥페이크·악플 추방”…19년 맞은 선플운동, ‘K-리스펙트’ 확산... — 주요 보도\n- 국제: [문화일보] 국제유가 100달러 돌파… 코스피 장중 7000선 무너져 — 주요 보도\n- 사설: [헤럴드경제] 부산신항선 2040년 선로 포화율 125%…“CTX-진해선 구축해야” — 주요 보도\n\n# PRESS_SUMMARY\n- 문화일보: 추경호 시장, “민생경제 활력 위해 전방위 대책 가동한다”\n- 헤럴드경제: “AI 딥페이크·악플 추방”…19년 맞은 선플운동, ‘K-리스펙트’ 확산...\n\n# INSIGHTS\n1. 2개 주요 언론사의 속보를 바탕으로 오늘의 정세 변화에 대비하세요.\n2. 세부 기사 원문은 아래 목록에서 확인하실 수 있습니다.\n",
+  "has_audio": true,
+  "audio_url": "history/2026-09-10_evening.mp3",
+  "categories": {
+    "정치": [
+      {
+        "title": "조정식 의장 “청년 목소리, 정치에 담아낼 대표성 여전히 부족”",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFB1T09Td0k5bDBXbjVMLXFvZGZQM3RUN0tMRllYQ18wM2xINFB0ZUJRSE9sbUNmNVB1Szg2UFk0RkJYYVp5VWxDdmJuX3o2c3dHNGZaM0N3?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "09월 10일 16:35",
+        "dt_timestamp": 1789025701.0,
+        "category": "정치"
+      },
+      {
+        "title": "“자살은 이 시대 아픔이자 사회적 재난...정부·국회·지자체가 대책 마련해야”",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5iVk96cEY1RXo5c3VycWgyTjhOZDFkTlBwaThvQzFUMExFd2pXMU1maHdMODFwaGUwa1ZEcU9TU2twZHZpVkcxLVB2YU10anV6?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 10일 15:55",
+        "dt_timestamp": 1789023309.0,
+        "category": "정치"
+      },
+      {
+        "title": "용혜인 “野의원 장관 지명 DJP연합 이후 처음…관례로 평가 안돼”",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1WUkFEaFRFeV9vZGtweFhyZ0pJS3JwU3d1VTZROXozeldaRS1NeEFVUDFONUhHNU5qZTR4ejZWcEQzNXpBWW5acnd6aDlYbTVCX2prVkZ3?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "09월 10일 16:25",
+        "dt_timestamp": 1789025130.0,
+        "category": "정치"
+      },
+      {
+        "title": "[속보]“대통령 지지했지만 현재는 안해” 28.4%-미디어토마토",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1IYy1JSFpldThObTM4RFBpdUIxUk53VkVKcGRaTkZIaGJhQzVwYnh6bEV2NTBJSTFlZlg2MGwwVVIwc1ducFJwN0w1MTg1ZzU0?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 10일 07:01",
+        "dt_timestamp": 1788991282.0,
+        "category": "정치"
+      }
+    ],
+    "경제": [
+      {
+        "title": "“반도체 다음은 ‘방산·원전’”…글로벌 전문가가 꼽았다, K-증시 주...",
+        "description": "글로벌 금융 전문가들이 반도체 ‘슈퍼사이클’(초호황)이 주도한 한국 증시 랠리의 다음 주자로 방산과... 프랭크 벤지므라 소시에테제네랄 아시아주식전략 총괄은 “미국 증시에는 배터리, 조선, 원자력을 비롯한 여러...",
+        "link": "https://biz.heraldcorp.com/article/10869605?ref=naver",
+        "press_name": "헤럴드경제",
+        "source": "Naver",
+        "pub_time": "09월 10일 17:40",
+        "dt_timestamp": 1789029600.0,
+        "category": "경제"
+      },
+      {
+        "title": "추경호 시장, “민생경제 활력 위해 전방위 대책 가동한다”",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFAwZnB4VktPTWQtdVMyNFZheDlWSnEtTGJUdlN1aXRtV253dWxJR1g5cFRlS3ZCLU9NYjV0NFNXVGFESGYtWGZkR2ZIWURVRjJG?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 10일 16:20",
+        "dt_timestamp": 1789024853.0,
+        "category": "경제"
+      },
+      {
+        "title": "대전상의, 중국 시안시와 ‘양자간 무역·투자 확대’ 맞손",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE03SGw4QmNwdmd0QThMSTJ5SGwxOE5mNms4blg1b3dsTUkyX1hoaGlOR09mOEYta21WSjRHQ3BpdlhDLU8ycjF6bTFVN1Y4dHVRTVZBTUtB?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "09월 10일 15:03",
+        "dt_timestamp": 1789020221.0,
+        "category": "경제"
+      },
+      {
+        "title": "韓, 6주만에 비상경제회의… “11월 원유 물량 선제확보”",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5VUkZjNjFQbXpSelk2TmlFUHFuX29VNEQ3VFdKemJwZkFJVkVqeVhrMUN0VlZqZS1WWm90ejJTc3ZDTzRRTThFUWZMVkdnVmdD?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 10일 12:09",
+        "dt_timestamp": 1789009755.0,
+        "category": "경제"
+      }
+    ],
+    "사회": [
+      {
+        "title": "“AI 딥페이크·악플 추방”…19년 맞은 선플운동, ‘K-리스펙트’ 확산...",
+        "description": "경기도교육감 등이 참석했다. 송석준·송기헌 의원은 영상으로 참여했다. 중국과 유럽연합(EU), 이탈리아... 김희정 국회 교육위원장은 “AI 딥페이크로 인한 피해는 특히 여성과 청소년에게 집중되고 있다”며 “피해자를...",
+        "link": "https://biz.heraldcorp.com/article/10869616?ref=naver",
+        "press_name": "헤럴드경제",
+        "source": "Naver",
+        "pub_time": "09월 10일 17:50",
+        "dt_timestamp": 1789030200.0,
+        "category": "사회"
+      },
+      {
+        "title": "한국기술사회·한국건설포렌식협회, 건설기술 분쟁 대응 위한 업무협약 체결",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5HVk1mWGhlWHp3alZTSXN5ZFcyRHR0M1FQVkpvZHZQMkp2SEQ0RzROaTRfWElEZ2JhNkFDOHZNZldyZklsOVl4Vk5HbjZvdkQ4?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 10일 15:23",
+        "dt_timestamp": 1789021387.0,
+        "category": "사회"
+      },
+      {
+        "title": "“죽고 싶기보다 고통서 벗어나고 싶은 것…자살, 사회가 막아야”",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE0yT1JsVjh1c05GNXNGRFlmb0FzeTdQc1FndDZpTF9EQWJuUkg5Umx5TjBEZFZqeGJXN3lKVG5ySW8zbWhxalo0MjhSaUNWeXg5S2gxYkx3?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "09월 10일 11:28",
+        "dt_timestamp": 1789007328.0,
+        "category": "사회"
+      },
+      {
+        "title": "[속보]국민 47% “검찰 신뢰한다”, 28% “경찰 신뢰한다”-미디어토마토",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE8zbFZLOWRSbUxTeTV2bXgxMkhHT3F6dXNoZ0xNLTdaVEZ3Y2dwM3lkZXdISEVMbkdiaGxMVnFNLWFLenVsM05zSzZhXzkyem9v?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 10일 08:36",
+        "dt_timestamp": 1788996963.0,
+        "category": "사회"
+      }
+    ],
+    "국제": [
+      {
+        "title": "장중 흔들린 코스피, 7000선 턱걸이 마감…역대급 국제유가·금리불안 덮쳤다 [투자360]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBvMTc1UlZqX2pFcWZyTEItZGlNN21jTG9WTkJsSzVmR214emRBcHF0RnA2dXRSaWNBY2x0d3hMUmZVWmpHaTQ0ZjI3anpYZUY1RjNkLV9R?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "09월 10일 16:27",
+        "dt_timestamp": 1789025262.0,
+        "category": "국제"
+      },
+      {
+        "title": "국제유가 100달러 돌파… 코스피 장중 7000선 무너져",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBkcGo5dWljcko5dWt3QkN6TTRwTDEzY3ZraGI3aEJIRENhYTlDcURIVXNXRWdOOU4yVTNvYnEzTTQxNHhjNDV6RlFVb3pfREdR?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 10일 12:11",
+        "dt_timestamp": 1789009912.0,
+        "category": "국제"
+      },
+      {
+        "title": "부산국제영화제, 영화관 밖으로 나온다…칸·베를린과 손잡고 ‘시리즈·몰입형 콘텐츠’까지",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5WbURUR0h3Y0x2SUpZSXBSMkFyMzYzN1lKVDlUOWFhTjVucDZDcldUU3RNVDFER1I4U01iRTBGenMwQjk2RWdObWpSdm1BenFI?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 10일 09:12",
+        "dt_timestamp": 1788999121.0,
+        "category": "국제"
+      },
+      {
+        "title": "국립낙동강생물자원관, 국제물주간서 담수생물 활용 미래 물환경 기술 선보여",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1SbmFPbkE1dDlJRC1mdzRpc1pBejRfbk9mcVJ5ak9wRWo5LVZtLTdabXQ1dWQ5Nm5MU05sWUsyM3AtU0VBU2UyQThJcEJRZFhhcmYtWG1n?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "09월 10일 08:54",
+        "dt_timestamp": 1788998071.0,
+        "category": "국제"
+      }
+    ],
+    "사설": [
+      {
+        "title": "부산신항선 2040년 선로 포화율 125%…“CTX-진해선 구축해야”",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE1iRkpQMG55Wmhwakt1OHA3Qmc2SU0taXMwaXV1aDFXdXFRRzZMSnNuUmNJSGRiRVBuYnRrTi1EWjctSFlyOE1QTk5HYUVvWXVkdDktZlRvMA?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "09월 10일 17:19",
+        "dt_timestamp": 1789028355.0,
+        "category": "사설"
+      },
+      {
+        "title": "여당 대표의 ‘이진숙 한동훈 아웃’ 수첩 메모, 섬뜩하다[사설]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5SS2lnZHdDVHFPdWo5dXpnbmNCUlhjMTJQaElBUkg5UFlicExxTGh3TUd4UW9wNEQyeVUzNXMxLWl6a2V3UV9KUVc5R1oxS0Ry?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 10일 12:03",
+        "dt_timestamp": 1789009395.0,
+        "category": "사설"
+      },
+      {
+        "title": "장기 침체 케이블TV…“콘텐츠 사용료 조정하는 ‘방송전문위원회’ 설립 필요”",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTFBaWkl5N3hfRzhnamRkXzNwNTczT0N6bkFEbXpaNUtxNVEwTmdjWUlpX2VXbWNKX244aklJT3UwRFdpZzU1Q1g2Zkx0VmRLMVF3NEVfcDQ4VQ?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "09월 10일 16:12",
+        "dt_timestamp": 1789024348.0,
+        "category": "사설"
+      },
+      {
+        "title": "장관 후보 5명이 ‘나쁜 1주택자’ … 李정부 정책 자기모순[사설]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5DMll3U291UG1zUHZYckVJaHBHZV8zRVo2ZWlsUTBDZ3k4bnJsLV9YUWc4Q25fek5MR3cxdjNCM2cwWURScGtob21HMWZ1VHlo?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 10일 12:02",
+        "dt_timestamp": 1789009323.0,
+        "category": "사설"
+      },
+      {
+        "title": "예상 뛰어넘는 AI 진화 속도, 더 급해진 산업·교육 혁신[사설]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9rLWV4cS04eEwxYlhqYno0X3lWM3huZ3B1cW54Z0NkaU1DWU5oTnJIeEJWVmF0U3lIdlNrcml1NHdNV3ZGR00wTEp5dmdiSUs3?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 10일 12:01",
+        "dt_timestamp": 1789009263.0,
+        "category": "사설"
+      },
+      {
+        "title": "[사설] 청년 일자리 46개월째 감소, 기존 고용 대책만으론 한계",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1lTXg5ZmhjSDFHalA1cVRkVGpOY2VfYjBLbjJqYnBfdkFNclYweC1oN0hleldCUTB5bENUQUF3RFpjUmdQa2RjbkhaLTZOMFhhSUZsVlRn?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "09월 10일 11:17",
+        "dt_timestamp": 1789006646.0,
+        "category": "사설"
+      },
+      {
+        "title": "개헌 군불 때는 ‘與 저의’ 의심스럽다[시평]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5pXzRpR2VjdndkYklCWTN6bFpuZm9YWkJ4OHJGUk1iYktHdzZORmFobi1wWTA2VE1UZ3RRZXdwQkVyUTB6MXUxcGxxcnphMjlq?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 10일 11:59",
+        "dt_timestamp": 1789009158.0,
+        "category": "사설"
+      },
+      {
+        "title": "[헤럴드광장] 대법관을 ‘Justice’라고 부르는 이유",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE4tMDRaMkxJelZSM2pZOE9ueTRzLUNtdTFObEFYVjVFcjVqbnAzTTFnNHRRMTF3UG5NR2FXaldqWUJ5YjRkeHF0cjhZR3lIaXhoUVRic0VqNA?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "09월 10일 11:16",
+        "dt_timestamp": 1789006589.0,
+        "category": "사설"
+      },
+      {
+        "title": "프렌드플레이션[오후여담]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBPUkc1ZUgwbDdzMWVPdDZlRnd1blcweTFUc0JGOVNHU28wMXphakR5VXpUT1gxamtTQUxweVlsbG40MnZld2JOMnhVZWM2RUY0?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 10일 11:32",
+        "dt_timestamp": 1789007573.0,
+        "category": "사설"
+      },
+      {
+        "title": "폭스바겐 정비사 90명 ‘기술 승부’…최종 3명 해외연수 간다",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9QWUkwNzZPY0gyeUlRNExfbE9wa1JjZTdScVYxMUo5cVRmS1IwR2VBR3gzU3RHRGtUaGtzdnFkaUFOVkVVOV9abFd5a2pyeWhJYmJWWFVrZw?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "09월 10일 10:30",
+        "dt_timestamp": 1789003858.0,
+        "category": "사설"
+      }
+    ],
+    "전체": [
+      {
+        "title": "“AI 딥페이크·악플 추방”…19년 맞은 선플운동, ‘K-리스펙트’ 확산...",
+        "description": "경기도교육감 등이 참석했다. 송석준·송기헌 의원은 영상으로 참여했다. 중국과 유럽연합(EU), 이탈리아... 김희정 국회 교육위원장은 “AI 딥페이크로 인한 피해는 특히 여성과 청소년에게 집중되고 있다”며 “피해자를...",
+        "link": "https://biz.heraldcorp.com/article/10869616?ref=naver",
+        "press_name": "헤럴드경제",
+        "source": "Naver",
+        "pub_time": "09월 10일 17:50",
+        "dt_timestamp": 1789030200.0,
+        "category": "사회"
+      },
+      {
+        "title": "추경호 시장, “민생경제 활력 위해 전방위 대책 가동한다”",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFAwZnB4VktPTWQtdVMyNFZheDlWSnEtTGJUdlN1aXRtV253dWxJR1g5cFRlS3ZCLU9NYjV0NFNXVGFESGYtWGZkR2ZIWURVRjJG?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 10일 16:20",
+        "dt_timestamp": 1789024853.0,
+        "category": "경제"
+      },
+      {
+        "title": "“반도체 다음은 ‘방산·원전’”…글로벌 전문가가 꼽았다, K-증시 주...",
+        "description": "글로벌 금융 전문가들이 반도체 ‘슈퍼사이클’(초호황)이 주도한 한국 증시 랠리의 다음 주자로 방산과... 프랭크 벤지므라 소시에테제네랄 아시아주식전략 총괄은 “미국 증시에는 배터리, 조선, 원자력을 비롯한 여러...",
+        "link": "https://biz.heraldcorp.com/article/10869605?ref=naver",
+        "press_name": "헤럴드경제",
+        "source": "Naver",
+        "pub_time": "09월 10일 17:40",
+        "dt_timestamp": 1789029600.0,
+        "category": "경제"
+      },
+      {
+        "title": "“자살은 이 시대 아픔이자 사회적 재난...정부·국회·지자체가 대책 마련해야”",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5iVk96cEY1RXo5c3VycWgyTjhOZDFkTlBwaThvQzFUMExFd2pXMU1maHdMODFwaGUwa1ZEcU9TU2twZHZpVkcxLVB2YU10anV6?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 10일 15:55",
+        "dt_timestamp": 1789023309.0,
+        "category": "정치"
+      },
+      {
+        "title": "부산신항선 2040년 선로 포화율 125%…“CTX-진해선 구축해야”",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE1iRkpQMG55Wmhwakt1OHA3Qmc2SU0taXMwaXV1aDFXdXFRRzZMSnNuUmNJSGRiRVBuYnRrTi1EWjctSFlyOE1QTk5HYUVvWXVkdDktZlRvMA?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "09월 10일 17:19",
+        "dt_timestamp": 1789028355.0,
+        "category": "사설"
+      },
+      {
+        "title": "한국기술사회·한국건설포렌식협회, 건설기술 분쟁 대응 위한 업무협약 체결",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5HVk1mWGhlWHp3alZTSXN5ZFcyRHR0M1FQVkpvZHZQMkp2SEQ0RzROaTRfWElEZ2JhNkFDOHZNZldyZklsOVl4Vk5HbjZvdkQ4?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 10일 15:23",
+        "dt_timestamp": 1789021387.0,
+        "category": "사회"
+      },
+      {
+        "title": "조정식 의장 “청년 목소리, 정치에 담아낼 대표성 여전히 부족”",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFB1T09Td0k5bDBXbjVMLXFvZGZQM3RUN0tMRllYQ18wM2xINFB0ZUJRSE9sbUNmNVB1Szg2UFk0RkJYYVp5VWxDdmJuX3o2c3dHNGZaM0N3?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "09월 10일 16:35",
+        "dt_timestamp": 1789025701.0,
+        "category": "정치"
+      },
+      {
+        "title": "국제유가 100달러 돌파… 코스피 장중 7000선 무너져",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBkcGo5dWljcko5dWt3QkN6TTRwTDEzY3ZraGI3aEJIRENhYTlDcURIVXNXRWdOOU4yVTNvYnEzTTQxNHhjNDV6RlFVb3pfREdR?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 10일 12:11",
+        "dt_timestamp": 1789009912.0,
+        "category": "국제"
+      },
+      {
+        "title": "장중 흔들린 코스피, 7000선 턱걸이 마감…역대급 국제유가·금리불안 덮쳤다 [투자360]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBvMTc1UlZqX2pFcWZyTEItZGlNN21jTG9WTkJsSzVmR214emRBcHF0RnA2dXRSaWNBY2x0d3hMUmZVWmpHaTQ0ZjI3anpYZUY1RjNkLV9R?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "09월 10일 16:27",
+        "dt_timestamp": 1789025262.0,
+        "category": "국제"
+      },
+      {
+        "title": "韓, 6주만에 비상경제회의… “11월 원유 물량 선제확보”",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5VUkZjNjFQbXpSelk2TmlFUHFuX29VNEQ3VFdKemJwZkFJVkVqeVhrMUN0VlZqZS1WWm90ejJTc3ZDTzRRTThFUWZMVkdnVmdD?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 10일 12:09",
+        "dt_timestamp": 1789009755.0,
+        "category": "경제"
+      },
+      {
+        "title": "용혜인 “野의원 장관 지명 DJP연합 이후 처음…관례로 평가 안돼”",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1WUkFEaFRFeV9vZGtweFhyZ0pJS3JwU3d1VTZROXozeldaRS1NeEFVUDFONUhHNU5qZTR4ejZWcEQzNXpBWW5acnd6aDlYbTVCX2prVkZ3?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "09월 10일 16:25",
+        "dt_timestamp": 1789025130.0,
+        "category": "정치"
+      },
+      {
+        "title": "여당 대표의 ‘이진숙 한동훈 아웃’ 수첩 메모, 섬뜩하다[사설]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5SS2lnZHdDVHFPdWo5dXpnbmNCUlhjMTJQaElBUkg5UFlicExxTGh3TUd4UW9wNEQyeVUzNXMxLWl6a2V3UV9KUVc5R1oxS0Ry?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 10일 12:03",
+        "dt_timestamp": 1789009395.0,
+        "category": "사설"
+      },
+      {
+        "title": "장기 침체 케이블TV…“콘텐츠 사용료 조정하는 ‘방송전문위원회’ 설립 필요”",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTFBaWkl5N3hfRzhnamRkXzNwNTczT0N6bkFEbXpaNUtxNVEwTmdjWUlpX2VXbWNKX244aklJT3UwRFdpZzU1Q1g2Zkx0VmRLMVF3NEVfcDQ4VQ?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "09월 10일 16:12",
+        "dt_timestamp": 1789024348.0,
+        "category": "사설"
+      },
+      {
+        "title": "장관 후보 5명이 ‘나쁜 1주택자’ … 李정부 정책 자기모순[사설]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5DMll3U291UG1zUHZYckVJaHBHZV8zRVo2ZWlsUTBDZ3k4bnJsLV9YUWc4Q25fek5MR3cxdjNCM2cwWURScGtob21HMWZ1VHlo?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 10일 12:02",
+        "dt_timestamp": 1789009323.0,
+        "category": "사설"
+      },
+      {
+        "title": "대전상의, 중국 시안시와 ‘양자간 무역·투자 확대’ 맞손",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE03SGw4QmNwdmd0QThMSTJ5SGwxOE5mNms4blg1b3dsTUkyX1hoaGlOR09mOEYta21WSjRHQ3BpdlhDLU8ycjF6bTFVN1Y4dHVRTVZBTUtB?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "09월 10일 15:03",
+        "dt_timestamp": 1789020221.0,
+        "category": "경제"
+      },
+      {
+        "title": "예상 뛰어넘는 AI 진화 속도, 더 급해진 산업·교육 혁신[사설]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9rLWV4cS04eEwxYlhqYno0X3lWM3huZ3B1cW54Z0NkaU1DWU5oTnJIeEJWVmF0U3lIdlNrcml1NHdNV3ZGR00wTEp5dmdiSUs3?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 10일 12:01",
+        "dt_timestamp": 1789009263.0,
+        "category": "사설"
+      },
+      {
+        "title": "개헌 군불 때는 ‘與 저의’ 의심스럽다[시평]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5pXzRpR2VjdndkYklCWTN6bFpuZm9YWkJ4OHJGUk1iYktHdzZORmFobi1wWTA2VE1UZ3RRZXdwQkVyUTB6MXUxcGxxcnphMjlq?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 10일 11:59",
+        "dt_timestamp": 1789009158.0,
+        "category": "사설"
+      },
+      {
+        "title": "“죽고 싶기보다 고통서 벗어나고 싶은 것…자살, 사회가 막아야”",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE0yT1JsVjh1c05GNXNGRFlmb0FzeTdQc1FndDZpTF9EQWJuUkg5Umx5TjBEZFZqeGJXN3lKVG5ySW8zbWhxalo0MjhSaUNWeXg5S2gxYkx3?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "09월 10일 11:28",
+        "dt_timestamp": 1789007328.0,
+        "category": "사회"
+      },
+      {
+        "title": "프렌드플레이션[오후여담]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBPUkc1ZUgwbDdzMWVPdDZlRnd1blcweTFUc0JGOVNHU28wMXphakR5VXpUT1gxamtTQUxweVlsbG40MnZld2JOMnhVZWM2RUY0?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 10일 11:32",
+        "dt_timestamp": 1789007573.0,
+        "category": "사설"
+      },
+      {
+        "title": "[사설] 청년 일자리 46개월째 감소, 기존 고용 대책만으론 한계",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1lTXg5ZmhjSDFHalA1cVRkVGpOY2VfYjBLbjJqYnBfdkFNclYweC1oN0hleldCUTB5bENUQUF3RFpjUmdQa2RjbkhaLTZOMFhhSUZsVlRn?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "09월 10일 11:17",
+        "dt_timestamp": 1789006646.0,
+        "category": "사설"
+      },
+      {
+        "title": "[헤럴드광장] 대법관을 ‘Justice’라고 부르는 이유",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE4tMDRaMkxJelZSM2pZOE9ueTRzLUNtdTFObEFYVjVFcjVqbnAzTTFnNHRRMTF3UG5NR2FXaldqWUJ5YjRkeHF0cjhZR3lIaXhoUVRic0VqNA?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "09월 10일 11:16",
+        "dt_timestamp": 1789006589.0,
+        "category": "사설"
+      },
+      {
+        "title": "부산국제영화제, 영화관 밖으로 나온다…칸·베를린과 손잡고 ‘시리즈·몰입형 콘텐츠’까지",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5WbURUR0h3Y0x2SUpZSXBSMkFyMzYzN1lKVDlUOWFhTjVucDZDcldUU3RNVDFER1I4U01iRTBGenMwQjk2RWdObWpSdm1BenFI?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 10일 09:12",
+        "dt_timestamp": 1788999121.0,
+        "category": "국제"
+      },
+      {
+        "title": "폭스바겐 정비사 90명 ‘기술 승부’…최종 3명 해외연수 간다",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9QWUkwNzZPY0gyeUlRNExfbE9wa1JjZTdScVYxMUo5cVRmS1IwR2VBR3gzU3RHRGtUaGtzdnFkaUFOVkVVOV9abFd5a2pyeWhJYmJWWFVrZw?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "09월 10일 10:30",
+        "dt_timestamp": 1789003858.0,
+        "category": "사설"
+      },
+      {
+        "title": "[속보]국민 47% “검찰 신뢰한다”, 28% “경찰 신뢰한다”-미디어토마토",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE8zbFZLOWRSbUxTeTV2bXgxMkhHT3F6dXNoZ0xNLTdaVEZ3Y2dwM3lkZXdISEVMbkdiaGxMVnFNLWFLenVsM05zSzZhXzkyem9v?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 10일 08:36",
+        "dt_timestamp": 1788996963.0,
+        "category": "사회"
+      },
+      {
+        "title": "국립낙동강생물자원관, 국제물주간서 담수생물 활용 미래 물환경 기술 선보여",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1SbmFPbkE1dDlJRC1mdzRpc1pBejRfbk9mcVJ5ak9wRWo5LVZtLTdabXQ1dWQ5Nm5MU05sWUsyM3AtU0VBU2UyQThJcEJRZFhhcmYtWG1n?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "09월 10일 08:54",
+        "dt_timestamp": 1788998071.0,
+        "category": "국제"
+      },
+      {
+        "title": "[속보]“대통령 지지했지만 현재는 안해” 28.4%-미디어토마토",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1IYy1JSFpldThObTM4RFBpdUIxUk53VkVKcGRaTkZIaGJhQzVwYnh6bEV2NTBJSTFlZlg2MGwwVVIwc1ducFJwN0w1MTg1ZzU0?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 10일 07:01",
+        "dt_timestamp": 1788991282.0,
+        "category": "정치"
+      }
+    ]
+  },
+  "diagnostics": {
+    "article_count": 26,
+    "category_counts": {
+      "정치": 4,
+      "경제": 4,
+      "사회": 4,
+      "국제": 4,
+      "사설": 10
+    },
+    "press_counts": {
+      "문화일보": 13,
+      "헤럴드경제": 13
+    },
+    "source_counts": {
+      "Google": 24,
+      "Naver": 2
+    }
+  },
+  "quiz": []
+}
