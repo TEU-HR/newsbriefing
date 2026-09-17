@@ -223,25 +223,6 @@ def test_fetch_article_body_falls_back_to_br_split():
     assert "else {" not in result, "<script> 안 내용이 새어 들어가면 안 됨"
 
 
-def test_generate_daily_quiz_validates_shape():
-    """Gemini가 형식을 어기고 응답해도(보기 3개, answer 범위 밖 등) 죽지 않고
-    유효한 문제만 걸러서 반환해야 한다."""
-    fake_response = """[
-        {"question": "정상 문제", "options": ["A", "B", "C", "D"], "answer": 1, "explanation": "설명"},
-        {"question": "보기 부족", "options": ["A", "B"], "answer": 0, "explanation": "설명"},
-        {"question": "인덱스 범위 밖", "options": ["A", "B", "C", "D"], "answer": 9, "explanation": "설명"}
-    ]"""
-    orig = main.generate_gemini_content
-    main.generate_gemini_content = lambda prompt, news_list: fake_response
-    try:
-        quiz = main.generate_daily_quiz("아무 브리핑 텍스트")
-    finally:
-        main.generate_gemini_content = orig
-
-    assert len(quiz) == 1, f"유효하지 않은 문제까지 통과됨: {quiz}"
-    assert quiz[0]["question"] == "정상 문제"
-
-
 if __name__ == "__main__":
     test_dateless_feed_is_capped()
     test_dated_feed_respects_window()
@@ -255,5 +236,4 @@ if __name__ == "__main__":
     test_looks_like_body_paragraph_rejects_caption_and_byline()
     test_clean_html_collapses_whitespace_runs()
     test_fetch_article_body_falls_back_to_br_split()
-    test_generate_daily_quiz_validates_shape()
     print("OK")

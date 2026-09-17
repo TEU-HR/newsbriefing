@@ -622,7 +622,7 @@ def fetch_naver_news(keywords, category_name, display=20):
                 if response.getcode() == 200:
                     data = json.loads(response.read().decode('utf-8'))
                     for item in data.get('items', []):
-                        link = item.get('originallink') or item.get('link', '#')
+                        link = item.get('link') or item.get('originallink', '#')
                         title = strip_press_suffix(clean_html(item.get('title', '')))
 
                         press_name = identify_target_press(url=link, title=title)
@@ -1092,42 +1092,6 @@ def generate_editorial_summary(news_list):
 
     return text
 
-# [신규] 그날 브리핑 내용을 바탕으로 한 이해도 퀴즈. 뉴스만 읽으면 심심하다는 요청으로
-#        추가 — 브리핑 요약(마크다운 원문)을 그대로 근거 자료로 주고, 그 안에 있는
-#        내용만으로 문제를 내게 해서 오늘 실제로 다룬 뉴스와 어긋나지 않게 한다.
-def generate_daily_quiz(briefing_summary, count=5):
-    if not briefing_summary:
-        return []
-
-    prompt = f"""아래는 오늘의 뉴스 브리핑 전문이다. 이 내용만 근거로 4지선다 퀴즈 {count}개를 만들어라.
-
-- 브리핑에 나온 사실만 물어라. 브리핑에 없는 내용을 새로 지어내지 마라.
-- 단순 헤드라인 암기보다, 배경·이유·맥락을 이해했는지 확인하는 문제를 섞어라.
-- 보기 4개 중 정답은 하나만, 나머지는 그럴듯하지만 명백히 틀린 오답으로 만들어라.
-- 설명이나 코드블록 없이 아래 형식의 JSON 배열만 응답하라.
-
-[{{"question": "...", "options": ["...", "...", "...", "..."], "answer": 0, "explanation": "..."}}]
-
-(answer는 정답 보기의 0부터 시작하는 인덱스, explanation은 한 문장 해설)
-
-브리핑 전문:
-{briefing_summary}
-"""
-    text = generate_gemini_content(prompt, [])
-    if not text:
-        return []
-    try:
-        match = re.search(r"\[.*\]", text, re.S)
-        quiz = json.loads(match.group(0) if match else text)
-        return [
-            q for q in quiz
-            if isinstance(q, dict) and q.get('question') and isinstance(q.get('options'), list)
-            and len(q['options']) == 4 and isinstance(q.get('answer'), int) and 0 <= q['answer'] < 4
-        ]
-    except Exception as e:
-        print(f"⚠️ 퀴즈 생성 실패: {e}")
-        return []
-
 # [신규] 화면 표시용 마크다운(summary)과는 별도로, TTS로 읽기 좋은 자연스러운 스크립트를 생성.
 #        섹션 마커/기호를 읽지 않고, 언론사·제목·요약을 문장으로 이어붙인다.
 #        CATEGORY_REPORT는 분량상 음성에서는 생략(화면에서만 확인).
@@ -1401,7 +1365,6 @@ def main():
     collection_diagnostics = build_collection_diagnostics(categories_data, all_news_list)
 
     briefing_summary = generate_summary(all_news_list, category_keys, commute_label)
-    daily_quiz = generate_daily_quiz(briefing_summary)
 
     history_dir = "history"
     os.makedirs(history_dir, exist_ok=True)
@@ -1429,7 +1392,6 @@ def main():
         "audio_url": f"history/{audio_filename}",
         "categories": categories_data,
         "diagnostics": collection_diagnostics,
-        "quiz": daily_quiz,
     }
 
     save_edition_payload(edition, daily_payload, history_dir, today_date_key,
