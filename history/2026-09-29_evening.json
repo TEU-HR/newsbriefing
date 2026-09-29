@@ -1,0 +1,530 @@
+{
+  "date": "2026-09-29",
+  "updated_at": "2026년 09월 29일 17:50",
+  "edition": "evening",
+  "summary": "# TOP3\n### 1. [헤럴드경제] 李대통령 “국토장관에 나라 운명 달려…과감한 공급 총력”\n- 요약: 부동산 시장 안정을 위해 과감한 주택 공급에 총력을 기울여야 한다는 대통령의 강력한 의지가 표명되었습니다.\n### 2. [헤럴드경제] “서울 주택가격 상승 전세계 1위…AI 경제 성장 덕”-UBS\n- 요약: UBS가 서울의 주택가격 상승률이 세계 1위를 기록한 배경으로 AI 산업 발전에 따른 경제 성장을 지목했습니다.\n### 3. [문화일보] ‘北 지뢰’ 위험지대 전면 수색하고 확성기도 검토해야[사설]\n- 요약: 북한의 지뢰 도발 위험 지역에 대한 전면 수색과 함께 대북 확성기 방송 재개 등 강경한 대응 검토를 촉구했습니다.\n\n# PERSPECTIVES\n오늘 수집된 기사들은 주로 주택 공급 및 가격 변동 등 부동산 현안과 북한 안보 위협 대응에 초점을 맞추었습니다. 헤럴드경제는 거시경제 분석과 정부의 주택 공급 정책에 주목한 반면, 문화일보는 북한의 지뢰 위험에 대한 안보적 대응과 지방재정 건전화 등 다각적인 사회 현안을 다루었습니다.\n\n# CATEGORY_REPORT\n- 정치: [헤럴드경제] 李대통령 “국토장관에 나라 운명 달려…과감한 공급 총력” — 주택 시장 안정을 위한 정부의 강력한 공급 의지를 강조했습니다.\n- 경제: [헤럴드경제] “서울 주택가격 상승 전세계 1위…AI 경제 성장 덕”-UBS — 글로벌 IB가 서울의 가파른 집값 상승 원인을 진단했습니다.\n- 사회: [헤럴드경제] ‘박나래 협박’ 전 매니저 “정당한 요구”…첫 공판서 혐의 부인 — 연예인 협박 혐의를 받는 전 매니저의 첫 재판 입장이 보도되었습니다.\n- 국제: [문화일보] 원코리아국제포럼 10월 2일 서울서 개최 — 한반도 통일을 논의하는 국제적 포럼 개최 소식입니다.\n- 사설: [문화일보] ‘北 지뢰’ 위험지대 전면 수색하고 확성기도 검토해야[사설] — 북한의 안보 위협에 대해 적극적인 군사적·심리적 대응을 주문했습니다.\n\n# PRESS_SUMMARY\n- 문화일보: 안보 위협에 따른 강경 대응 촉구 사설과 함께 지방재정 건전화, 통일 포럼 등 거시적 국가 과제를 고루 다뤘습니다.\n- 헤럴드경제: 대통령의 주택 공급 총력 지시와 세계 1위의 서울 집값 상승 원인 분석 등 부동산 및 경제 뉴스를 집중적으로 보도했습니다.\n\n# INSIGHTS\n1. 정부의 강력한 주택 공급 기조와 글로벌 기관의 서울 집값 분석이 맞물려 부동산 시장에 대한 관심이 집중되고 있습니다.\n2. 북한의 도발 위험에 대응하기 위한 군사적 수색 강화 및 확성기 재개 검토 등 안보 이슈를 점검할 필요가 있습니다.",
+  "has_audio": true,
+  "audio_url": "history/2026-09-29_evening.mp3",
+  "categories": {
+    "정치": [
+      {
+        "title": "李대통령 “국토장관에 나라 운명 달려…과감한 공급 총력”",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE01RGdDX09sVGlmZkd2eEQ3WWZOOG9UX3pVdzZaQVdpQmo1bGZpRS1SZVJ5QmNYdUJvSDhOSXYyblBmU2paeFFWU0tWWmxSLWVpRHhxMXJR?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "09월 29일 15:47",
+        "dt_timestamp": 1790664433.0,
+        "category": "정치"
+      },
+      {
+        "title": "“조례로 건실한 지방재정 만들자”… 한국조례학회, 국회세미나 열어",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9TOFFZaHJ5MVVYUU54UjlYd0lZZEV4VENLZ1FwRFl5S0VDWU9IVnUwOEJqQVdxc2NURWVieFoySDVocGoxeGxLTi05dVRjeHQy?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 29일 15:16",
+        "dt_timestamp": 1790662576.0,
+        "category": "정치"
+      },
+      {
+        "title": "“대통령 모시고 식사중” 송영길 생방인터뷰 중단",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBSbTROTUNTZENyX1hEYkVrczBPajVzRkI2dzNXbFhLUkd0M0dBV1RPMVYxZDFRNEhXZTcyblh6MmFwU1lVblZyWTdOWFdJYWxh?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 29일 10:53",
+        "dt_timestamp": 1790646808.0,
+        "category": "정치"
+      },
+      {
+        "title": "‘암살자(들)’, 정치 공방에 명예훼손 고소까지…박찬욱 “영리한 영화, 감탄”",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1FU3ZIbGJROXRlOXJjd0xtV1REdlZ3R0pkZkJjSVRSSmNUdHVFYS05M3BuQWdBQzl6b3BwbFNSVjNWWG9OUmVGS1ZwdVRqdURJbGtDNldn?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "09월 29일 10:11",
+        "dt_timestamp": 1790644292.0,
+        "category": "정치"
+      }
+    ],
+    "경제": [
+      {
+        "title": "“서울 주택가격 상승 전세계 1위…AI 경제 성장 덕”-UBS",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5fZjNJRjZSdXVqbVRKUHdtbTg2VnduWm82cWI2WjhSLWtaLUdRRXdOOGZINmdseHVIaHVEejN2b1BraXBBQl9WNWhsblF1bE9yMHcxMzRn?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "09월 29일 16:49",
+        "dt_timestamp": 1790668174.0,
+        "category": "경제"
+      },
+      {
+        "title": "CPTPP 가입 효과 얼마나 되나 살펴보니…",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE44MXhNWmhtMDRWeGlEVmxZSEdxQTdHRlNoYkw3MzZUYjNGRUFYQVVucjZkekNqTC1GcGg3UGNIQkw4VmRRZ2pLN0QzNTJfM2hI?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 29일 11:26",
+        "dt_timestamp": 1790648811.0,
+        "category": "경제"
+      },
+      {
+        "title": "“연차 안 써도 되겠네” 사전점검 ‘주말 포함 최소 3일’로 늘어난다 [부동산360]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE5fWTg2Ung3amdXUzRSZmxnR2tDZGw4Tk5aYmpiQnpQNGRNUUdQV0RkNGdDU3RTNUFaUHQwT3dvX2lmU2JpQlFKeFliMDYyOFltNFlEOUtZUQ?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "09월 29일 15:43",
+        "dt_timestamp": 1790664199.0,
+        "category": "경제"
+      },
+      {
+        "title": "[속보]“부동산 정책 잘못” 30대 ‘부정’ 78.8% 최고-모노리서치",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBUS0d6RGlpOGt1Zng5THZsT0FpLWstdmJOTzQycWNfY0ZzQUxzekVsVldtclR3ZXl2OENPYVBnY3ZISl9xbkx6MFE3ZFQzTXRS?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 29일 10:23",
+        "dt_timestamp": 1790645009.0,
+        "category": "경제"
+      }
+    ],
+    "사회": [
+      {
+        "title": "‘박나래 협박’ 전 매니저 “정당한 요구”…첫 공판서 혐의 부인",
+        "description": "박나래를 협박한 혐의를 받는 전 매니저 이 씨가 첫 재판에서 혐의를 대부분 부인했으나, 공소사실에 대한 구체적인 입장은 밝히지 않았다.",
+        "link": "https://n.news.naver.com/mnews/article/016/0002703313?sid=102",
+        "press_name": "헤럴드경제",
+        "source": "Naver",
+        "pub_time": "09월 29일 17:46",
+        "dt_timestamp": 1790671560.0,
+        "category": "사회"
+      },
+      {
+        "title": "소버린 AI 성패 가를 ‘사회적 역량’[시평]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBGOF9hMzA4RmlELXVFWV9aWkM3MHBWZ0F2NndGX01DTnNNbTFhSWxOa1J3eEJ0bmtxQ0NoczFGUlNpUDEtOElIYS00WWd3WXRW?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 29일 11:58",
+        "dt_timestamp": 1790650734.0,
+        "category": "사회"
+      },
+      {
+        "title": "푸본현대생명 창립 8돌 맞아 사회공헌 나서",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9LNzhLRmw2d2staHVBSGhOQVFUbmsyX0ItbHd4UUdlUFJycHBqSlBjUTBIUDlsUDVfekotYVBuaEJxLUFxMVlmYUpIWnZ2aTJw?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 29일 11:42",
+        "dt_timestamp": 1790649721.0,
+        "category": "사회"
+      },
+      {
+        "title": "황정민, ‘스토킹女’ 추가 고소…“재판 중 알게 된 개인정보 노출”",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE56SDBIRlBpcEhDZ2w5WmZ2a3c4c2pHejE2cTgtQVpBTTQ0Ums3QUpCdFpmVUFXVDJIaVpTT05kZDNfSXVoaEx1VjM1VlRRcTZBQU1OMWV3?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "09월 29일 09:14",
+        "dt_timestamp": 1790640881.0,
+        "category": "사회"
+      }
+    ],
+    "국제": [
+      {
+        "title": "원코리아국제포럼 10월 2일 서울서 개최",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5zc2JzNW1RUkxZN21lRnZkZUF3b0FER3dyc3EtVGxBT2FuVWNNYlVFcThTaWpqSS1EX0VCUlRjeGdnVXFyZFhKaFhiaVpBbGhV?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 29일 15:06",
+        "dt_timestamp": 1790661972.0,
+        "category": "국제"
+      },
+      {
+        "title": "한국수자원공사, 국제기능올림픽 ‘수처리기술’ 종목 2회 연속 메달 획득",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBSYWxmb1NodC1GMW5zS3o2TEtxTGVnVzR5blp5TVVEWDB1YjdwbFFZcExveXJZV1hGWVd4QjB4WDNRMFNWMkpPYm9PT0k3UlR2bFhxSUJn?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "09월 29일 11:20",
+        "dt_timestamp": 1790648417.0,
+        "category": "국제"
+      },
+      {
+        "title": "“핵 양보시 동결자금 해제 제안”… 미국·이란 물밑대화 활발",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE55MGN1VmZCdUczOW1NT2ZjMW5CV1FUTHBITUFQUnRMTFNobG5PVjRhRTVvSnZjY2R6SF9iSUxZUDVIM0p4ZGhqaUVBeVVZREhs?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 29일 11:56",
+        "dt_timestamp": 1790650604.0,
+        "category": "국제"
+      },
+      {
+        "title": "한국, 파리서 2027년 예산안 소개…한·OECD 국제재정포럼 개최",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9SV1I2emFhM1VRTkMtNUVDZUhsdnFNTmdKeGhqeUlaM0Y5LTB2el9URmtNZGxGMVV1aDdyNkJ3M3Q1VTlxMVZWQ1dGTVVNdmFocS1SZ2NR?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "09월 29일 10:30",
+        "dt_timestamp": 1790645458.0,
+        "category": "국제"
+      }
+    ],
+    "사설": [
+      {
+        "title": "‘北 지뢰’ 위험지대 전면 수색하고 확성기도 검토해야[사설]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5DZVI1bGVMeVQzWWFHYUVlbXVtQW83MXVOTHRlbThRTTlmdFZQTTI4dDFVSjlGTGtkMU1HaFl0N1VQbzF4MWhxSjVXYnAwOC1F?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 29일 12:03",
+        "dt_timestamp": 1790650996.0,
+        "category": "사설"
+      },
+      {
+        "title": "[사설] 담합 ‘2S 아웃’ 도입, 치명적 부작용도 살펴야",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE5TQWQtVG5GNEFuakYycE9JMzZRdmZ5R3Jud3FteE5jcXhzcktZRlIyQzhiTW1CTXZzTk8zUkRYaWFfR1FtQ2JMVVI2dlNJNXNkdU9reGhtcw?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "09월 29일 11:04",
+        "dt_timestamp": 1790647482.0,
+        "category": "사설"
+      },
+      {
+        "title": "소버린 AI 성패 가를 ‘사회적 역량’[시평]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBGOF9hMzA4RmlELXVFWV9aWkM3MHBWZ0F2NndGX01DTnNNbTFhSWxOa1J3eEJ0bmtxQ0NoczFGUlNpUDEtOElIYS00WWd3WXRW?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 29일 11:58",
+        "dt_timestamp": 1790650734.0,
+        "category": "사설"
+      },
+      {
+        "title": "[헤럴드비즈] 중국 로봇굴기와 한국의 선택",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBBQ3pVVzJfY1lZMzZGTm1MX1BXcS1DdFhTOFFYbjhUNkFFVzY4UTJDbTZlUXFFNnpXakkxWjIxbGw4Wm9jbmJISUFwTlZURWdoeURYSnBR?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "09월 29일 11:04",
+        "dt_timestamp": 1790647469.0,
+        "category": "사설"
+      },
+      {
+        "title": "노사 충돌과 ‘가능한 사랑’[뉴스와 시각]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE4yRnNYd1h1Z29DcFRHd0wwZndGRm9WLUN2cDVaYWxEb0FtajRQODVSRS1aMTlaQ0ZLMmdlQnRUZWN0Yk1JLWhVZTA2R3Ftanly?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 29일 11:57",
+        "dt_timestamp": 1790650622.0,
+        "category": "사설"
+      },
+      {
+        "title": "[데스크칼럼] ‘강남불패’보다 무서운 중저가 아파트 상승",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9yOXpYMlJiMl9weWF3WnRDbzVGYU9JRUNqRS1sbEdPemZDSWp3eWlkNTlsSktrcE5TVEFESmVrUXBtbzNVSVZwT1Z6R3dJbDhNUUxLOXZR?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "09월 29일 11:04",
+        "dt_timestamp": 1790647444.0,
+        "category": "사설"
+      },
+      {
+        "title": "‘목함지뢰’교훈은 실효적 강력 대응[포럼]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5ETVdOWVFrY2hTYW5veG1hLVNvY3pZVDQ1Mktrc3pPeUVyZUNyN05OWDZjbkp5eEJFWG9zSDdqWF9XQllfM3p4cGxTWER0eFRI?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 29일 11:54",
+        "dt_timestamp": 1790650462.0,
+        "category": "사설"
+      },
+      {
+        "title": "[기고] 세종대왕 어가행렬에 서는 시니어들",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBJajVSaWM1TDhmek5EeFlNaVpkVzJUMXlNM3l0dmxIelhuMWNYQTFWbzZDNXVZeWFPRkRjc0ZJcExzRDltdGVtbHdDb25JNVRxb1ptMk9n?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "09월 29일 10:17",
+        "dt_timestamp": 1790644673.0,
+        "category": "사설"
+      },
+      {
+        "title": "임기제 공직 포비아[오후여담]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBxOVdEUmhHZnQ1dnVRWWszRDh2d0dySXBhampiRzNPVlhYdi1uZ2NQQk50cnFTdTZEU0ZWU0RPUFQ3R01IYWVpNlpOUy1PUWxT?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 29일 11:34",
+        "dt_timestamp": 1790649280.0,
+        "category": "사설"
+      }
+    ],
+    "전체": [
+      {
+        "title": "‘박나래 협박’ 전 매니저 “정당한 요구”…첫 공판서 혐의 부인",
+        "description": "박나래를 협박한 혐의를 받는 전 매니저 이 씨가 첫 재판에서 혐의를 대부분 부인했으나, 공소사실에 대한 구체적인 입장은 밝히지 않았다.",
+        "link": "https://n.news.naver.com/mnews/article/016/0002703313?sid=102",
+        "press_name": "헤럴드경제",
+        "source": "Naver",
+        "pub_time": "09월 29일 17:46",
+        "dt_timestamp": 1790671560.0,
+        "category": "사회"
+      },
+      {
+        "title": "“조례로 건실한 지방재정 만들자”… 한국조례학회, 국회세미나 열어",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9TOFFZaHJ5MVVYUU54UjlYd0lZZEV4VENLZ1FwRFl5S0VDWU9IVnUwOEJqQVdxc2NURWVieFoySDVocGoxeGxLTi05dVRjeHQy?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 29일 15:16",
+        "dt_timestamp": 1790662576.0,
+        "category": "정치"
+      },
+      {
+        "title": "“서울 주택가격 상승 전세계 1위…AI 경제 성장 덕”-UBS",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5fZjNJRjZSdXVqbVRKUHdtbTg2VnduWm82cWI2WjhSLWtaLUdRRXdOOGZINmdseHVIaHVEejN2b1BraXBBQl9WNWhsblF1bE9yMHcxMzRn?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "09월 29일 16:49",
+        "dt_timestamp": 1790668174.0,
+        "category": "경제"
+      },
+      {
+        "title": "원코리아국제포럼 10월 2일 서울서 개최",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5zc2JzNW1RUkxZN21lRnZkZUF3b0FER3dyc3EtVGxBT2FuVWNNYlVFcThTaWpqSS1EX0VCUlRjeGdnVXFyZFhKaFhiaVpBbGhV?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 29일 15:06",
+        "dt_timestamp": 1790661972.0,
+        "category": "국제"
+      },
+      {
+        "title": "李대통령 “국토장관에 나라 운명 달려…과감한 공급 총력”",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE01RGdDX09sVGlmZkd2eEQ3WWZOOG9UX3pVdzZaQVdpQmo1bGZpRS1SZVJ5QmNYdUJvSDhOSXYyblBmU2paeFFWU0tWWmxSLWVpRHhxMXJR?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "09월 29일 15:47",
+        "dt_timestamp": 1790664433.0,
+        "category": "정치"
+      },
+      {
+        "title": "‘北 지뢰’ 위험지대 전면 수색하고 확성기도 검토해야[사설]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5DZVI1bGVMeVQzWWFHYUVlbXVtQW83MXVOTHRlbThRTTlmdFZQTTI4dDFVSjlGTGtkMU1HaFl0N1VQbzF4MWhxSjVXYnAwOC1F?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 29일 12:03",
+        "dt_timestamp": 1790650996.0,
+        "category": "사설"
+      },
+      {
+        "title": "“연차 안 써도 되겠네” 사전점검 ‘주말 포함 최소 3일’로 늘어난다 [부동산360]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE5fWTg2Ung3amdXUzRSZmxnR2tDZGw4Tk5aYmpiQnpQNGRNUUdQV0RkNGdDU3RTNUFaUHQwT3dvX2lmU2JpQlFKeFliMDYyOFltNFlEOUtZUQ?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "09월 29일 15:43",
+        "dt_timestamp": 1790664199.0,
+        "category": "경제"
+      },
+      {
+        "title": "소버린 AI 성패 가를 ‘사회적 역량’[시평]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBGOF9hMzA4RmlELXVFWV9aWkM3MHBWZ0F2NndGX01DTnNNbTFhSWxOa1J3eEJ0bmtxQ0NoczFGUlNpUDEtOElIYS00WWd3WXRW?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 29일 11:58",
+        "dt_timestamp": 1790650734.0,
+        "category": "사회"
+      },
+      {
+        "title": "노사 충돌과 ‘가능한 사랑’[뉴스와 시각]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE4yRnNYd1h1Z29DcFRHd0wwZndGRm9WLUN2cDVaYWxEb0FtajRQODVSRS1aMTlaQ0ZLMmdlQnRUZWN0Yk1JLWhVZTA2R3Ftanly?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 29일 11:57",
+        "dt_timestamp": 1790650622.0,
+        "category": "사설"
+      },
+      {
+        "title": "한국수자원공사, 국제기능올림픽 ‘수처리기술’ 종목 2회 연속 메달 획득",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBSYWxmb1NodC1GMW5zS3o2TEtxTGVnVzR5blp5TVVEWDB1YjdwbFFZcExveXJZV1hGWVd4QjB4WDNRMFNWMkpPYm9PT0k3UlR2bFhxSUJn?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "09월 29일 11:20",
+        "dt_timestamp": 1790648417.0,
+        "category": "국제"
+      },
+      {
+        "title": "“핵 양보시 동결자금 해제 제안”… 미국·이란 물밑대화 활발",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE55MGN1VmZCdUczOW1NT2ZjMW5CV1FUTHBITUFQUnRMTFNobG5PVjRhRTVvSnZjY2R6SF9iSUxZUDVIM0p4ZGhqaUVBeVVZREhs?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 29일 11:56",
+        "dt_timestamp": 1790650604.0,
+        "category": "국제"
+      },
+      {
+        "title": "[사설] 담합 ‘2S 아웃’ 도입, 치명적 부작용도 살펴야",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE5TQWQtVG5GNEFuakYycE9JMzZRdmZ5R3Jud3FteE5jcXhzcktZRlIyQzhiTW1CTXZzTk8zUkRYaWFfR1FtQ2JMVVI2dlNJNXNkdU9reGhtcw?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "09월 29일 11:04",
+        "dt_timestamp": 1790647482.0,
+        "category": "사설"
+      },
+      {
+        "title": "‘목함지뢰’교훈은 실효적 강력 대응[포럼]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5ETVdOWVFrY2hTYW5veG1hLVNvY3pZVDQ1Mktrc3pPeUVyZUNyN05OWDZjbkp5eEJFWG9zSDdqWF9XQllfM3p4cGxTWER0eFRI?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 29일 11:54",
+        "dt_timestamp": 1790650462.0,
+        "category": "사설"
+      },
+      {
+        "title": "[헤럴드비즈] 중국 로봇굴기와 한국의 선택",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBBQ3pVVzJfY1lZMzZGTm1MX1BXcS1DdFhTOFFYbjhUNkFFVzY4UTJDbTZlUXFFNnpXakkxWjIxbGw4Wm9jbmJISUFwTlZURWdoeURYSnBR?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "09월 29일 11:04",
+        "dt_timestamp": 1790647469.0,
+        "category": "사설"
+      },
+      {
+        "title": "푸본현대생명 창립 8돌 맞아 사회공헌 나서",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9LNzhLRmw2d2staHVBSGhOQVFUbmsyX0ItbHd4UUdlUFJycHBqSlBjUTBIUDlsUDVfekotYVBuaEJxLUFxMVlmYUpIWnZ2aTJw?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 29일 11:42",
+        "dt_timestamp": 1790649721.0,
+        "category": "사회"
+      },
+      {
+        "title": "[데스크칼럼] ‘강남불패’보다 무서운 중저가 아파트 상승",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9yOXpYMlJiMl9weWF3WnRDbzVGYU9JRUNqRS1sbEdPemZDSWp3eWlkNTlsSktrcE5TVEFESmVrUXBtbzNVSVZwT1Z6R3dJbDhNUUxLOXZR?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "09월 29일 11:04",
+        "dt_timestamp": 1790647444.0,
+        "category": "사설"
+      },
+      {
+        "title": "임기제 공직 포비아[오후여담]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBxOVdEUmhHZnQ1dnVRWWszRDh2d0dySXBhampiRzNPVlhYdi1uZ2NQQk50cnFTdTZEU0ZWU0RPUFQ3R01IYWVpNlpOUy1PUWxT?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 29일 11:34",
+        "dt_timestamp": 1790649280.0,
+        "category": "사설"
+      },
+      {
+        "title": "한국, 파리서 2027년 예산안 소개…한·OECD 국제재정포럼 개최",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9SV1I2emFhM1VRTkMtNUVDZUhsdnFNTmdKeGhqeUlaM0Y5LTB2el9URmtNZGxGMVV1aDdyNkJ3M3Q1VTlxMVZWQ1dGTVVNdmFocS1SZ2NR?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "09월 29일 10:30",
+        "dt_timestamp": 1790645458.0,
+        "category": "국제"
+      },
+      {
+        "title": "CPTPP 가입 효과 얼마나 되나 살펴보니…",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE44MXhNWmhtMDRWeGlEVmxZSEdxQTdHRlNoYkw3MzZUYjNGRUFYQVVucjZkekNqTC1GcGg3UGNIQkw4VmRRZ2pLN0QzNTJfM2hI?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 29일 11:26",
+        "dt_timestamp": 1790648811.0,
+        "category": "경제"
+      },
+      {
+        "title": "[기고] 세종대왕 어가행렬에 서는 시니어들",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBJajVSaWM1TDhmek5EeFlNaVpkVzJUMXlNM3l0dmxIelhuMWNYQTFWbzZDNXVZeWFPRkRjc0ZJcExzRDltdGVtbHdDb25JNVRxb1ptMk9n?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "09월 29일 10:17",
+        "dt_timestamp": 1790644673.0,
+        "category": "사설"
+      },
+      {
+        "title": "“대통령 모시고 식사중” 송영길 생방인터뷰 중단",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBSbTROTUNTZENyX1hEYkVrczBPajVzRkI2dzNXbFhLUkd0M0dBV1RPMVYxZDFRNEhXZTcyblh6MmFwU1lVblZyWTdOWFdJYWxh?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 29일 10:53",
+        "dt_timestamp": 1790646808.0,
+        "category": "정치"
+      },
+      {
+        "title": "‘암살자(들)’, 정치 공방에 명예훼손 고소까지…박찬욱 “영리한 영화, 감탄”",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1FU3ZIbGJROXRlOXJjd0xtV1REdlZ3R0pkZkJjSVRSSmNUdHVFYS05M3BuQWdBQzl6b3BwbFNSVjNWWG9OUmVGS1ZwdVRqdURJbGtDNldn?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "09월 29일 10:11",
+        "dt_timestamp": 1790644292.0,
+        "category": "정치"
+      },
+      {
+        "title": "[속보]“부동산 정책 잘못” 30대 ‘부정’ 78.8% 최고-모노리서치",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBUS0d6RGlpOGt1Zng5THZsT0FpLWstdmJOTzQycWNfY0ZzQUxzekVsVldtclR3ZXl2OENPYVBnY3ZISl9xbkx6MFE3ZFQzTXRS?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "09월 29일 10:23",
+        "dt_timestamp": 1790645009.0,
+        "category": "경제"
+      },
+      {
+        "title": "황정민, ‘스토킹女’ 추가 고소…“재판 중 알게 된 개인정보 노출”",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE56SDBIRlBpcEhDZ2w5WmZ2a3c4c2pHejE2cTgtQVpBTTQ0Ums3QUpCdFpmVUFXVDJIaVpTT05kZDNfSXVoaEx1VjM1VlRRcTZBQU1OMWV3?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "09월 29일 09:14",
+        "dt_timestamp": 1790640881.0,
+        "category": "사회"
+      }
+    ]
+  },
+  "diagnostics": {
+    "article_count": 24,
+    "category_counts": {
+      "정치": 4,
+      "경제": 4,
+      "사회": 4,
+      "국제": 4,
+      "사설": 9
+    },
+    "press_counts": {
+      "문화일보": 12,
+      "헤럴드경제": 12
+    },
+    "source_counts": {
+      "Google": 23,
+      "Naver": 1
+    }
+  }
+}
