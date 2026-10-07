@@ -1,0 +1,530 @@
+{
+  "date": "2026-10-07",
+  "updated_at": "2026년 10월 07일 17:50",
+  "edition": "evening",
+  "summary": "# TOP3\n### 1. [문화일보] [단독]한국 경제자유지수 53위로 추락… 노봉법·정년연장 등 ‘첩첩산중’\n- 요약: 한국의 경제자유지수가 53위로 급락한 가운데, 노란봉투법과 정년연장 논의 등 각종 규제 입법이 기업 경영 환경에 상당한 부담을 가하고 있다는 지적이 제기되었습니다.\n### 2. [헤럴드경제] ‘군 면제’ 발언이 건드린 반백 년 병역특례…존폐 기로\n- 요약: 국방부와 문체부가 국정감사에서 병역특례 제도 축소 및 개편 추진 입장을 밝힘에 따라 50여 년간 유지되어 온 병역특례의 존폐 논의가 본격화될 전망입니다.\n### 3. [문화일보] 중수청장 자리 드디어 채워지나…14일 김지용 청문회 개최\n- 요약: 여야가 김지용 초대 중대범죄수사청장 후보자에 대한 인사청문회를 14일 개최하기로 합의하면서 오랜 기간 비어 있던 수장 공백 해소에 나섭니다.\n\n# PERSPECTIVES\n문화일보는 경제자유지수 하락과 같은 기업 규제 리스크와 정국·사법 현안을 비중 있게 다루며 정책적 허점과 정치권 갈등을 조명했습니다. 반면 헤럴드경제는 병역특례 개편과 같은 제도적 현안 및 부동산 책임을 둘러싼 공방, 친환경 자원순환 정책 등 실무적 이슈에 상대적으로 집중하는 모습을 보였습니다.\n\n# CATEGORY_REPORT\n- 정치: [문화일보] 중수청장 자리 드디어 채워지나…14일 김지용 청문회 개최 — 수장 공백 해소를 위한 김지용 초대 중수청장 후보자의 청문회 일정 확정.\n- 경제: [문화일보] [단독]한국 경제자유지수 53위로 추락… 노봉법·정년연장 등 ‘첩첩산중’ — 규제 법안 연속 입법 추진에 따른 국가 경제자유도 급락 경고.\n- 사회: [문화일보] 보이스피싱 조직원 정보 넘기며 “조직원인 줄 몰랐다”던 경찰… 검찰, 관계 인지 정황 확인 — 범죄 조직과의 연계 의혹을 받는 경찰관에 대한 검찰의 수사 본격화.\n- 국제: [헤럴드경제] 인천환경공단, 수질분야 ‘국제숙련도 최우수 기관’ 재인증 — 국내 공공기관의 수질 분석 능력이 세계 수준임을 다시 입증함.\n- 사설: [헤럴드경제] 폐차 체계 없던 전기이륜차, 민간 협력으로 회수･재활용한다 — 관리 사각지대에 있던 전기이륜차 폐배터리 및 기체 회수 체계 마련 촉구.\n\n# PRESS_SUMMARY\n- 문화일보: 경제자유지수 하락에 따른 규제 입법 비판과 이화영 관련 정치적 단독 보도, 중수청장 청문회 타결 등 정치·경제적 파장이 큰 이슈를 집중 보도했습니다.\n- 헤럴드경제: 병역특례 제도 존폐 논의 및 서울시 부동산 책임 공방 등 사회적 논란과 함께 자원재활용·국제인증 등 실무적 정책 현안을 비중 있게 전달했습니다.\n\n# INSIGHTS\n1. 경제자유지수 급락과 규제 강하게 밀어붙이기는 기업 투자 위축으로 이어질 수 있으므로 노동 및 경영 관련 법안에 대한 신중한 검토가 요구됩니다.\n2. 병역특례 축소 논의가 국정감사를 계기로 본격화됨에 따라 스포츠·예술·산업계 전반의 공정성 기준 재정립과 파급 효과에 대한 대비가 필요합니다.",
+  "has_audio": true,
+  "audio_url": "history/2026-10-07_evening.mp3",
+  "categories": {
+    "정치": [
+      {
+        "title": "‘군 면제’ 발언이 건드린 반백 년 병역특례…존폐 기로",
+        "description": "강신철 국방부 장관과 최휘영 문체부 장관은 7일 국정감사에서 병역특례를 점진적으로 축소하거나 시대상에 맞추어 개편하겠다는 입장을 밝혔다.",
+        "link": "https://m.sports.naver.com/general/article/016/0002706642",
+        "press_name": "헤럴드경제",
+        "source": "Naver",
+        "pub_time": "10월 07일 17:49",
+        "dt_timestamp": 1791362940.0,
+        "category": "정치"
+      },
+      {
+        "title": "중수청장 자리 드디어 채워지나…14일 김지용 청문회 개최",
+        "description": "국회 행정안전위원회는 7일 전체회의를 열어 김지용 초대 중대범죄수사청장 후보자에 대한 인사청문회를 오는 14일에 개최하기로 여야 합의했다.",
+        "link": "https://n.news.naver.com/mnews/article/021/0002823677?sid=100",
+        "press_name": "문화일보",
+        "source": "Naver",
+        "pub_time": "10월 07일 17:48",
+        "dt_timestamp": 1791362880.0,
+        "category": "정치"
+      },
+      {
+        "title": "靑 “오세훈 시장, 서울시 부동산 문제에 책임 없는 것 아냐”",
+        "description": "이재명 대통령은 청와대 참모들과 함께 집무실에서 한국형 발사체 누리호의 5차 발사 장면을 시청했다.",
+        "link": "https://n.news.naver.com/mnews/article/016/0002706641?sid=100",
+        "press_name": "헤럴드경제",
+        "source": "Naver",
+        "pub_time": "10월 07일 17:47",
+        "dt_timestamp": 1791362820.0,
+        "category": "정치"
+      },
+      {
+        "title": "[단독]“이화영, 李 대통령에게 화 많이 났다”… 靑에 ‘가석방’ 요구",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9mNnBnc1IzM0pmeGhoQzVuWV90N3lsdVJpY3N4U1BXcDdDYUJMeklZTlBhb0F2V2p4NmZ0NGNoOWVNZXFCeHgxWjA2bzRGYWcw?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 07일 12:16",
+        "dt_timestamp": 1791343019.0,
+        "category": "정치"
+      }
+    ],
+    "경제": [
+      {
+        "title": "靑 “오세훈 시장, 서울시 부동산 문제에 책임 없는 것 아냐”",
+        "description": "청와대는 정부의 부동산 정책을 비판하는 오세훈 서울시장을 향해 서울시의 부동산 문제에 대해서도 책임이 있다고 지적했다.",
+        "link": "https://n.news.naver.com/mnews/article/016/0002706641?sid=100",
+        "press_name": "헤럴드경제",
+        "source": "Naver",
+        "pub_time": "10월 07일 17:47",
+        "dt_timestamp": 1791362820.0,
+        "category": "경제"
+      },
+      {
+        "title": "이형일 - 경제6단체장 첫 간담회…“기업현장 목소리 반영”",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE56X1huUG1vNDlzSHkycGRIV3hQdGQ0TFZ5emY1aE5zM25ON2FZUXN0WTNud25ENE1yTkpEMk5QMDhjcmZ0VmM1YUlsamNPTkRt?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 07일 12:12",
+        "dt_timestamp": 1791342765.0,
+        "category": "경제"
+      },
+      {
+        "title": "취임 100일 박종원 군수 “생활밀착 성과 낼 것”",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1aODRFMFlkUGl3aVIwMzh0TV85ZFR2TzBQd0ctY2xfWnFjVmNpeGhsNEttNE0zckhoUFFEQnlzbDBjZHVJdzVnVWpYaFMtUF9lQUdCQTFR?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 07일 17:11",
+        "dt_timestamp": 1791360715.0,
+        "category": "경제"
+      },
+      {
+        "title": "[단독]한국 경제자유지수 53위로 추락… 노봉법·정년연장 등 ‘첩첩산중’",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBKYmJmRVlSR3V1U3hUOXU5VllOODR2TWtfQWIzcGZtOUtTdXlDSlJkdU9MUmR3UWFCSjlKYXBGZGtwTGNyLVF0N0pGblJ1NUYt?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 07일 12:12",
+        "dt_timestamp": 1791342758.0,
+        "category": "경제"
+      }
+    ],
+    "사회": [
+      {
+        "title": "‘군 면제’ 발언이 건드린 반백 년 병역특례…존폐 기로",
+        "description": "서이종 서울대 교수는 언론 인터뷰에서 과거의 국위선양 기준을 유지하기보다 현재의 공정성에 맞게 병역특례 제도를 고쳐야 한다고 밝혔다.",
+        "link": "https://m.sports.naver.com/general/article/016/0002706642",
+        "press_name": "헤럴드경제",
+        "source": "Naver",
+        "pub_time": "10월 07일 17:49",
+        "dt_timestamp": 1791362940.0,
+        "category": "사회"
+      },
+      {
+        "title": "보이스피싱 조직원 정보 넘기며 “조직원인 줄 몰랐다”던 경찰… 검찰, 관계 인지 정황 확인",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9RM2JmVkg5TDZxWXhrcjQzZVF2V2xVd1JyV3RZdERXbjFhdHFCaHdESmlZRUprUUdwcTVwRDFBOUozVWV0bEY1LXkyYU9BZHRN?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 07일 15:28",
+        "dt_timestamp": 1791354500.0,
+        "category": "사회"
+      },
+      {
+        "title": "정은경 “국민의 기본적 삶 보장…사회 안전매트 강화, 지역·필수·공공의료 확충”",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE4yMHVpYU1uNzRYcHFneE9kcEVWdWZmOGREQktzTGZ6NDJFcGNtd2wwMTdkUWJ5M1BsZ2tBeEVXS2JQdTJiR2RFV1pUZUhqMmxPRE1reGlR?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 07일 10:22",
+        "dt_timestamp": 1791336155.0,
+        "category": "사회"
+      },
+      {
+        "title": "교총 “배재고엔 분노, ‘암살자(들)’엔 침묵하면 역사교육 원칙 무너져”",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBvUzRmdVBGbTRYOTdZejZ2czZBY2VNLU1hS0VuM0liRkFlU0ZVZDFLdHR3c0hid29nak9CU3JFRjhHV25INU9UMVNDeWQzQTRw?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 07일 07:46",
+        "dt_timestamp": 1791326794.0,
+        "category": "사회"
+      }
+    ],
+    "국제": [
+      {
+        "title": "‘군 면제’ 발언이 건드린 반백 년 병역특례…존폐 기로",
+        "description": "한국 남자 축구의 아시안게임 4연패 달성 직후 선수가 군 면제 보상을 언급하면서 반백 년 된 병역특례 제도의 존폐 논란이 불거졌다.",
+        "link": "https://m.sports.naver.com/general/article/016/0002706642",
+        "press_name": "헤럴드경제",
+        "source": "Naver",
+        "pub_time": "10월 07일 17:49",
+        "dt_timestamp": 1791362940.0,
+        "category": "국제"
+      },
+      {
+        "title": "美, 아이슬란드에도 전초기지… 中·러 견제 수위 높인다",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE83eGpXU1YwbGFaVjFoSUhaWkpXdU5LcGY5REtDM2h4YmxYSEw4RWh3Uy1oLVBFMWQwODQyU3JfSGprWWJiYTRQdHpYcEdyOHdJ?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 07일 11:57",
+        "dt_timestamp": 1791341847.0,
+        "category": "국제"
+      },
+      {
+        "title": "인천환경공단, 수질분야 ‘국제숙련도 최우수 기관’ 재인증",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFA1bFJ3TGJFNHJWa1JpekN5cE9KSmlzVFBEa1hBa2diYWQzbEo3WDJXRGxhMTItMnlsNXdIalBHOHROQ2MzRk5jQ09EZDJHWXNxWDQ2Rjh3?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 07일 17:10",
+        "dt_timestamp": 1791360626.0,
+        "category": "국제"
+      },
+      {
+        "title": "‘어떻게 이런 일이...’…사형 독극물 주사 두번 맞고도 살아난 사형수[아하미국]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9MemJKNDR0SGJnRVg3OVdWNkRON3hNZkl0VmpsNlRBbmpUVHRVTXAxNFdLNkhMTHJ6YmhtY1U5Nnd1dVhmMzhEUkZFUmpkc01V?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 07일 10:06",
+        "dt_timestamp": 1791335179.0,
+        "category": "국제"
+      }
+    ],
+    "사설": [
+      {
+        "title": "폐차 체계 없던 전기이륜차, 민간 협력으로 회수･재활용한다",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE02MmFJZUp0S3VkWDhPdHBRZ3dWZ2NSSHBFdm4yNXpXRjF5U1ZDalVjblBhUFNvSTBEOV9ZRnFJbC1WRjVYSWxkTjlQTHlsRDZFRF95bnJNNA?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 07일 14:21",
+        "dt_timestamp": 1791350490.0,
+        "category": "사설"
+      },
+      {
+        "title": "헌법과 상식 편에 선 曺대법원장… 與, 특정인 고집 접으라[사설]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1mUVFBLU1VM2I3WjdHWmJZWXBYMmRjMklFLVplRFhJNE96bFVLZFVpZ1ZoOEo0N2IxdG9PYmg5M25HNkZqM2N4LVdQdFhGZVZt?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 07일 11:38",
+        "dt_timestamp": 1791340692.0,
+        "category": "사설"
+      },
+      {
+        "title": "李 ‘걱정 마시라’ 1주 만에 “원점”, CPTPP도 갈팡질팡[사설]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE45bUEtaVBqZ0RPNFNPaWhpMk9UcG5yUlE5aUVDVzA3cG43Tmt4eW10TUZXczhlTjhWd29wQk44c010YjN4elN6RlV5c01TLUdx?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 07일 11:36",
+        "dt_timestamp": 1791340588.0,
+        "category": "사설"
+      },
+      {
+        "title": "[안철우 박사의 호르몬 미술관] 남성갱년기, 당신도 ‘댄디’인가요?",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBBMDZzc3JpUTRFaDVGLWxtcnk0TEVsTnRlcW1Ed0RLTExPUmFTWi14MVNLSmRNVHdSTE9YQ3ZvWFEwNEhaczFZYnllR3E1X2Z3eFplVk5n?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 07일 11:07",
+        "dt_timestamp": 1791338863.0,
+        "category": "사설"
+      },
+      {
+        "title": "급기야 ‘김현지 주례’를 공기업 사장에… 해도 너무한다[사설]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9GQks4WmdzZzJUWFdzcmtpM0ZfcmlKZE1BVkl2TDY1dkVwRXV5bXR0eVlOMUtXSmRQT0h4Z1A4TldHQkdDalF6akZkbmdiZnJq?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 07일 11:34",
+        "dt_timestamp": 1791340492.0,
+        "category": "사설"
+      },
+      {
+        "title": "[사설] 靑-대법원장 치킨게임 하나…협의·존중하라는 게 헌법정신",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE8zWjRiU0dUMUhLb1dTeElzUXhvaEx6OHlnd2NUbWZxTTBWRWtGeWhRdWdfbGtSQlRKUFphT2p4NDRuTXFzNVFxNEpVd0x3eTR4QmNiNWtR?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 07일 11:06",
+        "dt_timestamp": 1791338816.0,
+        "category": "사설"
+      },
+      {
+        "title": "중수청이 ‘한국형 FBI’라는 헛말[김세동의 시론]",
+        "description": "1948년 이후 유지되던 검찰청이 폐지되고 공소청과 중대범죄수사청으로 개편되는 형사사법체계의 대격변이 수장도 없는 등 준비가 부족한 상태로 시작되었다.",
+        "link": "https://n.news.naver.com/mnews/article/021/0002823520?sid=110",
+        "press_name": "문화일보",
+        "source": "Naver",
+        "pub_time": "10월 07일 11:30",
+        "dt_timestamp": 1791340200.0,
+        "category": "사설"
+      },
+      {
+        "title": "[사설] 병역특례, 폐지·유지 이분법 보다 합리적 대안 도출 필요",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9Jb3Vmb0M2bnVMOTNzYkJ0bzctN1IybXdIVmE2bjBQZll0UVhVenBaYXRpWWlTUEZidkZQWmpkbzd2dkZtd0tlanZTZV8zVGhrd0xYendNQQ?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 07일 11:05",
+        "dt_timestamp": 1791338757.0,
+        "category": "사설"
+      },
+      {
+        "title": "‘우주 강국’ 꿈과 현실[오후여담]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5JdTR3NFEwMHp2SlRXMFhWQVVBZjRhUzNMLVJDUVZpTWZEYWVOZzNuRG1pQUdzQmdZUnVYeGlGYUFhcXNLczluYXZ6WmxhaFl3?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 07일 11:03",
+        "dt_timestamp": 1791338593.0,
+        "category": "사설"
+      },
+      {
+        "title": "부산 연산동 주거개발 잇따라…‘연산역 수자인 센트리오’ 10월 분양 예정",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE1QUkJ1c2xkZVVnMnVmakRkQXNBbkx5T2dqLXJEUzJJcVdWRTE3cDBqcU1xS3h1LXpVcUtkRGtNa3RYbjVia3lKdUNoYjdvNW1saUM0VENWMA?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 07일 10:49",
+        "dt_timestamp": 1791337774.0,
+        "category": "사설"
+      }
+    ],
+    "전체": [
+      {
+        "title": "‘군 면제’ 발언이 건드린 반백 년 병역특례…존폐 기로",
+        "description": "강신철 국방부 장관과 최휘영 문체부 장관은 7일 국정감사에서 병역특례를 점진적으로 축소하거나 시대상에 맞추어 개편하겠다는 입장을 밝혔다.",
+        "link": "https://m.sports.naver.com/general/article/016/0002706642",
+        "press_name": "헤럴드경제",
+        "source": "Naver",
+        "pub_time": "10월 07일 17:49",
+        "dt_timestamp": 1791362940.0,
+        "category": "정치"
+      },
+      {
+        "title": "중수청장 자리 드디어 채워지나…14일 김지용 청문회 개최",
+        "description": "국회 행정안전위원회는 7일 전체회의를 열어 김지용 초대 중대범죄수사청장 후보자에 대한 인사청문회를 오는 14일에 개최하기로 여야 합의했다.",
+        "link": "https://n.news.naver.com/mnews/article/021/0002823677?sid=100",
+        "press_name": "문화일보",
+        "source": "Naver",
+        "pub_time": "10월 07일 17:48",
+        "dt_timestamp": 1791362880.0,
+        "category": "정치"
+      },
+      {
+        "title": "靑 “오세훈 시장, 서울시 부동산 문제에 책임 없는 것 아냐”",
+        "description": "이재명 대통령은 청와대 참모들과 함께 집무실에서 한국형 발사체 누리호의 5차 발사 장면을 시청했다.",
+        "link": "https://n.news.naver.com/mnews/article/016/0002706641?sid=100",
+        "press_name": "헤럴드경제",
+        "source": "Naver",
+        "pub_time": "10월 07일 17:47",
+        "dt_timestamp": 1791362820.0,
+        "category": "정치"
+      },
+      {
+        "title": "보이스피싱 조직원 정보 넘기며 “조직원인 줄 몰랐다”던 경찰… 검찰, 관계 인지 정황 확인",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9RM2JmVkg5TDZxWXhrcjQzZVF2V2xVd1JyV3RZdERXbjFhdHFCaHdESmlZRUprUUdwcTVwRDFBOUozVWV0bEY1LXkyYU9BZHRN?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 07일 15:28",
+        "dt_timestamp": 1791354500.0,
+        "category": "사회"
+      },
+      {
+        "title": "취임 100일 박종원 군수 “생활밀착 성과 낼 것”",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1aODRFMFlkUGl3aVIwMzh0TV85ZFR2TzBQd0ctY2xfWnFjVmNpeGhsNEttNE0zckhoUFFEQnlzbDBjZHVJdzVnVWpYaFMtUF9lQUdCQTFR?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 07일 17:11",
+        "dt_timestamp": 1791360715.0,
+        "category": "경제"
+      },
+      {
+        "title": "[단독]“이화영, 李 대통령에게 화 많이 났다”… 靑에 ‘가석방’ 요구",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9mNnBnc1IzM0pmeGhoQzVuWV90N3lsdVJpY3N4U1BXcDdDYUJMeklZTlBhb0F2V2p4NmZ0NGNoOWVNZXFCeHgxWjA2bzRGYWcw?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 07일 12:16",
+        "dt_timestamp": 1791343019.0,
+        "category": "정치"
+      },
+      {
+        "title": "인천환경공단, 수질분야 ‘국제숙련도 최우수 기관’ 재인증",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFA1bFJ3TGJFNHJWa1JpekN5cE9KSmlzVFBEa1hBa2diYWQzbEo3WDJXRGxhMTItMnlsNXdIalBHOHROQ2MzRk5jQ09EZDJHWXNxWDQ2Rjh3?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 07일 17:10",
+        "dt_timestamp": 1791360626.0,
+        "category": "국제"
+      },
+      {
+        "title": "이형일 - 경제6단체장 첫 간담회…“기업현장 목소리 반영”",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE56X1huUG1vNDlzSHkycGRIV3hQdGQ0TFZ5emY1aE5zM25ON2FZUXN0WTNud25ENE1yTkpEMk5QMDhjcmZ0VmM1YUlsamNPTkRt?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 07일 12:12",
+        "dt_timestamp": 1791342765.0,
+        "category": "경제"
+      },
+      {
+        "title": "폐차 체계 없던 전기이륜차, 민간 협력으로 회수･재활용한다",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE02MmFJZUp0S3VkWDhPdHBRZ3dWZ2NSSHBFdm4yNXpXRjF5U1ZDalVjblBhUFNvSTBEOV9ZRnFJbC1WRjVYSWxkTjlQTHlsRDZFRF95bnJNNA?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 07일 14:21",
+        "dt_timestamp": 1791350490.0,
+        "category": "사설"
+      },
+      {
+        "title": "[단독]한국 경제자유지수 53위로 추락… 노봉법·정년연장 등 ‘첩첩산중’",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBKYmJmRVlSR3V1U3hUOXU5VllOODR2TWtfQWIzcGZtOUtTdXlDSlJkdU9MUmR3UWFCSjlKYXBGZGtwTGNyLVF0N0pGblJ1NUYt?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 07일 12:12",
+        "dt_timestamp": 1791342758.0,
+        "category": "경제"
+      },
+      {
+        "title": "美, 아이슬란드에도 전초기지… 中·러 견제 수위 높인다",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE83eGpXU1YwbGFaVjFoSUhaWkpXdU5LcGY5REtDM2h4YmxYSEw4RWh3Uy1oLVBFMWQwODQyU3JfSGprWWJiYTRQdHpYcEdyOHdJ?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 07일 11:57",
+        "dt_timestamp": 1791341847.0,
+        "category": "국제"
+      },
+      {
+        "title": "[안철우 박사의 호르몬 미술관] 남성갱년기, 당신도 ‘댄디’인가요?",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBBMDZzc3JpUTRFaDVGLWxtcnk0TEVsTnRlcW1Ed0RLTExPUmFTWi14MVNLSmRNVHdSTE9YQ3ZvWFEwNEhaczFZYnllR3E1X2Z3eFplVk5n?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 07일 11:07",
+        "dt_timestamp": 1791338863.0,
+        "category": "사설"
+      },
+      {
+        "title": "헌법과 상식 편에 선 曺대법원장… 與, 특정인 고집 접으라[사설]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1mUVFBLU1VM2I3WjdHWmJZWXBYMmRjMklFLVplRFhJNE96bFVLZFVpZ1ZoOEo0N2IxdG9PYmg5M25HNkZqM2N4LVdQdFhGZVZt?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 07일 11:38",
+        "dt_timestamp": 1791340692.0,
+        "category": "사설"
+      },
+      {
+        "title": "[사설] 靑-대법원장 치킨게임 하나…협의·존중하라는 게 헌법정신",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE8zWjRiU0dUMUhLb1dTeElzUXhvaEx6OHlnd2NUbWZxTTBWRWtGeWhRdWdfbGtSQlRKUFphT2p4NDRuTXFzNVFxNEpVd0x3eTR4QmNiNWtR?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 07일 11:06",
+        "dt_timestamp": 1791338816.0,
+        "category": "사설"
+      },
+      {
+        "title": "李 ‘걱정 마시라’ 1주 만에 “원점”, CPTPP도 갈팡질팡[사설]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE45bUEtaVBqZ0RPNFNPaWhpMk9UcG5yUlE5aUVDVzA3cG43Tmt4eW10TUZXczhlTjhWd29wQk44c010YjN4elN6RlV5c01TLUdx?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 07일 11:36",
+        "dt_timestamp": 1791340588.0,
+        "category": "사설"
+      },
+      {
+        "title": "[사설] 병역특례, 폐지·유지 이분법 보다 합리적 대안 도출 필요",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9Jb3Vmb0M2bnVMOTNzYkJ0bzctN1IybXdIVmE2bjBQZll0UVhVenBaYXRpWWlTUEZidkZQWmpkbzd2dkZtd0tlanZTZV8zVGhrd0xYendNQQ?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 07일 11:05",
+        "dt_timestamp": 1791338757.0,
+        "category": "사설"
+      },
+      {
+        "title": "급기야 ‘김현지 주례’를 공기업 사장에… 해도 너무한다[사설]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9GQks4WmdzZzJUWFdzcmtpM0ZfcmlKZE1BVkl2TDY1dkVwRXV5bXR0eVlOMUtXSmRQT0h4Z1A4TldHQkdDalF6akZkbmdiZnJq?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 07일 11:34",
+        "dt_timestamp": 1791340492.0,
+        "category": "사설"
+      },
+      {
+        "title": "부산 연산동 주거개발 잇따라…‘연산역 수자인 센트리오’ 10월 분양 예정",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE1QUkJ1c2xkZVVnMnVmakRkQXNBbkx5T2dqLXJEUzJJcVdWRTE3cDBqcU1xS3h1LXpVcUtkRGtNa3RYbjVia3lKdUNoYjdvNW1saUM0VENWMA?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 07일 10:49",
+        "dt_timestamp": 1791337774.0,
+        "category": "사설"
+      },
+      {
+        "title": "중수청이 ‘한국형 FBI’라는 헛말[김세동의 시론]",
+        "description": "1948년 이후 유지되던 검찰청이 폐지되고 공소청과 중대범죄수사청으로 개편되는 형사사법체계의 대격변이 수장도 없는 등 준비가 부족한 상태로 시작되었다.",
+        "link": "https://n.news.naver.com/mnews/article/021/0002823520?sid=110",
+        "press_name": "문화일보",
+        "source": "Naver",
+        "pub_time": "10월 07일 11:30",
+        "dt_timestamp": 1791340200.0,
+        "category": "사설"
+      },
+      {
+        "title": "정은경 “국민의 기본적 삶 보장…사회 안전매트 강화, 지역·필수·공공의료 확충”",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE4yMHVpYU1uNzRYcHFneE9kcEVWdWZmOGREQktzTGZ6NDJFcGNtd2wwMTdkUWJ5M1BsZ2tBeEVXS2JQdTJiR2RFV1pUZUhqMmxPRE1reGlR?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 07일 10:22",
+        "dt_timestamp": 1791336155.0,
+        "category": "사회"
+      },
+      {
+        "title": "‘우주 강국’ 꿈과 현실[오후여담]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5JdTR3NFEwMHp2SlRXMFhWQVVBZjRhUzNMLVJDUVZpTWZEYWVOZzNuRG1pQUdzQmdZUnVYeGlGYUFhcXNLczluYXZ6WmxhaFl3?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 07일 11:03",
+        "dt_timestamp": 1791338593.0,
+        "category": "사설"
+      },
+      {
+        "title": "‘어떻게 이런 일이...’…사형 독극물 주사 두번 맞고도 살아난 사형수[아하미국]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9MemJKNDR0SGJnRVg3OVdWNkRON3hNZkl0VmpsNlRBbmpUVHRVTXAxNFdLNkhMTHJ6YmhtY1U5Nnd1dVhmMzhEUkZFUmpkc01V?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 07일 10:06",
+        "dt_timestamp": 1791335179.0,
+        "category": "국제"
+      },
+      {
+        "title": "교총 “배재고엔 분노, ‘암살자(들)’엔 침묵하면 역사교육 원칙 무너져”",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBvUzRmdVBGbTRYOTdZejZ2czZBY2VNLU1hS0VuM0liRkFlU0ZVZDFLdHR3c0hid29nak9CU3JFRjhHV25INU9UMVNDeWQzQTRw?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 07일 07:46",
+        "dt_timestamp": 1791326794.0,
+        "category": "사회"
+      }
+    ]
+  },
+  "diagnostics": {
+    "article_count": 23,
+    "category_counts": {
+      "정치": 4,
+      "경제": 4,
+      "사회": 4,
+      "국제": 4,
+      "사설": 10
+    },
+    "press_counts": {
+      "문화일보": 13,
+      "헤럴드경제": 10
+    },
+    "source_counts": {
+      "Google": 19,
+      "Naver": 4
+    }
+  }
+}
