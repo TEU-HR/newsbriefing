@@ -1,0 +1,540 @@
+{
+  "date": "2026-10-16",
+  "updated_at": "2026년 10월 16일 17:50",
+  "edition": "evening",
+  "summary": "# TOP3\n### 1. [헤럴드경제] [속보] 한미 재무·통화당국 사상 첫 ‘2+2 면담’…금융충격 대응 공조\n- 요약: 한미 재무 및 통화당국이 사상 처음으로 '2+2 면담'을 열고 금융 시장 충격 시 공동 대응할 수 있는 공조 체계를 논의했습니다.\n\n### 2. [헤럴드경제] [속보] 코스닥 4.9% 급등…‘매수 사이드카’ 발동\n- 요약: 코스닥 지수가 5% 가까이 급등하면서 프로그램 매수호가 효력을 일시 정지하는 '매수 사이드카'가 발동되었습니다.\n\n### 3. [문화일보] “집팔아 주식해? 대통령 말들은 국민만 바보돼” 장동혁의 말\n- 요약: 국민의힘 장동혁 수석대변인이 대통령의 주식시장 관련 발언을 강하게 비판하며 여야 간 경제 정책 공방을 키웠습니다.\n\n# PERSPECTIVES\n오늘 문화일보는 주요 정치인의 여론 조사 결과와 야당의 대정부 비판 등 국내 정치적 이슈 및 공공기관의 성과에 집중했습니다. 반면 헤럴드경제는 한미 재무·통화당국 간 공조 체계 구축, 코스닥 매수 사이드카 발동 등 시장에 즉각적인 영향을 미치는 금융·거시경제 속보를 비중 있게 다루며 언론사 간 시각과 관심사의 차이를 보였습니다.\n\n# CATEGORY_REPORT\n- 정치: [문화일보] “집팔아 주식해? 대통령 말들은 국민만 바보돼” 장동혁의 말 — 정부의 주식 시장 및 경제 메시지에 대한 야권의 강한 비판을 전달함.\n- 경제: [헤럴드경제] [속보] 코스닥 4.9% 급등…‘매수 사이드카’ 발동 — 증시의 급격한 상승세와 시장 안정화 장치 발동 소식을 신속히 보도함.\n- 사회: [헤럴드경제] “귀엽게 생겼네, 태워다 줄게” ‘서대문 초등생 유괴미수’ 20대들 “... — 아동 대상 범죄 사건의 수사 및 재판 경과를 다루며 사회적 경각심을 환기함.\n- 국제: [문화일보] 한국지방재정공제회, UN 고위급 면담…지방재정 국제협력 확대 나서 — 공공기관의 UN 면담을 통한 국제 협력 네트워크 구축 노력을 소개함.\n- 사설: [헤럴드경제] [속보] 한미 재무·통화당국 사상 첫 ‘2+2 면담’…금융충격 대응 공조 — 글로벌 금융 불확실성 속에서 한미 간 거시경제 공조의 중요성을 강조함.\n\n# PRESS_SUMMARY\n- 문화일보: 오세훈 서울시장의 호감도 1위 소식 및 장동혁 대변인의 정부 비판 등 정치권 이슈를 주요하게 다루었으며, 대학 및 공공기관의 선진화 노력에도 주목했습니다.\n- 헤럴드경제: 한미 금융 당국의 '2+2 면담' 및 코스닥 사이드카 발동과 같은 거시경제·증시 속보를 최우선으로 배치하여 시장 변동성에 빠르게 대응했습니다.\n\n# INSIGHTS\n1. 한미 재무·통화당국의 사상 첫 2+2 면담은 향후 외환 및 금융 시장 불안 발생 시 실질적인 안전판 역할을 할 것으로 기대됩니다.\n2. 코스닥 매수 사이드카 발동 등 증시 변동성이 확대되는 가운데, 정부 메시지와 시장 신뢰 간의 격차를 줄이는 정책적 정합성이 중요해지고 있습니다.",
+  "has_audio": true,
+  "audio_url": "history/2026-10-16_evening.mp3",
+  "categories": {
+    "정치": [
+      {
+        "title": "“AI 데이터센터 전력·냉각·화재 해결”…건설연·SK이노베이션 ‘의...",
+        "description": "한국건설기술연구원과 SK이노베이션은 인공지능(AI) 데이터센터의 전력 소비, 냉각, 화재 안전 문제를 해결하기 위해 AI 데이터센터 첨단인프라 기술 개발 업무협약을 체결했다.",
+        "link": "https://n.news.naver.com/mnews/article/016/0002710483?sid=105",
+        "press_name": "헤럴드경제",
+        "source": "Naver",
+        "pub_time": "10월 16일 17:49",
+        "dt_timestamp": 1792140540.0,
+        "category": "정치"
+      },
+      {
+        "title": "“집팔아 주식해? 대통령 말들은 국민만 바보돼” 장동혁의 말",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9HU3dBYkFPTGJpY3ZTa1hZZUV4UU1lNkttc1ZKb3J0NkRldVNGMEU4eVlBaGdqOHpDSWI0UXpCZ09kMFAzTko4Slh3a1M2UDZU?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 16일 16:27",
+        "dt_timestamp": 1792135654.0,
+        "category": "정치"
+      },
+      {
+        "title": "반환점 돈 국감… ‘李 재판 중지’ 놓고 여야 충돌",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBiRjJwTHNMOGF0VUx2dTlKWmhjTFpFWXpSSkVvMEVHMTNMY2dnRTRlQ2FKOGJINzAtYmVnQ1Rob251Zy1WaV9aX2pkcGhrd091?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 16일 12:08",
+        "dt_timestamp": 1792120089.0,
+        "category": "정치"
+      },
+      {
+        "title": "앤스로픽 직원, 3분기 25만달러 기부…공화 50.6%·민주 49.4%",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE4yZEhMM2VNLUxoRzloNVpVOXM4c3lWalZPYkxTdUprUnpkVFoxSmR5bVdrSjRpeC1PUUtLTlVURUUxWDVWRjg4ZjVoSDNxY1dOUHVUSGd1cw?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 16일 10:42",
+        "dt_timestamp": 1792114960.0,
+        "category": "정치"
+      }
+    ],
+    "경제": [
+      {
+        "title": "[속보] 코스닥 4.9% 급등…‘매수 사이드카’ 발동",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE02bERUUmVWajN4Yk1xSkM0U2NiUEc2b2JEdk9ZRE1fV3BBS0VDYzREYjltR29VSXppV3Y4SHJvTjdCQ1YwM0xabTF5N3VWR0xYbENCeWhR?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 16일 13:05",
+        "dt_timestamp": 1792123551.0,
+        "category": "경제"
+      },
+      {
+        "title": "세관 앞에 줄선 북중 화물차… 주민들 “경제 살아날 것”",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1CeEhLVF9nR01PWGp4RGw1RDNnaUYzbzBVUmF6LS1XTC1GcGktZ0Q2MnFHVzUtc2NXcFEzU2R1cllqQVc2MGtkVVgzVGpzM0VY?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 16일 11:56",
+        "dt_timestamp": 1792119402.0,
+        "category": "경제"
+      },
+      {
+        "title": "한국 경제 ‘포트폴리오’ 다시 짤 때다[포럼]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBWT194UEZNQnVmN0txbnp5YkR3S3NZaHprd05pbUxkM3M2alp0MnlnNnBrVnRrLW81N0sycS1sZWtQRGw1Xy0wcnU0VHp3S3Qz?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 16일 11:22",
+        "dt_timestamp": 1792117353.0,
+        "category": "경제"
+      },
+      {
+        "title": "인사",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5hcHB3X3FGamRGYVZ5OG5XN3RwUl85M1dCWk5PcElkempkUmVWNy1OTDRIODdXY2RIMFNjVlk4eHpqbVdqTnp5aEpweXZNbENCU19qeXBn?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 16일 11:14",
+        "dt_timestamp": 1792116870.0,
+        "category": "경제"
+      }
+    ],
+    "사회": [
+      {
+        "title": "“귀엽게 생겼네, 태워다 줄게” ‘서대문 초등생 유괴미수’ 20대들 “...",
+        "description": "지난해 8월 서울 서대문구 홍은동의 한 초등학교 앞에서 발생한 초등학생 유괴 미수 사건과 관련해, 경찰은 사건 발생 약 7개월 만인 지난 3월 16일 김씨와 박씨를 미성년자 유인미수 혐의로 불구속 송치했다.",
+        "link": "https://n.news.naver.com/mnews/article/016/0002710482?sid=102",
+        "press_name": "헤럴드경제",
+        "source": "Naver",
+        "pub_time": "10월 16일 17:46",
+        "dt_timestamp": 1792140360.0,
+        "category": "사회"
+      },
+      {
+        "title": "한림대, 대학 AI 교육 협력체계 구축…20일 국제 심포지엄",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1aR0kwTklqS2p3Y2pYNjFiQ1MyS2FlQllVRzNHeDEza1ZDaVpCRVpTWTVhaDAza1h4MktRU29adEFiWDNnUkFBeU1wd1NwbDV2?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 16일 17:39",
+        "dt_timestamp": 1792139984.0,
+        "category": "사회"
+      },
+      {
+        "title": "한국공항공사 ‘한국 ESG 혁신정책 대상’에서 사회부문 최우수상",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE14SXZudnVwQ0U0WW40N2xEbWg4eS1vX0VoVXZNbGQ3X29mN0l2WFJZdFFBQld4clFSRDFkbEZqVkE5TVloVk9lN042aHFLV1c3?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 16일 13:56",
+        "dt_timestamp": 1792126605.0,
+        "category": "사회"
+      },
+      {
+        "title": "‘웰컴투 동막골’,‘왕사남’의 평창 미탄, 2년 만에 아기 울음...지역사회 일제히 축하[함영훈의 멋·맛·쉼]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE5BXzJOOVI5dHhkcExiVnZJMjJfVExsSUxSclN2ckZ6UWwzS1BGTnhfaVJSQlAxeU9zQ3pkUHQ4aWFIYWpBWUM2SlRDT1p0SktFR2xfZExPWQ?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 16일 10:57",
+        "dt_timestamp": 1792115842.0,
+        "category": "사회"
+      }
+    ],
+    "국제": [
+      {
+        "title": "한림대, 대학 AI 교육 협력체계 구축…20일 국제 심포지엄",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1aR0kwTklqS2p3Y2pYNjFiQ1MyS2FlQllVRzNHeDEza1ZDaVpCRVpTWTVhaDAza1h4MktRU29adEFiWDNnUkFBeU1wd1NwbDV2?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 16일 17:39",
+        "dt_timestamp": 1792139984.0,
+        "category": "국제"
+      },
+      {
+        "title": "국제유가 급등에 수입물가 넉달만 반등",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE44ZVAwSzdybDNXX0tTanJmMG1sT0Z1a2tXcmtEc3hKSU5ENnZtWG5SRlZpS3VaZFFUbVE2OE1kSHU2M0E3OTFESDdNMlBoS1l6TDJlSzhn?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 16일 11:07",
+        "dt_timestamp": 1792116454.0,
+        "category": "국제"
+      },
+      {
+        "title": "한국지방재정공제회, UN 고위급 면담…지방재정 국제협력 확대 나서",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5rNXhxZzhtdU1vYzRCcHRFRm5Yc0lwUGRVUE82cnVyanMzU05XcXJ0YkNDWm10NExWU1hfandEM3hBaE4za3NGWWREMnEtNUVx?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 16일 13:35",
+        "dt_timestamp": 1792125331.0,
+        "category": "국제"
+      },
+      {
+        "title": "국립낙동강생물자원관, 개인정보보호경영시스템 국제표준 인증 취득",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9jUHcxZVhaa0Q5SlNQY0Y3aUZoSl9HTGxwZFZEOUF3VmRnVEJQaFFGZlJmN2pKMmlURVp1TmF5ZkYzbng3b3RTOVJyVGZUMzBhTTRxa2lXMA?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 16일 08:04",
+        "dt_timestamp": 1792105479.0,
+        "category": "국제"
+      }
+    ],
+    "사설": [
+      {
+        "title": "[속보] 한미 재무·통화당국 사상 첫 ‘2+2 면담’…금융충격 대응 공조",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTFAwWTJjVWJkY3BUMW5sMDNNclR5VmF1UjJELVJWM3p0SjBuakktN3BSOWFGRzhCYThaMDVnb2Z6eVhFWU1VbVJOS3RmeFA2TTBDUDRuTU1zZw?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 16일 17:00",
+        "dt_timestamp": 1792137600.0,
+        "category": "사설"
+      },
+      {
+        "title": "오세훈, 한국갤럽 정치인 호감도 조사서 1위… 7명 중 유일하게 30%대",
+        "description": "16일 한국갤럽이 발표한 조사에 따르면 지난 13~15일 전국 만 18세 이상 유권자 1003명을 대상으로 주요 정치인 7명의 호감도를 조사한 결과, 오세훈 시장에게 '호감이 간다'고 응답한 비율은 30%로 나타났다.",
+        "link": "https://n.news.naver.com/mnews/article/021/0002825709?sid=102",
+        "press_name": "문화일보",
+        "source": "Naver",
+        "pub_time": "10월 16일 13:36",
+        "dt_timestamp": 1792125360.0,
+        "category": "사설"
+      },
+      {
+        "title": "판사가 “형법 읽어보라” 하기에 이른 종합특검의 수준[사설]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1RT1lZNlJER1JzNkpPSy1BcThJV1lOU0c1SnBqdXQyVWRlaWdibENKcHR3VW41STJLall0OW82cFp0bkVtbHA4TncxR0k5VmNJ?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 16일 11:48",
+        "dt_timestamp": 1792118913.0,
+        "category": "사설"
+      },
+      {
+        "title": "인사",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5hcHB3X3FGamRGYVZ5OG5XN3RwUl85M1dCWk5PcElkempkUmVWNy1OTDRIODdXY2RIMFNjVlk4eHpqbVdqTnp5aEpweXZNbENCU19qeXBn?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 16일 11:14",
+        "dt_timestamp": 1792116870.0,
+        "category": "사설"
+      },
+      {
+        "title": "집권 500일의 비정상 데자뷔[유병권의 시론]",
+        "description": "16일로 이재명 대통령이 취임한 지 500일이 되었으며, 이는 5년 단임 대통령 임기 1826일 가운데 4분의 1 지점인 사분위점을 통과한 셈이다.",
+        "link": "https://n.news.naver.com/mnews/article/021/0002825622?sid=110",
+        "press_name": "문화일보",
+        "source": "Naver",
+        "pub_time": "10월 16일 11:32",
+        "dt_timestamp": 1792117920.0,
+        "category": "사설"
+      },
+      {
+        "title": "[인사]영주시",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9ITDdUTDFuVy1mWlpmWUxqNXU3R2tkSWdZVVFSa3JOa1RoVWE2VW1DYnN3a3pwSnhpdEFpeFdMbWhEV2o5R0RzY2REMUtyNjNqUGNSYnZYaw?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 16일 11:01",
+        "dt_timestamp": 1792116068.0,
+        "category": "사설"
+      },
+      {
+        "title": "‘올공’ 2030과 진정성 있는 대화로 신뢰 회복해야[여론마당]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9KVGsxbng0UzZJWkM4VTRPZmZYSFdEbHpsNnVzNFU4NTFDd0RKdzNHaWNmRm54djUxV2cxZS00S0c5SXgxWkxXRmpHVlRfX3ZI?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 16일 11:01",
+        "dt_timestamp": 1792116081.0,
+        "category": "사설"
+      },
+      {
+        "title": "李대통령, 부천 공장 화재에 “인명 구조에 만전” 지시",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTFBuTmEwVkpuNzJqaXpPVzByOVZ6WnlnUXJ6N2t6Z3ZuUVpqSW1lTXFGSFpCQnJRU0pud2JjczRaLUROWHZnT09DQm1NWmhoTTN0bHRFdjNLSQ?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 16일 10:27",
+        "dt_timestamp": 1792114030.0,
+        "category": "사설"
+      },
+      {
+        "title": "보행권·쾌적한 도시환경 위해 불법 광고물 없애야[여론마당]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBOeFZYdG1PbV9Tc2gyc1pZYUgxUlRFYkh2YmxjcjRQanVycVg5aUdnR3lSckVBTjdFTTA1NlZ5VVNaemxfTUhMai1KTUdsVnhl?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 16일 10:59",
+        "dt_timestamp": 1792115958.0,
+        "category": "사설"
+      },
+      {
+        "title": "외국인 떠난 증시, 개미가 떠받쳤다…코스피 1%대 반등 [투자360]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBCWWRwU1p4MWlxWFh5MFI1YVFwM3Y4bUZGd0FPbU5Wa3lOaUtGbjhmQVBEOURrTUlqQVpIWlpEcWxTeEUtMUV6WkZROGFiS0JZa0dqSGZ3?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 16일 09:51",
+        "dt_timestamp": 1792111862.0,
+        "category": "사설"
+      }
+    ],
+    "전체": [
+      {
+        "title": "“AI 데이터센터 전력·냉각·화재 해결”…건설연·SK이노베이션 ‘의...",
+        "description": "한국건설기술연구원과 SK이노베이션은 인공지능(AI) 데이터센터의 전력 소비, 냉각, 화재 안전 문제를 해결하기 위해 AI 데이터센터 첨단인프라 기술 개발 업무협약을 체결했다.",
+        "link": "https://n.news.naver.com/mnews/article/016/0002710483?sid=105",
+        "press_name": "헤럴드경제",
+        "source": "Naver",
+        "pub_time": "10월 16일 17:49",
+        "dt_timestamp": 1792140540.0,
+        "category": "정치"
+      },
+      {
+        "title": "한림대, 대학 AI 교육 협력체계 구축…20일 국제 심포지엄",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1aR0kwTklqS2p3Y2pYNjFiQ1MyS2FlQllVRzNHeDEza1ZDaVpCRVpTWTVhaDAza1h4MktRU29adEFiWDNnUkFBeU1wd1NwbDV2?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 16일 17:39",
+        "dt_timestamp": 1792139984.0,
+        "category": "사회"
+      },
+      {
+        "title": "“귀엽게 생겼네, 태워다 줄게” ‘서대문 초등생 유괴미수’ 20대들 “...",
+        "description": "지난해 8월 서울 서대문구 홍은동의 한 초등학교 앞에서 발생한 초등학생 유괴 미수 사건과 관련해, 경찰은 사건 발생 약 7개월 만인 지난 3월 16일 김씨와 박씨를 미성년자 유인미수 혐의로 불구속 송치했다.",
+        "link": "https://n.news.naver.com/mnews/article/016/0002710482?sid=102",
+        "press_name": "헤럴드경제",
+        "source": "Naver",
+        "pub_time": "10월 16일 17:46",
+        "dt_timestamp": 1792140360.0,
+        "category": "사회"
+      },
+      {
+        "title": "“집팔아 주식해? 대통령 말들은 국민만 바보돼” 장동혁의 말",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9HU3dBYkFPTGJpY3ZTa1hZZUV4UU1lNkttc1ZKb3J0NkRldVNGMEU4eVlBaGdqOHpDSWI0UXpCZ09kMFAzTko4Slh3a1M2UDZU?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 16일 16:27",
+        "dt_timestamp": 1792135654.0,
+        "category": "정치"
+      },
+      {
+        "title": "[속보] 한미 재무·통화당국 사상 첫 ‘2+2 면담’…금융충격 대응 공조",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTFAwWTJjVWJkY3BUMW5sMDNNclR5VmF1UjJELVJWM3p0SjBuakktN3BSOWFGRzhCYThaMDVnb2Z6eVhFWU1VbVJOS3RmeFA2TTBDUDRuTU1zZw?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 16일 17:00",
+        "dt_timestamp": 1792137600.0,
+        "category": "사설"
+      },
+      {
+        "title": "한국공항공사 ‘한국 ESG 혁신정책 대상’에서 사회부문 최우수상",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE14SXZudnVwQ0U0WW40N2xEbWg4eS1vX0VoVXZNbGQ3X29mN0l2WFJZdFFBQld4clFSRDFkbEZqVkE5TVloVk9lN042aHFLV1c3?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 16일 13:56",
+        "dt_timestamp": 1792126605.0,
+        "category": "사회"
+      },
+      {
+        "title": "오세훈, 한국갤럽 정치인 호감도 조사서 1위… 7명 중 유일하게 30%대",
+        "description": "16일 한국갤럽이 발표한 조사에 따르면 지난 13~15일 전국 만 18세 이상 유권자 1003명을 대상으로 주요 정치인 7명의 호감도를 조사한 결과, 오세훈 시장에게 '호감이 간다'고 응답한 비율은 30%로 나타났다.",
+        "link": "https://n.news.naver.com/mnews/article/021/0002825709?sid=102",
+        "press_name": "문화일보",
+        "source": "Naver",
+        "pub_time": "10월 16일 13:36",
+        "dt_timestamp": 1792125360.0,
+        "category": "사설"
+      },
+      {
+        "title": "[속보] 코스닥 4.9% 급등…‘매수 사이드카’ 발동",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE02bERUUmVWajN4Yk1xSkM0U2NiUEc2b2JEdk9ZRE1fV3BBS0VDYzREYjltR29VSXppV3Y4SHJvTjdCQ1YwM0xabTF5N3VWR0xYbENCeWhR?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 16일 13:05",
+        "dt_timestamp": 1792123551.0,
+        "category": "경제"
+      },
+      {
+        "title": "한국지방재정공제회, UN 고위급 면담…지방재정 국제협력 확대 나서",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5rNXhxZzhtdU1vYzRCcHRFRm5Yc0lwUGRVUE82cnVyanMzU05XcXJ0YkNDWm10NExWU1hfandEM3hBaE4za3NGWWREMnEtNUVx?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 16일 13:35",
+        "dt_timestamp": 1792125331.0,
+        "category": "국제"
+      },
+      {
+        "title": "인사",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5hcHB3X3FGamRGYVZ5OG5XN3RwUl85M1dCWk5PcElkempkUmVWNy1OTDRIODdXY2RIMFNjVlk4eHpqbVdqTnp5aEpweXZNbENCU19qeXBn?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 16일 11:14",
+        "dt_timestamp": 1792116870.0,
+        "category": "경제"
+      },
+      {
+        "title": "반환점 돈 국감… ‘李 재판 중지’ 놓고 여야 충돌",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBiRjJwTHNMOGF0VUx2dTlKWmhjTFpFWXpSSkVvMEVHMTNMY2dnRTRlQ2FKOGJINzAtYmVnQ1Rob251Zy1WaV9aX2pkcGhrd091?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 16일 12:08",
+        "dt_timestamp": 1792120089.0,
+        "category": "정치"
+      },
+      {
+        "title": "국제유가 급등에 수입물가 넉달만 반등",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE44ZVAwSzdybDNXX0tTanJmMG1sT0Z1a2tXcmtEc3hKSU5ENnZtWG5SRlZpS3VaZFFUbVE2OE1kSHU2M0E3OTFESDdNMlBoS1l6TDJlSzhn?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 16일 11:07",
+        "dt_timestamp": 1792116454.0,
+        "category": "국제"
+      },
+      {
+        "title": "세관 앞에 줄선 북중 화물차… 주민들 “경제 살아날 것”",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1CeEhLVF9nR01PWGp4RGw1RDNnaUYzbzBVUmF6LS1XTC1GcGktZ0Q2MnFHVzUtc2NXcFEzU2R1cllqQVc2MGtkVVgzVGpzM0VY?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 16일 11:56",
+        "dt_timestamp": 1792119402.0,
+        "category": "경제"
+      },
+      {
+        "title": "[인사]영주시",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9ITDdUTDFuVy1mWlpmWUxqNXU3R2tkSWdZVVFSa3JOa1RoVWE2VW1DYnN3a3pwSnhpdEFpeFdMbWhEV2o5R0RzY2REMUtyNjNqUGNSYnZYaw?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 16일 11:01",
+        "dt_timestamp": 1792116068.0,
+        "category": "사설"
+      },
+      {
+        "title": "판사가 “형법 읽어보라” 하기에 이른 종합특검의 수준[사설]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1RT1lZNlJER1JzNkpPSy1BcThJV1lOU0c1SnBqdXQyVWRlaWdibENKcHR3VW41STJLall0OW82cFp0bkVtbHA4TncxR0k5VmNJ?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 16일 11:48",
+        "dt_timestamp": 1792118913.0,
+        "category": "사설"
+      },
+      {
+        "title": "‘웰컴투 동막골’,‘왕사남’의 평창 미탄, 2년 만에 아기 울음...지역사회 일제히 축하[함영훈의 멋·맛·쉼]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE5BXzJOOVI5dHhkcExiVnZJMjJfVExsSUxSclN2ckZ6UWwzS1BGTnhfaVJSQlAxeU9zQ3pkUHQ4aWFIYWpBWUM2SlRDT1p0SktFR2xfZExPWQ?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 16일 10:57",
+        "dt_timestamp": 1792115842.0,
+        "category": "사회"
+      },
+      {
+        "title": "집권 500일의 비정상 데자뷔[유병권의 시론]",
+        "description": "16일로 이재명 대통령이 취임한 지 500일이 되었으며, 이는 5년 단임 대통령 임기 1826일 가운데 4분의 1 지점인 사분위점을 통과한 셈이다.",
+        "link": "https://n.news.naver.com/mnews/article/021/0002825622?sid=110",
+        "press_name": "문화일보",
+        "source": "Naver",
+        "pub_time": "10월 16일 11:32",
+        "dt_timestamp": 1792117920.0,
+        "category": "사설"
+      },
+      {
+        "title": "앤스로픽 직원, 3분기 25만달러 기부…공화 50.6%·민주 49.4%",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE4yZEhMM2VNLUxoRzloNVpVOXM4c3lWalZPYkxTdUprUnpkVFoxSmR5bVdrSjRpeC1PUUtLTlVURUUxWDVWRjg4ZjVoSDNxY1dOUHVUSGd1cw?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 16일 10:42",
+        "dt_timestamp": 1792114960.0,
+        "category": "정치"
+      },
+      {
+        "title": "한국 경제 ‘포트폴리오’ 다시 짤 때다[포럼]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBWT194UEZNQnVmN0txbnp5YkR3S3NZaHprd05pbUxkM3M2alp0MnlnNnBrVnRrLW81N0sycS1sZWtQRGw1Xy0wcnU0VHp3S3Qz?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 16일 11:22",
+        "dt_timestamp": 1792117353.0,
+        "category": "경제"
+      },
+      {
+        "title": "李대통령, 부천 공장 화재에 “인명 구조에 만전” 지시",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTFBuTmEwVkpuNzJqaXpPVzByOVZ6WnlnUXJ6N2t6Z3ZuUVpqSW1lTXFGSFpCQnJRU0pud2JjczRaLUROWHZnT09DQm1NWmhoTTN0bHRFdjNLSQ?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 16일 10:27",
+        "dt_timestamp": 1792114030.0,
+        "category": "사설"
+      },
+      {
+        "title": "‘올공’ 2030과 진정성 있는 대화로 신뢰 회복해야[여론마당]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9KVGsxbng0UzZJWkM4VTRPZmZYSFdEbHpsNnVzNFU4NTFDd0RKdzNHaWNmRm54djUxV2cxZS00S0c5SXgxWkxXRmpHVlRfX3ZI?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 16일 11:01",
+        "dt_timestamp": 1792116081.0,
+        "category": "사설"
+      },
+      {
+        "title": "외국인 떠난 증시, 개미가 떠받쳤다…코스피 1%대 반등 [투자360]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBCWWRwU1p4MWlxWFh5MFI1YVFwM3Y4bUZGd0FPbU5Wa3lOaUtGbjhmQVBEOURrTUlqQVpIWlpEcWxTeEUtMUV6WkZROGFiS0JZa0dqSGZ3?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 16일 09:51",
+        "dt_timestamp": 1792111862.0,
+        "category": "사설"
+      },
+      {
+        "title": "보행권·쾌적한 도시환경 위해 불법 광고물 없애야[여론마당]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBOeFZYdG1PbV9Tc2gyc1pZYUgxUlRFYkh2YmxjcjRQanVycVg5aUdnR3lSckVBTjdFTTA1NlZ5VVNaemxfTUhMai1KTUdsVnhl?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 16일 10:59",
+        "dt_timestamp": 1792115958.0,
+        "category": "사설"
+      },
+      {
+        "title": "국립낙동강생물자원관, 개인정보보호경영시스템 국제표준 인증 취득",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9jUHcxZVhaa0Q5SlNQY0Y3aUZoSl9HTGxwZFZEOUF3VmRnVEJQaFFGZlJmN2pKMmlURVp1TmF5ZkYzbng3b3RTOVJyVGZUMzBhTTRxa2lXMA?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 16일 08:04",
+        "dt_timestamp": 1792105479.0,
+        "category": "국제"
+      }
+    ]
+  },
+  "diagnostics": {
+    "article_count": 24,
+    "category_counts": {
+      "정치": 4,
+      "경제": 4,
+      "사회": 4,
+      "국제": 4,
+      "사설": 10
+    },
+    "press_counts": {
+      "문화일보": 12,
+      "헤럴드경제": 12
+    },
+    "source_counts": {
+      "Google": 20,
+      "Naver": 4
+    }
+  }
+}
