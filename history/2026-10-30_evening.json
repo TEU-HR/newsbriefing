@@ -1,0 +1,560 @@
+{
+  "date": "2026-10-30",
+  "updated_at": "2026년 10월 30일 17:50",
+  "edition": "evening",
+  "summary": "# TOP3\n### 1. [문화일보] 이 대통령 지지율 39%…민주 35%·국힘 30%로 오차범위 내 [갤럽]\n- 요약: 한국갤럽 여론조사 결과 대통령 지지율이 39%로 소폭 하락한 가운데 정당 지지율도 오차범위 안에서 접전을 보이며 국정 동력 향방에 관심이 쏠리고 있습니다.\n### 2. [헤럴드경제] 코 앞에 다가온 美선거, “누가 이기든 오른다”…1년 수익률 평균 15% ...\n- 요약: 미국 선거를 앞두고 불확실성 해소에 따른 주가 상승 기대감이 커지고 있으나 결과에 따라 업종별 희비가 갈릴 것으로 전망됩니다.\n### 3. [헤럴드경제] 효성중공업, 3분기 영업익 2435억…전년비 10.8% ↑\n- 요약: 효성중공업이 3분기 영업이익 2435억 원을 기록하며 전년 동기 대비 10.8% 증가하는 등 견조한 성장세를 이어갔습니다.\n\n# PERSPECTIVES\n문화일보는 여론조사 지지율 변동과 여야 간의 정쟁 등 국내 정치적 현안과 리스크에 중점을 두어 보도했습니다. 반면 헤럴드경제는 미 선거가 금융시장과 주가에 미치는 영향 및 주요 기업의 실적 호조 등 경제적 여파 분석에 초점을 맞추었습니다.\n\n# CATEGORY_REPORT\n- 정치: [문화일보] 이 대통령 지지율 39%…민주 35%·국힘 30%로 오차범위 내 [갤럽] — 국정 지지율 하락과 정당 간 오차범위 내 접전 양상.\n- 경제: [헤럴드경제] 효성중공업, 3분기 영업익 2435억…전년비 10.8% ↑ — 중공업 분야의 3분기 호실적 달성 소식.\n- 사회: [문화일보] “귀신 다스린다” 때려놓고 기도로 치료한 형, 동생은 결국 사망 — 폭행 및 치료 방치로 인한 사망 사건과 구형 결과.\n- 국제: [헤럴드경제] 버디만 8개 잡은 김아림..선두 야마시타 3타 차 추격 — 해외 스포츠 무대에서의 한국 선수 선전.\n- 사설: [헤럴드경제] [속보] 특검, 선관위에 올림픽공원 반출 투표지 현상태 보전 요청 — 투표지 현상태 보전 요청 관련 신속 보도.\n\n# PRESS_SUMMARY\n- 문화일보: 대통령 국정 지지율 변화, 정치권 인사 간 공방 등 국내 정치 이슈 및 지역 사회 갈등 사건을 비중 있게 다루었습니다.\n- 헤럴드경제: 미국 선거에 따른 증시 여파 분석과 함께 주요 기업의 3분기 실적 발표 등 산업·경제 소식을 중점적으로 전했습니다.\n\n# INSIGHTS\n1. 미 선거 이후의 정치·정책 불확실성 해소 가능성을 염두에 두고 수혜가 예상되는 업종과 증시 향방을 점검할 필요가 있습니다.\n2. 국내 국정 지지율 판세와 여야 구도의 변동성을 지속 모니터링하여 주요 정책 추진력 및 입법 환경 변화에 대비해야 합니다.",
+  "has_audio": true,
+  "audio_url": "history/2026-10-30_evening.mp3",
+  "categories": {
+    "정치": [
+      {
+        "title": "이 대통령 지지율 39%…민주 35%·국힘 30%로 오차범위 내 [갤럽]",
+        "description": "한국갤럽이 27~29일 실시한 여론조사 결과, 이재명 대통령의 국정 지지율(직무수행 긍정 평가)은 39%를 기록하며 지난주보다 소폭 하락했습니다.",
+        "link": "https://n.news.naver.com/mnews/article/021/0002829195?sid=100",
+        "press_name": "문화일보",
+        "source": "Naver",
+        "pub_time": "10월 30일 17:48",
+        "dt_timestamp": 1793350080.0,
+        "category": "정치"
+      },
+      {
+        "title": "코 앞에 다가온 美선거, “누가 이기든 오른다”…1년 수익률 평균 15% ...",
+        "description": "미국 중간선거는 정치·정책 불확실성 해소로 선거 결과와 관계없이 주가 상승의 계기가 되어왔으나, 어느 정당이 승리하느냐에 따라 업종별 희비는 엇갈릴 전망입니다.",
+        "link": "https://n.news.naver.com/mnews/article/016/0002716854?sid=101",
+        "press_name": "헤럴드경제",
+        "source": "Naver",
+        "pub_time": "10월 30일 17:46",
+        "dt_timestamp": 1793349960.0,
+        "category": "정치"
+      },
+      {
+        "title": "생곡 소각장 갈등, 명지 폐쇄 논란으로 번지자…부산시, 기존 방침 재확...",
+        "description": "생곡 소각장 신설 반대 주민과 지역 정치권에서 생곡과 명지 두 사업을 연계해서는 안 된다고 주장하는 가운데, 부산시가 명지 문제를 정리하며 갈등 진화에 나섰으나 생곡 소각장 입지 관련 갈등은 이어지고 있습니다.",
+        "link": "https://n.news.naver.com/mnews/article/021/0002829193?sid=102",
+        "press_name": "문화일보",
+        "source": "Naver",
+        "pub_time": "10월 30일 17:47",
+        "dt_timestamp": 1793350020.0,
+        "category": "정치"
+      },
+      {
+        "title": "연내 북미 정상회담 개최가능성? ‘반반’ 38.9% vs ‘낮다’ 37.4%",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5IVjdPRGRsaEhBc3BGazdiM2VKNzNXWmVaX0F1emJ3OVM4THgyWnd6TnN1U1NLT3M5UUwySDEtYVVfRzhXU1hEbHlreUJTZzJHTXI5NTN3?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 30일 15:36",
+        "dt_timestamp": 1793342192.0,
+        "category": "정치"
+      },
+      {
+        "title": "[속보]박지원“유시민, DJ에 퍼붓던 저주 왜 李대통령에 반복”",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE02cWZLcEg5UkF0UEU2RUVFdFFsQ3Q3cUhpdEtpUXhCTjNlUWcwWm1Odk1JM0FrdE9tckZ3a2h0SjVDY1ZDRThGeVZfbDNIYWRI?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 30일 14:45",
+        "dt_timestamp": 1793339103.0,
+        "category": "정치"
+      }
+    ],
+    "경제": [
+      {
+        "title": "이 대통령 지지율 39%…민주 35%·국힘 30%로 오차범위 내 [갤럽]",
+        "description": "대통령 직무수행 긍정 평가 이유로는 '외교'(17%)가 가장 높았고 '경제·민생', '소통' 등이 뒤를 이었으며, 부정 평가 이유로는 '부동산 정책'(19%)과 '경제·민생' 등이 꼽혔습니다.",
+        "link": "https://n.news.naver.com/mnews/article/021/0002829195?sid=100",
+        "press_name": "문화일보",
+        "source": "Naver",
+        "pub_time": "10월 30일 17:48",
+        "dt_timestamp": 1793350080.0,
+        "category": "경제"
+      },
+      {
+        "title": "코 앞에 다가온 美선거, “누가 이기든 오른다”…1년 수익률 평균 15% ...",
+        "description": "금융투자업계에 따르면 다음 달 3일 치러지는 미국 중간선거는 증시 불확실성을 해소할 계기가 되며, 민주당이 의회 다수당을 탈환할 경우 상대적으로 우호적인 금융 여건이 조성될 것으로 전망됩니다.",
+        "link": "https://n.news.naver.com/mnews/article/016/0002716854?sid=101",
+        "press_name": "헤럴드경제",
+        "source": "Naver",
+        "pub_time": "10월 30일 17:46",
+        "dt_timestamp": 1793349960.0,
+        "category": "경제"
+      },
+      {
+        "title": "효성중공업, 3분기 영업익 2435억…전년비 10.8% ↑",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE54amNDdEZqWVFVN0tEeVludm5fUXJEMkpfRnlfelYwM09VaFRQUURlTV9GNHJCblBvVjJDb0JWQWdLdVcxTmFub0ZDdGVHVTIzZWdGYlRB?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 30일 16:04",
+        "dt_timestamp": 1793343887.0,
+        "category": "경제"
+      },
+      {
+        "title": "9월 생산 3%·소비 3.6%·투자 5.3% ‘트리플 증가’",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9GdXpiN0h4cFVfXzFTZGFhVmZzSFhKcEFJTnRGeVlUS1N3QWlNM042bVY4UzZaV0ZuOWY3X2NXYnp3VG5TLTNlWVJVOWFnelJh?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 30일 11:53",
+        "dt_timestamp": 1793328797.0,
+        "category": "경제"
+      }
+    ],
+    "사회": [
+      {
+        "title": "“귀신 다스린다” 때려놓고 기도로 치료한 형, 동생은 결국 사망",
+        "description": "검찰은 압수수색과 디지털포렌식 등 보완 수사를 진행한 뒤 A씨에게 징역 24년, B씨에게 징역 10년을 구형했으나 재판부는 살인죄가 성립하지 않는다고 보았습니다.",
+        "link": "https://n.news.naver.com/mnews/article/021/0002829192?sid=102",
+        "press_name": "문화일보",
+        "source": "Naver",
+        "pub_time": "10월 30일 17:42",
+        "dt_timestamp": 1793349720.0,
+        "category": "사회"
+      },
+      {
+        "title": "경남도, 제28회 사회복지사대회 개최…유공자 32명 표창",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFB6Y0dXOHl0Y1hacUpVTmJnUDFTcWczaFZ3MUNmZzdFNlBqYXhjbGt0RlFuY3pMVkJuZnlpdEE5c1BLdXk3UnJvdm5TZDl1MVhkRVctODRn?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 30일 16:59",
+        "dt_timestamp": 1793347176.0,
+        "category": "사회"
+      },
+      {
+        "title": "고려아연 온산제련소, 5000만원 기부",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE54ajdRWWlvb0YxbHVZOW01Mm9sMzYxVmpCdzJaOVZjdkNDSVVuUTdOamNINnNCelp4Zjc5YlRCOTFpY0VlTzdiN2N1S2d5UGd2ZjZTS1JB?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 30일 13:28",
+        "dt_timestamp": 1793334495.0,
+        "category": "사회"
+      },
+      {
+        "title": "구로구, 2027년부터 4년간 추진할 지역사회보장계획 마련",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1WY25ENjMyREVWenh0Q1VrWUVyVmUyalEtQV83MlU2a3ZZcG0zUVVuUDhLNV96ckE2MFpxSVhBNE5TZ2VpcEZVTWw5Q3Nyek9C?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 30일 08:49",
+        "dt_timestamp": 1793317756.0,
+        "category": "사회"
+      }
+    ],
+    "국제": [
+      {
+        "title": "버디만 8개 잡은 김아림..선두 야마시타 3타 차 추격",
+        "description": "중간 합계 10언더파 134타를 기록한 김아림은 1, 3, 7, 9, 11번 홀 버디로 5타를 줄이는 상승세를 타며 선두 야마시타 미유를 3타 차로 추격한 채 3라운드를 맞게 되었습니다.",
+        "link": "https://m.sports.naver.com/golf/article/016/0002716856",
+        "press_name": "헤럴드경제",
+        "source": "Naver",
+        "pub_time": "10월 30일 17:50",
+        "dt_timestamp": 1793350200.0,
+        "category": "국제"
+      },
+      {
+        "title": "가을밤에 울리는 클래식 하모니…송파구립합창단, 다음 달 5일 정기연주...",
+        "description": "지난해 거제전국합창경연대회 대상에 이어 올해 대한민국국제합창대회 최종 2위에 오른 가운데, 서강석 송파구청장은 37년간 아름다운 하모니로 구민들에게 감동을 전해 왔다고 전했습니다.",
+        "link": "https://n.news.naver.com/mnews/article/021/0002829194?sid=102",
+        "press_name": "문화일보",
+        "source": "Naver",
+        "pub_time": "10월 30일 17:47",
+        "dt_timestamp": 1793350020.0,
+        "category": "국제"
+      },
+      {
+        "title": "韓식품산업협회, 한국식품영양과학회 국제 학술대회 참가",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE85eGY5U0pnOWhfS3ZKRWZlRGZ4TGEyUVlGR2RISlJjOTF0WGloMjJSMG9ROHFmYjFJWlZWZFhDQkVpTC04Y0hQaEZ4SmRKLW9XREd4akxIcw?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 30일 11:33",
+        "dt_timestamp": 1793327609.0,
+        "category": "국제"
+      },
+      {
+        "title": "2026년 도봉 지속가능발전교육(ESD) 국제포럼 개최",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE13VUd5TnhKZXMtWlZ0NjdZeThPc1p2VXZZMmtBS21OdTN3M0V1c1Zuc2hJX0h3Um5mTXR2NDdmeF9tbm83ZUc0V0NPeUFrenlN?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 30일 08:48",
+        "dt_timestamp": 1793317738.0,
+        "category": "국제"
+      }
+    ],
+    "사설": [
+      {
+        "title": "[속보] 특검, 선관위에 올림픽공원 반출 투표지 현상태 보전 요청",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE5fV1JQTk5MaG5rMkhmR0VFQjBzajFaV05YbDlPR1duT25TWW5IOGczSVJmb2g0RXpUMGVuNmpwaUhqRVg4QW00WUNHWE9jV1ZpU3FxZ2dJaw?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 30일 17:37",
+        "dt_timestamp": 1793349428.0,
+        "category": "사설"
+      },
+      {
+        "title": "AI 전환과 복합 위기… 전방위 혁신으로 넘자[사설]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5ZTnRwaGg1amh1ZUVOSXZxWXBwdHE1LUpQWXBJQXFCOGZseFV3SGM1TGcwNDVqR2gyc2QzVVA5X2ZtLXAwaHY1TXhJcUZLMXJW?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 30일 11:46",
+        "dt_timestamp": 1793328400.0,
+        "category": "사설"
+      },
+      {
+        "title": "日 의회는 의원 감축, 韓 국회는 기득권 지키기 안간힘[사설]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE8wV3l5dzJUSFNQTWFGbkROWEtEZVJKVGRKY0YtT01EanFlUXNySmZZbm4zb0hjaWYzVWNob2hsNi1CcUw3c290YzN0bWxZZmdR?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 30일 11:43",
+        "dt_timestamp": 1793328229.0,
+        "category": "사설"
+      },
+      {
+        "title": "고터·세빛 관광특구, 올해 외국인 117만명 찾았다",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9EQkhWZExibnNuMlEtSndiNWZhdmw0MTRjVDRSN1JMYjh4VElmelNxcmZaNkZCNmZXQzBGd3NfUDJ4bHZEeDRGQl9YWjhIMXdVVmplQ0Fvbw?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 30일 11:24",
+        "dt_timestamp": 1793327041.0,
+        "category": "사설"
+      },
+      {
+        "title": "위대한 나라, 누가 일궜고 누가 망치나[이용식의 시론]",
+        "description": "연간 수출 1조 달러 달성으로 미국·중국·독일에 이은 세계 4위가 확실시되는 가운데, 올해 경제성장률 4% 육박 및 1인당 국민소득 4만 달러 돌파가 전망되는 등 한민족 역사상 최고의 위상을 보이고 있습니다.",
+        "link": "https://n.news.naver.com/mnews/article/021/0002829095?sid=110",
+        "press_name": "문화일보",
+        "source": "Naver",
+        "pub_time": "10월 30일 11:34",
+        "dt_timestamp": 1793327640.0,
+        "category": "사설"
+      },
+      {
+        "title": "이숙이 연세언론인회 신임 회장",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE5sQ0FzY0c1UHV0YlhuNHBUd3dYZFBHYUJyanYwWTRWN1RCSURjZEtzWWx0aVp2Z19hS0lFOGRQSVdkZ3BwOTZ3MnZqS1BLWF9pTDlYUFBIUQ?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 30일 11:23",
+        "dt_timestamp": 1793327032.0,
+        "category": "사설"
+      },
+      {
+        "title": "[지상갤러리] 연여인 개인전《Green Room》개최, 용산문화재단 × 디아 컨템포러리",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE50RDBOYmtnUHl0VUFZZHdjMDVILXU2bWQ3QWFTQ2ZQcUJEU1lvaDlEMEJKXzZ3RTZkREk2QWFBZm5zMDhJcWQ4bGR6LXZYNTFzcGcyY095QQ?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 30일 11:18",
+        "dt_timestamp": 1793326680.0,
+        "category": "사설"
+      },
+      {
+        "title": "교통흐름 방해하는 ‘신호대기중 휴대전화’ 단속해야[여론마당]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE13bFpMTFFOSnhXcUFsOEJUeVN0NEV1VHBBUUxKTElxSkxoZVB1MG5qbkwwSVdlOVh2a3M4Q2l2aU12M0pJS1NwT0ZNMUdIRzJ6?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 30일 11:14",
+        "dt_timestamp": 1793326489.0,
+        "category": "사설"
+      },
+      {
+        "title": "오토바이 등록제만으론 한계… 도로예절·안전운전 교육 필요[여론마당]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE44UnV1YVJ6ejRyWF8xOVFMa2RVdjMtSnFVMlVlREVYNlNtRWs1MzYyZWNWZEdPd2oxeFo2c1dqUmo0ZTItb2FnY2dxNnlNSllW?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 30일 11:11",
+        "dt_timestamp": 1793326307.0,
+        "category": "사설"
+      },
+      {
+        "title": "[헤럴드포토] 동아오츠카, ‘2026 코엑스 코베 베이비페어’에서 임산부 수분 관리 중요성 알려",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE1kY2hNcnJKc2pEVHNPYzZMWDVDQmNWcmYzTl93LTNWLWJVTk9iZjc4WC0xR2h4Vjg0ZWZJX0NyZGlnM2cwSWc0ck94dkpJa3QzS29FSlBIMA?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 30일 10:59",
+        "dt_timestamp": 1793325555.0,
+        "category": "사설"
+      }
+    ],
+    "전체": [
+      {
+        "title": "버디만 8개 잡은 김아림..선두 야마시타 3타 차 추격",
+        "description": "중간 합계 10언더파 134타를 기록한 김아림은 1, 3, 7, 9, 11번 홀 버디로 5타를 줄이는 상승세를 타며 선두 야마시타 미유를 3타 차로 추격한 채 3라운드를 맞게 되었습니다.",
+        "link": "https://m.sports.naver.com/golf/article/016/0002716856",
+        "press_name": "헤럴드경제",
+        "source": "Naver",
+        "pub_time": "10월 30일 17:50",
+        "dt_timestamp": 1793350200.0,
+        "category": "국제"
+      },
+      {
+        "title": "이 대통령 지지율 39%…민주 35%·국힘 30%로 오차범위 내 [갤럽]",
+        "description": "한국갤럽이 27~29일 실시한 여론조사 결과, 이재명 대통령의 국정 지지율(직무수행 긍정 평가)은 39%를 기록하며 지난주보다 소폭 하락했습니다.",
+        "link": "https://n.news.naver.com/mnews/article/021/0002829195?sid=100",
+        "press_name": "문화일보",
+        "source": "Naver",
+        "pub_time": "10월 30일 17:48",
+        "dt_timestamp": 1793350080.0,
+        "category": "정치"
+      },
+      {
+        "title": "생곡 소각장 갈등, 명지 폐쇄 논란으로 번지자…부산시, 기존 방침 재확...",
+        "description": "생곡 소각장 신설 반대 주민과 지역 정치권에서 생곡과 명지 두 사업을 연계해서는 안 된다고 주장하는 가운데, 부산시가 명지 문제를 정리하며 갈등 진화에 나섰으나 생곡 소각장 입지 관련 갈등은 이어지고 있습니다.",
+        "link": "https://n.news.naver.com/mnews/article/021/0002829193?sid=102",
+        "press_name": "문화일보",
+        "source": "Naver",
+        "pub_time": "10월 30일 17:47",
+        "dt_timestamp": 1793350020.0,
+        "category": "정치"
+      },
+      {
+        "title": "코 앞에 다가온 美선거, “누가 이기든 오른다”…1년 수익률 평균 15% ...",
+        "description": "미국 중간선거는 정치·정책 불확실성 해소로 선거 결과와 관계없이 주가 상승의 계기가 되어왔으나, 어느 정당이 승리하느냐에 따라 업종별 희비는 엇갈릴 전망입니다.",
+        "link": "https://n.news.naver.com/mnews/article/016/0002716854?sid=101",
+        "press_name": "헤럴드경제",
+        "source": "Naver",
+        "pub_time": "10월 30일 17:46",
+        "dt_timestamp": 1793349960.0,
+        "category": "정치"
+      },
+      {
+        "title": "가을밤에 울리는 클래식 하모니…송파구립합창단, 다음 달 5일 정기연주...",
+        "description": "지난해 거제전국합창경연대회 대상에 이어 올해 대한민국국제합창대회 최종 2위에 오른 가운데, 서강석 송파구청장은 37년간 아름다운 하모니로 구민들에게 감동을 전해 왔다고 전했습니다.",
+        "link": "https://n.news.naver.com/mnews/article/021/0002829194?sid=102",
+        "press_name": "문화일보",
+        "source": "Naver",
+        "pub_time": "10월 30일 17:47",
+        "dt_timestamp": 1793350020.0,
+        "category": "국제"
+      },
+      {
+        "title": "[속보] 특검, 선관위에 올림픽공원 반출 투표지 현상태 보전 요청",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE5fV1JQTk5MaG5rMkhmR0VFQjBzajFaV05YbDlPR1duT25TWW5IOGczSVJmb2g0RXpUMGVuNmpwaUhqRVg4QW00WUNHWE9jV1ZpU3FxZ2dJaw?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 30일 17:37",
+        "dt_timestamp": 1793349428.0,
+        "category": "사설"
+      },
+      {
+        "title": "“귀신 다스린다” 때려놓고 기도로 치료한 형, 동생은 결국 사망",
+        "description": "검찰은 압수수색과 디지털포렌식 등 보완 수사를 진행한 뒤 A씨에게 징역 24년, B씨에게 징역 10년을 구형했으나 재판부는 살인죄가 성립하지 않는다고 보았습니다.",
+        "link": "https://n.news.naver.com/mnews/article/021/0002829192?sid=102",
+        "press_name": "문화일보",
+        "source": "Naver",
+        "pub_time": "10월 30일 17:42",
+        "dt_timestamp": 1793349720.0,
+        "category": "사회"
+      },
+      {
+        "title": "경남도, 제28회 사회복지사대회 개최…유공자 32명 표창",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFB6Y0dXOHl0Y1hacUpVTmJnUDFTcWczaFZ3MUNmZzdFNlBqYXhjbGt0RlFuY3pMVkJuZnlpdEE5c1BLdXk3UnJvdm5TZDl1MVhkRVctODRn?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 30일 16:59",
+        "dt_timestamp": 1793347176.0,
+        "category": "사회"
+      },
+      {
+        "title": "효성중공업, 3분기 영업익 2435억…전년비 10.8% ↑",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE54amNDdEZqWVFVN0tEeVludm5fUXJEMkpfRnlfelYwM09VaFRQUURlTV9GNHJCblBvVjJDb0JWQWdLdVcxTmFub0ZDdGVHVTIzZWdGYlRB?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 30일 16:04",
+        "dt_timestamp": 1793343887.0,
+        "category": "경제"
+      },
+      {
+        "title": "[속보]박지원“유시민, DJ에 퍼붓던 저주 왜 李대통령에 반복”",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE02cWZLcEg5UkF0UEU2RUVFdFFsQ3Q3cUhpdEtpUXhCTjNlUWcwWm1Odk1JM0FrdE9tckZ3a2h0SjVDY1ZDRThGeVZfbDNIYWRI?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 30일 14:45",
+        "dt_timestamp": 1793339103.0,
+        "category": "정치"
+      },
+      {
+        "title": "연내 북미 정상회담 개최가능성? ‘반반’ 38.9% vs ‘낮다’ 37.4%",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5IVjdPRGRsaEhBc3BGazdiM2VKNzNXWmVaX0F1emJ3OVM4THgyWnd6TnN1U1NLT3M5UUwySDEtYVVfRzhXU1hEbHlreUJTZzJHTXI5NTN3?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 30일 15:36",
+        "dt_timestamp": 1793342192.0,
+        "category": "정치"
+      },
+      {
+        "title": "9월 생산 3%·소비 3.6%·투자 5.3% ‘트리플 증가’",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9GdXpiN0h4cFVfXzFTZGFhVmZzSFhKcEFJTnRGeVlUS1N3QWlNM042bVY4UzZaV0ZuOWY3X2NXYnp3VG5TLTNlWVJVOWFnelJh?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 30일 11:53",
+        "dt_timestamp": 1793328797.0,
+        "category": "경제"
+      },
+      {
+        "title": "고려아연 온산제련소, 5000만원 기부",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE54ajdRWWlvb0YxbHVZOW01Mm9sMzYxVmpCdzJaOVZjdkNDSVVuUTdOamNINnNCelp4Zjc5YlRCOTFpY0VlTzdiN2N1S2d5UGd2ZjZTS1JB?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 30일 13:28",
+        "dt_timestamp": 1793334495.0,
+        "category": "사회"
+      },
+      {
+        "title": "AI 전환과 복합 위기… 전방위 혁신으로 넘자[사설]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5ZTnRwaGg1amh1ZUVOSXZxWXBwdHE1LUpQWXBJQXFCOGZseFV3SGM1TGcwNDVqR2gyc2QzVVA5X2ZtLXAwaHY1TXhJcUZLMXJW?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 30일 11:46",
+        "dt_timestamp": 1793328400.0,
+        "category": "사설"
+      },
+      {
+        "title": "日 의회는 의원 감축, 韓 국회는 기득권 지키기 안간힘[사설]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE8wV3l5dzJUSFNQTWFGbkROWEtEZVJKVGRKY0YtT01EanFlUXNySmZZbm4zb0hjaWYzVWNob2hsNi1CcUw3c290YzN0bWxZZmdR?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 30일 11:43",
+        "dt_timestamp": 1793328229.0,
+        "category": "사설"
+      },
+      {
+        "title": "韓식품산업협회, 한국식품영양과학회 국제 학술대회 참가",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE85eGY5U0pnOWhfS3ZKRWZlRGZ4TGEyUVlGR2RISlJjOTF0WGloMjJSMG9ROHFmYjFJWlZWZFhDQkVpTC04Y0hQaEZ4SmRKLW9XREd4akxIcw?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 30일 11:33",
+        "dt_timestamp": 1793327609.0,
+        "category": "국제"
+      },
+      {
+        "title": "위대한 나라, 누가 일궜고 누가 망치나[이용식의 시론]",
+        "description": "연간 수출 1조 달러 달성으로 미국·중국·독일에 이은 세계 4위가 확실시되는 가운데, 올해 경제성장률 4% 육박 및 1인당 국민소득 4만 달러 돌파가 전망되는 등 한민족 역사상 최고의 위상을 보이고 있습니다.",
+        "link": "https://n.news.naver.com/mnews/article/021/0002829095?sid=110",
+        "press_name": "문화일보",
+        "source": "Naver",
+        "pub_time": "10월 30일 11:34",
+        "dt_timestamp": 1793327640.0,
+        "category": "사설"
+      },
+      {
+        "title": "고터·세빛 관광특구, 올해 외국인 117만명 찾았다",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9EQkhWZExibnNuMlEtSndiNWZhdmw0MTRjVDRSN1JMYjh4VElmelNxcmZaNkZCNmZXQzBGd3NfUDJ4bHZEeDRGQl9YWjhIMXdVVmplQ0Fvbw?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 30일 11:24",
+        "dt_timestamp": 1793327041.0,
+        "category": "사설"
+      },
+      {
+        "title": "이숙이 연세언론인회 신임 회장",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE5sQ0FzY0c1UHV0YlhuNHBUd3dYZFBHYUJyanYwWTRWN1RCSURjZEtzWWx0aVp2Z19hS0lFOGRQSVdkZ3BwOTZ3MnZqS1BLWF9pTDlYUFBIUQ?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 30일 11:23",
+        "dt_timestamp": 1793327032.0,
+        "category": "사설"
+      },
+      {
+        "title": "교통흐름 방해하는 ‘신호대기중 휴대전화’ 단속해야[여론마당]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE13bFpMTFFOSnhXcUFsOEJUeVN0NEV1VHBBUUxKTElxSkxoZVB1MG5qbkwwSVdlOVh2a3M4Q2l2aU12M0pJS1NwT0ZNMUdIRzJ6?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 30일 11:14",
+        "dt_timestamp": 1793326489.0,
+        "category": "사설"
+      },
+      {
+        "title": "[지상갤러리] 연여인 개인전《Green Room》개최, 용산문화재단 × 디아 컨템포러리",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE50RDBOYmtnUHl0VUFZZHdjMDVILXU2bWQ3QWFTQ2ZQcUJEU1lvaDlEMEJKXzZ3RTZkREk2QWFBZm5zMDhJcWQ4bGR6LXZYNTFzcGcyY095QQ?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 30일 11:18",
+        "dt_timestamp": 1793326680.0,
+        "category": "사설"
+      },
+      {
+        "title": "오토바이 등록제만으론 한계… 도로예절·안전운전 교육 필요[여론마당]",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE44UnV1YVJ6ejRyWF8xOVFMa2RVdjMtSnFVMlVlREVYNlNtRWs1MzYyZWNWZEdPd2oxeFo2c1dqUmo0ZTItb2FnY2dxNnlNSllW?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 30일 11:11",
+        "dt_timestamp": 1793326307.0,
+        "category": "사설"
+      },
+      {
+        "title": "[헤럴드포토] 동아오츠카, ‘2026 코엑스 코베 베이비페어’에서 임산부 수분 관리 중요성 알려",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE1kY2hNcnJKc2pEVHNPYzZMWDVDQmNWcmYzTl93LTNWLWJVTk9iZjc4WC0xR2h4Vjg0ZWZJX0NyZGlnM2cwSWc0ck94dkpJa3QzS29FSlBIMA?oc=5",
+        "press_name": "헤럴드경제",
+        "source": "Google",
+        "pub_time": "10월 30일 10:59",
+        "dt_timestamp": 1793325555.0,
+        "category": "사설"
+      },
+      {
+        "title": "구로구, 2027년부터 4년간 추진할 지역사회보장계획 마련",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1WY25ENjMyREVWenh0Q1VrWUVyVmUyalEtQV83MlU2a3ZZcG0zUVVuUDhLNV96ckE2MFpxSVhBNE5TZ2VpcEZVTWw5Q3Nyek9C?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 30일 08:49",
+        "dt_timestamp": 1793317756.0,
+        "category": "사회"
+      },
+      {
+        "title": "2026년 도봉 지속가능발전교육(ESD) 국제포럼 개최",
+        "description": "",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE13VUd5TnhKZXMtWlZ0NjdZeThPc1p2VXZZMmtBS21OdTN3M0V1c1Zuc2hJX0h3Um5mTXR2NDdmeF9tbm83ZUc0V0NPeUFrenlN?oc=5",
+        "press_name": "문화일보",
+        "source": "Google",
+        "pub_time": "10월 30일 08:48",
+        "dt_timestamp": 1793317738.0,
+        "category": "국제"
+      }
+    ]
+  },
+  "diagnostics": {
+    "article_count": 25,
+    "category_counts": {
+      "정치": 5,
+      "경제": 4,
+      "사회": 4,
+      "국제": 4,
+      "사설": 10
+    },
+    "press_counts": {
+      "문화일보": 13,
+      "헤럴드경제": 12
+    },
+    "source_counts": {
+      "Google": 18,
+      "Naver": 7
+    }
+  }
+}
